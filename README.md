@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="#">
-    <img src="/daco-dark.png" alt="Logo" width="80" height="80">
+    <img style="border-radius: 10px" src="/daco-dark.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">DACO</h3>
@@ -23,7 +23,7 @@
 
 ## About The Project
 
-<img src="/daco-banner-dark.png" alt="DACO" title="DACO">
+<img style="border-radius: 10px" src="/daco-banner-dark.png" alt="DACO" title="DACO">
 
 ### English
 
