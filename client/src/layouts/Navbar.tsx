@@ -9,7 +9,7 @@ export type themes = string;
 
 const Navbar = () => {
   const navLinks: navLinks[] = [
-    { name: "Project", href: "https://github.com/tolgazorlu/dailycode" },
+    { name: "Project", href: "https://github.com/tolgazorlu/daco" },
     { name: "Author", href: "https://github.com/tolgazorlu" },
   ];
 
