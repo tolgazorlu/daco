@@ -1,11 +1,6 @@
-import { useEffect, useState } from "react";
 import Counter from "./Counter";
 
 const Hero = () => {
-
-  const [title, setTitle] = useState('DACO')
-
-
 
   return (
     <div className="hero h-[90vh]">
@@ -25,7 +20,7 @@ const Hero = () => {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <h1 className="text-8xl font-bold font-aubette text-primary">{title}</h1>
+          <h1 className="text-8xl font-bold font-aubette text-primary">DACO</h1>
           </span>
           <Counter />
           <p className="text-4xl font-poppins">

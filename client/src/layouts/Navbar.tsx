@@ -45,15 +45,16 @@ const Navbar = () => {
     "winter",
   ];
 
+  /** @ts-ignore  */
   const localTheme = JSON.parse(localStorage.getItem("theme"));
 
   const [theme, setTheme] = useState(localTheme);
-  const clickThemeHandler = (e) => {
-    setTheme(e.target.value);
+  const clickThemeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setTheme((e.target as HTMLInputElement).value);
   };
 
   useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
+    document.querySelector("html")?.setAttribute("data-theme", theme);
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
 
@@ -177,7 +178,7 @@ const Navbar = () => {
                         theme === item ? "btn btn-sm btn-primary" : "btn btn-sm"
                       }
                       value={item}
-                      onClick={(e) => clickThemeHandler(e)}
+                      onClick={(e: React.MouseEvent<HTMLButtonElement>) => clickThemeHandler(e)}
                     >
                       {item}
                     </button>

@@ -12,12 +12,12 @@
   <p align="center">
     BY TOLGA ZORLU
     <br />
-    <a href=""><strong>View Demo</strong></a>
+    <a href="https://www.daco.space/"><strong>View Demo</strong></a>
     <br />
     <br />
-    <a href="">Report Bug</a>
+    <a href="https://github.com/tolgazorlu/daco/issues">Report Bug</a>
     ·
-    <a href="">Request Feature</a>
+    <a href="https://github.com/tolgazorlu/daco/issues">Request Feature</a>
   </p>
 </div>
 

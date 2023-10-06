@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
+
 
 const Counter = () => {
 
@@ -14,7 +16,9 @@ const Counter = () => {
   };
 
   const getTimeUntil = (deadline: string) => {
-    const time = Date.parse(deadline) - Date.parse(new Date());
+    
+    const time = Date.parse(deadline) - Date.parse(new Date().toString());
+
     if (time < 0) {
       setDays(0);
       setHours(0);
@@ -34,30 +38,43 @@ const Counter = () => {
     return () => getTimeUntil(deadline);
   }, [deadline]);
 
+  const valueDay: any = {
+    "--value": leading0(days) 
+  }
+  const valueHours: any = {
+    "--value": leading0(hours) 
+  }
+  const valueMinutes: any = {
+    "--value": leading0(minutes) 
+  }
+  const valueSeconds: any = {
+    "--value": leading0(seconds) 
+  }
+
   return (
     <div className="grid grid-flow-col gap-5 text-center auto-cols-max py-10 justify-center">
          <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette">
-          <span style={{ "--value": leading0(days) }}></span>
+          <span style={valueDay}></span>
         </span>
         <span className="font-poppins text-xs lg:text-md">days</span>
         
       </div>
       <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette">
-          <span style={{ "--value": leading0(hours) }}></span>
+          <span style={valueHours}></span>
         </span>
         <span className="font-poppins text-xs lg:text-md">hours</span>
       </div>
       <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette">
-          <span style={{ "--value": leading0(minutes) }}></span>
+          <span style={valueMinutes}></span>
         </span>
         <span className="font-poppins text-xs lg:text-md">minutes</span>
       </div>
       <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette">
-          <span style={{ "--value": leading0(seconds) }}></span>
+          <span style={valueSeconds}></span>
         </span>
         <span className="font-poppins text-xs lg:text-md">seconds</span>
       </div>
