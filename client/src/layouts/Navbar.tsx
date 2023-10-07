@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
+import {  FullScreenHandle } from "react-full-screen";
 
 export type navLinks = {
   name: string;
   href: string;
 };
 
-export type themes = string;
+type AppProps = {
+  fullscreenHandle: FullScreenHandle
+}
 
-const Navbar = () => {
+export type themes = string;
+ 
+const Navbar = ({fullscreenHandle}: AppProps) => {
   const navLinks: navLinks[] = [
     { name: "Project", href: "https://github.com/tolgazorlu/daco" },
     { name: "Author", href: "https://github.com/tolgazorlu" },
@@ -55,10 +60,12 @@ const Navbar = () => {
 
   useEffect(() => {
     document.querySelector("html")?.setAttribute("data-theme", theme);
+    document.getElementById("screen")?.setAttribute("data-theme", theme);
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
 
   return (
+    
     <div className="navbar rounded-2xl">
       <div className="navbar-start">
         <div className="dropdown">
@@ -111,7 +118,9 @@ const Navbar = () => {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <span className="font-bold text-2xl font-aubette text-primary">DACO</span>
+          <span className="font-bold text-2xl font-aubette text-primary">
+            DACO
+          </span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -132,6 +141,22 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <button className="btn btn-ghost" onClick={fullscreenHandle.enter}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+          />
+        </svg>
+        </button>
         <div className="drawer-end">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
@@ -178,7 +203,9 @@ const Navbar = () => {
                         theme === item ? "btn btn-sm btn-primary" : "btn btn-sm"
                       }
                       value={item}
-                      onClick={(e: React.MouseEvent<HTMLButtonElement>) => clickThemeHandler(e)}
+                      onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                        clickThemeHandler(e)
+                      }
                     >
                       {item}
                     </button>

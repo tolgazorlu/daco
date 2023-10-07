@@ -1,13 +1,22 @@
-import Hero from "./components/Hero"
-import Navbar from "./layouts/Navbar"
+import { useState } from "react";
+import Hero from "./components/Hero";
+import Navbar from "./layouts/Navbar";
+import {
+  FullScreen,
+  FullScreenHandle,
+  useFullScreenHandle,
+} from "react-full-screen";
 
 const App = () => {
+  const handle: FullScreenHandle = useFullScreenHandle();
   return (
-    <div className="px-0 lg:px-20 h-screen">
-      <Navbar />
-      <Hero />
-    </div>
-  )
-}
+    <FullScreen handle={handle}>
+      <div className="px-0 lg:px-20 h-screen" id="screen">
+        <Navbar fullscreenHandle={handle} />
+        <Hero />
+      </div>
+    </FullScreen>
+  );
+};
 
-export default App
+export default App;
