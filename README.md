@@ -27,11 +27,19 @@
 
 ### English
 
-Every day, new algorithm questions.
+Welcome to DACO - Where Challenges Ignite Brilliance!
+
+Are you ready to embark on a daily journey of problem-solving and intellectual exploration? Look no further! DACO is your go-to destination for sharpening your coding skills and mastering the art of algorithms.
+
+Every day, we present you with <strong>two brand-new algorithm questions</strong> carefully crafted to challenge your mind and hone your problem-solving abilities. Whether you're a beginner eager to learn the basics or a seasoned coder aiming to refine your expertise, our daily challenges cater to all levels of proficiency.
 
 ### Türkçe
 
-Her gün yeni algoritma soruları.
+Hoş Geldiniz! DACO - Zekanın Parladığı Yer!
+
+Her gün zihinsel yeteneklerinizi geliştirmeye ve algoritmaların inceliklerini öğrenmeye hazır mısınız? Doğru adrestesiniz! DACO, kodlama becerilerinizi keskinleştirmek ve algoritmaların sanatını ustalaşmak için başvurabileceğiniz bir platformdur.
+
+Her gün, sizi düşünmeye teşvik edecek ve problem çözme yeteneklerinizi geliştirecek <strong>iki yeni algoritma sorusu</strong> sunuyoruz. Temel bilgileri öğrenmek isteyen bir acemi veya becerilerini daha da geliştirmek isteyen deneyimli bir kodlayıcı olun, günlük meydan okumalarımız tüm yetenek seviyelerine hitap eder.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

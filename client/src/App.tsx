@@ -1,22 +1,16 @@
-import { useState } from "react";
-import Hero from "./components/Hero";
-import Navbar from "./layouts/Navbar";
-import {
-  FullScreen,
-  FullScreenHandle,
-  useFullScreenHandle,
-} from "react-full-screen";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Question from './pages/Question'
 
 const App = () => {
-  const handle: FullScreenHandle = useFullScreenHandle();
   return (
-    <FullScreen handle={handle}>
-      <div className="px-0 lg:px-20 h-screen" id="screen">
-        <Navbar fullscreenHandle={handle} />
-        <Hero />
-      </div>
-    </FullScreen>
-  );
-};
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/question" element={<Question/>} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
-export default App;
+export default App
