@@ -27,7 +27,7 @@
 
 ### English
 
-Welcome to DACO - Where Challenges Ignite Brilliance!
+DACO - Where Challenges Ignite Brilliance!
 
 Are you ready to embark on a daily journey of problem-solving and intellectual exploration? Look no further! DACO is your go-to destination for sharpening your coding skills and mastering the art of algorithms.
 
@@ -35,7 +35,7 @@ Every day, we present you with <strong>two brand-new algorithm questions</strong
 
 ### Türkçe
 
-Hoş Geldiniz! DACO - Zekanın Parladığı Yer!
+DACO - Zekanın Parladığı Yer!
 
 Her gün zihinsel yeteneklerinizi geliştirmeye ve algoritmaların inceliklerini öğrenmeye hazır mısınız? Doğru adrestesiniz! DACO, kodlama becerilerinizi keskinleştirmek ve algoritmaların sanatını ustalaşmak için başvurabileceğiniz bir platformdur.
 

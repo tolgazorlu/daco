@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Hero from "../components/Hero";
+import Hero from "../components/Home/Hero";
 import Navbar from "../layouts/Navbar";
 import {
   FullScreen,

@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useEffect, useState } from "react";
-import {  FullScreenHandle } from "react-full-screen";
+import { FullScreenHandle } from "react-full-screen";
 
 export type navLinks = {
   name: string;
@@ -7,12 +8,12 @@ export type navLinks = {
 };
 
 type AppProps = {
-  fullscreenHandle: FullScreenHandle
-}
+  fullscreenHandle: FullScreenHandle;
+};
 
 export type themes = string;
- 
-const Navbar = ({fullscreenHandle}: AppProps) => {
+
+const Navbar = ({ fullscreenHandle }: AppProps) => {
   const navLinks: navLinks[] = [
     { name: "Project", href: "https://github.com/tolgazorlu/daco" },
     { name: "Author", href: "https://github.com/tolgazorlu" },
@@ -65,7 +66,6 @@ const Navbar = ({fullscreenHandle}: AppProps) => {
   }, [theme]);
 
   return (
-    
     <div className="navbar rounded-2xl">
       <div className="navbar-start">
         <div className="dropdown">
@@ -104,7 +104,7 @@ const Navbar = ({fullscreenHandle}: AppProps) => {
             })}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">
+        <a href="/" className="btn btn-ghost normal-case text-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -142,20 +142,20 @@ const Navbar = ({fullscreenHandle}: AppProps) => {
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost" onClick={fullscreenHandle.enter}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+            />
+          </svg>
         </button>
         <div className="drawer-end">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
