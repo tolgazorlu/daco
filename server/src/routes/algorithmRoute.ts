@@ -3,8 +3,8 @@ const {getAlgorithm, createAlgorithm, getAlgorithms} = require('../controllers/a
 
 const router: express.Router = require('express').Router()
 
-router.get('/:slug',getAlgorithm);
 router.get('/all', getAlgorithms);
+router.get('/:slug',getAlgorithm);
 router.post('/createAlgorithm',createAlgorithm);
 
 

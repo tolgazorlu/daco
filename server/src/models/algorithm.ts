@@ -7,6 +7,9 @@ export class Algorithm {
     @prop({required: true, unique: true})
     public sequence!: number
 
+    @prop({required: true})
+    public level!: string
+
     @prop({required: true, unique: true})
     public slug!: string
 

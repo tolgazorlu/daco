@@ -19,6 +19,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Algorithm.prototype, "sequence", void 0);
 __decorate([
+    (0, typegoose_1.prop)({ required: true }),
+    __metadata("design:type", String)
+], Algorithm.prototype, "level", void 0);
+__decorate([
     (0, typegoose_1.prop)({ required: true, unique: true }),
     __metadata("design:type", String)
 ], Algorithm.prototype, "slug", void 0);

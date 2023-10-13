@@ -15,6 +15,7 @@ exports.createAlgorithm = (req, res) => __awaiter(void 0, void 0, void 0, functi
         const algorithm = yield algorithm_1.AlgorithmModel.create({
             sequence: req.body.sequence,
             slug: req.body.slug,
+            level: req.body.level,
             title: req.body.title,
             description: req.body.description,
             example: req.body.example,
@@ -24,7 +25,7 @@ exports.createAlgorithm = (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.status(201).json(algorithm);
     }
     catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
     }
 });
 exports.getAlgorithms = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -38,12 +39,12 @@ exports.getAlgorithms = (req, res) => __awaiter(void 0, void 0, void 0, function
         }
     }
     catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
     }
 });
 exports.getAlgorithm = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const algorithm = yield algorithm_1.AlgorithmModel.find({ slug: req.params.slug });
+        const algorithm = yield algorithm_1.AlgorithmModel.findOne({ slug: req.params.slug });
         if (algorithm) {
             res.status(200).send(algorithm);
         }

@@ -1,7 +1,20 @@
+import { useGetAlgorithmsQuery } from "../../hooks/algorithmHooks";
+import { ApiError } from "../../types/ApiError";
+import { getError } from "../../utils/getError";
+import ErrorMessage from "../ErrorMessage";
+import Loading from "../Loading";
 import Counter from "./Counter";
 
 const Hero = () => {
-  return (
+  const { data: algorithms, isLoading, error } = useGetAlgorithmsQuery();
+
+  return isLoading ? (
+    <Loading />
+  ) : error ? (
+    <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
+  ) : !algorithms ? (
+    <ErrorMessage>Question Not Found!</ErrorMessage>
+  ) : (
     <div className="hero h-[90vh]">
       <div className="hero-content text-center">
         <div className="max-w-md -mt-20">
@@ -24,10 +37,19 @@ const Hero = () => {
             </h1>
           </span>
           <Counter />
-          <p className="text-4xl font-poppins">
-            New day, new problems. <br />
-            <span className="font-aubette">DACO</span> <span>coming soon!</span>
-          </p>
+          <div className="text-4xl flex gap-8 justify-center">
+            {algorithms.map((item) => {
+              return (
+                <a
+                  key={item._id}
+                  className="bg-secondary p-4 rounded-xl text-secondary-content font-poppins"
+                  href={"/question/" + item.slug}
+                >
+                  {item.title}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
