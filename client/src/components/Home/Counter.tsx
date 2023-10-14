@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react";
 
 const Counter = () => {
-  const deadline: string = "November, 1, 2023";
+  const deadline: string = "October, 15, 2023";
 
-  const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -17,12 +16,10 @@ const Counter = () => {
     const time = Date.parse(deadline) - Date.parse(new Date().toString());
 
     if (time < 0) {
-      setDays(0);
       setHours(0);
       setMinutes(0);
       setSeconds(0);
     } else {
-      setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
       setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
       setMinutes(Math.floor((time / 1000 / 60) % 60));
       setSeconds(Math.floor((time / 1000) % 60));
@@ -35,9 +32,6 @@ const Counter = () => {
     return () => getTimeUntil(deadline);
   }, [deadline]);
 
-  const valueDay: any = {
-    "--value": leading0(days),
-  };
   const valueHours: any = {
     "--value": leading0(hours),
   };
@@ -50,12 +44,6 @@ const Counter = () => {
 
   return (
     <div className="grid grid-flow-col gap-5 text-center auto-cols-max py-10 justify-center">
-      <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
-        <span className="countdown font-mono text-3xl md:text-8xl font-aubette">
-          <span style={valueDay}></span>
-        </span>
-        <span className="font-poppins text-xs lg:text-md">days</span>
-      </div>
       <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette">
           <span style={valueHours}></span>

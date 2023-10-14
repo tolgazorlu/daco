@@ -37,12 +37,12 @@ const Hero = () => {
             </h1>
           </span>
           <Counter />
-          <div className="text-4xl flex gap-8 justify-center">
+          <div className="text-2xl flex gap-4 justify-center">
             {algorithms.map((item) => {
               return (
                 <a
                   key={item._id}
-                  className="bg-secondary p-4 rounded-xl text-secondary-content font-poppins"
+                  className="bg-secondary-content px-4 py-2 rounded-xl text-secondary font-poppins border border-secondary"
                   href={"/question/" + item.slug}
                 >
                   {item.title}

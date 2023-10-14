@@ -34,7 +34,7 @@ const Question = () => {
               <span>{algorithm.sequence}.</span> <span>{algorithm.title}</span>
             </span>
             <div>
-              <span className="badge badge-success">
+              <span className={algorithm.level === "easy" ? "py-1 px-2 bg-success-content text-success rounded-md" : algorithm.level === "medium" ?  "py-1 px-2 bg-warning-content text-warning rounded-md" : "py-1 px-2 bg-error-content text-error rounded-md"}>
                 {algorithm.level}
               </span>
             </div>
@@ -47,10 +47,14 @@ const Question = () => {
             </div>
             <div className="flex flex-col gap-2 max-w-max">
               <strong>Example:</strong>
-              <span className="py-1 px-2 bg-primary-content text-primary rounded-md">Input: nums = [2,7,11,15], target = 9</span><span className="py-1 px-2 bg-primary-content text-primary rounded-md">Output: [0,1]</span><span className="py-1 px-2 bg-primary-content text-primary rounded-md">Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</span>
+              {algorithm.example.map((item: string) => {
+                return (
+                  <span className="py-1 px-2 bg-primary-content text-primary rounded-md">{item}</span>
+                )
+              })}
             </div>
           </div>
-          <div className="p-4 overflow-scroll max-h-full w-1/6 flex flex-col gap-4">
+          <div className="p-4 overflow-scroll max-h-full w-1/6 flex flex-col gap-2">
             <input
               className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
               placeholder="Enter answer here!"
