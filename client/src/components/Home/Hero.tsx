@@ -2,19 +2,12 @@ import { useGetAlgorithmsQuery } from "../../hooks/algorithmHooks";
 import { ApiError } from "../../types/ApiError";
 import { getError } from "../../utils/getError";
 import ErrorMessage from "../ErrorMessage";
-import Loading from "../Loading";
 import Counter from "./Counter";
 
 const Hero = () => {
   const { data: algorithms, isLoading, error } = useGetAlgorithmsQuery();
 
-  return isLoading ? (
-    <Loading />
-  ) : error ? (
-    <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
-  ) : !algorithms ? (
-    <ErrorMessage>Question Not Found!</ErrorMessage>
-  ) : (
+  return (
     <div className="hero h-[90vh]">
       <div className="hero-content text-center">
         <div className="max-w-md -mt-20">
@@ -38,17 +31,27 @@ const Hero = () => {
           </span>
           <Counter />
           <div className="text-2xl flex gap-4 justify-center">
-            {algorithms.map((item) => {
-              return (
-                <a
-                  key={item._id}
-                  className="bg-secondary-content px-4 py-2 rounded-xl text-secondary font-poppins border border-secondary"
-                  href={"/question/" + item.slug}
-                >
-                  {item.title}
-                </a>
-              );
-            })}
+            {isLoading ? (
+              <span className="bg-secondary-content px-4 py-2 w-full rounded-xl text-secondary font-poppins border border-secondary animate-pulse">
+                Loading
+              </span>
+            ) : error ? (
+              <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
+            ) : !algorithms ? (
+              <ErrorMessage>Question Not Found!</ErrorMessage>
+            ) : (
+              algorithms.map((item) => {
+                return (
+                  <a
+                    key={item._id}
+                    className="bg-secondary-content px-4 py-2 rounded-xl text-secondary font-poppins border border-secondary"
+                    href={"/question/" + item.slug}
+                  >
+                    {item.title}
+                  </a>
+                );
+              })
+            )}
           </div>
         </div>
       </div>
