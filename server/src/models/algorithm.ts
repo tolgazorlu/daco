@@ -1,7 +1,12 @@
 import { modelOptions, prop, getModelForClass } from '@typegoose/typegoose'
 import mongoose from 'mongoose'
 
-@modelOptions({schemaOptions: {timestamps: true}})
+class Example {
+    @prop({required: true})
+    public detail!: string
+}
+
+@modelOptions( {schemaOptions: {timestamps: true}})
 export class Algorithm {
     public _id?: string
 
@@ -20,8 +25,8 @@ export class Algorithm {
     @prop({required: true})
     public description!: string
 
-    @prop({ required: true, default: [] })
-    public example!: mongoose.Types.Array<string>;
+    @prop({type: mongoose.Schema.Types.String})
+    public example!: Example[];
 
     @prop()
     public constrain!: string

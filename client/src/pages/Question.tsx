@@ -24,7 +24,7 @@ const Question = () => {
         <div className="px-0 lg:px-20">
           <Navbar fullscreenHandle={handle} />
         </div>
-        <div className="px-0 lg:px-4 rounded-xl h-5/6 overflow-hidden w-full">
+        <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
           <div className="p-4 overflow-scroll max-h-full flex flex-col gap-4">
             <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
             <span className="bg-primary-content rounded-full h-6 w-12 animate-pulse" />
@@ -38,7 +38,6 @@ const Question = () => {
             <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
             <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
             <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
-
           </div>
         </div>
       </div>
@@ -53,7 +52,7 @@ const Question = () => {
         <div className="px-0 lg:px-20">
           <Navbar fullscreenHandle={handle} />
         </div>
-        <div className="px-0 lg:px-4 rounded-xl h-5/6 overflow-hidden w-full">
+        <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
           <div className="p-4 overflow-scroll max-h-full flex flex-col gap-4">
             <span className="font-bold text-2xl">
               <span>{algorithm.sequence}.</span> <span>{algorithm.title}</span>

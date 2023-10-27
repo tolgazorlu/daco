@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useEffect, useState } from "react";
 import { FullScreenHandle } from "react-full-screen";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export type navLinks = {
   name: string;
@@ -15,7 +15,8 @@ type AppProps = {
 export type themes = string;
 
 const Navbar = ({ fullscreenHandle }: AppProps) => {
-  const location = useLocation().pathname;
+  const param = useParams();
+  const [slugParameter, setSlugParameter] = useState(false)
 
   const navLinks: navLinks[] = [
     { name: "Project", href: "https://github.com/tolgazorlu/daco" },
@@ -63,10 +64,15 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
   };
 
   useEffect(() => {
+
+    if(typeof(param.slug) === 'string'){
+      setSlugParameter(true)
+   }
+
     document.querySelector("html")?.setAttribute("data-theme", theme);
     document.getElementById("screen")?.setAttribute("data-theme", theme);
     localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme]);
+  }, [theme, param.slug]);
 
   return (
     <div className="navbar rounded-2xl">
@@ -144,7 +150,12 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
         </ul>
       </div>
       <div className="navbar-end">
-        {location !== "/" ? (
+        <a 
+        href="/login"
+        className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50">
+          Login
+        </a>
+        {slugParameter ? (
           <>
             <button className="btn btn-ghost" onClick={fullscreenHandle.enter}>
               <svg

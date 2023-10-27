@@ -11,3 +11,9 @@
   font-family: Aubette;
   src: url('assets/fonts/aubette.ttf') format("opentype");
 }
+
+.feedback{
+  display: inherit !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
