@@ -37,6 +37,38 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
     }
 }
 
+module.exports.Login = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return res.send({ message: "All fields are required!" });
+        }
+
+        const user = await UserModel.findOne({ email });
+        if (!user) {
+            return res.send({ message: 'Incorrect password or invalid' })
+        }
+
+        const auth = await bcrypt.compare(password, user.password)
+        if (!auth) {
+            return res.send({ message: 'Incorrect password or email' })
+        }
+
+        res.status(201).send({
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            avatar: user.avatar,
+            token: generateToken(user)
+        });
+        next();
+
+    } catch (error) {
+        return res.json({ message: error });
+    }
+}
+
 module.exports.getUsers = async (req: Request, res: Response) => {
     try {
         const users = await UserModel.find({});

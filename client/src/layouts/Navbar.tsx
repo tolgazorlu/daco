@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FullScreenHandle } from "react-full-screen";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { User } from "../contexts/User";
 
 export type navLinks = {
   name: string;
@@ -16,7 +17,7 @@ export type themes = string;
 
 const Navbar = ({ fullscreenHandle }: AppProps) => {
   const param = useParams();
-  const [slugParameter, setSlugParameter] = useState(false)
+  const [slugParameter, setSlugParameter] = useState(false);
 
   const navLinks: navLinks[] = [
     { name: "Project", href: "https://github.com/tolgazorlu/daco" },
@@ -64,15 +65,24 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
   };
 
   useEffect(() => {
-
-    if(typeof(param.slug) === 'string'){
-      setSlugParameter(true)
-   }
+    if (typeof param.slug === "string") {
+      setSlugParameter(true);
+    }
 
     document.querySelector("html")?.setAttribute("data-theme", theme);
     document.getElementById("screen")?.setAttribute("data-theme", theme);
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme, param.slug]);
+
+  const { state, dispatch } = useContext(User);
+  const { userInfo } = state;
+
+  const signoutHandler = () => {
+    dispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("cartItems");
+    window.location.href = "/login";
+  };
 
   return (
     <div className="navbar rounded-2xl">
@@ -150,11 +160,66 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a 
-        href="/login"
-        className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50">
-          Login
-        </a>
+        {userInfo ? (
+          <div className="dropdown dropdown-end">
+            <label
+              tabIndex={0}
+              className="btn btn-circle overflow-hidden btn-ghost m-1"
+            >
+              <img
+                alt="User dropdown"
+                className={
+                  userInfo.isAdmin
+                    ? "w-7 h-7 rounded-full mt-2 ring ring-yellow-500"
+                    : "h-8 w-8 rounded-full ring ring-blue-500"
+                }
+                src={userInfo.avatar}
+              />
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <div className="px-4 py-3 text-sm text-gray-900 flex items-center justify-between">
+                  <div>
+                    <img
+                      alt="User dropdown"
+                      className={
+                        userInfo.isAdmin
+                          ? "w-10 h-10 rounded-full ring-4 ring-yellow-500"
+                          : "w-10 h-10 rounded-full ring-4 ring-blue-500"
+                      }
+                      src={userInfo.avatar}
+                    />
+                  </div>
+                  <div>
+                    <div>{userInfo.username}</div>
+                    <div className="font-medium truncate">{userInfo.email}</div>
+                  </div>
+                </div>
+              </li>
+              <hr></hr>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <button onClick={signoutHandler}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <a
+            href="/login"
+            className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
+          >
+            Login
+          </a>
+        )}
+
         {slugParameter ? (
           <>
             <button className="btn btn-ghost" onClick={fullscreenHandle.enter}>
