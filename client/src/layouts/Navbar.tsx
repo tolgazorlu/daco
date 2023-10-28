@@ -160,65 +160,7 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
         </ul>
       </div>
       <div className="navbar-end">
-        {userInfo ? (
-          <div className="dropdown dropdown-end">
-            <label
-              tabIndex={0}
-              className="btn btn-circle overflow-hidden btn-ghost m-1"
-            >
-              <img
-                alt="User dropdown"
-                className={
-                  userInfo.isAdmin
-                    ? "w-7 h-7 rounded-full mt-2 ring ring-yellow-500"
-                    : "h-8 w-8 rounded-full ring ring-blue-500"
-                }
-                src={userInfo.avatar}
-              />
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <div className="px-4 py-3 text-sm text-gray-900 flex items-center justify-between">
-                  <div>
-                    <img
-                      alt="User dropdown"
-                      className={
-                        userInfo.isAdmin
-                          ? "w-10 h-10 rounded-full ring-4 ring-yellow-500"
-                          : "w-10 h-10 rounded-full ring-4 ring-blue-500"
-                      }
-                      src={userInfo.avatar}
-                    />
-                  </div>
-                  <div>
-                    <div>{userInfo.username}</div>
-                    <div className="font-medium truncate">{userInfo.email}</div>
-                  </div>
-                </div>
-              </li>
-              <hr></hr>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <button onClick={signoutHandler}>Logout</button>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <a
-            href="/login"
-            className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
-          >
-            Login
-          </a>
-        )}
+        {/** FULLSCREEN */}
 
         {slugParameter ? (
           <>
@@ -242,40 +184,11 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
         ) : (
           <></>
         )}
+
+        {/** THEMES */}
+
         <div className="drawer-end">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
-            <label
-              className="btn btn-ghost swap swap-rotate"
-              htmlFor="my-drawer"
-            >
-              {/* this hidden checkbox controls the state */}
-              <input type="checkbox" />
-
-              {/* hamburger icon */}
-
-              <svg
-                className="swap-off fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
-              </svg>
-
-              {/* close icon */}
-              <svg
-                className="swap-on fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 512 512"
-              >
-                <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
-              </svg>
-            </label>
-          </div>
           <div className="drawer-side z-50">
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
@@ -300,6 +213,71 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
             </ul>
           </div>
         </div>
+
+        {/** USER PROCESS */}
+
+        {userInfo ? (
+          <div className="dropdown dropdown-end">
+            <label
+              tabIndex={0}
+              className="btn btn-circle overflow-hidden btn-ghost m-1"
+            >
+              <img
+                alt="User dropdown"
+                className={
+                  userInfo.isAdmin
+                    ? "w-8 h-8 rounded-full ring ring-primary"
+                    : "h-8 w-8 rounded-full ring ring-secondary"
+                }
+                src={userInfo.avatar}
+              />
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-accent/50 rounded-box min-w-max text-accent-content"
+            >
+              <li>
+                <div className="px-4 py-3 text-sm flex items-center justify-between">
+                  <div>
+                    <img
+                      alt="User dropdown"
+                      className={
+                        userInfo.isAdmin
+                          ? "w-10 h-10 rounded-full ring-4 ring-primary"
+                          : "w-10 h-10 rounded-full ring-4 ring-primary"
+                      }
+                      src={userInfo.avatar}
+                    />
+                  </div>
+                  <div>
+                    <div>{userInfo.username}</div>
+                    <div className="font-medium truncate">{userInfo.email}</div>
+                  </div>
+                </div>
+              </li>
+              <hr></hr>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <label htmlFor="my-drawer">Themes</label>
+              </li>
+              <li>
+                <button onClick={signoutHandler}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <a
+            href="/login"
+            className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
+          >
+            Login
+          </a>
+        )}
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import {
 } from "react-full-screen";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../layouts/Navbar";
-import HeroImage from "../assets/pexels-photo-17483848.webp";
 import { FormEvent, useState } from "react";
 import { useRegisterMutation } from "../hooks/userHooks";
 import { getError } from "../utils/getError";
@@ -13,7 +12,7 @@ import { ApiError } from "../types/ApiError";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {VscLoading} from 'react-icons/vsc'
+import { VscLoading } from "react-icons/vsc";
 
 const Register = () => {
   const handle: FullScreenHandle = useFullScreenHandle();
@@ -238,16 +237,14 @@ const Register = () => {
                       : "px-6 btn btn-disabled font-poppins "
                   }
                 >
-                  {isLoading ? <VscLoading className="animate-spin" /> : <span>Register</span>}
+                  {isLoading ? (
+                    <VscLoading className="animate-spin" />
+                  ) : (
+                    <span>Register</span>
+                  )}
                 </button>
               </div>
             </form>
-          </div>
-          <div className="h-[90vh] w-1/2 flex justify-start ">
-            <img
-              className="h-[80vh] rounded-2xl border-4 border-secondary"
-              src={HeroImage}
-            />
           </div>
         </div>
       </FullScreen>
