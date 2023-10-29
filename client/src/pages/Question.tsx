@@ -9,10 +9,26 @@ import {
 import ErrorMessage from "../components/ErrorMessage";
 import { getError } from "../utils/getError";
 import { ApiError } from "../types/ApiError";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const Question = () => {
   const { slug } = useParams();
   const { data: algorithm, isLoading, error } = useGetAlgorithmQuery(slug!);
+
+  const [answer, setAnswer] = useState("");
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (algorithm) {
+      if(algorithm.answer == answer) {
+        toast.success("Congratulations!");
+      } 
+      else {
+      toast.warning("Check your answer!");
+      }
+    }
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const examples: string[] | any = algorithm?.example;
@@ -48,6 +64,18 @@ const Question = () => {
     <ErrorMessage>Question Not Found!</ErrorMessage>
   ) : (
     <FullScreen handle={handle}>
+       <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div id="screen" className="h-screen">
         <div className="px-0 lg:px-20">
           <Navbar fullscreenHandle={handle} />
@@ -91,15 +119,20 @@ const Question = () => {
               })}
             </div>
           </div>
-          <div className="p-4 overflow-scroll max-h-full w-1/6 flex flex-col gap-2">
+          <form className="p-4 overflow-scroll max-h-full w-1/6 flex flex-col gap-2">
             <input
               className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
               placeholder="Enter answer here!"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
             />
-            <button className="px-4 py-1 rounded-md bg-secondary text-secondary-content">
+            <button
+              className="px-4 py-1 rounded-md bg-secondary text-secondary-content"
+              onClick={submitHandler}
+            >
               Submit
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </FullScreen>
