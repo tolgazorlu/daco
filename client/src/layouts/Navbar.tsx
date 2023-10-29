@@ -234,10 +234,10 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-accent/50 rounded-box min-w-max text-accent-content"
+              className="dropdown-content z-[1] menu p-2 shadow bg-neutral/100 rounded-box min-w-max text-neutral-content"
             >
               <li>
-                <div className="px-4 py-3 text-sm flex items-center justify-between">
+                <div className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content">
                   <div>
                     <img
                       alt="User dropdown"
@@ -255,18 +255,18 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
                   </div>
                 </div>
               </li>
-              <hr></hr>
+              <hr className="mt-2 mb-2"></hr>
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/dashboard" className="hover:text-primary-content hover:bg-primary">Dashboard</Link>
               </li>
               <li>
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile" className="hover:text-primary-content hover:bg-primary">Profile</Link>
               </li>
               <li>
-                <label htmlFor="my-drawer">Themes</label>
+                <label htmlFor="my-drawer" className="hover:text-primary-content hover:bg-primary">Themes</label>
               </li>
               <li>
-                <button onClick={signoutHandler}>Logout</button>
+                <button onClick={signoutHandler} className="hover:text-primary-content hover:bg-primary">Logout</button>
               </li>
             </ul>
           </div>
