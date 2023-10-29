@@ -5,19 +5,27 @@ import {
 } from "react-full-screen";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../layouts/Navbar";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { useRegisterMutation } from "../hooks/userHooks";
 import { getError } from "../utils/getError";
 import { ApiError } from "../types/ApiError";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { VscLoading } from "react-icons/vsc";
+import { User } from "../contexts/User";
 
 const Register = () => {
   const handle: FullScreenHandle = useFullScreenHandle();
 
   const navigation = useNavigate();
+
+  const { state } = useContext(User);
+  const { userInfo } = state;
+
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/";
 
   const { mutateAsync: register, isLoading } = useRegisterMutation();
 
@@ -102,6 +110,12 @@ const Register = () => {
       toast.error(getError(error as ApiError));
     }
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      navigation(redirect);
+    }
+  }, [navigation, redirect, userInfo]);
 
   return (
     <>
