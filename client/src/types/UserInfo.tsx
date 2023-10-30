@@ -3,5 +3,6 @@ export type UserInfo = {
     email: string,
     token: string, 
     avatar: string,
-    isAdmin: boolean
+    isAdmin: boolean,
+    createdAt: string
 }

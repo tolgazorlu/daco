@@ -6,7 +6,6 @@ class Example {
     public detail!: string
 }
 
-@modelOptions( {schemaOptions: {timestamps: true}})
 export class Algorithm {
     public _id?: string
 
@@ -33,7 +32,6 @@ export class Algorithm {
 
     @prop({required: true})
     public answer!: string
-
 }
 
 

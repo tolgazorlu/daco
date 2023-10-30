@@ -256,17 +256,40 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
                 </div>
               </li>
               <hr className="mt-2 mb-2"></hr>
+              {userInfo.isAdmin ? (
+                <li>
+                  <Link
+                    to="/dashboard"
+                    className="hover:text-primary-content hover:bg-primary"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link
+                    to="/profile"
+                    className="hover:text-primary-content hover:bg-primary"
+                  >
+                    Profile
+                  </Link>
+                </li>
+              )}
               <li>
-                <Link to="/dashboard" className="hover:text-primary-content hover:bg-primary">Dashboard</Link>
+                <label
+                  htmlFor="my-drawer"
+                  className="hover:text-primary-content hover:bg-primary"
+                >
+                  Themes
+                </label>
               </li>
               <li>
-                <Link to="/profile" className="hover:text-primary-content hover:bg-primary">Profile</Link>
-              </li>
-              <li>
-                <label htmlFor="my-drawer" className="hover:text-primary-content hover:bg-primary">Themes</label>
-              </li>
-              <li>
-                <button onClick={signoutHandler} className="hover:text-primary-content hover:bg-primary">Logout</button>
+                <button
+                  onClick={signoutHandler}
+                  className="hover:text-primary-content hover:bg-primary"
+                >
+                  Logout
+                </button>
               </li>
             </ul>
           </div>

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 const Counter = () => {
-  const deadline: string = "October, 28, 2023";
+  const deadline: string = "October, 31, 2023";
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
