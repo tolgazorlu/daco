@@ -9,6 +9,7 @@ import {
 
 const Home = () => {
   const handle: FullScreenHandle = useFullScreenHandle();
+
   return (
     <>
       <Helmet>

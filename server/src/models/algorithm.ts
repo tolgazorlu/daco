@@ -6,8 +6,15 @@ class Example {
     public detail!: string
 }
 
+@modelOptions( {schemaOptions: {timestamps: true}})
 export class Algorithm {
     public _id?: string
+
+    @prop({required: true})
+    public day!: number
+
+    @prop({required: true})
+    public date!: string
 
     @prop({required: true, unique: true})
     public sequence!: number

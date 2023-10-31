@@ -1,10 +1,17 @@
 import Navbar from "../layouts/Navbar";
 import Sidebar from "../components/Dashboard/Sidebar";
+import {
+  FullScreenHandle,
+  useFullScreenHandle,
+} from "react-full-screen";
 
 const Dashboard = () => {
+
+  const handle: FullScreenHandle = useFullScreenHandle();
+
   return (
     <div>
-      <Navbar />
+      <Navbar fullscreenHandle={handle} />
       <hr></hr>
       <button
         data-drawer-target="cta-button-sidebar"
@@ -32,7 +39,7 @@ const Dashboard = () => {
         <Sidebar />
 
         <div className="p-4 col-span-9 bg-base-100">
-          <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+          <div className="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700">
             <div className="overflow-x-auto">
               <table className="table table-xs font-poppins">
                 <thead>
@@ -50,7 +57,7 @@ const Dashboard = () => {
                   <tr>
                     <th>1</th>
                     <td>
-                      <span className="bg-success px-2 py-1 rounded-md">
+                      <span className="bg-success text-success-content px-2 py-1 rounded-md">
                         Published
                       </span>
                     </td>
@@ -67,7 +74,7 @@ const Dashboard = () => {
                   <tr>
                     <th>2</th>
                     <td>
-                      <span className="bg-warning px-2 py-1 rounded-md">
+                      <span className="bg-warning text-warning-content px-2 py-1 rounded-md">
                         Not Published
                       </span>
                     </td>
@@ -84,7 +91,7 @@ const Dashboard = () => {
                   <tr>
                     <th>3</th>
                     <td>
-                      <span className="bg-warning px-2 py-1 rounded-md">
+                      <span className="bg-warning text-warning-content px-2 py-1 rounded-md">
                         Not Published
                       </span>
                     </td>

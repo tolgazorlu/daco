@@ -12,7 +12,9 @@ exports.createAlgorithm = async (req: Request, res: Response) => {
                 description: req.body.description,
                 example: req.body.example,
                 constrain: req.body.constrain,
-                answer: req.body.answer
+                answer: req.body.answer,
+                day: req.body.day,
+                date: req.body.date
             }
         )
         res.status(201).json(algorithm)
