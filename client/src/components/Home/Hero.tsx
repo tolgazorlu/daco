@@ -1,11 +1,11 @@
-import { useGetAlgorithmsQuery } from "../../hooks/algorithmHooks";
+import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
 import { ApiError } from "../../types/ApiError";
 import { getError } from "../../utils/getError";
 import ErrorMessage from "../ErrorMessage";
 import Counter from "./Counter";
 
 const Hero = () => {
-  const { data: algorithms, isLoading, error } = useGetAlgorithmsQuery();
+  const { data: algorithms, isLoading, error } = useGetDailyAlgorithmQuery();
 
   return (
     <div className="hero h-[90vh]">
@@ -17,9 +17,9 @@ const Hero = () => {
             </h1>
           </span>
           <Counter />
-          <div className="text-2xl flex gap-4 justify-center">
+          <div className="text-2xl flex flex-col gap-4 justify-center">
             {isLoading ? (
-              <span className="bg-secondary-content px-4 py-2 w-full rounded-xl text-secondary font-poppins border border-secondary animate-pulse">
+              <span className="bg-secoprimaryndary-content px-4 py-2 w-full rounded-xl text-primary font-poppins border border-primary animate-pulse">
                 Loading
               </span>
             ) : error ? (
@@ -31,7 +31,7 @@ const Hero = () => {
                 return (
                   <a
                     key={item._id}
-                    className="bg-secondary-content px-4 py-2 rounded-xl text-secondary font-poppins border border-secondary"
+                    className="bg-primary-content px-4 py-2 rounded-xl text-primary font-poppins border border-primary"
                     href={"/question/" + item.slug}
                   >
                     {item.title}

@@ -1,8 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
+import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
+
 
 const Counter = () => {
-  const deadline: string = "October, 31, 2023";
+  const { data: algorithms} = useGetDailyAlgorithmQuery();
+
+  let deadline = 'November, 1, 2023'
+  if(algorithms){
+    deadline = algorithms[0].date
+  }
+
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);

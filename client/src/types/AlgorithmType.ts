@@ -8,4 +8,6 @@ export type Algorithm = {
     example: string,
     constrain: string,
     answer: string,
+    date: string,
+    day: number
 }

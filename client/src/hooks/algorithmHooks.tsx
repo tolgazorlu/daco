@@ -12,3 +12,8 @@ export const useGetAlgorithmQuery = (slug: string) => useQuery({
     queryKey: ["algorithm", slug],
     queryFn: async () => (await apiClient.get<Algorithm>(`api/algorithms/${slug}`)).data
 })
+
+export const useGetDailyAlgorithmQuery = () => useQuery({
+    queryKey: ["daily"],
+    queryFn: async () => (await apiClient.get<Algorithm[]>(`api/algorithms/daily`)).data
+})

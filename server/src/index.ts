@@ -2,6 +2,7 @@
 require('dotenv').config();
 import express, { Express } from 'express';
 import chalk from 'chalk';
+import {Job} from './utils/daily';
 const cors = require('cors')
 //ROUTE IMPORTS
 const algorithmRoute = require('./routes/algorithmRoute')
@@ -28,6 +29,8 @@ app.use(
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+Job;
 
 //ROUTES
 app.use('/api/algorithms', algorithmRoute)

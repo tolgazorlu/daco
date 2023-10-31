@@ -1,5 +1,6 @@
 import { Response, Request, NextFunction } from 'express'
 import { AlgorithmModel } from '../models/algorithm'
+import {daily} from '../utils/daily'
 
 exports.createAlgorithm = async (req: Request, res: Response) => {
     try {
@@ -26,6 +27,20 @@ exports.createAlgorithm = async (req: Request, res: Response) => {
 exports.getAlgorithms = async (req: Request, res: Response) => {
     try {
         const algorithm = await AlgorithmModel.find({})
+        if (algorithm) {
+            res.status(200).send(algorithm)
+        }
+        else {
+            res.status(404).send('Algorithm not found!')
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+exports.getDailyAlgorithms = async (req: Request, res: Response) => {
+    try {
+        const algorithm = await AlgorithmModel.find({day: daily})
         if (algorithm) {
             res.status(200).send(algorithm)
         }
