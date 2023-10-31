@@ -63,17 +63,17 @@ const Users = () => {
                         <td>{item.createdAt}</td>
                         <td>{item.isAdmin ? <span className="badge badge-success text-success-content">true</span> : <span className="badge badge-warning text-warning-content">false</span>}</td>
                         {item.isAdmin ? null : (
-                        <td className="flex gap-1">
-                            <button className="bg-info px-2 py-1 rounded-md text-info-content">
-                              Detail
-                            </button>
-                            <button className="bg-warning px-2 py-1 rounded-md text-warning-content">
-                              Edit
-                            </button>
-                            <button className="bg-error px-2 py-1 rounded-md text-error-content">
-                              Delete
-                            </button>
-                          </td>
+                        <td className="flex gap-1 h-12 items-center">
+                        <button className="btn btn-xs bg-info px-2 py-1 rounded-md text-info-content">
+                          Detail
+                        </button>
+                        <button className="btn btn-xs bg-warning px-2 py-1 rounded-md text-warning-content">
+                          Edit
+                        </button>
+                        <button className="btn btn-xs bg-error px-2 py-1 rounded-md text-error-content">
+                          Delete
+                        </button>
+                      </td>
                         )}
                       </tr>
                     </tbody>

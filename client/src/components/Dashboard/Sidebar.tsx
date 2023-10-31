@@ -17,10 +17,10 @@ const Sidebar = () => {
             <li>
               <a
                 href="/dashboard"
-                className={ location === '/dashboard' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg "}
+                className={ location === '/dashboard' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg hover:bg-primary/50"}
               >
                 <svg
-                  className="w-5 h-5 transition duration-75 "
+                  className="w-5 h-5 transition duration-75"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -36,10 +36,10 @@ const Sidebar = () => {
             <li>
               <a
                 href="/dashboard/dailyProblems"
-                className={ location === '/dashboard/dailyProblems' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg "}
+                className={ location === '/dashboard/dailyProblems' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg hover:bg-primary/50"}
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 "
+                  className="flex-shrink-0 w-5 h-5 transition duration-75 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -55,11 +55,11 @@ const Sidebar = () => {
             <li>
               <a
                 href="/dashboard/users"
-                className={ location === '/dashboard/users' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg "}
+                className={ location === '/dashboard/users' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg hover:bg-primary/50"}
 
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover dark:group-hover:text-white"
+                  className="flex-shrink-0 w-5 h-5  transition duration-75 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -73,10 +73,10 @@ const Sidebar = () => {
             <li>
               <a
                 href="/dashboard/problems"
-                className={ location === '/dashboard/problems' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg "}
+                className={ location === '/dashboard/problems' ? "flex items-center p-2 rounded-lg bg-primary text-primary-content" : "flex items-center p-2 rounded-lg hover:bg-primary/50"}
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover dark:group-hover:text-white"
+                  className="flex-shrink-0 w-5 h-5 transition duration-75 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -93,10 +93,10 @@ const Sidebar = () => {
               <a
                 href="https://www.buymeacoffee.com/tolgazorlu"
                 target="_blank"
-                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 transition duration-75 rounded-lg group hover:bg-primary/50"
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 "
+                  className="flex-shrink-0 w-5 h-5 transition duration-75 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -111,10 +111,10 @@ const Sidebar = () => {
               <a
                 href="https://github.com/tolgazorlu/daco"
                 target="_blank"
-                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-primary/50"
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover dark:group-hover:text-white"
+                  className="flex-shrink-0 w-5 h-5  transition duration-75 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -129,10 +129,10 @@ const Sidebar = () => {
               <a
                 href="https://daisyui.com/docs/themes/"
                 target="_blank"
-                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+                className="flex items-center p-2 transition duration-75 rounded-lg  group hover:bg-primary/50"
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover dark:group-hover:text-white"
+                  className="flex-shrink-0 w-5 h-5 transition duration-75 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -148,10 +148,10 @@ const Sidebar = () => {
               <a
                 href="https://github.com/tolgazorlu/daco#contributing"
                 target="_blank"
-                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+                className="flex items-center p-2 transition duration-75 rounded-lg  group hover:bg-primary/50"
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover dark:group-hover:text-white"
+                  className="flex-shrink-0 w-5 h-5  transition duration-75  group-hover "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -175,9 +175,9 @@ const Sidebar = () => {
             </div>
             <p className="mb-3 text-sm text-primary-content">
               Preview the new{" "}
-              As <span className="font-bold font-aubette">DACO</span>, we are here with the beta version. If you would like to support the project, you can access the source codes from the <a href="https://github.com/tolgazorlu/daco" target="_blank" className=" font-aubette font-bold text-secondary">LINK HERE.</a>
+              As <span className="font-bold font-aubette">DACO</span>, we are here with the beta version. If you would like to support the project, you can access the source codes from the <a href="https://github.com/tolgazorlu/daco" target="_blank" className=" font-aubette font-bold hover:text-primary-content/50">LINK HERE.</a>
             </p>
-            <a className="text-sm text-primary-content underline font-medium" href="https://github.com/tolgazorlu" target="_blank">
+            <a className="text-sm text-primary-content underline font-medium hover:text-primary-content/50" href="https://github.com/tolgazorlu" target="_blank">
               Visit Author Page
             </a>
           </div>
