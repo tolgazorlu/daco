@@ -12,9 +12,11 @@ const Hero = () => {
       <div className="hero-content text-center">
         <div className="max-w-md -mt-20">
           <span className="flex gap-4 items-center justify-center w-full">
-            <h1 className="text-8xl font-bold font-aubette text-primary">
-              DAY 1
-            </h1>
+            {algorithms ? (<h1 className="text-8xl font-bold font-aubette text-primary">
+              DAY {algorithms[0].day}
+            </h1>) : <h1 className="text-8xl font-bold font-aubette text-primary">
+              DAY ?
+            </h1>}
           </span>
           <Counter />
           <div className="text-2xl flex flex-col gap-4 justify-center">

@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import apiClient from "../utils/apiClient";
 import { UserInfo } from "../types/UserInfo";
 
@@ -42,3 +42,8 @@ export const useRegisterMutation = () =>
         })
       ).data,
   });
+
+  export const useGetUsersQuery = () => useQuery({
+    queryKey: ["all"],
+    queryFn: async () => (await apiClient.get<UserInfo[]>(`api/user/all`)).data
+})

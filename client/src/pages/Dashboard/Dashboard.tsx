@@ -1,5 +1,5 @@
-import Navbar from "../layouts/Navbar";
-import Sidebar from "../components/Dashboard/Sidebar";
+import Navbar from "../../layouts/Navbar";
+import Sidebar from "../../components/Dashboard/Sidebar";
 import {
   FullScreenHandle,
   useFullScreenHandle,
@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar fullscreenHandle={handle} />
-      <hr></hr>
+      <hr className="border-base-200"></hr>
       <button
         data-drawer-target="cta-button-sidebar"
         data-drawer-toggle="cta-button-sidebar"
