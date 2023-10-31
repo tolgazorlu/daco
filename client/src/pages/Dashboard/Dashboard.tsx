@@ -1,13 +1,12 @@
 import Navbar from "../../layouts/Navbar";
 import Sidebar from "../../components/Dashboard/Sidebar";
-import {
-  FullScreenHandle,
-  useFullScreenHandle,
-} from "react-full-screen";
+import { FullScreenHandle, useFullScreenHandle } from "react-full-screen";
+import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
 
 const Dashboard = () => {
-
   const handle: FullScreenHandle = useFullScreenHandle();
+
+  const { data: algorithms, isLoading, error } = useGetDailyAlgorithmQuery();
 
   return (
     <div>
@@ -38,81 +37,185 @@ const Dashboard = () => {
       <div className="bg-white grid grid-cols-12">
         <Sidebar />
 
-        <div className="p-4 col-span-9 bg-base-100">
-          <div className="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700">
+        <div className="p-4 col-span-9 bg-base-100 flex flex-col gap-8">
+          <div className="stats bg-primary text-primary-content shadow-md">
+            <div className="stat">
+              <div className="stat-title text-primary-content">Total Algorithm Questions</div>
+              <div className="stat-value">25</div>
+              <div className="stat-actions">
+                <button className="btn btn-sm btn-success btn-success-content">Add Question</button>
+              </div>
+            </div>
+
+            <div className="stat">
+            <div className="stat-title text-primary-content">Total Users</div>
+              <div className="stat-value">4200</div>
+              <div className="stat-actions flex gap-2">
+                <button className="btn btn-sm">Check Users</button>
+                <button className="btn btn-sm">Copy Link</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="stats shadow-md">
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div className="stat-title">Day</div>
+              <div className="stat-value">31</div>
+              <div className="stat-desc">November, 1, 2023</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div className="stat-title">Visit</div>
+              <div className="stat-value">31K</div>
+              <div className="stat-desc">Jan 1st - Feb 1st</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                  ></path>
+                </svg>
+              </div>
+              <div className="stat-title">New Users</div>
+              <div className="stat-value">4,200</div>
+              <div className="stat-desc">↗︎ 400 (22%)</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                  ></path>
+                </svg>
+              </div>
+              <div className="stat-title">New Registers</div>
+              <div className="stat-value">1,200</div>
+              <div className="stat-desc">↘︎ 90 (14%)</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                  ></path>
+                </svg>
+              </div>
+              <div className="stat-title">Solved Problems</div>
+              <div className="stat-value">4,200</div>
+              <div className="stat-desc">↗︎ 400 (22%)</div>
+            </div>
+          </div>
+
+          <div className="rounded-lg">
             <div className="overflow-x-auto">
               <table className="table table-xs font-poppins">
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Status</th>
+                    <th>Sequence</th>
+                    <th>Day</th>
+                    <th>Date</th>
                     <th>Title</th>
-                    <th>Your Answer</th>
-                    <th>Acceptance</th>
+                    <th>Answer</th>
+                    <th>Slug</th>
                     <th>Difficulty</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>
-                      <span className="bg-success text-success-content px-2 py-1 rounded-md">
-                        Published
-                      </span>
-                    </td>
-                    <td>Two Sum</td>
-                    <td>1124</td>
-                    <td>75.1%</td>
-                    <td className="text-success">Easy</td>
-                    <td>
-                      <button className="bg-warning px-2 py-1 rounded-md text-warning-content">
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>2</th>
-                    <td>
-                      <span className="bg-warning text-warning-content px-2 py-1 rounded-md">
-                        Not Published
-                      </span>
-                    </td>
-                    <td>Two Sum</td>
-                    <td>1124</td>
-                    <td>75.1%</td>
-                    <td className="text-warning">Medium</td>
-                    <td>
-                      <button className="bg-warning px-2 py-1 rounded-md text-warning-content">
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>3</th>
-                    <td>
-                      <span className="bg-warning text-warning-content px-2 py-1 rounded-md">
-                        Not Published
-                      </span>
-                    </td>
-                    <td>Two Sum</td>
-                    <td>1124</td>
-                    <td>75.1%</td>
-                    <td className="text-error">Hard</td>
-                    <td>
-                      <button className="bg-warning px-2 py-1 rounded-md text-warning-content">
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
+                {algorithms?.map((item, index) => {
+                  return (
+                    <tbody>
+                      <tr>
+                        <th>{index + 1}</th>
+                        <td>{item.sequence}</td>
+                        <td>{item.day}</td>
+                        <td>{item.date}</td>
+                        <td>{item.title}</td>
+                        <td>{item.answer}</td>
+                        <td>{item.slug}</td>
+                        <td className={item.level == "easy" ? "text-success" : item.level == "medium" ? "text-warning" : "text-error"}>{item.level}</td>
+                        <td className="flex gap-1">
+                          <button className="bg-info px-2 py-1 rounded-md text-info-content">
+                            Detail
+                          </button>
+                          <button className="bg-warning px-2 py-1 rounded-md text-warning-content">
+                            Edit
+                          </button>
+                          <button className="bg-error px-2 py-1 rounded-md text-error-content">
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
                 <tfoot>
                   <tr>
                     <th></th>
-                    <th>Status</th>
+                    <th>Sequence</th>
+                    <th>Day</th>
+                    <th>Date</th>
                     <th>Title</th>
-                    <th>Your Answer</th>
-                    <th>Acceptance</th>
+                    <th>Answer</th>
+                    <th>Slug</th>
                     <th>Difficulty</th>
                     <th>Action</th>
                   </tr>
@@ -120,6 +223,7 @@ const Dashboard = () => {
               </table>
             </div>
           </div>
+
         </div>
       </div>
     </div>
