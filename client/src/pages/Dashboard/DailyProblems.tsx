@@ -66,14 +66,14 @@ const DailyProblems = () => {
                         <td>{item.answer}</td>
                         <td>{item.slug}</td>
                         <td className={item.level == "easy" ? "text-success" : item.level == "medium" ? "text-warning" : "text-error"}>{item.level}</td>
-                        <td className="flex gap-1">
-                          <button className="bg-info px-2 py-1 rounded-md text-info-content">
+                        <td className="flex gap-1 h-12 items-center">
+                          <button className="btn btn-xs bg-info px-2 py-1 rounded-md text-info-content">
                             Detail
                           </button>
-                          <button className="bg-warning px-2 py-1 rounded-md text-warning-content">
+                          <button className="btn btn-xs bg-warning px-2 py-1 rounded-md text-warning-content">
                             Edit
                           </button>
-                          <button className="bg-error px-2 py-1 rounded-md text-error-content">
+                          <button className="btn btn-xs bg-error px-2 py-1 rounded-md text-error-content">
                             Delete
                           </button>
                         </td>
