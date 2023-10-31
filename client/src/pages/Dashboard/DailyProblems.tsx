@@ -6,7 +6,7 @@ import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
 const DailyProblems = () => {
   const handle: FullScreenHandle = useFullScreenHandle();
 
-  const { data: algorithms, isLoading, error } = useGetDailyAlgorithmQuery();
+  const { data: algorithms} = useGetDailyAlgorithmQuery();
 
   return (
     <div>

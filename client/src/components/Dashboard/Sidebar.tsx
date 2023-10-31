@@ -165,22 +165,20 @@ const Sidebar = () => {
           </ul>
           <div
             id="dropdown-cta"
-            className="p-4 mt-6 rounded-lg bg-neutral font-poppins"
+            className="p-4 mt-6 rounded-lg bg-primary font-poppins"
             role="alert"
           >
             <div className="flex items-center mb-3">
-              <span className="bg-info text-info-content text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+              <span className="bg-primary-content text-primary text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
                 Beta
               </span>
             </div>
-            <p className="mb-3 text-sm text-neutral-content">
+            <p className="mb-3 text-sm text-primary-content">
               Preview the new{" "}
-              <span className="font-bold font-aubette">DACO</span> dashboard
-              navigation! You can turn the new navigation off for a limited time
-              in your profile.
+              As <span className="font-bold font-aubette">DACO</span>, we are here with the beta version. If you would like to support the project, you can access the source codes from the <a href="https://github.com/tolgazorlu/daco" target="_blank" className=" font-aubette font-bold text-secondary">LINK HERE.</a>
             </p>
-            <a className="text-sm text-primary underline font-medium" href="#">
-              Turn new navigation off
+            <a className="text-sm text-primary-content underline font-medium" href="https://github.com/tolgazorlu" target="_blank">
+              Visit Author Page
             </a>
           </div>
         </div>

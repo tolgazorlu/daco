@@ -41,7 +41,7 @@ const Question = () => {
           <Navbar fullscreenHandle={handle} />
         </div>
         <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
-          <div className="p-4 overflow-scroll max-h-full flex flex-col gap-4">
+          <div className="p-4 max-h-full flex flex-col gap-4">
             <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
             <span className="bg-primary-content rounded-full h-6 w-12 animate-pulse" />
             <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
@@ -81,7 +81,7 @@ const Question = () => {
           <Navbar fullscreenHandle={handle} />
         </div>
         <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
-          <div className="p-4 overflow-scroll max-h-full flex flex-col gap-4">
+          <div className="p-4 max-h-full flex flex-col gap-4">
             <span className="font-bold text-2xl">
               <span>{algorithm.sequence}.</span> <span>{algorithm.title}</span>
             </span>
@@ -119,7 +119,7 @@ const Question = () => {
               })}
             </div>
           </div>
-          <form className="p-4 overflow-scroll max-h-full w-1/6 flex flex-col gap-2">
+          <form className="p-4  max-h-full w-1/6 flex flex-col gap-2">
             <input
               className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
               placeholder="Enter answer here!"
