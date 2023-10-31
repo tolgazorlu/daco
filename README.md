@@ -37,9 +37,9 @@ Every day, we present you with <strong>two brand-new algorithm questions</strong
 
 DACO - Zekanın Parladığı Yer!
 
-Her gün zihinsel yeteneklerinizi geliştirmeye ve algoritmaların inceliklerini öğrenmeye hazır mısınız? Doğru adrestesiniz! DACO, kodlama becerilerinizi keskinleştirmek ve algoritmaların sanatını ustalaşmak için başvurabileceğiniz bir platformdur.
+Algoritma becerilerini geliştirmeye hazır mısın? DACO, kodlama becerini geliştirmek ve düşünce sanatında ustalaşmak için başvurabileceğin en iyi uygulamadır.
 
-Her gün, sizi düşünmeye teşvik edecek ve problem çözme yeteneklerinizi geliştirecek <strong>iki yeni algoritma sorusu</strong> sunuyoruz. Temel bilgileri öğrenmek isteyen bir acemi veya becerilerini daha da geliştirmek isteyen deneyimli bir kodlayıcı olun, günlük meydan okumalarımız tüm yetenek seviyelerine hitap eder.
+Her gün, düşünmeye teşvik edecek ve problem çözme yeteneklerini geliştirecek <strong>iki yeni algoritma sorusu</strong> sunuyoruz. İster temel algoritma öğrenmek isteyen bir çaylak, ister becerilerini daha da geliştirmek isteyen deneyimli bir kodlayıcı olun, günlük meydan okumalarımız tüm yetenek seviyelerine hitap eder.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -140,7 +140,7 @@ Don't forget to give the project a star! Thanks again!
 
 Tolga Zorlu - [@linkedin](https://www.linkedin.com/in/tolgazorlu/)
 
-Project Link: [https://github.com/tolgazorlu/dailycode](https://github.com/tolgazorlu/dailycode)
+Project Link: [https://github.com/tolgazorlu/daco](https://github.com/tolgazorlu/daco)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
