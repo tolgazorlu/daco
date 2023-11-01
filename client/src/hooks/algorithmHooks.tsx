@@ -44,3 +44,13 @@ export const useCreateAlgorithmQuery = () =>
         )
       ).data,
   });
+
+  export const useDeleteProblemMutation = () =>
+  useMutation({
+    mutationFn: async (problemId: string) =>
+      (
+        await apiClient.delete<{ message: string; problem: Algorithm[] }>(
+          `api/algorithms/${problemId}`
+        )
+      ).data,
+  });

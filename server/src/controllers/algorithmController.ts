@@ -65,3 +65,19 @@ exports.getAlgorithm = async (req: Request, res: Response) => {
         res.status(500).send(error)
     }
 }
+
+exports.deleteProblem =async (req:Request, res: Response) => {
+    try {
+        const problem = await AlgorithmModel.findById(req.params.id)
+        if(problem){
+            const deletedProblem = await problem.deleteOne()
+            res.status(200).send({message: 'success', problem: deletedProblem})
+        }
+        res.status(404).send({message: 'Product not found!'})
+    } catch (error) {
+        res.status(400).json({
+            succcess: 'fail',
+            message: error
+        })
+    }
+}

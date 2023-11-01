@@ -11,7 +11,6 @@ const Counter = () => {
     deadline = algorithms[0].date
   }
 
-
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);

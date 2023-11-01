@@ -34,7 +34,7 @@ const Users = () => {
           ></path>
         </svg>
       </button>
-      <div className="bg-white grid grid-cols-12">
+      <div className="grid grid-cols-12">
         <Sidebar />
 
         <div className="p-4 col-span-10">
