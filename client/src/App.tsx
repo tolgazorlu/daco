@@ -6,7 +6,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import Dashboard from './pages/Dashboard/Dashboard'
-import DailyProblems from './pages/Dashboard/DailyProblems'
 import Problems from './pages/Dashboard/Problems'
 import Users from './pages/Dashboard/Users'
 
@@ -18,7 +17,6 @@ const App = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/dailyProblems" element={<DailyProblems />} />
         <Route path="/dashboard/users" element={<Users />} />
         <Route path="/dashboard/problems" element={<Problems />} />
         <Route path="/login" element={<Login/>} />

@@ -37,7 +37,7 @@ const Users = () => {
       <div className="bg-white grid grid-cols-12">
         <Sidebar />
 
-        <div className="p-4 col-span-9 bg-base-100">
+        <div className="p-4 col-span-10">
           <div className="p-2 rounded-lg">
             <div className="overflow-x-auto">
               <table className="table table-xs font-poppins">
