@@ -1,7 +1,7 @@
-import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
+import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 
 const DailyProblemsTable = () => {
-  const { data: algorithms, isLoading, error } = useGetDailyAlgorithmQuery();
+  const { data: problem, isLoading, error } = useGetDailyProblemsQuery();
 
   return (
     <>
@@ -26,7 +26,7 @@ const DailyProblemsTable = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                {algorithms?.map((item, index) => {
+                {problem?.map((item, index) => {
                   return (
                     <tbody>
                       <tr>

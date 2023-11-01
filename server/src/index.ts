@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import {Job} from './utils/daily';
 const cors = require('cors')
 //ROUTE IMPORTS
-const algorithmRoute = require('./routes/algorithmRoute')
+const problemRoute = require('./routes/problemRoute')
 const authRoute = require('./routes/authRoute')
 
 
@@ -33,7 +33,7 @@ app.use(express.json());
 Job;
 
 //ROUTES
-app.use('/api/algorithms', algorithmRoute)
+app.use('/api/problems', problemRoute)
 app.use('/api/user', authRoute)
 
 //LISTEN

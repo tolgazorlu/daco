@@ -1,10 +1,10 @@
 import { Response, Request, NextFunction } from 'express'
-import { AlgorithmModel } from '../models/algorithm'
+import { ProblemModel } from '../models/problem'
 import {daily} from '../utils/daily'
 
-exports.createAlgorithm = async (req: Request, res: Response) => {
+exports.createProblem = async (req: Request, res: Response) => {
     try {
-        const algorithm = await AlgorithmModel.create(
+        const problem = await ProblemModel.create(
             {
                 sequence: req.body.sequence,
                 slug: req.body.slug,
@@ -18,48 +18,48 @@ exports.createAlgorithm = async (req: Request, res: Response) => {
                 date: req.body.date
             }
         )
-        res.status(201).json(algorithm)
+        res.status(201).json(problem)
     } catch (error) {
         res.status(500).json(error)
     }
 }
 
-exports.getAlgorithms = async (req: Request, res: Response) => {
+exports.getProblems = async (req: Request, res: Response) => {
     try {
-        const algorithm = await AlgorithmModel.find({})
-        if (algorithm) {
-            res.status(200).send(algorithm)
+        const problem = await ProblemModel.find({})
+        if (problem) {
+            res.status(200).send(problem)
         }
         else {
-            res.status(404).send('Algorithm not found!')
-        }
-    } catch (error) {
-        res.status(500).json(error)
-    }
-}
-
-exports.getDailyAlgorithms = async (req: Request, res: Response) => {
-    try {
-        const algorithm = await AlgorithmModel.find({day: daily})
-        if (algorithm) {
-            res.status(200).send(algorithm)
-        }
-        else {
-            res.status(404).send('Algorithm not found!')
+            res.status(404).send('Problem not found!')
         }
     } catch (error) {
         res.status(500).json(error)
     }
 }
 
-exports.getAlgorithm = async (req: Request, res: Response) => {
+exports.getDailyProblems = async (req: Request, res: Response) => {
     try {
-        const algorithm = await AlgorithmModel.findOne({ slug: req.params.slug })
-        if (algorithm) {
-            res.status(200).send(algorithm)
+        const problem = await ProblemModel.find({day: daily})
+        if (problem) {
+            res.status(200).send(problem)
         }
         else {
-            res.status(404).send('Algorithm not found!')
+            res.status(404).send('Problem not found!')
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+exports.getProblem = async (req: Request, res: Response) => {
+    try {
+        const problem = await ProblemModel.findOne({ slug: req.params.slug })
+        if (problem) {
+            res.status(200).send(problem)
+        }
+        else {
+            res.status(404).send('Problem not found!')
         }
     } catch (error) {
         res.status(500).send(error)
@@ -68,7 +68,7 @@ exports.getAlgorithm = async (req: Request, res: Response) => {
 
 exports.deleteProblem =async (req:Request, res: Response) => {
     try {
-        const problem = await AlgorithmModel.findById(req.params.id)
+        const problem = await ProblemModel.findById(req.params.id)
         if(problem){
             const deletedProblem = await problem.deleteOne()
             res.status(200).send({message: 'success', problem: deletedProblem})

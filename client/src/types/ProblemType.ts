@@ -1,4 +1,4 @@
-export type Algorithm = {
+export type Problem = {
     _id: string,
     sequence: number,
     slug: string,

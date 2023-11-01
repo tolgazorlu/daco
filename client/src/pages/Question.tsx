@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetAlgorithmQuery } from "../hooks/algorithmHooks";
+import { useGetProblemQuery } from "../hooks/problemHooks";
 import Navbar from "../layouts/Navbar";
 import {
   FullScreen,
@@ -14,14 +14,14 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Question = () => {
   const { slug } = useParams();
-  const { data: algorithm, isLoading, error } = useGetAlgorithmQuery(slug!);
+  const { data: problem, isLoading, error } = useGetProblemQuery(slug!);
 
   const [answer, setAnswer] = useState("");
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    if (algorithm) {
-      if(algorithm.answer == answer) {
+    if (problem) {
+      if(problem.answer == answer) {
         toast.success("Congratulations!");
       } 
       else {
@@ -31,7 +31,7 @@ const Question = () => {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const examples: string[] | any = algorithm?.example;
+  const examples: string[] | any = problem?.example;
 
   const handle: FullScreenHandle = useFullScreenHandle();
   return isLoading ? (
@@ -60,7 +60,7 @@ const Question = () => {
     </FullScreen>
   ) : error ? (
     <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
-  ) : !algorithm ? (
+  ) : !problem ? (
     <ErrorMessage>Question Not Found!</ErrorMessage>
   ) : (
     <FullScreen handle={handle}>
@@ -83,29 +83,29 @@ const Question = () => {
         <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
           <div className="p-4 max-h-full flex flex-col gap-4">
             <span className="font-bold text-2xl">
-              <span>{algorithm.sequence}.</span> <span>{algorithm.title}</span>
+              <span>{problem.sequence}.</span> <span>{problem.title}</span>
             </span>
             <div>
               <span
                 className={
-                  algorithm.level === "easy"
+                  problem.level === "easy"
                     ? "py-1 px-2 bg-success-content text-success rounded-md"
-                    : algorithm.level === "medium"
+                    : problem.level === "medium"
                     ? "py-1 px-2 bg-warning-content text-warning rounded-md"
                     : "py-1 px-2 bg-error-content text-error rounded-md"
                 }
               >
-                {algorithm.level}
+                {problem.level}
               </span>
             </div>
             <span
-              dangerouslySetInnerHTML={{ __html: algorithm.description }}
+              dangerouslySetInnerHTML={{ __html: problem.description }}
               className="leading-24"
             />
             <div className="flex flex-col gap-2 max-w-max">
               <strong>Constrain:</strong>
               <span className="py-1 px-2 bg-primary-content text-primary rounded-md">
-                {algorithm.constrain}
+                {problem.constrain}
               </span>
             </div>
             <div className="flex flex-col gap-2 max-w-max">

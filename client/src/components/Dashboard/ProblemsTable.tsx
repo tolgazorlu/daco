@@ -3,14 +3,14 @@
 import { toast } from "react-toastify";
 import {
   useDeleteProblemMutation,
-  useGetAlgorithmsQuery,
-} from "../../hooks/algorithmHooks";
+  useGetProblemsQuery,
+} from "../../hooks/problemHooks";
 import { getError } from "../../utils/getError";
 import { ApiError } from "../../types/ApiError";
 import { useState } from "react";
 
 const ProblemsTable = () => {
-  const { data: algorithms, refetch } = useGetAlgorithmsQuery();
+  const { data: problems, refetch } = useGetProblemsQuery();
   const { mutateAsync: deleteProblem } = useDeleteProblemMutation();
 
   const [problemId, setProblemId] = useState<string>("");
@@ -40,7 +40,7 @@ const ProblemsTable = () => {
             <th>Action</th>
           </tr>
         </thead>
-        {algorithms?.map((item) => {
+        {problems?.map((item) => {
           return (
             <tbody>
               <tr>

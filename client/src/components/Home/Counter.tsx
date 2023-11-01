@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react"
-import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
+import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 
 
 const Counter = () => {
-  const { data: algorithms} = useGetDailyAlgorithmQuery();
+  const { data: problems} = useGetDailyProblemsQuery();
 
   let deadline = 'November, 1, 2023'
-  if(algorithms){
-    deadline = algorithms[0].date
+  if(problems){
+    deadline = problems[0].date
   }
 
   const [hours, setHours] = useState(0);

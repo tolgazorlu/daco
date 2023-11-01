@@ -7,7 +7,7 @@ class Example {
 }
 
 @modelOptions( {schemaOptions: {timestamps: true}})
-export class Algorithm {
+export class Problem {
     public _id?: string
 
     @prop({required: true})
@@ -42,4 +42,4 @@ export class Algorithm {
 }
 
 
-export const AlgorithmModel = getModelForClass(Algorithm)
+export const ProblemModel = getModelForClass(Problem)

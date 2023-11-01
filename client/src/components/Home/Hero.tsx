@@ -1,19 +1,19 @@
-import { useGetDailyAlgorithmQuery } from "../../hooks/algorithmHooks";
+import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 import { ApiError } from "../../types/ApiError";
 import { getError } from "../../utils/getError";
 import ErrorMessage from "../ErrorMessage";
 import Counter from "./Counter";
 
 const Hero = () => {
-  const { data: algorithms, isLoading, error } = useGetDailyAlgorithmQuery();
-
+  const { data: problems, isLoading, error } = useGetDailyProblemsQuery();
+  
   return (
     <div className="hero h-[90vh]">
       <div className="hero-content text-center">
         <div className="max-w-md -mt-20">
           <span className="flex gap-4 items-center justify-center w-full">
-            {algorithms ? (<h1 className="text-8xl font-bold font-aubette text-primary">
-              DAY {algorithms[0].day}
+            {problems ? (<h1 className="text-8xl font-bold font-aubette text-primary">
+              DAY {problems[0].day}
             </h1>) : <h1 className="text-8xl font-bold font-aubette text-primary">
               DAY ?
             </h1>}
@@ -26,10 +26,10 @@ const Hero = () => {
               </span>
             ) : error ? (
               <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
-            ) : !algorithms ? (
+            ) : !problems ? (
               <ErrorMessage>Question Not Found!</ErrorMessage>
             ) : (
-              algorithms.map((item) => {
+              problems.map((item) => {
                 return (
                   <a
                     key={item._id}

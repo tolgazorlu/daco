@@ -1,13 +1,13 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
-import { useCreateAlgorithmQuery } from '../../hooks/algorithmHooks';
+import { useCreateProblemQuery } from '../../hooks/problemHooks';
 import { getError } from '../../utils/getError';
 import { ApiError } from '../../types/ApiError';
 
 const AddAlgorithmModal = () => {
 
-    const { mutateAsync: createAlgorithm } = useCreateAlgorithmQuery();
+    const { mutateAsync: createProblem } = useCreateProblemQuery();
 
   const [day, setDay] = useState<number>(0);
   const [date, setDate] = useState<string>("");
@@ -20,9 +20,9 @@ const AddAlgorithmModal = () => {
   const [constrain, setConstrain] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
 
-  const createAlgorithmHandler = async () => {
+  const createProblemHandler = async () => {
     try {
-      await createAlgorithm({
+      await createProblem({
         day: day,
         date: date,
         sequence: sequence,
@@ -230,7 +230,7 @@ const AddAlgorithmModal = () => {
                   </div>
                   <button
                     className="float-right btn btn-sm bg-success text-success-content hover:bg-success/50"
-                    onClick={() => createAlgorithmHandler()}
+                    onClick={() => createProblemHandler()}
                   >
                     Add Product
                   </button>
