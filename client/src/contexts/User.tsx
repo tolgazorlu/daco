@@ -12,7 +12,6 @@ function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case "USER_SIGNIN":
       return { ...state, userInfo: action.payload };
-
     case "USER_SIGNOUT":
       return {};
     default:

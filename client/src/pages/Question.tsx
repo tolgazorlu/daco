@@ -21,11 +21,10 @@ const Question = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (problem) {
-      if(problem.answer == answer) {
+      if (problem.answer == answer) {
         toast.success("Congratulations!");
-      } 
-      else {
-      toast.warning("Check your answer!");
+      } else {
+        toast.warning("Check your answer!");
       }
     }
   };
@@ -64,7 +63,7 @@ const Question = () => {
     <ErrorMessage>Question Not Found!</ErrorMessage>
   ) : (
     <FullScreen handle={handle}>
-       <ToastContainer
+      <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={true}
