@@ -8,6 +8,7 @@ export const generateToken = (user: User) => {
             _id: user._id,
             username: user.username,
             email: user.email,
+            avatar: user.avatar,
             isAdmin: user.isAdmin,
         },
         process.env.TOKEN_KEY || 'somethingsecret',

@@ -1,12 +1,14 @@
 import { Router } from "express"
 import { isAuth } from "../utils/isAuth"
 import { isAdmin } from "../utils/isAdmin"
-
-const {Register, getUsers, Login} = require('../controllers/authController')
+const { UserVerification } = require('../middlewares/authMiddleware')
+const {Register, getUsers, Login, Update} = require('../controllers/authController')
 const router: Router = require('express').Router()
 
+router.post('/', UserVerification)
+router.get('/all', isAuth, isAdmin, getUsers)
 router.post('/register', Register)
 router.post('/login', Login)
-router.get('/all', getUsers, isAuth, isAdmin)
+router.put('/update', isAuth, Update)
 
 module.exports = router

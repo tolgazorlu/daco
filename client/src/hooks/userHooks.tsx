@@ -43,6 +43,26 @@ export const useRegisterMutation = () =>
       ).data,
   });
 
+  export const useUpdateUserMutation = () =>
+  useMutation({
+    mutationFn: async ({
+      username,
+      email,
+      avatar
+    }: {
+      username: string;
+      email: string;
+      avatar: string;
+    }) =>
+      (
+        await apiClient.put<UserInfo>(`api/user/update`, {
+          username,
+          email,
+          avatar,
+        })
+      ).data,
+  });
+  
   export const useGetUsersQuery = () => useQuery({
     queryKey: ["all"],
     queryFn: async () => (await apiClient.get<UserInfo[]>(`api/user/all`)).data

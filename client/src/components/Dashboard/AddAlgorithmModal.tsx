@@ -7,7 +7,7 @@ import { ApiError } from '../../types/ApiError';
 
 const AddAlgorithmModal = () => {
 
-    const { mutateAsync: createProblem } = useCreateProblemQuery();
+  const { mutateAsync: createProblem } = useCreateProblemQuery();
 
   const [day, setDay] = useState<number>(0);
   const [date, setDate] = useState<string>("");

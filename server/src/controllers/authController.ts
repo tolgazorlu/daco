@@ -69,6 +69,27 @@ module.exports.Login = async (req: Request, res: Response, next: NextFunction) =
     }
 }
 
+module.exports.Update = async (req: Request, res: Response) => {
+    try {
+        const user = await UserModel.findById(req.user._id)
+        if (user) {
+            user.username = req.body.username || user.username
+            user.email = req.body.email || user.email
+            user.avatar = req.body.avatar || user.avatar
+            const updatedUser = await user.save()
+            res.send({
+                _id: updatedUser._id,
+                username: updatedUser.username,
+                email: updatedUser.email,
+                avatar: updatedUser.avatar,
+            })
+        res.json({"message": "user not found!"})
+        }
+    } catch (error) {
+        res.json({ "message": error })
+    }
+}
+
 module.exports.getUsers = async (req: Request, res: Response) => {
     try {
         const users = await UserModel.find({});
@@ -77,3 +98,4 @@ module.exports.getUsers = async (req: Request, res: Response) => {
         res.status(400).json({ message: error })
     }
 }
+

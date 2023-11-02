@@ -45,6 +45,21 @@ export const useCreateProblemQuery = () =>
       ).data,
   });
 
+  export const useUpdateUserQuery = () =>
+  useMutation({
+    mutationFn: async (problem: {
+      username: string,
+      email: string,
+      avatar: string
+    }) =>
+      (
+        await apiClient.post<{ problem: Problem }>(
+          `api/problems/createAlgorithm`,
+          problem
+        )
+      ).data,
+  });
+
   export const useDeleteProblemMutation = () =>
   useMutation({
     mutationFn: async (problemId: string) =>

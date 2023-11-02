@@ -15,6 +15,7 @@ export const isAuth = (req: Request, res: Response, next: NextFunction) => {
             _id: string
             username: string
             email: string
+            avatar: string
             isAdmin: boolean
             token: string
         }

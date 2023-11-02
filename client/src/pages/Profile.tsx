@@ -4,12 +4,33 @@ import { FullScreenHandle, useFullScreenHandle } from "react-full-screen";
 import Navbar from "../layouts/Navbar";
 import Sidebar from "../components/Dashboard/Sidebar";
 import DailyProblemsTable from "../components/Dashboard/DailyProblemsTable";
+import { User } from "../contexts/User";
+import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
+import UpdateUserProfileModal from "../components/User/UpdateUserProfileModal";
+import { ToastContainer } from "react-toastify";
 
 const Profile = () => {
   const handle: FullScreenHandle = useFullScreenHandle();
 
+  const { state } = useContext(User);
+  const { userInfo } = state;
+
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {userInfo ? <Helmet>{userInfo?.username}'s Profile</Helmet> : <></>}
       <Navbar fullscreenHandle={handle} />
       <hr className="border-base-200"></hr>
       <button
@@ -28,32 +49,42 @@ const Profile = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            clip-rule="evenodd"
-            fill-rule="evenodd"
+            clipRule="evenodd"
+            fillRule="evenodd"
             d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
           ></path>
         </svg>
       </button>
       <div className="bg-white grid grid-cols-12">
         <Sidebar />
-
         <div className="p-4 col-span-10 bg-base-100 flex flex-col gap-4">
-
-        <div className="stats bg-base shadow-md">
+          <div className="stats bg-base shadow-md">
             <div className="stat gap-8 flex items-center">
-              <div >
-                <img src="https://pbs.twimg.com/profile_images/1667395021564260352/SPZWUzxn_400x400.jpg" className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"></img>
+              <div>
+                <img
+                  src={userInfo?.avatar}
+                  className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                ></img>
               </div>
-              <div className="stat-value text-primary">tolgazorlu</div>
+              <div className="stat-value text-primary">
+                {userInfo?.username}
+              </div>
             </div>
 
             <div className="stat">
-              <div className="stat-value text-neutral">Email</div>
-              <div className="stat-title text-primary">tolgazorlu@mail.com</div>
+              <div className="stat-value text-base">Email</div>
+              <div className="stat-title text-primary">{userInfo?.email}</div>
               <div className="stat-actions flex gap-2">
-                <button className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50">
+                <button
+                  onClick={() => {
+                    let el: any = document.getElementById("update-user-modal")!;
+                    el.showModal();
+                  }}
+                  className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
+                >
                   Update Profile
                 </button>
+                <UpdateUserProfileModal />
               </div>
             </div>
           </div>
@@ -90,8 +121,6 @@ const Profile = () => {
               </div>
             </div>
           </div>
-
-          
 
           <DailyProblemsTable />
         </div>
