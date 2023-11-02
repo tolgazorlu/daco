@@ -1,136 +1,102 @@
-import { useContext } from "react";
-import {
-  FullScreen,
-  FullScreenHandle,
-  useFullScreenHandle,
-} from "react-full-screen";
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FullScreenHandle, useFullScreenHandle } from "react-full-screen";
 import Navbar from "../layouts/Navbar";
-import { User } from "../contexts/User";
+import Sidebar from "../components/Dashboard/Sidebar";
+import DailyProblemsTable from "../components/Dashboard/DailyProblemsTable";
 
 const Profile = () => {
   const handle: FullScreenHandle = useFullScreenHandle();
 
-  const { state } = useContext(User);
-  const { userInfo } = state;
-
   return (
-    <FullScreen handle={handle}>
-      <div id="screen" className="h-screen">
-        <div className="px-0 lg:px-20">
-          <Navbar fullscreenHandle={handle} />
-        </div>
-        <div className="flex w-full lg:px-20 h-[70vh] gap-4 items-center">
-          <div className="flex flex-col gap-4 border shadow-md w-2/6 h-[55vh] rounded-lg p-8">
-            <div className="avatar">
-              <div className="w-24 rounded-lg shadow border">
-                <img src={userInfo?.avatar} />
+    <div>
+      <Navbar fullscreenHandle={handle} />
+      <hr className="border-base-200"></hr>
+      <button
+        data-drawer-target="cta-button-sidebar"
+        data-drawer-toggle="cta-button-sidebar"
+        aria-controls="cta-button-sidebar"
+        type="button"
+        className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      >
+        <span className="sr-only">Open sidebar</span>
+        <svg
+          className="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+          ></path>
+        </svg>
+      </button>
+      <div className="bg-white grid grid-cols-12">
+        <Sidebar />
+
+        <div className="p-4 col-span-10 bg-base-100 flex flex-col gap-4">
+
+        <div className="stats bg-base shadow-md">
+            <div className="stat gap-8 flex items-center">
+              <div >
+                <img src="https://pbs.twimg.com/profile_images/1667395021564260352/SPZWUzxn_400x400.jpg" className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"></img>
+              </div>
+              <div className="stat-value text-primary">tolgazorlu</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-value text-neutral">Email</div>
+              <div className="stat-title text-primary">tolgazorlu@mail.com</div>
+              <div className="stat-actions flex gap-2">
+                <button className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50">
+                  Update Profile
+                </button>
               </div>
             </div>
-            <div>
-              <span className="text-xl font-bold text-primary">
-                {userInfo?.username}
-              </span>
+          </div>
+
+          <div className="stats bg-primary shadow-md">
+            <div className="stat">
+              <div className="stat-title text-primary-content">
+                Solved Problems
+              </div>
+              <div className="stat-value text-primary-content">25</div>
+              <div className="stat-actions">
+                <button
+                  className="btn btn-sm btn-primary-content text-primary hover:text-primary/50"
+                  onClick={() => {
+                    let el: any = document.getElementById("add-product-modal")!;
+                    el.showModal();
+                  }}
+                >
+                  Check New Problems
+                </button>
+              </div>
             </div>
-            <div>
-              <span className="text-base">Software Engineer</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base">Email Address</span>
-              <span className="font-bold text-base">{userInfo?.email}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base">Solved Question</span>
-              <span className="font-bold text-success">1</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base">Total Puan</span>
-              <span className="font-bold text-success">1</span>
+
+            <div className="stat">
+              <div className="stat-title text-primary-content">Total Day</div>
+              <div className="stat-value text-primary-content">123</div>
+              <div className="stat-actions flex gap-2">
+                <button className="btn btn-sm btn-primary-content text-primary hover:text-primary/50">
+                  Check Statistics
+                </button>
+                <button className="btn btn-sm btn-primary-content text-primary hover:text-primary/50">
+                  Copy Link
+                </button>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4 border shadow-md w-4/6 h-[55vh] rounded-lg p-8">
-            <div className="overflow-x-auto">
-              <table className="table table-xs font-poppins">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Status</th>
-                    <th>Title</th>
-                    <th>Your Answer</th>
-                    <th>Acceptance</th>
-                    <th>Difficulty</th>
-                    <th>Question</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>
-                      <span className="bg-success px-2 py-1 rounded-md">
-                        Solved
-                      </span>
-                    </td>
-                    <td>Quality Control Specialist</td>
-                    <td>1124</td>
-                    <td>75.1%</td>
-                    <td className="text-success">Easy</td>
-                    <td>
-                      <button className="bg-primary px-2 py-1 rounded-md text-primary-content">
-                        Problem
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>
-                      <span className="bg-warning px-2 py-1 rounded-md">
-                        Not Solved
-                      </span>
-                    </td>
-                    <td>Quality Control Specialist</td>
-                    <td>Littel, Schaden and Vandervort</td>
-                    <td>75.1%</td>
-                    <td className="text-warning">Medium</td>
-                    <td>
-                      <button className="bg-primary px-2 py-1 rounded-md text-primary-content">
-                        Problem
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>
-                      <span className="bg-warning px-2 py-1 rounded-md">
-                        Not Solved
-                      </span>
-                    </td>
-                    <td>Quality Control Specialist</td>
-                    <td>Littel, Schaden and Vandervort</td>
-                    <td>75.1%</td>
-                    <td className="text-error">Hard</td>
-                    <td>
-                      <button className="bg-primary px-2 py-1 rounded-md text-primary-content">
-                        Problem
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th></th>
-                    <th>Status</th>
-                    <th>Title</th>
-                    <th>Your Answer</th>
-                    <th>Acceptance</th>
-                    <th>Difficulty</th>
-                    <th>Action</th>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
+
+          
+
+          <DailyProblemsTable />
         </div>
       </div>
-    </FullScreen>
+    </div>
   );
 };
 
