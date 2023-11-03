@@ -10,7 +10,16 @@ const MainStats = () => {
           Total Algorithm Questions
         </div>
         <div className="stat-value text-primary-content">25</div>
-        <div>
+        <div className="stat-actions">
+        <button
+        className="btn btn-sm btn-primary-content text-primary hover:text-primary/50"
+        onClick={() => {
+          let el: any = document.getElementById("add-problem-modal")!;
+          el.showModal();
+        }}
+      >
+        Add Problem
+      </button>
           <AddAlgorithmModal />
         </div>
       </div>

@@ -15,7 +15,7 @@ const UsersTable = () => {
                 <th>Username</th>
                 <th>Email</th>
                 <th>Created</th>
-                <th>Is Admin</th>
+                <th>Role</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -23,7 +23,7 @@ const UsersTable = () => {
               return (
                 <tbody>
                   <tr>
-                    <th>{index + 1}</th>
+                    <th> <span className="badge">{index + 1}</span></th>
                     <td>{item.username}</td>
                     <td>{item.username}</td>
                     <td>{item.email}</td>
@@ -31,23 +31,23 @@ const UsersTable = () => {
                     <td>
                       {item.isAdmin ? (
                         <span className="badge badge-success text-success-content">
-                          true
+                          Admin
                         </span>
                       ) : (
-                        <span className="badge badge-warning text-warning-content">
-                          false
+                        <span className="badge">
+                          User
                         </span>
                       )}
                     </td>
                     {item.isAdmin ? null : (
                       <td className="flex gap-1 h-12 items-center">
-                        <button className="btn btn-xs bg-info px-2 py-1 rounded-md text-info-content">
+                        <button className="btn btn-xs btn-info text-info-content hover:bg-info/50">
                           Detail
                         </button>
-                        <button className="btn btn-xs bg-warning px-2 py-1 rounded-md text-warning-content">
+                        <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50">
                           Edit
                         </button>
-                        <button className="btn btn-xs bg-error px-2 py-1 rounded-md text-error-content">
+                        <button className="btn btn-xs btn-error text-error-content hover:bg-error/50">
                           Delete
                         </button>
                       </td>

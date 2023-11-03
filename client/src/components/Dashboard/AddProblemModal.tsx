@@ -40,15 +40,6 @@ const AddProblemModal = () => {
 
   return (
     <>
-      <button
-        className="btn btn-sm btn-success float-right"
-        onClick={() => {
-          let el: any = document.getElementById("add-problem-modal")!;
-          el.showModal();
-        }}
-      >
-        Add Problem
-      </button>
       <dialog id="add-problem-modal" className="modal">
         {/* <!-- Modal content --> */}
         <div className="modal-box">

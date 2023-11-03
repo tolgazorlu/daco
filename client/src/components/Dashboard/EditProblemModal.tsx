@@ -73,7 +73,7 @@ const EditProblemModal = ({ item }: Item) => {
   return (
     <>
       <button
-        className="btn btn-xs bg-warning px-2 py-1 rounded-md text-warning-content"
+        className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50"
         onClick={() => {
           let el: any = document.getElementById("edit-problem-modal")!;
           el.showModal();

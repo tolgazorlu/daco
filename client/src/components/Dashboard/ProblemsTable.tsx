@@ -66,8 +66,7 @@ const ProblemsTable = () => {
                 <td className="flex gap-1 h-12 items-center">
                   <a
                     href={`/question/${item.slug}`}
-                    className="btn btn-xs bg-info px-2 py-1 rounded-md text-info-content"
-                  >
+                    className="btn btn-xs btn-info text-info-content hover:bg-info/50">
                     Detail
                   </a>
                   <EditProblemModal item={item}/>
@@ -77,7 +76,7 @@ const ProblemsTable = () => {
                     el.showModal();
                     setProblemId(item._id);
                   }}
-                  className="btn btn-xs bg-error px-2 py-1 rounded-md text-error-content">
+                  className="btn btn-xs btn-error text-error-content hover:bg-error/50">
                     Delete
                   </button>
                   {/* DELETE */}

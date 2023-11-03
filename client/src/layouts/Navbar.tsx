@@ -266,7 +266,9 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
                   </Link>
                 </li>
               ) : (
-                <li>
+                <></>
+              )}
+              <li>
                   <Link
                     to="/profile"
                     className="hover:text-primary-content hover:bg-primary"
@@ -274,7 +276,6 @@ const Navbar = ({ fullscreenHandle }: AppProps) => {
                     Profile
                   </Link>
                 </li>
-              )}
               <li>
                 <label
                   htmlFor="my-drawer"

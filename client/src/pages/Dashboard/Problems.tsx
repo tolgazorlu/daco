@@ -20,6 +20,15 @@ const Problems = () => {
         <div className="p-4 col-span-10 bg-base-100">
           <div className="p-2 rounded-lg">
             <div className="w-full h-10">
+              <button
+                className="btn btn-sm btn-primary text-primary-content hover:text-primary/50 float-right"
+                onClick={() => {
+                  let el: any = document.getElementById("add-problem-modal")!;
+                  el.showModal();
+                }}
+              >
+                Add Problem
+              </button>
               <AddProblemModal />
             </div>
             <ProblemsTable />
