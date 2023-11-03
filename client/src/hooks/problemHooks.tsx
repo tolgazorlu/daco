@@ -23,7 +23,7 @@ export const useGetDailyProblemsQuery = () =>
       (await apiClient.get<Problem[]>(`api/problems/daily`)).data,
   });
 
-export const useCreateProblemQuery = () =>
+export const useCreateProblemMutation = () =>
   useMutation({
     mutationFn: async (problem: {
       day: number;
@@ -39,28 +39,57 @@ export const useCreateProblemQuery = () =>
     }) =>
       (
         await apiClient.post<{ problem: Problem }>(
-          `api/problems/createAlgorithm`,
+          `api/problems/create`,
           problem
         )
       ).data,
   });
 
-  export const useUpdateUserQuery = () =>
+export const useUpdateProblemMutation = () =>
   useMutation({
-    mutationFn: async (problem: {
-      username: string,
-      email: string,
-      avatar: string
+    mutationFn: async ({
+      id,
+      day,
+      date,
+      title,
+      slug,
+      sequence,
+      level,
+      description,
+      example,
+      constrain,
+      answer,
+    }: {
+      id: string;
+      day: number;
+      date: string;
+      title: string;
+      slug: string;
+      sequence: number;
+      level: string;
+      description: string;
+      example: string;
+      constrain: string;
+      answer: string;
     }) =>
       (
-        await apiClient.post<{ problem: Problem }>(
-          `api/problems/createAlgorithm`,
-          problem
-        )
+        await apiClient.put<Problem>(`api/problems/update/${id}`, {
+          id,
+          day,
+          date,
+          title,
+          slug,
+          sequence,
+          level,
+          description,
+          example,
+          constrain,
+          answer,
+        })
       ).data,
   });
 
-  export const useDeleteProblemMutation = () =>
+export const useDeleteProblemMutation = () =>
   useMutation({
     mutationFn: async (problemId: string) =>
       (

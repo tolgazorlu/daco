@@ -4,11 +4,10 @@ import Navbar from "../../layouts/Navbar";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import { FullScreenHandle, useFullScreenHandle } from "react-full-screen";
 import ProblemsTable from "../../components/Dashboard/ProblemsTable";
-import AddAlgorithmModal from "../../components/Dashboard/AddAlgorithmModal";
 import SidebarButton from "../../components/Dashboard/SidebarButton";
+import AddProblemModal from "../../components/Dashboard/AddProblemModal";
 
 const Problems = () => {
-
   const handle: FullScreenHandle = useFullScreenHandle();
 
   return (
@@ -21,17 +20,8 @@ const Problems = () => {
         <div className="p-4 col-span-10 bg-base-100">
           <div className="p-2 rounded-lg">
             <div className="w-full h-10">
-              <button
-                className="btn btn-sm btn-success float-right"
-                onClick={() => {
-                  let el: any = document.getElementById("add-product-modal")!;
-                  el.showModal();
-                }}
-              >
-                Add Problem
-              </button>
+              <AddProblemModal />
             </div>
-            <AddAlgorithmModal />
             <ProblemsTable />
           </div>
         </div>

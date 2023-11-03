@@ -8,6 +8,7 @@ import {
 import { getError } from "../../utils/getError";
 import { ApiError } from "../../types/ApiError";
 import { useState } from "react";
+import EditProblemModal from "./EditProblemModal";
 
 const ProblemsTable = () => {
   const { data: problems, refetch } = useGetProblemsQuery();
@@ -24,7 +25,6 @@ const ProblemsTable = () => {
       toast.error(getError(error as ApiError));
     }
   };
-
   return (
     <div className="overflow-x-auto">
       <table className="table table-xs font-poppins">
@@ -70,9 +70,7 @@ const ProblemsTable = () => {
                   >
                     Detail
                   </a>
-                  <button className="btn btn-xs bg-warning px-2 py-1 rounded-md text-warning-content">
-                    Edit
-                  </button>
+                  <EditProblemModal item={item}/>
                   <button 
                   onClick={() => {
                     let el: any = document.getElementById("my_modal_1")!;
