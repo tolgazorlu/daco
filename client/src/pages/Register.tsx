@@ -11,10 +11,9 @@ import { VscLoading } from "react-icons/vsc";
 import { User } from "../contexts/User";
 
 const Register = () => {
-
   const navigation = useNavigate();
 
-  const { state } = useContext(User);
+  const { state, dispatch } = useContext(User);
   const { userInfo } = state;
 
   const { search } = useLocation();
@@ -84,21 +83,15 @@ const Register = () => {
     e.preventDefault();
     try {
       if (password == confirmPassword) {
-        await register({
+        const data = await register({
           username: username,
           email: email,
           password: password,
           isAdmin: false,
-        })
-          .then(() => {
-            setTimeout(() => {
-              navigation("/login");
-            }, 1000);
-            toast.success("Registration successed!");
-          })
-          .catch(() => {
-            toast.error("Registration failed!");
-          });
+        });
+        dispatch({ type: "USER_SIGNIN", payload: data });
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigation(redirect || "/");
       }
     } catch (error) {
       toast.error(getError(error as ApiError));
@@ -130,7 +123,7 @@ const Register = () => {
       </Helmet>
       <>
         <div className="px-0 lg:px-20" id="screen">
-          <Navbar/>
+          <Navbar />
         </div>
         <div className="flex h-[90vh] py-8">
           <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
