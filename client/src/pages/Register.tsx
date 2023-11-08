@@ -1,8 +1,3 @@
-import {
-  FullScreen,
-  FullScreenHandle,
-  useFullScreenHandle,
-} from "react-full-screen";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../layouts/Navbar";
 import { FormEvent, useContext, useEffect, useState } from "react";
@@ -16,7 +11,6 @@ import { VscLoading } from "react-icons/vsc";
 import { User } from "../contexts/User";
 
 const Register = () => {
-  const handle: FullScreenHandle = useFullScreenHandle();
 
   const navigation = useNavigate();
 
@@ -134,9 +128,9 @@ const Register = () => {
       <Helmet>
         <title>DACO</title>
       </Helmet>
-      <FullScreen handle={handle}>
+      <>
         <div className="px-0 lg:px-20" id="screen">
-          <Navbar fullscreenHandle={handle} />
+          <Navbar/>
         </div>
         <div className="flex h-[90vh] py-8">
           <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
@@ -261,7 +255,7 @@ const Register = () => {
             </form>
           </div>
         </div>
-      </FullScreen>
+      </>
     </>
   );
 };

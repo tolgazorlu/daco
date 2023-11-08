@@ -1,16 +1,12 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { User } from "../../contexts/User";
 import UpdateUserProfileModal from "./UpdateUserProfileModal";
 
 const UserProfileInfo = () => {
   const { state } = useContext(User);
   const { userInfo } = state;
-
-  useEffect(() => {
-    console.log(userInfo)
-  }, [userInfo])
 
   return (
     <div className="stats bg-base shadow-md">

@@ -10,20 +10,24 @@ import { User } from "../../contexts/User";
 const UpdateUserProfileModal = () => {
 
   const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
-  const {state} = useContext(User)
+  const {state, dispatch} = useContext(User)
   const {userInfo} = state
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [avatar, setAvatar] = useState<string>("");
 
-  const UpdateUserHandler = async () => {
+  const UpdateUserHandler = async (e: React.SyntheticEvent) => {
+    e.preventDefault()
     try {
-      await updateUser({
+      const data = await updateUser({
         username: username,
         email: email,
         avatar: avatar,
       });
+      dispatch({ type: 'USER_SIGNIN', payload: data })
+      localStorage.setItem('userInfo', JSON.stringify(data))
+      toast.success('profile updated!')
     } catch (err) {
       toast.error(getError(err as ApiError));
     }
@@ -116,7 +120,7 @@ const UpdateUserProfileModal = () => {
           </div>
           <button
             className="float-right btn btn-sm bg-success text-success-content hover:bg-success/50"
-            onClick={() => UpdateUserHandler()}
+            onClick={UpdateUserHandler}
           >
             Update User
           </button>

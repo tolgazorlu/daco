@@ -1,5 +1,3 @@
-import { Problem } from "./ProblemType"
-
 export type UserInfo = {
     username: string,
     email: string,
@@ -7,5 +5,5 @@ export type UserInfo = {
     avatar: string,
     isAdmin: boolean,
     createdAt: string,
-    solvedProblems: Problem
+    solvedProblems: string[]
 }

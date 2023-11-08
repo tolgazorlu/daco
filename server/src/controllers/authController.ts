@@ -84,8 +84,11 @@ module.exports.Update = async (req: Request, res: Response) => {
                 username: updatedUser.username,
                 email: updatedUser.email,
                 avatar: updatedUser.avatar,
+                token: generateToken(updatedUser),
             })
-        res.json({"message": "user not found!"})
+        }
+        else{
+            res.json({"message": "user not found!"})
         }
     } catch (error) {
         res.json({ "message": error })

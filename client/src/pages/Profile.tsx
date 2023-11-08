@@ -1,4 +1,3 @@
-import { FullScreenHandle, useFullScreenHandle } from "react-full-screen";
 import Navbar from "../layouts/Navbar";
 import Sidebar from "../components/Dashboard/Sidebar";
 import DailyProblemsTable from "../components/Dashboard/DailyProblemsTable";
@@ -8,7 +7,6 @@ import UserProfileInfo from "../components/User/UserProfileInfo";
 import UserMainStats from "../components/User/UserMainStats";
 
 const Profile = () => {
-  const handle: FullScreenHandle = useFullScreenHandle();
 
   return (
     <div>
@@ -24,7 +22,7 @@ const Profile = () => {
         pauseOnHover
         theme="light"
       />
-      <Navbar fullscreenHandle={handle} />
+      <Navbar/>
       <hr className="border-base-200"></hr>
       <SidebarButton />
       <div className="bg-white grid grid-cols-12">
