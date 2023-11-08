@@ -90,15 +90,11 @@ export const useUpdateProblemMutation = () =>
       ).data,
   });
 
-export const useSolveProblemMutation = () => 
+export const useSolveProblemMutation = () =>
   useMutation({
-    mutationFn: async ({
-      id
-    }: {
-      id: string;
-    }) =>
+    mutationFn: async ({ id }: { id: string }) =>
       (
-        await apiClient.put<{ message: string; user: UserInfo}>(
+        await apiClient.put<{ message: string; user: UserInfo }>(
           `api/problems/solveProblem/${id}`
         )
       ).data,

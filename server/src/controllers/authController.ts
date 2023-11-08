@@ -28,6 +28,7 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
                 email: newUser.email,
                 avatar: newUser.avatar,
                 isAdmin: newUser.isAdmin,
+                solvedProblems: newUser.solvedProblems,
                 token: generateToken(newUser)
             });
 
@@ -60,7 +61,8 @@ module.exports.Login = async (req: Request, res: Response, next: NextFunction) =
             email: user.email,
             isAdmin: user.isAdmin,
             avatar: user.avatar,
-            token: generateToken(user)
+            solvedProblems: user.solvedProblems,
+            token: generateToken(user),
         });
         next();
 

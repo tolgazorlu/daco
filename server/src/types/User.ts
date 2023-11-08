@@ -4,5 +4,6 @@ export type User = {
     email: string
     token: string
     isAdmin: boolean
+    solvedProblems: string[]
   }
   

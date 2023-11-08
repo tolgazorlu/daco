@@ -9,6 +9,7 @@ declare namespace Express {
         avatar: string
         isAdmin: boolean
         token: string
+        solvedProblems: string[]
       }
     }
   }
