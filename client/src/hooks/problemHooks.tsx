@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import apiClient from "../utils/apiClient";
 import { Problem } from "../types/ProblemType";
+import { UserInfo } from "../types/UserInfo";
 
 export const useGetProblemsQuery = () =>
   useQuery({
@@ -86,6 +87,20 @@ export const useUpdateProblemMutation = () =>
           constrain,
           answer,
         })
+      ).data,
+  });
+
+export const useSolveProblemMutation = () => 
+  useMutation({
+    mutationFn: async ({
+      id
+    }: {
+      id: string;
+    }) =>
+      (
+        await apiClient.put<{ message: string; user: UserInfo}>(
+          `api/problems/solveProblem/${id}`
+        )
       ).data,
   });
 

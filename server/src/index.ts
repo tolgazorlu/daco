@@ -8,7 +8,6 @@ const cors = require('cors')
 const problemRoute = require('./routes/problemRoute')
 const authRoute = require('./routes/authRoute')
 
-
 const app: Express = express();
 
 //GET PORT NUMBER

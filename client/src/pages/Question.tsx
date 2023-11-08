@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetProblemQuery } from "../hooks/problemHooks";
+import { useGetProblemQuery, useSolveProblemMutation } from "../hooks/problemHooks";
 import Navbar from "../layouts/Navbar";
 import {
   FullScreen,
@@ -10,21 +10,26 @@ import ErrorMessage from "../components/ErrorMessage";
 import { getError } from "../utils/getError";
 import { ApiError } from "../types/ApiError";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const Question = () => {
   const { slug } = useParams();
   const { data: problem, isLoading, error } = useGetProblemQuery(slug!);
+  const {mutateAsync: solveProblem } = useSolveProblemMutation()
 
   const [answer, setAnswer] = useState("");
 
-  const submitHandler = (e: React.FormEvent) => {
+  const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     if (problem) {
       if (problem.answer == answer) {
-        toast.success("Congratulations!");
-      } else {
-        toast.warning("Check your answer!");
+        try {
+          await solveProblem({
+            id: problem._id
+          })
+        } catch (error) {
+          console.log(getError(error as ApiError));
+        }
       }
     }
   };
@@ -111,7 +116,7 @@ const Question = () => {
               <strong>Example:</strong>
               {examples?.map((item: string) => {
                 return (
-                  <span className="py-1 px-2 bg-primary-content text-primary rounded-md">
+                  <span key={item} className="py-1 px-2 bg-primary-content text-primary rounded-md">
                     {item}
                   </span>
                 );

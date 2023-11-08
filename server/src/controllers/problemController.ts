@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction } from 'express'
 import { ProblemModel } from '../models/problem'
 import { daily } from '../utils/daily'
+import { UserModel } from '../models/user'
 
 exports.createProblem = async (req: Request, res: Response) => {
     try {
@@ -103,5 +104,23 @@ exports.deleteProblem = async (req: Request, res: Response) => {
             succcess: 'fail',
             message: error
         })
+    }
+}
+
+exports.solveProblem = async (req: Request, res: Response) => {
+    try {
+        const user = await UserModel.findById(req.user._id);
+        if (user) {
+            await user.solvedProblems?.push(req.params.id)
+            const solve = await user.save();
+            res.send({ solve })
+        }
+        else{
+            res.status(404).json({
+                message: 'User not found!'
+            })
+        }
+    } catch (error) {
+        res.status(400).json(error);
     }
 }

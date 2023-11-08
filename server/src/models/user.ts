@@ -1,22 +1,26 @@
-import { modelOptions, prop, getModelForClass } from '@typegoose/typegoose'
+import { modelOptions, prop, getModelForClass, Ref } from '@typegoose/typegoose'
+import { Problem } from './problem'
 
-@modelOptions({schemaOptions: {timestamps: true}})
+@modelOptions({ schemaOptions: { timestamps: true } })
 export class User {
     public _id?: string
 
-    @prop({required: true, unique: true})
+    @prop({ required: true, unique: true })
     public username!: string
 
-    @prop({required: true, unique: true})
+    @prop({ required: true, unique: true })
     public email!: string
 
-    @prop({required: true})
+    @prop({ required: true })
     public password!: string
 
-    @prop({required: false,  default: 'https://imageupload.io/ib/3oXStgvAko9IBAp_1693943124.png'})
+    @prop({ required: false, default: 'https://imageupload.io/ib/3oXStgvAko9IBAp_1693943124.png' })
     public avatar!: string
 
-    @prop({required: true, default: false})
+    @prop({ ref: Problem })
+    public solvedProblems?: Ref<Problem>[]
+
+    @prop({ required: true, default: false })
     public isAdmin!: boolean
 
 }
