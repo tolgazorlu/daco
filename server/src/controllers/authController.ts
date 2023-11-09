@@ -78,6 +78,7 @@ module.exports.Update = async (req: Request, res: Response) => {
             user.username = req.body.username || user.username
             user.email = req.body.email || user.email
             user.avatar = req.body.avatar || user.avatar
+            user.isAdmin = user.isAdmin
             const updatedUser = await user.save()
             res.send({
                 _id: updatedUser._id,

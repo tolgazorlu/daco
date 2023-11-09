@@ -29,7 +29,7 @@ const UserMainStats = () => {
           {solved}
         </div>
         <div className="stat-actions">
-          <a href="/" className="btn btn-sm btn-primary-content text-primary">
+          <a href="/" className="btn btn-sm btn-nautral-content text-nautral">
             Check New Problems
           </a>
         </div>
