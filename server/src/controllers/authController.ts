@@ -84,6 +84,7 @@ module.exports.Update = async (req: Request, res: Response) => {
                 username: updatedUser.username,
                 email: updatedUser.email,
                 avatar: updatedUser.avatar,
+                isAdmin: updatedUser.isAdmin,
                 token: generateToken(updatedUser),
             })
         }

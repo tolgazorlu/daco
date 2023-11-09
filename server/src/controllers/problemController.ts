@@ -124,3 +124,12 @@ exports.solveProblem = async (req: Request, res: Response) => {
         res.status(400).json(error);
     }
 }
+
+exports.getSolvedProblems = async (req:Request, res: Response) => {
+    try {
+        const problems = req.user.solvedProblems
+        res.status(200).send({problems})
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}

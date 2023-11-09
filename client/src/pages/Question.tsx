@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import {
   useGetProblemQuery,
@@ -8,7 +9,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import { getError } from "../utils/getError";
 import { ApiError } from "../types/ApiError";
 import { useContext, useEffect, useState } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { User } from "../contexts/User";
 
 const Question = () => {
@@ -16,8 +17,10 @@ const Question = () => {
   const { data: problem, isLoading, error } = useGetProblemQuery(slug!);
   const { mutateAsync: solveProblem } = useSolveProblemMutation();
 
-  const { state } = useContext(User);
+  const { state, dispatch } = useContext(User);
   const { userInfo } = state;
+
+  const [isSolved, setIsSolved] = useState(false)
 
   const [answer, setAnswer] = useState("");
   const [problemId, setProblemId] = useState("");
@@ -27,12 +30,18 @@ const Question = () => {
     if (problem) {
       if (problem.answer == answer) {
         try {
-          await solveProblem({
+          const data = await solveProblem({
             id: problem._id,
           });
+          dispatch({ type: "USER_SIGNIN", payload: data.solve });
+          localStorage.setItem("userInfo", JSON.stringify(data.solve));
+          toast.success("Problem successfully solved!");
         } catch (error) {
-          console.log(getError(error as ApiError));
+          toast.error(getError(error as ApiError));
         }
+      }
+      else{
+        toast.error("Answer not correct!");
       }
     }
   };
@@ -40,6 +49,9 @@ const Question = () => {
   useEffect(() => {
     if (problem) {
       setProblemId(problem?._id);
+    }
+    if(userInfo?.solvedProblems){
+      setIsSolved(userInfo?.solvedProblems.includes(problemId))
     }
   }, [problem, problemId, userInfo]);
 
@@ -134,7 +146,7 @@ const Question = () => {
               })}
             </div>
           </div>
-          {userInfo?.solvedProblems.includes(problemId) ? (
+          { isSolved ? (
             <form className="p-4  max-h-full w-1/6 flex flex-col gap-2">
               <button className="btn btn-disabled btn-sm">Submited</button>
             </form>

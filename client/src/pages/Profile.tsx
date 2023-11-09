@@ -1,10 +1,10 @@
 import Navbar from "../layouts/Navbar";
 import Sidebar from "../components/Dashboard/Sidebar";
-import DailyProblemsTable from "../components/Dashboard/DailyProblemsTable";
 import { ToastContainer } from "react-toastify";
 import SidebarButton from "../components/Dashboard/SidebarButton";
 import UserProfileInfo from "../components/User/UserProfileInfo";
 import UserMainStats from "../components/User/UserMainStats";
+import UserSolvedProblemsTable from "../components/User/UserSolvedProblemsTable";
 
 const Profile = () => {
 
@@ -30,7 +30,7 @@ const Profile = () => {
         <div className="p-4 col-span-10 bg-base-100 flex flex-col gap-4">
           <UserProfileInfo />
           <UserMainStats />
-          <DailyProblemsTable />
+          <UserSolvedProblemsTable />
         </div>
       </div>
     </div>

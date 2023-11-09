@@ -94,9 +94,12 @@ export const useSolveProblemMutation = () =>
   useMutation({
     mutationFn: async ({ id }: { id: string }) =>
       (
-        await apiClient.put<{ message: string; user: UserInfo }>(
-          `api/problems/solveProblem/${id}`
-        )
+        await apiClient.put<{
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          solve: any;
+          message: string;
+          user: UserInfo;
+        }>(`api/problems/solveProblem/${id}`)
       ).data,
   });
 
