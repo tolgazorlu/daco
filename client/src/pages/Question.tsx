@@ -20,7 +20,7 @@ const Question = () => {
   const { state, dispatch } = useContext(User);
   const { userInfo } = state;
 
-  const [isSolved, setIsSolved] = useState(false)
+  const [isSolved, setIsSolved] = useState(false);
 
   const [answer, setAnswer] = useState("");
   const [problemId, setProblemId] = useState("");
@@ -28,20 +28,15 @@ const Question = () => {
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     if (problem) {
-      if (problem.answer == answer) {
-        try {
-          const data = await solveProblem({
-            id: problem._id,
-          });
-          dispatch({ type: "USER_SIGNIN", payload: data.solve });
-          localStorage.setItem("userInfo", JSON.stringify(data.solve));
-          toast.success("Problem successfully solved!");
-        } catch (error) {
-          toast.error(getError(error as ApiError));
-        }
-      }
-      else{
-        toast.error("Answer not correct!");
+      try {
+        const data = await solveProblem({
+          id: problem._id,
+          answer: answer,
+        });
+        dispatch({ type: "USER_SIGNIN", payload: data.solve });
+        localStorage.setItem("userInfo", JSON.stringify(data.solve));
+      } catch (error) {
+        toast.error(getError(error as ApiError));
       }
     }
   };
@@ -50,8 +45,8 @@ const Question = () => {
     if (problem) {
       setProblemId(problem?._id);
     }
-    if(userInfo?.solvedProblems){
-      setIsSolved(userInfo?.solvedProblems.includes(problemId))
+    if (userInfo?.solvedProblems) {
+      setIsSolved(userInfo?.solvedProblems.includes(problemId));
     }
   }, [problem, problemId, userInfo]);
 
@@ -146,7 +141,7 @@ const Question = () => {
               })}
             </div>
           </div>
-          { isSolved ? (
+          {isSolved ? (
             <form className="p-4  max-h-full w-1/6 flex flex-col gap-2">
               <button className="btn btn-disabled btn-sm">Submited</button>
             </form>

@@ -1,8 +1,18 @@
-
+import { useContext, useEffect } from "react";
 import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
+import { User } from "../../contexts/User";
 
 const UserSolvedProblemsTable = () => {
   const { data: problem, isLoading, error } = useGetDailyProblemsQuery();
+
+  const { state } = useContext(User);
+  const { userInfo } = state;
+
+  useEffect(() => {
+    if (userInfo) {
+      console.log(userInfo.solvedProblems[0]);
+    }
+  });
 
   return (
     <>

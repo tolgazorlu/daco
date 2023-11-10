@@ -34,7 +34,9 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
 
         next();
     } catch (error) {
-        return res.status(400).json({ message: error });
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
@@ -67,7 +69,9 @@ module.exports.Login = async (req: Request, res: Response, next: NextFunction) =
         next();
 
     } catch (error) {
-        return res.json({ message: error });
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
@@ -93,7 +97,9 @@ module.exports.Update = async (req: Request, res: Response) => {
             res.json({"message": "user not found!"})
         }
     } catch (error) {
-        res.json({ "message": error })
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
@@ -102,7 +108,9 @@ module.exports.getUsers = async (req: Request, res: Response) => {
         const users = await UserModel.find({});
         res.status(200).send(users)
     } catch (error) {
-        res.status(400).json({ message: error })
+        res.status(400).json({
+            message: error
+        })
     }
 }
 

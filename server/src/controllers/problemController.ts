@@ -2,6 +2,7 @@ import { Response, Request, NextFunction } from 'express'
 import { ProblemModel } from '../models/problem'
 import { daily } from '../utils/daily'
 import { UserModel } from '../models/user'
+import chalk from 'chalk'
 
 exports.createProblem = async (req: Request, res: Response) => {
     try {
@@ -21,7 +22,9 @@ exports.createProblem = async (req: Request, res: Response) => {
         )
         res.status(201).json(problem)
     } catch (error) {
-        res.status(500).json(error)
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
@@ -35,13 +38,15 @@ exports.getProblems = async (req: Request, res: Response) => {
             res.status(404).send('Problem not found!')
         }
     } catch (error) {
-        res.status(500).json(error)
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
 exports.getDailyProblems = async (req: Request, res: Response) => {
     try {
-        const problem = await ProblemModel.find({ day: daily })
+        const problem = await ProblemModel.find({ day: daily }, '-answer')
         if (problem) {
             res.status(200).send(problem)
         }
@@ -49,13 +54,15 @@ exports.getDailyProblems = async (req: Request, res: Response) => {
             res.status(404).send('Problem not found!')
         }
     } catch (error) {
-        res.status(500).json(error)
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
 exports.getProblem = async (req: Request, res: Response) => {
     try {
-        const problem = await ProblemModel.findOne({ slug: req.params.slug })
+        const problem = await ProblemModel.findOne({ slug: req.params.slug }, '-answer')
         if (problem) {
             res.status(200).send(problem)
         }
@@ -63,7 +70,9 @@ exports.getProblem = async (req: Request, res: Response) => {
             res.status(404).send('Problem not found!')
         }
     } catch (error) {
-        res.status(500).send(error)
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
@@ -101,7 +110,6 @@ exports.deleteProblem = async (req: Request, res: Response) => {
         res.status(404).send({ message: 'Product not found!' })
     } catch (error) {
         res.status(400).json({
-            succcess: 'fail',
             message: error
         })
     }
@@ -110,10 +118,18 @@ exports.deleteProblem = async (req: Request, res: Response) => {
 exports.solveProblem = async (req: Request, res: Response) => {
     try {
         const user = await UserModel.findById(req.user._id);
+        const problem = await ProblemModel.findById(req.body.id)
         if (user) {
-            await user.solvedProblems?.push(req.params.id)
-            const solve = await user.save();
-            res.send({ solve })
+            if((problem?.answer == req.body.answer) && !(user.solvedProblems?.includes(req.body.id))){
+                await user.solvedProblems?.push(req.params.id)
+                const solve = await user.save();
+                res.send({ solve })
+            }
+            else{
+                res.status(400).json({
+                    message: 'Answer not correct!'
+                })
+            }
         }
         else{
             res.status(404).json({
@@ -121,7 +137,9 @@ exports.solveProblem = async (req: Request, res: Response) => {
             })
         }
     } catch (error) {
-        res.status(400).json(error);
+        res.status(400).json({
+            message: error
+        })
     }
 }
 
@@ -130,6 +148,8 @@ exports.getSolvedProblems = async (req:Request, res: Response) => {
         const problems = req.user.solvedProblems
         res.status(200).send({problems})
     } catch (error) {
-        res.status(400).json(error);
+        res.status(400).json({
+            message: error
+        })
     }
 }

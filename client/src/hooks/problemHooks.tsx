@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import apiClient from "../utils/apiClient";
 import { Problem } from "../types/ProblemType";
-import { UserInfo } from "../types/UserInfo";
 
 export const useGetProblemsQuery = () =>
   useQuery({
@@ -92,14 +91,16 @@ export const useUpdateProblemMutation = () =>
 
 export const useSolveProblemMutation = () =>
   useMutation({
-    mutationFn: async ({ id }: { id: string }) =>
+    mutationFn: async ({ id, answer }: { id: string, answer: string }) =>
       (
         await apiClient.put<{
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           solve: any;
           message: string;
-          user: UserInfo;
-        }>(`api/problems/solveProblem/${id}`)
+        }>(`api/problems/solveProblem/${id}`, {
+          id,
+          answer
+        })
       ).data,
   });
 
