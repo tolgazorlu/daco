@@ -33,8 +33,8 @@ const Question = () => {
           id: problem._id,
           answer: answer,
         });
-        dispatch({ type: "USER_SIGNIN", payload: data.solve });
-        localStorage.setItem("userInfo", JSON.stringify(data.solve));
+        dispatch({ type: "USER_SIGNIN", payload: data });
+        localStorage.setItem("userInfo", JSON.stringify(data));
       } catch (error) {
         toast.error(getError(error as ApiError));
       }

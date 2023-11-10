@@ -1,12 +1,14 @@
 import { Router } from "express"
 import { isAuth } from "../utils/isAuth"
 import { isAdmin } from "../utils/isAdmin"
-const {Register, getUsers, Login, Update} = require('../controllers/authController')
+const authController = require('../controllers/authController')
 const router: Router = require('express').Router()
 
-router.get('/all', isAuth, isAdmin, getUsers)
-router.post('/register', Register)
-router.post('/login', Login)
-router.put('/update', isAuth, Update)
+
+router.post('/register', authController.Register)
+router.post('/login', authController.Login)
+router.put('/update', isAuth, authController.Update)
+router.get('/all', isAuth, isAdmin, authController.getUsers)
+
 
 module.exports = router

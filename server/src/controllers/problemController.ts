@@ -2,7 +2,7 @@ import { Response, Request, NextFunction } from 'express'
 import { ProblemModel } from '../models/problem'
 import { daily } from '../utils/daily'
 import { UserModel } from '../models/user'
-import chalk from 'chalk'
+import { generateToken } from '../utils/token'
 
 exports.createProblem = async (req: Request, res: Response) => {
     try {
@@ -35,7 +35,28 @@ exports.getProblems = async (req: Request, res: Response) => {
             res.status(200).send(problem)
         }
         else {
-            res.status(404).send('Problem not found!')
+            res.status(400).json({
+                message: 'Problem not found!'
+            })
+        }
+    } catch (error) {
+        res.status(400).json({
+            message: error
+        })
+    }
+}
+
+exports.getSolvedProblems = async (req: Request, res: Response) => {
+    try {
+        const problem = await ProblemModel.find({ _id: { $all: req.user.solvedProblems } })
+        console.log(problem)
+        if (problem) {
+            res.status(200).send(problem)
+        }
+        else {
+            res.status(400).json({
+                message: 'Problem not found!'
+            })
         }
     } catch (error) {
         res.status(400).json({
@@ -51,7 +72,9 @@ exports.getDailyProblems = async (req: Request, res: Response) => {
             res.status(200).send(problem)
         }
         else {
-            res.status(404).send('Problem not found!')
+            res.status(400).json({
+                message: 'Problem not found!'
+            })
         }
     } catch (error) {
         res.status(400).json({
@@ -67,7 +90,9 @@ exports.getProblem = async (req: Request, res: Response) => {
             res.status(200).send(problem)
         }
         else {
-            res.status(404).send('Problem not found!')
+            res.status(400).json({
+                message: 'Problem not found!'
+            })
         }
     } catch (error) {
         res.status(400).json({
@@ -93,6 +118,11 @@ exports.updateProblem = async (req: Request, res: Response) => {
             const updatedProblem = await problem.save()
             res.send({ updatedProblem })
         }
+        else {
+            res.status(400).json({
+                message: 'Problem not found!'
+            })
+        }
     } catch (error) {
         res.status(400).json({
             message: error
@@ -107,7 +137,9 @@ exports.deleteProblem = async (req: Request, res: Response) => {
             const deletedProblem = await problem.deleteOne()
             res.status(200).send({ message: 'success', problem: deletedProblem })
         }
-        res.status(404).send({ message: 'Product not found!' })
+        res.status(400).json({
+            message: 'Problem not found!'
+        })
     } catch (error) {
         res.status(400).json({
             message: error
@@ -120,18 +152,31 @@ exports.solveProblem = async (req: Request, res: Response) => {
         const user = await UserModel.findById(req.user._id);
         const problem = await ProblemModel.findById(req.body.id)
         if (user) {
-            if((problem?.answer == req.body.answer) && !(user.solvedProblems?.includes(req.body.id))){
+            if ((problem?.answer == req.body.answer) && !(user.solvedProblems?.includes(req.body.id))) {
                 await user.solvedProblems?.push(req.params.id)
-                const solve = await user.save();
-                res.send({ solve })
+                user.username = req.body.username || user.username
+                user.email = req.body.email || user.email
+                user.avatar = req.body.avatar || user.avatar
+                user.isAdmin = user.isAdmin
+                user.solvedProblems = user.solvedProblems
+                const updatedUser = await user.save()
+                res.send({
+                    _id: updatedUser._id,
+                    username: updatedUser.username,
+                    email: updatedUser.email,
+                    avatar: updatedUser.avatar,
+                    isAdmin: updatedUser.isAdmin,
+                    solvedProblems: updatedUser.solvedProblems,
+                    token: generateToken(updatedUser),
+                })
             }
-            else{
+            else {
                 res.status(400).json({
                     message: 'Answer not correct!'
                 })
             }
         }
-        else{
+        else {
             res.status(404).json({
                 message: 'User not found!'
             })
@@ -143,13 +188,3 @@ exports.solveProblem = async (req: Request, res: Response) => {
     }
 }
 
-exports.getSolvedProblems = async (req:Request, res: Response) => {
-    try {
-        const problems = req.user.solvedProblems
-        res.status(200).send({problems})
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
-    }
-}

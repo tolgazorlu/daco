@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import apiClient from "../utils/apiClient";
 import { Problem } from "../types/ProblemType";
+import { UserInfo } from "../types/UserInfo";
 
 export const useGetProblemsQuery = () =>
   useQuery({
@@ -21,6 +22,13 @@ export const useGetDailyProblemsQuery = () =>
     queryKey: ["daily"],
     queryFn: async () =>
       (await apiClient.get<Problem[]>(`api/problems/daily`)).data,
+  });
+
+export const useGetSolvedProblemsQuery = () =>
+  useQuery({
+    queryKey: ["solved"],
+    queryFn: async () =>
+      (await apiClient.get<Problem[]>(`api/problems/solved`)).data,
   });
 
 export const useCreateProblemMutation = () =>
@@ -91,15 +99,11 @@ export const useUpdateProblemMutation = () =>
 
 export const useSolveProblemMutation = () =>
   useMutation({
-    mutationFn: async ({ id, answer }: { id: string, answer: string }) =>
+    mutationFn: async ({ id, answer }: { id: string; answer: string }) =>
       (
-        await apiClient.put<{
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          solve: any;
-          message: string;
-        }>(`api/problems/solveProblem/${id}`, {
+        await apiClient.put<UserInfo>(`api/problems/solveProblem/${id}`, {
           id,
-          answer
+          answer,
         })
       ).data,
   });

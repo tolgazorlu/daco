@@ -1,16 +1,12 @@
-import { useContext, useEffect } from "react";
-import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
-import { User } from "../../contexts/User";
+import { useEffect } from "react";
+import { useGetSolvedProblemsQuery } from "../../hooks/problemHooks";
 
 const UserSolvedProblemsTable = () => {
-  const { data: problem, isLoading, error } = useGetDailyProblemsQuery();
-
-  const { state } = useContext(User);
-  const { userInfo } = state;
+  const { data: problem, isLoading, error } = useGetSolvedProblemsQuery();
 
   useEffect(() => {
-    if (userInfo) {
-      console.log(userInfo.solvedProblems[0]);
+    if (problem) {
+      console.log(problem);
     }
   });
 

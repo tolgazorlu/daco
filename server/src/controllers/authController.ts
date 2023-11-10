@@ -83,6 +83,7 @@ module.exports.Update = async (req: Request, res: Response) => {
             user.email = req.body.email || user.email
             user.avatar = req.body.avatar || user.avatar
             user.isAdmin = user.isAdmin
+            user.solvedProblems = user.solvedProblems
             const updatedUser = await user.save()
             res.send({
                 _id: updatedUser._id,
@@ -90,6 +91,7 @@ module.exports.Update = async (req: Request, res: Response) => {
                 email: updatedUser.email,
                 avatar: updatedUser.avatar,
                 isAdmin: updatedUser.isAdmin,
+                solvedProblems: updatedUser.solvedProblems,
                 token: generateToken(updatedUser),
             })
         }
