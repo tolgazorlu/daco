@@ -5,14 +5,17 @@ const bcrypt = require('bcrypt');
 
 module.exports.Register = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { email, username } = req.body
+        const { email, username, password } = req.body
         const existingUser = await UserModel.findOne({ email })
         const existingUsername = await UserModel.findOne({ username })
         if (existingUser) {
-            return res.status(400).json({ message: 'This email is already registered.' });
+            return res.status(400).json({ message: 'This email is already registered!' });
         }
         if(existingUsername){
-            return res.status(400).json({ message: 'This username is already taken.' });
+            return res.status(400).json({ message: 'This username is already taken!' });
+        }
+        if(password.includes(username) || password.includes(email) ){
+            return res.status(400).json({ message: 'Password cannot contain your username or email!' });
         }
         const addUser = async (username: string, email: string, password: string, avatar: string) => {
             const user = await UserModel.create({
