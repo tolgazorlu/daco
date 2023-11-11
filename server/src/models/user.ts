@@ -5,7 +5,7 @@ import { Problem } from './problem'
 export class User {
     public _id?: string
 
-    @prop({ required: true, unique: true })
+    @prop({ required: true, unique: true, lowercase: true, minlength: 3, maxlength: 15 })
     public username!: string
 
     @prop({ required: true, unique: true })

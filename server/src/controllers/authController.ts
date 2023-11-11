@@ -8,6 +8,9 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
         const { email, username, password } = req.body
         const existingUser = await UserModel.findOne({ email })
         const existingUsername = await UserModel.findOne({ username })
+        if(!email.match(/\S+@\S+\.\S+/)){
+            return res.status(400).json({ message: 'Email format is invalid!' });
+        }
         if (existingUser) {
             return res.status(400).json({ message: 'This email is already registered!' });
         }
