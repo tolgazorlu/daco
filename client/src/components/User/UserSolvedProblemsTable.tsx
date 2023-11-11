@@ -27,10 +27,8 @@ const UserSolvedProblemsTable = () => {
                 <tr>
                   <th></th>
                   <th>Day</th>
-                  <th>Date</th>
                   <th>Title</th>
-                  <th>Answer</th>
-                  <th>Slug</th>
+                  <th>Date</th>
                   <th>Difficulty</th>
                   <th>Action</th>
                 </tr>
@@ -41,10 +39,8 @@ const UserSolvedProblemsTable = () => {
                     <tr key={item._id}>
                       <th>{index + 1}</th>
                       <td>{item.day}</td>
-                      <td>{item.date}</td>
                       <td>{item.title}</td>
-                      <td>{item.answer}</td>
-                      <td>{item.slug}</td>
+                      <td>{item.date}</td>
                       <td
                         className={
                           item.level == "easy"
@@ -72,10 +68,8 @@ const UserSolvedProblemsTable = () => {
                 <tr>
                   <th></th>
                   <th>Day</th>
-                  <th>Date</th>
                   <th>Title</th>
-                  <th>Answer</th>
-                  <th>Slug</th>
+                  <th>Date</th>
                   <th>Difficulty</th>
                   <th>Action</th>
                 </tr>

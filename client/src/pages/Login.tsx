@@ -10,9 +10,17 @@ import { ApiError } from "../types/ApiError";
 import { VscLoading } from "react-icons/vsc";
 
 const Login = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailValidate, setEmailValidate] = useState(false);
+
+  const validateEmail = (email: string) => {
+    if (email.match(/\S+@\S+\.\S+/)) {
+      setEmailValidate(true);
+    } else {
+      setEmailValidate(false);
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -89,11 +97,19 @@ const Login = () => {
                   name="email"
                   id="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    validateEmail(e.target.value);
+                  }}
                   placeholder="Email Address"
                   className="w-full input input-bordered input-primary"
                   required
                 />
+                {(!emailValidate && email.length > 10) ? (
+                  <span className="block w-full text-error px-2 py-1">
+                    Email format is invalid!
+                  </span>
+                ) : null}
               </div>
               <div>
                 <label className="label">
