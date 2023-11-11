@@ -15,7 +15,7 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
                 username: username,
                 email: email,
                 password: password,
-                avatar: avatar
+                avatar: `https://source.boringavatars.com/beam/120/${username}?square`
             })
             return user
         }

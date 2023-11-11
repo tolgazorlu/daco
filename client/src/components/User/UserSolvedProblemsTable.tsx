@@ -20,10 +20,12 @@ const UserSolvedProblemsTable = () => {
         <div className="p-2 rounded-lg">
           <div className="overflow-x-auto">
             <table className="table table-xs font-poppins">
+              <caption className="text-left text-xl font-bold mb-4">
+                Solved Problems
+              </caption>
               <thead>
                 <tr>
                   <th></th>
-                  <th>Sequence</th>
                   <th>Day</th>
                   <th>Date</th>
                   <th>Title</th>
@@ -38,7 +40,6 @@ const UserSolvedProblemsTable = () => {
                   return (
                     <tr key={item._id}>
                       <th>{index + 1}</th>
-                      <td>{item.sequence}</td>
                       <td>{item.day}</td>
                       <td>{item.date}</td>
                       <td>{item.title}</td>
@@ -62,12 +63,6 @@ const UserSolvedProblemsTable = () => {
                         >
                           Detail
                         </a>
-                        <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50">
-                          Edit
-                        </button>
-                        <button className="btn btn-xs btn-error text-error-content hover:bg-error/50">
-                          Delete
-                        </button>
                       </td>
                     </tr>
                   );
@@ -76,7 +71,6 @@ const UserSolvedProblemsTable = () => {
               <tfoot>
                 <tr>
                   <th></th>
-                  <th>Sequence</th>
                   <th>Day</th>
                   <th>Date</th>
                   <th>Title</th>

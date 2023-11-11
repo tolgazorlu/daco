@@ -27,7 +27,10 @@ const ProblemsTable = () => {
   };
   return (
     <div className="overflow-x-auto">
-      <table className="table table-xs font-poppins">
+      <table className="table table-xs">
+        <caption className="text-left text-xl font-bold mb-4">
+          All Problems
+        </caption>
         <thead>
           <tr>
             <th></th>
@@ -66,17 +69,19 @@ const ProblemsTable = () => {
                 <td className="flex gap-1 h-12 items-center">
                   <a
                     href={`/question/${item.slug}`}
-                    className="btn btn-xs btn-info text-info-content hover:bg-info/50">
+                    className="btn btn-xs btn-info text-info-content hover:bg-info/50"
+                  >
                     Detail
                   </a>
-                  <EditProblemModal item={item}/>
-                  <button 
-                  onClick={() => {
-                    let el: any = document.getElementById("my_modal_1")!;
-                    el.showModal();
-                    setProblemId(item._id);
-                  }}
-                  className="btn btn-xs btn-error text-error-content hover:bg-error/50">
+                  <EditProblemModal item={item} />
+                  <button
+                    onClick={() => {
+                      let el: any = document.getElementById("my_modal_1")!;
+                      el.showModal();
+                      setProblemId(item._id);
+                    }}
+                    className="btn btn-xs btn-error text-error-content hover:bg-error/50"
+                  >
                     Delete
                   </button>
                   {/* DELETE */}
@@ -99,9 +104,7 @@ const ProblemsTable = () => {
                           >
                             Delete
                           </button>
-                          <button className="btn">
-                            Close
-                          </button>
+                          <button className="btn">Close</button>
                         </form>
                       </div>
                     </div>

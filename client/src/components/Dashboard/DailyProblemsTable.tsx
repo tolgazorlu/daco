@@ -12,7 +12,10 @@ const DailyProblemsTable = () => {
       ) : (
         <div className="p-2 rounded-lg">
           <div className="overflow-x-auto">
-            <table className="table table-xs font-poppins">
+            <table className="table table-xs">
+              <caption className="text-left text-xl font-bold mb-4">
+                Daily Problems
+              </caption>
               <thead>
                 <tr>
                   <th></th>

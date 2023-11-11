@@ -7,7 +7,10 @@ const UsersTable = () => {
     <div className="p-4 col-span-10">
       <div className="p-2 rounded-lg">
         <div className="overflow-x-auto">
-          <table className="table table-xs font-poppins">
+          <table className="table table-xs">
+            <caption className="text-left text-xl font-bold mb-4">
+              Users
+            </caption>
             <thead>
               <tr>
                 <th></th>
@@ -23,7 +26,10 @@ const UsersTable = () => {
               return (
                 <tbody>
                   <tr>
-                    <th> <span className="badge">{index + 1}</span></th>
+                    <th>
+                      {" "}
+                      <span className="badge">{index + 1}</span>
+                    </th>
                     <td>{item.username}</td>
                     <td>{item.username}</td>
                     <td>{item.email}</td>
@@ -34,9 +40,7 @@ const UsersTable = () => {
                           Admin
                         </span>
                       ) : (
-                        <span className="badge">
-                          User
-                        </span>
+                        <span className="badge">User</span>
                       )}
                     </td>
                     {item.isAdmin ? null : (
