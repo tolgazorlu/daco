@@ -150,7 +150,6 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-
         {/** THEMES */}
 
         <div className="drawer-end">
@@ -222,6 +221,14 @@ const Navbar = () => {
                 </div>
               </li>
               <hr className="mt-2 mb-2"></hr>
+              <li>
+                <a
+                  href="/profile"
+                  className="hover:text-primary-content hover:bg-primary"
+                >
+                  Profile
+                </a>
+              </li>
               {userInfo.isAdmin ? (
                 <li>
                   <a
@@ -234,14 +241,6 @@ const Navbar = () => {
               ) : (
                 <></>
               )}
-              <li>
-                  <a
-                    href="/profile"
-                    className="hover:text-primary-content hover:bg-primary"
-                  >
-                    Profile
-                  </a>
-                </li>
               <li>
                 <label
                   htmlFor="my-drawer"
