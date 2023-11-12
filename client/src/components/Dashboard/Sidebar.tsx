@@ -10,9 +10,9 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside
-        id="default-sidebar"
-        className="border-r-2 border-base-200 col-span-2 bg-base-100"
+      <label
+        id="sidebar"
+        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4">
@@ -219,7 +219,7 @@ const Sidebar = () => {
             </a>
           </div>
         </div>
-      </aside>
+      </label>
     </>
   );
 };

@@ -3,7 +3,6 @@
 import Navbar from "../../layouts/Navbar";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import ProblemsTable from "../../components/Dashboard/ProblemsTable";
-import SidebarButton from "../../components/Dashboard/SidebarButton";
 import AddProblemModal from "../../components/Dashboard/AddProblemModal";
 
 const Problems = () => {
@@ -11,11 +10,9 @@ const Problems = () => {
   return (
     <div>
       <Navbar/>
-      <hr></hr>
-      <SidebarButton />
-      <div className="bg-white grid grid-cols-12">
+      <div>
         <Sidebar />
-        <div className="p-4 col-span-10 bg-base-100">
+        <div className="px-4 py-8 sm:ml-64 mt-16 flex flex-col gap-4">
           <div className="p-2 rounded-lg">
             <div className="w-full h-10">
               <button

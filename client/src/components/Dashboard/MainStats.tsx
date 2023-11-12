@@ -12,7 +12,7 @@ const MainStats = () => {
         <div className="stat-value text-primary-content">25</div>
         <div className="stat-actions">
         <button
-        className="btn btn-sm btn-primary-content text-primary hover:text-primary/50"
+        className="btn btn-sm btn-nautral-content text-nautral"
         onClick={() => {
           let el: any = document.getElementById("add-problem-modal")!;
           el.showModal();
@@ -28,10 +28,10 @@ const MainStats = () => {
         <div className="stat-title text-primary-content">Total Users</div>
         <div className="stat-value text-primary-content">4200</div>
         <div className="stat-actions flex gap-2">
-          <button className="btn btn-sm btn-primary-content text-primary hover:text-primary/50">
+          <button className="btn btn-sm btn-nautral-content text-nautral">
             Check Users
           </button>
-          <button className="btn btn-sm btn-primary-content text-primary hover:text-primary/50">
+          <button className="btn btn-sm btn-nautral-content text-nautral">
             Copy Link
           </button>
         </div>

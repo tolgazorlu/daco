@@ -55,11 +55,11 @@ const Question = () => {
 
   return isLoading ? (
     <>
-      <div id="screen" className="h-screen">
+      <div>
         <div className="px-0 lg:px-20">
           <Navbar />
         </div>
-        <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
+        <div className="px-0 lg:px-20 rounded-xl overflow-hidden w-full">
           <div className="p-4 max-h-full flex flex-col gap-4">
             <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
             <span className="bg-primary-content rounded-full h-6 w-12 animate-pulse" />
@@ -95,73 +95,66 @@ const Question = () => {
         pauseOnHover
         theme="light"
       />
-      <div id="screen" className="h-screen">
-        <div className="px-0 lg:px-20">
-          <Navbar />
-        </div>
-        <div className="px-0 lg:px-20 rounded-xl h-5/6 overflow-hidden w-full">
-          <div className="p-4 max-h-full flex flex-col gap-4">
-            <span className="font-bold text-2xl">
-              <span>{problem.sequence}.</span> <span>{problem.title}</span>
-            </span>
-            <div>
-              <span
-                className={
-                  problem.level === "easy"
-                    ? "py-1 px-2 bg-success-content text-success rounded-md"
-                    : problem.level === "medium"
-                    ? "py-1 px-2 bg-warning-content text-warning rounded-md"
-                    : "py-1 px-2 bg-error-content text-error rounded-md"
-                }
-              >
-                {problem.level}
-              </span>
-            </div>
+      <Navbar />
+      <div>
+        <div className="p-4 flex flex-col gap-4 mt-14">
+          <span className="font-bold text-2xl">
+            <span>{problem.sequence}.</span> <span>{problem.title}</span>
+          </span>
+          <div>
             <span
-              dangerouslySetInnerHTML={{ __html: problem.description }}
-              className="leading-24"
-            />
-            <div className="flex flex-col gap-2 max-w-max">
-              <strong>Constrain:</strong>
-              <span className="py-1 px-2 bg-primary-content text-primary rounded-md">
-                {problem.constrain}
-              </span>
-            </div>
-            <div className="flex flex-col gap-2 max-w-max">
-              <strong>Example:</strong>
-              {examples?.map((item: string) => {
-                return (
-                  <span
-                    key={item}
-                    className="py-1 px-2 bg-primary-content text-primary rounded-md"
-                  >
-                    {item}
-                  </span>
-                );
-              })}
-            </div>
+              className={
+                problem.level === "easy"
+                  ? "py-1 px-2 bg-success-content text-success rounded-md"
+                  : problem.level === "medium"
+                  ? "py-1 px-2 bg-warning-content text-warning rounded-md"
+                  : "py-1 px-2 bg-error-content text-error rounded-md"
+              }
+            >
+              {problem.level}
+            </span>
           </div>
-          {isSolved ? (
-            <form className="p-4  max-h-full w-1/6 flex flex-col gap-2">
-              <button className="btn btn-disabled btn-sm">Submited</button>
-            </form>
-          ) : (
-            <form className="p-4  max-h-full w-1/6 flex flex-col gap-2">
-              <input
-                className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
-                placeholder="Enter answer here!"
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-              />
-              <button
-                className="btn btn-primary btn-sm"
-                onClick={submitHandler}
-              >
-                Submit
-              </button>
-            </form>
-          )}
+          <span
+            dangerouslySetInnerHTML={{ __html: problem.description }}
+            className="leading-24"
+          />
+          <div className="flex flex-col gap-2 max-w-max">
+            <strong>Constrain:</strong>
+            <span className="py-1 px-2 bg-primary-content text-primary rounded-md">
+              {problem.constrain}
+            </span>
+          </div>
+          <div className="flex flex-col gap-2 max-w-max">
+            <strong>Example:</strong>
+            {examples?.map((item: string) => {
+              return (
+                <span
+                  key={item}
+                  className="py-1 px-2 bg-primary-content text-primary rounded-md"
+                >
+                  {item}
+                </span>
+              );
+            })}
+          </div>
         </div>
+        {isSolved ? (
+          <form className="p-4  max-h-full sm:w-3/6 md:w-3/6 lg:w-3/6 flex flex-col gap-2">
+            <button className="btn btn-disabled btn-sm">Submited</button>
+          </form>
+        ) : (
+          <form className="p-4 max-h-full w-3/6 md:w-3/6 lg:w-3/6  flex flex-col gap-2">
+            <input
+              className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
+              placeholder="Enter answer here!"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+            />
+            <button className="btn btn-primary btn-sm" onClick={submitHandler}>
+              Submit
+            </button>
+          </form>
+        )}
       </div>
     </>
   );

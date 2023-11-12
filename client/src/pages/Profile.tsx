@@ -1,13 +1,11 @@
 import Navbar from "../layouts/Navbar";
 import Sidebar from "../components/Dashboard/Sidebar";
 import { ToastContainer } from "react-toastify";
-import SidebarButton from "../components/Dashboard/SidebarButton";
 import UserProfileInfo from "../components/User/UserProfileInfo";
 import UserMainStats from "../components/User/UserMainStats";
 import UserSolvedProblemsTable from "../components/User/UserSolvedProblemsTable";
 
 const Profile = () => {
-
   return (
     <div>
       <ToastContainer
@@ -22,12 +20,10 @@ const Profile = () => {
         pauseOnHover
         theme="light"
       />
-      <Navbar/>
-      <hr className="border-base-200"></hr>
-      <SidebarButton />
-      <div className="bg-white grid grid-cols-12">
+      <Navbar />
+      <div>
         <Sidebar />
-        <div className="p-4 col-span-10 bg-base-100 flex flex-col gap-4">
+        <div className="p-4 sm:ml-64 mt-16 flex flex-col gap-4">
           <UserProfileInfo />
           <UserMainStats />
           <UserSolvedProblemsTable />

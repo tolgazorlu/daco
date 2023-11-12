@@ -8,7 +8,7 @@ const Hero = () => {
   const { data: problems, isLoading, error } = useGetDailyProblemsQuery();
   
   return (
-    <div className="hero h-[90vh]">
+    <div className="hero h-screen">
       <div className="hero-content text-center">
         <div className="max-w-md -mt-20">
           <span className="flex gap-4 items-center justify-center w-full">

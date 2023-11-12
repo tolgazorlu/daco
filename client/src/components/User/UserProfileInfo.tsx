@@ -10,14 +10,15 @@ const UserProfileInfo = () => {
 
   return (
     <div className="stats bg-base shadow-md">
-      <div className="stat gap-8 flex items-center">
+      <div className="stat gap-8 flex items-center justify-center lg:justify-start">
         <div>
           <img
             src={userInfo?.avatar}
+            alt={userInfo?.username}
             className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
           ></img>
         </div>
-        <div className="stat-value text-primary">{userInfo?.username}</div>
+        <div className="stat-value text-primary hidden lg:block">{userInfo?.username}</div>
       </div>
 
       <div className="stat">
