@@ -106,6 +106,9 @@ const Register = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Register and deep dive into it!</title>
+      </Helmet>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -118,135 +121,130 @@ const Register = () => {
         pauseOnHover
         theme="light"
       />
-      <Helmet>
-        <title>DACO</title>
-      </Helmet>
-      <>
-       <Layout />
-        <div className="flex py-8 h-screen">
-          <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
-            <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
-              REGISTER
-            </h1>
-            <form className="space-y-4 font-poppins" onSubmit={handleSubmit}>
-              <div>
-                <label className="label">
-                  <span className="text-base label-text">Username</span>
-                </label>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Username"
-                  className="w-full input input-bordered input-primary"
-                  required
-                />
-              </div>
-              <div>
-                <label className="label">
-                  <span className="text-base label-text">Email</span>
-                </label>
-                <input
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address"
-                  className="w-full input input-bordered input-primary"
-                  required
-                />
-              </div>
-              <div>
-                <label className="label">
-                  <span className="text-base label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                    validatePassword(e.target.value);
-                  }}
-                  placeholder="Enter Password"
-                  className="w-full input input-bordered input-primary"
-                  required
-                />
-                {strength > 0 ? (
-                  <progress
-                    hidden={password.length === 0}
-                    className={
-                      strength == 1
-                        ? "progress w-full progress-error"
-                        : strength == 2
-                        ? "progress w-full progress-warning"
-                        : strength == 3
-                        ? "progress w-full progress-info"
-                        : "progress w-full progress-success"
-                    }
-                    value={strength}
-                    max="4"
-                  />
-                ) : null}
-                <br />
-                <div
+      <Layout />
+      <div className="flex py-8 h-screen">
+        <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
+          <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
+            REGISTER
+          </h1>
+          <form className="space-y-4 font-poppins" onSubmit={handleSubmit}>
+            <div>
+              <label className="label">
+                <span className="text-base label-text">Username</span>
+              </label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username"
+                className="w-full input input-bordered input-primary"
+                required
+              />
+            </div>
+            <div>
+              <label className="label">
+                <span className="text-base label-text">Email</span>
+              </label>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email Address"
+                className="w-full input input-bordered input-primary"
+                required
+              />
+            </div>
+            <div>
+              <label className="label">
+                <span className="text-base label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  validatePassword(e.target.value);
+                }}
+                placeholder="Enter Password"
+                className="w-full input input-bordered input-primary"
+                required
+              />
+              {strength > 0 ? (
+                <progress
+                  hidden={password.length === 0}
                   className={
                     strength == 1
-                      ? "text-error"
+                      ? "progress w-full progress-error"
                       : strength == 2
-                      ? "text-warning"
+                      ? "progress w-full progress-warning"
                       : strength == 3
-                      ? "text-info"
-                      : "text-success"
+                      ? "progress w-full progress-info"
+                      : "progress w-full progress-success"
                   }
-                  hidden={password.length === 0}
-                >
-                  {feedback}
-                </div>
-              </div>
-              <div>
-                <label className="label">
-                  <span className="text-base label-text">Password Confirm</span>
-                </label>
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => {
-                    setConfirmPassword(e.target.value);
-                    checkPasswordisMatch(e.target.value);
-                  }}
-                  placeholder="Confirm Password"
-                  className="w-full input input-bordered input-primary"
-                  required
+                  value={strength}
+                  max="4"
                 />
-              </div>
-              {confirmPassword.length > 0 && isPasswordMatched == false ? (
-                <div className="text-error">
-                  Passwords is not same! Please check again!
-                </div>
               ) : null}
-              <div>
-                <a href="/login" className="text-xs text-info hover:underline">
-                  If you have an account
-                </a>
+              <br />
+              <div
+                className={
+                  strength == 1
+                    ? "text-error"
+                    : strength == 2
+                    ? "text-warning"
+                    : strength == 3
+                    ? "text-info"
+                    : "text-success"
+                }
+                hidden={password.length === 0}
+              >
+                {feedback}
               </div>
-              <div>
-                <button
-                  className={
-                    strength > 3 && isPasswordMatched
-                      ? "px-6 btn btn-primary font-poppins shadow-md shadow-primary/50"
-                      : "px-6 btn btn-disabled font-poppins "
-                  }
-                >
-                  {isLoading ? (
-                    <VscLoading className="animate-spin" />
-                  ) : (
-                    <span>Register</span>
-                  )}
-                </button>
+            </div>
+            <div>
+              <label className="label">
+                <span className="text-base label-text">Password Confirm</span>
+              </label>
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                  checkPasswordisMatch(e.target.value);
+                }}
+                placeholder="Confirm Password"
+                className="w-full input input-bordered input-primary"
+                required
+              />
+            </div>
+            {confirmPassword.length > 0 && isPasswordMatched == false ? (
+              <div className="text-error">
+                Passwords is not same! Please check again!
               </div>
-            </form>
-          </div>
+            ) : null}
+            <div>
+              <a href="/login" className="text-xs text-info hover:underline">
+                If you have an account
+              </a>
+            </div>
+            <div>
+              <button
+                className={
+                  strength > 3 && isPasswordMatched
+                    ? "px-6 btn btn-primary font-poppins shadow-md shadow-primary/50"
+                    : "px-6 btn btn-disabled font-poppins "
+                }
+              >
+                {isLoading ? (
+                  <VscLoading className="animate-spin" />
+                ) : (
+                  <span>Register</span>
+                )}
+              </button>
+            </div>
+          </form>
         </div>
-      </>
+      </div>
     </>
   );
 };

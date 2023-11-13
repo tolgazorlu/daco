@@ -11,6 +11,7 @@ import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { User } from "../contexts/User";
 import Layout from "../layouts/Layout";
+import { Helmet } from "react-helmet-async";
 
 const Question = () => {
   const { slug } = useParams();
@@ -79,6 +80,9 @@ const Question = () => {
     <ErrorMessage>Question Not Found!</ErrorMessage>
   ) : (
     <>
+    <Helmet>
+        {problem.level == 'easy' ? <title>It's a piece of cake for you!</title> : problem.level == 'medium' ? <>You can do this!</> : <>Just focus!</>}
+    </Helmet>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -134,11 +138,11 @@ const Question = () => {
             })}
           </div>
           {isSolved ? (
-            <form>
+            <form className="flex flex-col md:w-1/3 gap-2">
               <button className="btn btn-disabled btn-sm">Submited</button>
             </form>
           ) : (
-            <form className="flex flex-col md:w-1/3  gap-2">
+            <form className="flex flex-col md:w-1/3 gap-2">
               <input
                 className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
                 placeholder="Enter answer here!"

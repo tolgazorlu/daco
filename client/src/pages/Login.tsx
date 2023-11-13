@@ -76,7 +76,7 @@ const Login = () => {
         theme="light"
       />
       <Helmet>
-        <title>DACO</title>
+        <title>You can login in this page!</title>
       </Helmet>
       <>
         <Layout />

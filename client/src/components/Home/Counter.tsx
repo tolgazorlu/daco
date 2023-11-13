@@ -50,7 +50,7 @@ const Counter = () => {
   };
 
   return (
-    <div className="grid grid-flow-col gap-5 text-center auto-cols-max py-10 justify-center">
+    <div className="grid grid-flow-col gap-6 text-center auto-cols-max py-10 justify-center">
       <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette justify-center">
           <span style={valueHours}></span>

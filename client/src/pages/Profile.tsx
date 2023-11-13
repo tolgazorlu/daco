@@ -3,6 +3,7 @@ import UserProfileInfo from "../components/User/UserProfileInfo";
 import UserMainStats from "../components/User/UserMainStats";
 import UserSolvedProblemsTable from "../components/User/UserSolvedProblemsTable";
 import Layout from "../layouts/Layout";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   return (
@@ -19,6 +20,9 @@ const Profile = () => {
         pauseOnHover
         theme="light"
       />
+      <Helmet>
+        <title>This is your profile!</title>
+      </Helmet>
       <Layout />
       <div className="p-4 sm:ml-64 mt-16 flex flex-col gap-4">
         <UserProfileInfo />
