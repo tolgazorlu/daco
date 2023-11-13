@@ -20,7 +20,7 @@ const ProblemsTable = () => {
     try {
       await deleteProblem(id);
       refetch;
-      toast.success("Product deleted!");
+      toast.success("Problem deleted!");
     } catch (error) {
       toast.error(getError(error as ApiError));
     }

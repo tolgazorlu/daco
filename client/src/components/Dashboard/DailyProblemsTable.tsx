@@ -1,7 +1,27 @@
-import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
+import { useDeleteProblemMutation, useGetDailyProblemsQuery } from "../../hooks/problemHooks";
+import EditProblemModal from "./EditProblemModal";
+import { toast } from "react-toastify";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 
 const DailyProblemsTable = () => {
-  const { data: problem, isLoading, error } = useGetDailyProblemsQuery();
+  const { data: problem, isLoading, error, refetch} = useGetDailyProblemsQuery();
+  const { mutateAsync: deleteProblem } = useDeleteProblemMutation();
+
+  const [problemId, setProblemId] = useState<string>("");
+
+  const deleteProblemHandler = async (id: string) => {
+    try {
+      await deleteProblem(id);
+      refetch;
+      toast.success("Problem deleted!");
+    } catch (error) {
+      toast.error(getError(error as ApiError));
+    }
+  };
 
   return (
     <>
@@ -52,19 +72,49 @@ const DailyProblemsTable = () => {
                         {item.level}
                       </td>
                       <td className="flex gap-1 h-12 items-center">
-                        <a
-                          href={`/question/${item.slug}`}
-                          className="btn btn-xs btn-info text-info-content hover:bg-info/50"
-                        >
-                          Detail
-                        </a>
-                        <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50">
-                          Edit
-                        </button>
-                        <button className="btn btn-xs btn-error text-error-content hover:bg-error/50">
-                          Delete
-                        </button>
-                      </td>
+                  <a
+                    href={`/question/${item.slug}`}
+                    className="btn btn-xs btn-info text-info-content hover:bg-info/50"
+                  >
+                    Detail
+                  </a>
+                  <EditProblemModal item={item} />
+                  <button
+                    onClick={() => {
+                      let el: any = document.getElementById("my_modal_1")!;
+                      el.showModal();
+                      setProblemId(item._id);
+                    }}
+                    className="btn btn-xs btn-error text-error-content hover:bg-error/50"
+                  >
+                    Delete
+                  </button>
+                  {/* DELETE */}
+
+                  <dialog
+                    id="my_modal_1"
+                    className="modal modal-bottom sm:modal-middle"
+                  >
+                    <div className="modal-box">
+                      <h3 className="font-bold text-lg">Attention!</h3>
+                      <p className="py-4">
+                        Do you want to delete this problem? You can not take it
+                        back the process!
+                      </p>
+                      <div className="modal-action">
+                        <form className="flex">
+                          <button
+                            className="btn btn-error mr-2 text-error-content"
+                            onClick={() => deleteProblemHandler(problemId)}
+                          >
+                            Delete
+                          </button>
+                          <button className="btn">Close</button>
+                        </form>
+                      </div>
+                    </div>
+                  </dialog>
+                </td>
                     </tr>
                   );
                 })}
