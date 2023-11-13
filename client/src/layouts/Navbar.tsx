@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
@@ -10,9 +12,15 @@ export type navLinks = {
 
 export type themes = string;
 
-const Navbar = () => {
+const Navbar = (props: { setIsOpenSidebar: any }) => {
+
+  const { state, dispatch } = useContext(User);
+  const { userInfo } = state;
+
   const param = useParams();
   const location = useLocation();
+
+  const [sidebarToggle, setSidebarToggle] = useState<boolean>(false);
 
   const navLinks: navLinks[] = [
     { name: "Project", href: "https://github.com/tolgazorlu/daco" },
@@ -59,15 +67,6 @@ const Navbar = () => {
     setTheme((e.target as HTMLInputElement).value);
   };
 
-  useEffect(() => {
-    document.querySelector("html")?.setAttribute("data-theme", theme);
-    document.getElementById("screen")?.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme, param.slug]);
-
-  const { state, dispatch } = useContext(User);
-  const { userInfo } = state;
-
   const signoutHandler = () => {
     dispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
@@ -75,19 +74,35 @@ const Navbar = () => {
     window.location.href = "/login";
   };
 
+  useEffect(() => {
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+    document.getElementById("screen")?.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme, param.slug]);
+
+
   return (
     <nav
       className={
         location.pathname == "/"
-          ? "navbar fixed top-0 z-50 w-full bg-base-100"
-          : "navbar fixed top-0 z-50 w-full bg-base-100 border-b border-base-300"
+          ? "navbar fixed top-0 z-50 w-full bg-base-100 px-10"
+          : "navbar fixed top-0 z-50 w-full bg-base-100 border-b border-base-300 px-10"
       }
     >
       <div className="navbar-start">
         <button
-          id="sidebar"
+          onClick={() => {
+            setSidebarToggle(!sidebarToggle);
+            props.setIsOpenSidebar(sidebarToggle);
+          }}
           type="button"
-          className="inline-flex items-center p-2 text-sm rounded-lg sm:hidden"
+          className={
+            location.pathname == "/" ||
+            location.pathname == "/login" ||
+            location.pathname == "/register"
+              ? "hidden"
+              : "inline-flex items-center p-2 text-sm sm:hidden"
+          }
         >
           <span className="sr-only">Open sidebar</span>
           <svg
@@ -98,13 +113,13 @@ const Navbar = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              clip-rule="evenodd"
-              fill-rule="evenodd"
+              clipRule="evenodd"
+              fillRule="evenodd"
               d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
             ></path>
           </svg>
         </button>
-        <a href="/" className="btn btn-ghost normal-case text-xl">
+        <a href="/" className="flex items-center gap-2 normal-case text-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

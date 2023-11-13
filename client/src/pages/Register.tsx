@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "../layouts/Navbar";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { useRegisterMutation } from "../hooks/userHooks";
 import { getError } from "../utils/getError";
@@ -9,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { VscLoading } from "react-icons/vsc";
 import { User } from "../contexts/User";
+import Layout from "../layouts/Layout";
 
 const Register = () => {
   const navigation = useNavigate();
@@ -122,10 +122,8 @@ const Register = () => {
         <title>DACO</title>
       </Helmet>
       <>
-        <div className="px-0 lg:px-20" id="screen">
-          <Navbar />
-        </div>
-        <div className="flex h-[90vh] py-8">
+       <Layout />
+        <div className="flex py-8 h-screen">
           <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
             <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
               REGISTER

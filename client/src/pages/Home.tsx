@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Hero from "../components/Home/Hero";
-import Navbar from "../layouts/Navbar";
+import Layout from "../layouts/Layout";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
         <title>DACO</title>
       </Helmet>
       <div>
-        <Navbar />
+        <Layout />
         <Hero />
       </div>
     </>

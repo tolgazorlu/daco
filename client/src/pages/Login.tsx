@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "../layouts/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { User } from "../contexts/User";
@@ -8,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { getError } from "../utils/getError";
 import { ApiError } from "../types/ApiError";
 import { VscLoading } from "react-icons/vsc";
+import Layout from "../layouts/Layout";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -79,10 +79,8 @@ const Login = () => {
         <title>DACO</title>
       </Helmet>
       <>
-        <div className="px-0 lg:px-20" id="screen">
-          <Navbar />
-        </div>
-        <div className="flex h-[90vh] py-8">
+        <Layout />
+        <div className="flex h-screen py-8">
           <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
             <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
               LOGIN
