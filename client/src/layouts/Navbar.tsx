@@ -85,8 +85,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
     <nav
       className={
         location.pathname == "/"
-          ? "navbar fixed top-0 z-50 w-full bg-base-100 px-10"
-          : "navbar fixed top-0 z-50 w-full bg-base-100 border-b border-base-300 px-10"
+          ? "navbar fixed top-0 z-50 w-full bg-base-100 lg:px-10"
+          : "navbar fixed top-0 z-50 w-full bg-base-100 border-b border-base-300 lg:px-10"
       }
     >
       <div className="navbar-start">
