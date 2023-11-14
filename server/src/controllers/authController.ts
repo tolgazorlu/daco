@@ -181,6 +181,23 @@ module.exports.Login = async (
 module.exports.Update = async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findById(req.user._id);
+    const username = req.body.username
+    const email = req.body.email
+
+    const existingUsername = await UserModel.findOne({ username });
+    if (existingUsername) {
+      return res
+        .status(400)
+        .json({ message: "This username is already taken!" });
+    }
+
+    const existingEmail = await UserModel.findOne({ email });
+    if (existingEmail) {
+      return res
+        .status(400)
+        .json({ message: "This email is already using!" });
+    }
+
     if (user) {
       user.username = req.body.username || user.username;
       user.email = req.body.email || user.email;
