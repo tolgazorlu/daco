@@ -1,16 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-namespace */
 declare namespace Express {
-    export interface Request {
-      user: {
-        _id: string
-        username: string
-        email: string
-        avatar: string
-        isAdmin: boolean
-        token: string
-        solvedProblems: string[]
-      }
+  export interface Request {
+    user: {
+      _id: string
+      username: string
+      email: string
+      avatar: string
+      isAdmin: boolean
+      token: string
+      emailVerified: boolean
+      verificationToken: string
+      solvedProblems: string[]
     }
   }
-  
+}

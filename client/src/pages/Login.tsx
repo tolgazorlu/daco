@@ -47,8 +47,6 @@ const Login = () => {
         setTimeout(() => {
           navigate(redirect || "/");
         }, 3000);
-      } else {
-        toast.error("Invalid email or password");
       }
     } catch (err) {
       toast.error(getError(err as ApiError));

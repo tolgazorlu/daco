@@ -4,6 +4,11 @@ import { daily } from '../utils/dailySchedule'
 import { UserModel } from '../models/user'
 import { generateToken } from '../utils/token'
 
+/**
+ * CREATE NEW PROBLEM
+ * api/problems/create
+ */
+
 exports.createProblem = async (req: Request, res: Response) => {
     try {
         const problem = await ProblemModel.create(
@@ -28,6 +33,11 @@ exports.createProblem = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * GET ALL PROBLEMS
+ * api/problems/all
+ */
+
 exports.getProblems = async (req: Request, res: Response) => {
     try {
         const problem = await ProblemModel.find({})
@@ -45,6 +55,11 @@ exports.getProblems = async (req: Request, res: Response) => {
         })
     }
 }
+
+/**
+ * GET SOLVED PROBLEMS
+ * api/problems/solved
+ */
 
 exports.getSolvedProblems = async (req: Request, res: Response) => {
     try {
@@ -64,6 +79,11 @@ exports.getSolvedProblems = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * GET DAILY PROBLEMS
+ * api/problems/daily
+ */
+
 exports.getDailyProblems = async (req: Request, res: Response) => {
     try {
         const problem = await ProblemModel.find({ day: daily }, '-answer')
@@ -82,6 +102,11 @@ exports.getDailyProblems = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * GET SINGLE PROBLEM
+ * api/problems/:slug
+ */
+
 exports.getProblem = async (req: Request, res: Response) => {
     try {
         const problem = await ProblemModel.findOne({ slug: req.params.slug }, '-answer')
@@ -99,6 +124,11 @@ exports.getProblem = async (req: Request, res: Response) => {
         })
     }
 }
+
+/**
+ * UPDATE SINGLE PROBLEM
+ * api/problems/update/:id
+ */
 
 exports.updateProblem = async (req: Request, res: Response) => {
     try {
@@ -129,6 +159,11 @@ exports.updateProblem = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * DELETE SINGLE PROBLEM
+ * api/problems/:id
+ */
+
 exports.deleteProblem = async (req: Request, res: Response) => {
     try {
         const problem = await ProblemModel.findById(req.params.id)
@@ -145,6 +180,11 @@ exports.deleteProblem = async (req: Request, res: Response) => {
         })
     }
 }
+
+/**
+ * SOLVE SINGLE PROBLEM
+ * api/problems/solveProblems/:id
+ */
 
 exports.solveProblem = async (req: Request, res: Response) => {
     try {
@@ -166,6 +206,7 @@ exports.solveProblem = async (req: Request, res: Response) => {
                     avatar: updatedUser.avatar,
                     isAdmin: updatedUser.isAdmin,
                     solvedProblems: updatedUser.solvedProblems,
+                    emailVerified: updatedUser.emailVerified,
                     token: generateToken(updatedUser),
                 })
             }

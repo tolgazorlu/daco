@@ -5,5 +5,6 @@ export type UserInfo = {
     avatar: string,
     isAdmin: boolean,
     createdAt: string,
+    emailVerified: boolean,
     solvedProblems: string[]
 }
