@@ -277,7 +277,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                                     >
                                       <span style="color: #ffffff"
                                         ><strong
-                                          >Enrollment Confirmation</strong
+                                          >Email Verification</strong
                                         ></span
                                       >
                                     </p>

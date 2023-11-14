@@ -89,8 +89,8 @@ const Register = () => {
           password: password,
           isAdmin: false,
         });
+        toast.success("Please check your email!")
         setInterval(() => {
-          toast.success("Please check your email!")
           navigation(redirect || "/login");
         }, 3000)
       } catch (error) {
