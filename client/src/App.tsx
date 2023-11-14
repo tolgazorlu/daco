@@ -10,6 +10,7 @@ import Problems from "./pages/Dashboard/Problems";
 import Users from "./pages/Dashboard/Users";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
+import EmailVerify from "./pages/EmailVerify";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/dashboard/problems" element={<Problems />} />
         </Route>
         <Route path="" element={<UserRoute />}>
+          <Route path="/verify" element={<EmailVerify/>} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>

@@ -13,41 +13,62 @@ const UsersTable = () => {
             </caption>
             <thead>
               <tr>
-                <th></th>
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </th>
                 <th>Avatar</th>
-                <th>Username</th>
-                <th>Email</th>
+                <th>Total solved</th>
                 <th>Created</th>
                 <th>Role</th>
-                <th>Action</th>
+                <th></th>
               </tr>
             </thead>
-            {users?.map((item, index) => {
+            {users?.map((item) => {
               return (
                 <tbody>
                   <tr>
                     <th>
-                      {" "}
-                      <span className="badge">{index + 1}</span>
+                      <label>
+                        <input type="checkbox" className="checkbox" />
+                      </label>
                     </th>
-                    <td>{item.username}</td>
-                    <td>{item.username}</td>
-                    <td>{item.email}</td>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img
+                              src={item.avatar}
+                              alt="Avatar Tailwind CSS Component"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold">{item.username}</div>
+                          <div className="text-sm opacity-50">{item.email}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span className="btn btn-xs btn-success text-success-content">
+                        {item.solvedProblems.length}
+                      </span>
+                    </td>
                     <td>{item.createdAt}</td>
                     <td>
                       {item.isAdmin ? (
-                        <span className="badge badge-success text-success-content">
+                        <span className="badge badge-primary text-primary-content">
                           Admin
                         </span>
                       ) : (
                         <span className="badge">User</span>
                       )}
                     </td>
-                    {item.isAdmin ? null : (
-                      <td className="flex gap-1 h-12 items-center">
-                        <button className="btn btn-xs btn-info text-info-content hover:bg-info/50">
-                          Detail
-                        </button>
+                    {item.isAdmin ? (
+                      <td className="h-16"></td>
+                    ) : (
+                      <td className="flex gap-1 h-16 items-center">
                         <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50">
                           Edit
                         </button>
@@ -64,11 +85,10 @@ const UsersTable = () => {
               <tr>
                 <th></th>
                 <th>Avatar</th>
-                <th>Username</th>
-                <th>Email</th>
+                <th>Total solved</th>
                 <th>Created</th>
-                <th>Is Admin</th>
-                <th>Action</th>
+                <th>Role</th>
+                <th></th>
               </tr>
             </tfoot>
           </table>

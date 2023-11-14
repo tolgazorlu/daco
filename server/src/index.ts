@@ -2,7 +2,7 @@
 require('dotenv').config();
 import express, { Express } from 'express';
 import chalk from 'chalk';
-import {Job} from './utils/daily';
+import {Job} from './utils/dailySchedule';
 const cors = require('cors')
 //ROUTE IMPORTS
 const problemRoute = require('./routes/problemRoute')

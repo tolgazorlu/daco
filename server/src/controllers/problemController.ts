@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from 'express'
 import { ProblemModel } from '../models/problem'
-import { daily } from '../utils/daily'
+import { daily } from '../utils/dailySchedule'
 import { UserModel } from '../models/user'
 import { generateToken } from '../utils/token'
 

@@ -1,35 +1,53 @@
+
 import { NextFunction, Request, Response } from 'express';
 import { generateToken } from '../utils/token';
 import { UserModel } from '../models/user';
 const bcrypt = require('bcrypt');
 
+const { randomString } = require("../utils/randomString")
+const { verifyEmail } = require("../utils/sendEmail")
+
+/**
+ * REGISTER
+ */
+
 module.exports.Register = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { email, username, password } = req.body
+        const emailToken = randomString(20)
+        console.log(emailToken)
         const existingUser = await UserModel.findOne({ email })
         const existingUsername = await UserModel.findOne({ username })
-        if(!email.match(/\S+@\S+\.\S+/)){
+        if (!email.match(/\S+@\S+\.\S+/)) {
             return res.status(400).json({ message: 'Email format is invalid!' });
         }
         if (existingUser) {
             return res.status(400).json({ message: 'This email is already registered!' });
         }
-        if(existingUsername){
+        if (existingUsername) {
             return res.status(400).json({ message: 'This username is already taken!' });
         }
-        if(password.includes(username) || password.includes(email) ){
+        if (password.includes(username) || password.includes(email)) {
             return res.status(400).json({ message: 'Password cannot contain your username or email!' });
         }
-        const addUser = async (username: string, email: string, password: string, avatar: string) => {
+
+        const addUser = async (username: string, email: string, password: string, verificationToken: string) => {
             const user = await UserModel.create({
                 username: username,
                 email: email,
                 password: password,
-                avatar: `https://source.boringavatars.com/pixel/120/${username}?square`
+                avatar: `https://source.boringavatars.com/pixel/120/${username}?square`,
+                verificationToken: verificationToken
             })
             return user
         }
-        const newUser = await addUser(req.body.username, req.body.email, bcrypt.hashSync(req.body.password, 12), req.body.avatar)
+
+        const link = `http://localhost:8000/api/user/verify?code=${emailToken}`
+
+        verifyEmail(email, username, link)
+
+        const newUser = await addUser(req.body.username, req.body.email, bcrypt.hashSync(req.body.password, 12), emailToken)
+        console.log(newUser)
         res
             .status(201)
             .json({
@@ -38,10 +56,10 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
                 email: newUser.email,
                 avatar: newUser.avatar,
                 isAdmin: newUser.isAdmin,
+                verificationToken: newUser.verificationToken,
                 solvedProblems: newUser.solvedProblems,
                 token: generateToken(newUser)
             });
-
         next();
     } catch (error) {
         res.status(400).json({
@@ -49,6 +67,41 @@ module.exports.Register = async (req: Request, res: Response, next: NextFunction
         })
     }
 }
+
+/**
+ * VERIFY
+ */
+
+module.exports.Verify = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const {code} = req.query
+        const user = await UserModel.findOne({verificationToken: code})
+        
+        if (!user) {
+            return res.status(400).json({ message: 'Code is Invalid' });
+        }
+
+        user.emailVerified = true;
+        user.verificationToken = "";
+
+        const verified = await user.save()
+
+        res.status(200).json({
+            verified
+        })
+
+        next();
+
+    } catch (error) {
+        res.status(400).json({
+            message: error
+        })
+    }
+}
+
+/**
+ * LOGIN
+ */
 
 module.exports.Login = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -85,6 +138,10 @@ module.exports.Login = async (req: Request, res: Response, next: NextFunction) =
     }
 }
 
+/**
+ * UPDATE
+ */
+
 module.exports.Update = async (req: Request, res: Response) => {
     try {
         const user = await UserModel.findById(req.user._id)
@@ -105,8 +162,8 @@ module.exports.Update = async (req: Request, res: Response) => {
                 token: generateToken(updatedUser),
             })
         }
-        else{
-            res.json({"message": "user not found!"})
+        else {
+            res.json({ "message": "user not found!" })
         }
     } catch (error) {
         res.status(400).json({
@@ -114,6 +171,10 @@ module.exports.Update = async (req: Request, res: Response) => {
         })
     }
 }
+
+/**
+ * GET ALL USERS
+ */
 
 module.exports.getUsers = async (req: Request, res: Response) => {
     try {

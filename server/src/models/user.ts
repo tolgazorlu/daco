@@ -21,6 +21,12 @@ export class User {
     public solvedProblems?: Ref<Problem>[]
 
     @prop({ required: true, default: false })
+    public emailVerified!: boolean
+
+    @prop()
+    public verificationToken!: string
+
+    @prop({ required: true, default: false })
     public isAdmin!: boolean
 
 }
