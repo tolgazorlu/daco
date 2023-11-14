@@ -229,6 +229,50 @@ module.exports.Update = async (req: Request, res: Response) => {
 };
 
 /**
+ * CHANGE USER PASSWORD
+ * api/user/passwordUpdate
+ */
+
+module.exports.PasswordUpdate = async (req: Request, res: Response) => {
+  try {
+    const currentPassword = req.body.currentPassword;
+    const newPassword = req.body.newPassword;
+
+    const user = await UserModel.findById(req.user._id);
+
+    if (user) {
+
+      const auth = await bcrypt.compare(currentPassword, user?.password);
+
+      if (!auth) {
+        return res
+          .status(400)
+          .json({ message: "Current password is not true!" });
+      }
+
+      if(newPassword == currentPassword){
+        return res
+          .status(400)
+          .json({ message: "You cannot use your old password!" });
+      }
+
+      user.password = bcrypt.hashSync(newPassword, 12);
+      const changedPasswordUser = await user.save();
+      res.send({
+        _id: changedPasswordUser._id,
+        token: generateToken(changedPasswordUser),
+      });
+    } else {
+      return res.status(404).json({ message: "User not found!" });
+    }
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+}
+
+/**
  * GET ALL USERS
  * api/user/all
  */

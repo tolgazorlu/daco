@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { User } from "../../contexts/User";
 import UpdateUserProfileModal from "./UpdateUserProfileModal";
+import ChangePasswordModal from "./ChangePasswordModal";
 
 const UserProfileInfo = () => {
   const { state } = useContext(User);
@@ -37,6 +38,16 @@ const UserProfileInfo = () => {
             Update Profile
           </button>
           <UpdateUserProfileModal />
+          <button
+            onClick={() => {
+              let el: any = document.getElementById("change-password-modal")!;
+              el.showModal();
+            }}
+            className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
+          >
+            Change Password
+          </button>
+          <ChangePasswordModal />
         </div>
       </div>
     </div>

@@ -1,59 +1,51 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { getError } from "../../utils/getError";
 import { ApiError } from "../../types/ApiError";
-import { useUpdateUserMutation } from "../../hooks/userHooks";
 import { toast } from "react-toastify";
-import { User } from "../../contexts/User";
+import { useChangePasswordMutation } from "../../hooks/userHooks";
 
-const UpdateUserProfileModal = () => {
-  const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
-  const { state, dispatch } = useContext(User);
-  const { userInfo } = state;
+const ChangePasswordModal = () => {
+  const { mutateAsync: changePassword, isLoading } =
+    useChangePasswordMutation();
 
-  const [username, setUsername] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [avatar, setAvatar] = useState<string>("");
+  const [currentPassword, setCurrentPassword] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
 
   const UpdateUserHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    try {
-      const data = await updateUser({
-        username: username,
-        email: email,
-        avatar: avatar,
-      });
-      dispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      toast.success("profile updated!");
-    } catch (err) {
-      toast.error(getError(err as ApiError));
+    if (newPassword == confirmNewPassword) {
+      try {
+        await changePassword({
+          currentPassword: currentPassword,
+          newPassword: newPassword,
+        });
+        toast.success("password changed!");
+      } catch (err) {
+        toast.error(getError(err as ApiError));
+      }
+    }
+    else{
+        toast.error("passwords not matching!");
     }
   };
 
-  useEffect(() => {
-    if (userInfo) {
-      setUsername(userInfo.username);
-      setEmail(userInfo.email);
-      setAvatar(userInfo.avatar);
-    }
-  }, [userInfo]);
-
   return (
-    <dialog id="update-user-modal" className="modal">
+    <dialog id="change-password-modal" className="modal">
       {/* <!-- Modal content --> */}
       <div className="modal-box">
         {/* <!-- Modal header --> */}
         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b border-base-content sm:mb-5">
           <h3 className="text-lg font-semibold">
-            Update User
+            Change Password
           </h3>
           <button
             type="button"
             className="rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
             onClick={() => {
-              let el: any = document.getElementById("update-user-modal")!;
+              let el: any = document.getElementById("change-password-modal")!;
               el.close();
             }}
           >
@@ -80,43 +72,54 @@ const UpdateUserProfileModal = () => {
           <div className="grid gap-4 mb-4 sm:grid-cols-2">
             <div>
               <label
-                htmlFor="username"
+                htmlFor="oldPassword"
                 className="block mb-2 text-sm font-medium"
               >
-                Username
+                Old Password
               </label>
               <input
-                type="text"
-                name="username"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                type="password"
+                name="oldPassword"
+                id="oldPassword"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
                 className="input input-bordered input-sm input-primary w-full max-w-xs"
-                placeholder="username"
+                placeholder="********"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium">
-                Email
+              <label
+                htmlFor="newPassword"
+                className="block mb-2 text-sm font-medium"
+              >
+                New Password
               </label>
               <input
-                type="text"
-                name="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="password"
+                name="newPassword"
+                id="newPassword"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
                 className="input input-bordered input-sm input-primary w-full max-w-xs"
-                placeholder="user@mail.com"
+                placeholder="********"
               />
             </div>
             <div>
-              <label className="block mb-2 text-sm font-medium">Avatar</label>
+              <label
+                htmlFor="confirmNewPassword"
+                className="block mb-2 text-sm font-medium"
+              >
+                Confirm New Password
+              </label>
               <input
+                type="password"
+                name="confirmNewPassword"
+                id="confirmNewPassword"
+                value={confirmNewPassword}
+                onChange={(e) => setConfirmNewPassword(e.target.value)}
                 className="input input-bordered input-sm input-primary w-full max-w-xs"
-                placeholder="https:avatar.png"
-                value={avatar}
-                onChange={(e) => setAvatar(e.target.value)}
-              ></input>
+                placeholder="********"
+              />
             </div>
           </div>
           <button
@@ -126,7 +129,7 @@ const UpdateUserProfileModal = () => {
             {isLoading ? (
               <span className="loading loading-spinner"></span>
             ) : (
-              <>Update User</>
+              <>Change Password</>
             )}
           </button>
         </form>
@@ -135,4 +138,4 @@ const UpdateUserProfileModal = () => {
   );
 };
 
-export default UpdateUserProfileModal;
+export default ChangePasswordModal;

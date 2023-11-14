@@ -62,6 +62,23 @@ export const useUpdateUserMutation = () =>
       ).data,
   });
 
+  export const useChangePasswordMutation = () =>
+  useMutation({
+    mutationFn: async ({
+      currentPassword,
+      newPassword,
+    }: {
+      currentPassword: string;
+      newPassword: string;
+    }) =>
+      (
+        await apiClient.put<UserInfo>(`api/user/passwordUpdate`, {
+          currentPassword,
+          newPassword,
+        })
+      ).data,
+  });
+
 export const useGetUsersQuery = () =>
   useQuery({
     queryKey: ["all"],
