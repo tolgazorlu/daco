@@ -41,15 +41,15 @@ const Login = () => {
         password,
       });
       if (data.token) {
-        dispatch({ type: "USER_SIGNIN", payload: data });
-        localStorage.setItem("userInfo", JSON.stringify(data));
         toast.success("Login successfully");
         setTimeout(() => {
           navigate(redirect || "/");
         }, 3000);
+        dispatch({ type: "USER_SIGNIN", payload: data });
+        localStorage.setItem("userInfo", JSON.stringify(data));
       }
-    } catch (err) {
-      toast.error(getError(err as ApiError));
+    } catch (error) {
+      toast.error(getError(error as ApiError));
     }
   };
 
@@ -61,6 +61,9 @@ const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title>You can login in this page!</title>
+      </Helmet>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -73,76 +76,68 @@ const Login = () => {
         pauseOnHover
         theme="light"
       />
-      <Helmet>
-        <title>You can login in this page!</title>
-      </Helmet>
-      <>
-        <Layout />
-        <div className="flex h-screen py-8">
-          <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
-            <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
-              LOGIN
-            </h1>
-            <form className="space-y-4 font-poppins" onSubmit={submitHandler}>
-              <div>
-                <label className="label">
-                  <span className="text-base label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    validateEmail(e.target.value);
-                  }}
-                  placeholder="Email Address"
-                  className="w-full input input-bordered input-primary"
-                  required
-                />
-                {(!emailValidate && email.length > 10) ? (
-                  <span className="block w-full text-error px-2 py-1">
-                    Email format is invalid!
-                  </span>
-                ) : null}
-              </div>
-              <div>
-                <label className="label">
-                  <span className="text-base label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter Password"
-                  className="w-full input input-bordered input-primary"
-                  required
-                />
-              </div>
-              <div>
-                <a
-                  href="/register"
-                  className="text-xs text-info hover:underline"
-                >
-                  If you don't have any account
-                </a>
-              </div>
-              <div>
-                <button className="btn btn-primary font-poppins shadow-md shadow-primary/50">
-                  {isLoading ? (
-                    <VscLoading className="animate-spin" />
-                  ) : (
-                    <span>Login</span>
-                  )}
-                </button>
-              </div>
-            </form>
-          </div>
+      <Layout />
+      <div className="flex h-screen py-8">
+        <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
+          <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
+            LOGIN
+          </h1>
+          <form className="space-y-4 font-poppins" onSubmit={submitHandler}>
+            <div>
+              <label className="label">
+                <span className="text-base label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  validateEmail(e.target.value);
+                }}
+                placeholder="Email Address"
+                className="w-full input input-bordered input-primary"
+                required
+              />
+              {!emailValidate && email.length > 10 ? (
+                <span className="block w-full text-error px-2 py-1">
+                  Email format is invalid!
+                </span>
+              ) : null}
+            </div>
+            <div>
+              <label className="label">
+                <span className="text-base label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter Password"
+                className="w-full input input-bordered input-primary"
+                required
+              />
+            </div>
+            <div>
+              <a href="/register" className="text-xs text-info hover:underline">
+                If you don't have any account
+              </a>
+            </div>
+            <div>
+              <button className="btn btn-primary font-poppins shadow-md shadow-primary/50">
+                {isLoading ? (
+                  <VscLoading className="animate-spin" />
+                ) : (
+                  <span>Login</span>
+                )}
+              </button>
+            </div>
+          </form>
         </div>
-      </>
+      </div>
     </>
   );
 };

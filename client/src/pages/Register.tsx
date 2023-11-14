@@ -13,7 +13,7 @@ import Layout from "../layouts/Layout";
 const Register = () => {
   const navigation = useNavigate();
 
-  const { state, dispatch } = useContext(User);
+  const { state } = useContext(User);
   const { userInfo } = state;
 
   const { search } = useLocation();
@@ -81,20 +81,21 @@ const Register = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-      if (password == confirmPassword) {
-        const data = await register({
+    if (password == confirmPassword) {
+      try {
+        await register({
           username: username,
           email: email,
           password: password,
           isAdmin: false,
         });
-        dispatch({ type: "USER_SIGNIN", payload: data });
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        navigation(redirect || "/");
+        setInterval(() => {
+          toast.success("Please check your email!")
+          navigation(redirect || "/login");
+        }, 3000)
+      } catch (error) {
+        toast.error(getError(error as ApiError));
       }
-    } catch (error) {
-      toast.error(getError(error as ApiError));
     }
   };
 

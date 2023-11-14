@@ -109,24 +109,24 @@ module.exports.Login = async (req: Request, res: Response, next: NextFunction) =
         const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.send({ message: "All fields are required!" });
+            return res.status(400).json({ message: 'All fields are required!' });
         }
 
         const user = await UserModel.findOne({ email });
         if (!user) {
-            return res.send({ message: 'Incorrect password or invalid!' })
+            return res.status(400).json({ message: 'Incorrect email or invalid!' });
         }
 
         if (!user.emailVerified) {
-            return res.send({ message: 'First, you need to verify your email!' })
+            return res.status(400).json({ message: 'First, you need to verify your email!' });
         }
 
         const auth = await bcrypt.compare(password, user.password)
         if (!auth) {
-            return res.send({ message: 'Incorrect password or email!' })
+            return res.status(400).json({ message: 'Incorrect password or invalid!' });
         }
 
-        res.status(201).send({
+        res.status(201).json({
             _id: user._id,
             username: user.username,
             email: user.email,
@@ -176,7 +176,7 @@ module.exports.Update = async (req: Request, res: Response) => {
             })
         }
         else {
-            res.json({ "message": "user not found!" })
+            return res.status(404).json({ message: 'User not found!' })
         }
     } catch (error) {
         res.status(400).json({
