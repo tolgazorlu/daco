@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 
-
 const Counter = () => {
-  const { data: problems} = useGetDailyProblemsQuery();
+  const { data: problems } = useGetDailyProblemsQuery();
 
-  let deadline = 'November, 1, 2023'
-  if(problems){
-    deadline = problems[0].date
+  let deadline = "November, 1, 2023";
+  if (problems) {
+    deadline = problems[0].date;
   }
 
   const [hours, setHours] = useState(0);
@@ -55,7 +54,9 @@ const Counter = () => {
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette justify-center">
           <span style={valueHours}></span>
         </span>
-        <span className="font-poppins text-xs lg:text-md">&nbsp;&nbsp;hours&nbsp;&nbsp;</span>
+        <span className="font-poppins text-xs lg:text-md">
+          &nbsp;&nbsp;hours&nbsp;&nbsp;
+        </span>
       </div>
       <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette justify-center">

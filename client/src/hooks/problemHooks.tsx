@@ -48,7 +48,7 @@ export const useCreateProblemMutation = () =>
       (
         await apiClient.post<{ problem: Problem }>(
           `api/problems/create`,
-          problem
+          problem,
         )
       ).data,
   });
@@ -113,7 +113,7 @@ export const useDeleteProblemMutation = () =>
     mutationFn: async (problemId: string) =>
       (
         await apiClient.delete<{ message: string; problem: Problem[] }>(
-          `api/problems/${problemId}`
+          `api/problems/${problemId}`,
         )
       ).data,
   });

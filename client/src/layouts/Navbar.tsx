@@ -13,7 +13,6 @@ export type navLinks = {
 export type themes = string;
 
 const Navbar = (props: { setIsOpenSidebar: any }) => {
-
   const { state, dispatch } = useContext(User);
   const { userInfo } = state;
 
@@ -79,7 +78,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
     document.getElementById("screen")?.setAttribute("data-theme", theme);
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme, param.slug]);
-
 
   return (
     <nav

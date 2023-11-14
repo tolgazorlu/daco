@@ -36,7 +36,7 @@ const Register = () => {
 
   const strength = Object.values(validate).reduce(
     (a, item) => a + Number(item),
-    0
+    0,
   );
   const feedback = {
     1: "Password is to weak!",
@@ -89,10 +89,10 @@ const Register = () => {
           password: password,
           isAdmin: false,
         });
-        toast.success("Please check your email!")
+        toast.success("Please check your email!");
         setInterval(() => {
           navigation(redirect || "/login");
-        }, 3000)
+        }, 3000);
       } catch (error) {
         toast.error(getError(error as ApiError));
       }
@@ -177,10 +177,10 @@ const Register = () => {
                     strength == 1
                       ? "progress w-full progress-error"
                       : strength == 2
-                      ? "progress w-full progress-warning"
-                      : strength == 3
-                      ? "progress w-full progress-info"
-                      : "progress w-full progress-success"
+                        ? "progress w-full progress-warning"
+                        : strength == 3
+                          ? "progress w-full progress-info"
+                          : "progress w-full progress-success"
                   }
                   value={strength}
                   max="4"
@@ -192,10 +192,10 @@ const Register = () => {
                   strength == 1
                     ? "text-error"
                     : strength == 2
-                    ? "text-warning"
-                    : strength == 3
-                    ? "text-info"
-                    : "text-success"
+                      ? "text-warning"
+                      : strength == 3
+                        ? "text-info"
+                        : "text-success"
                 }
                 hidden={password.length === 0}
               >

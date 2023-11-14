@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/dashboard/problems" element={<Problems />} />
         </Route>
         <Route path="" element={<UserRoute />}>
-          <Route path="/verify" element={<EmailVerify/>} />
+          <Route path="/verify" element={<EmailVerify />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>

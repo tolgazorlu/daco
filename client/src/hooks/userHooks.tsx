@@ -19,36 +19,35 @@ export const useLoginMutation = () =>
       ).data,
   });
 
-
 export const useRegisterMutation = () =>
   useMutation({
     mutationFn: async ({
       username,
       email,
       password,
-      isAdmin
+      isAdmin,
     }: {
-      username: string,
-      email: string,
-      password: string,
-      isAdmin: boolean
+      username: string;
+      email: string;
+      password: string;
+      isAdmin: boolean;
     }) =>
       (
         await apiClient.post<UserInfo>(`api/user/register`, {
-          username, 
+          username,
           email,
           password,
-          isAdmin
+          isAdmin,
         })
       ).data,
   });
 
-  export const useUpdateUserMutation = () =>
+export const useUpdateUserMutation = () =>
   useMutation({
     mutationFn: async ({
       username,
       email,
-      avatar
+      avatar,
     }: {
       username: string;
       email: string;
@@ -62,8 +61,9 @@ export const useRegisterMutation = () =>
         })
       ).data,
   });
-  
-  export const useGetUsersQuery = () => useQuery({
+
+export const useGetUsersQuery = () =>
+  useQuery({
     queryKey: ["all"],
-    queryFn: async () => (await apiClient.get<UserInfo[]>(`api/user/all`)).data
-})
+    queryFn: async () => (await apiClient.get<UserInfo[]>(`api/user/all`)).data,
+  });

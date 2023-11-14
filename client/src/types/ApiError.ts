@@ -1,8 +1,8 @@
 export declare type ApiError = {
-    message: string,
-    response: {
-        data: {
-            message: string
-        }
-    }
-}
+  message: string;
+  response: {
+    data: {
+      message: string;
+    };
+  };
+};

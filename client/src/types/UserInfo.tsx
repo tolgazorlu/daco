@@ -1,10 +1,10 @@
 export type UserInfo = {
-    username: string,
-    email: string,
-    token: string, 
-    avatar: string,
-    isAdmin: boolean,
-    createdAt: string,
-    emailVerified: boolean,
-    solvedProblems: string[]
-}
+  username: string;
+  email: string;
+  token: string;
+  avatar: string;
+  isAdmin: boolean;
+  createdAt: string;
+  emailVerified: boolean;
+  solvedProblems: string[];
+};

@@ -8,38 +8,37 @@ import { toast } from "react-toastify";
 import { User } from "../../contexts/User";
 
 const UpdateUserProfileModal = () => {
-
   const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
-  const {state, dispatch} = useContext(User)
-  const {userInfo} = state
+  const { state, dispatch } = useContext(User);
+  const { userInfo } = state;
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [avatar, setAvatar] = useState<string>("");
 
   const UpdateUserHandler = async (e: React.SyntheticEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const data = await updateUser({
         username: username,
         email: email,
         avatar: avatar,
       });
-      dispatch({ type: 'USER_SIGNIN', payload: data })
-      localStorage.setItem('userInfo', JSON.stringify(data))
-      toast.success('profile updated!')
+      dispatch({ type: "USER_SIGNIN", payload: data });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      toast.success("profile updated!");
     } catch (err) {
       toast.error(getError(err as ApiError));
     }
   };
 
   useEffect(() => {
-    if(userInfo){
-        setUsername(userInfo.username)
-        setEmail(userInfo.email)
-        setAvatar(userInfo.avatar)
-      }
-  }, [userInfo])
+    if (userInfo) {
+      setUsername(userInfo.username);
+      setEmail(userInfo.email);
+      setAvatar(userInfo.avatar);
+    }
+  }, [userInfo]);
 
   return (
     <dialog id="update-user-modal" className="modal">
@@ -47,7 +46,13 @@ const UpdateUserProfileModal = () => {
       <div className="modal-box">
         {/* <!-- Modal header --> */}
         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b border-base-content sm:mb-5">
-          <h3 className="text-lg font-semibold">{isLoading ? (<span className="loading loading-spinner loading-lg"></span>) : (<>Update Profile</>)}</h3>
+          <h3 className="text-lg font-semibold">
+            {isLoading ? (
+              <span className="loading loading-spinner loading-lg"></span>
+            ) : (
+              <>Update Profile</>
+            )}
+          </h3>
           <button
             type="button"
             className="rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"

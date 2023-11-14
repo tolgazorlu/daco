@@ -1,8 +1,8 @@
-import { Response, Request, NextFunction } from 'express'
-import { ProblemModel } from '../models/problem'
-import { daily } from '../utils/dailySchedule'
-import { UserModel } from '../models/user'
-import { generateToken } from '../utils/token'
+import { Response, Request, NextFunction } from "express";
+import { ProblemModel } from "../models/problem";
+import { daily } from "../utils/dailySchedule";
+import { UserModel } from "../models/user";
+import { generateToken } from "../utils/token";
 
 /**
  * CREATE NEW PROBLEM
@@ -10,28 +10,26 @@ import { generateToken } from '../utils/token'
  */
 
 exports.createProblem = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.create(
-            {
-                sequence: req.body.sequence,
-                slug: req.body.slug,
-                level: req.body.level,
-                title: req.body.title,
-                description: req.body.description,
-                example: req.body.example,
-                constrain: req.body.constrain,
-                answer: req.body.answer,
-                day: req.body.day,
-                date: req.body.date
-            }
-        )
-        res.status(201).json(problem)
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
-    }
-}
+  try {
+    const problem = await ProblemModel.create({
+      sequence: req.body.sequence,
+      slug: req.body.slug,
+      level: req.body.level,
+      title: req.body.title,
+      description: req.body.description,
+      example: req.body.example,
+      constrain: req.body.constrain,
+      answer: req.body.answer,
+      day: req.body.day,
+      date: req.body.date,
+    });
+    res.status(201).json(problem);
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * GET ALL PROBLEMS
@@ -39,22 +37,21 @@ exports.createProblem = async (req: Request, res: Response) => {
  */
 
 exports.getProblems = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.find({})
-        if (problem) {
-            res.status(200).send(problem)
-        }
-        else {
-            res.status(400).json({
-                message: 'Problem not found!'
-            })
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
+  try {
+    const problem = await ProblemModel.find({});
+    if (problem) {
+      res.status(200).send(problem);
+    } else {
+      res.status(400).json({
+        message: "Problem not found!",
+      });
     }
-}
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * GET SOLVED PROBLEMS
@@ -62,22 +59,23 @@ exports.getProblems = async (req: Request, res: Response) => {
  */
 
 exports.getSolvedProblems = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.find({ _id: { $all: req.user.solvedProblems } })
-        if (problem) {
-            res.status(200).send(problem)
-        }
-        else {
-            res.status(400).json({
-                message: 'Problem not found!'
-            })
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
+  try {
+    const problem = await ProblemModel.find({
+      _id: { $all: req.user.solvedProblems },
+    });
+    if (problem) {
+      res.status(200).send(problem);
+    } else {
+      res.status(400).json({
+        message: "Problem not found!",
+      });
     }
-}
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * GET DAILY PROBLEMS
@@ -85,22 +83,21 @@ exports.getSolvedProblems = async (req: Request, res: Response) => {
  */
 
 exports.getDailyProblems = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.find({ day: daily }, '-answer')
-        if (problem) {
-            res.status(200).send(problem)
-        }
-        else {
-            res.status(400).json({
-                message: 'Problem not found!'
-            })
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
+  try {
+    const problem = await ProblemModel.find({ day: daily }, "-answer");
+    if (problem) {
+      res.status(200).send(problem);
+    } else {
+      res.status(400).json({
+        message: "Problem not found!",
+      });
     }
-}
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * GET SINGLE PROBLEM
@@ -108,22 +105,24 @@ exports.getDailyProblems = async (req: Request, res: Response) => {
  */
 
 exports.getProblem = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.findOne({ slug: req.params.slug }, '-answer')
-        if (problem) {
-            res.status(200).send(problem)
-        }
-        else {
-            res.status(400).json({
-                message: 'Problem not found!'
-            })
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
+  try {
+    const problem = await ProblemModel.findOne(
+      { slug: req.params.slug },
+      "-answer",
+    );
+    if (problem) {
+      res.status(200).send(problem);
+    } else {
+      res.status(400).json({
+        message: "Problem not found!",
+      });
     }
-}
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * UPDATE SINGLE PROBLEM
@@ -131,33 +130,32 @@ exports.getProblem = async (req: Request, res: Response) => {
  */
 
 exports.updateProblem = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.findById(req.params.id)
-        if (problem) {
-            problem.day = req.body.day || problem.day
-            problem.date = req.body.date || problem.date
-            problem.title = req.body.title || problem.title
-            problem.slug = req.body.slug || problem.slug
-            problem.sequence = req.body.sequence || problem.sequence
-            problem.level = req.body.level || problem.level
-            problem.example = req.body.example || problem.example
-            problem.constrain = req.body.constrain || problem.constrain
-            problem.answer = req.body.answer || problem.answer
-            problem.description = req.body.description || problem.description
-            const updatedProblem = await problem.save()
-            res.send({ updatedProblem })
-        }
-        else {
-            res.status(400).json({
-                message: 'Problem not found!'
-            })
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
+  try {
+    const problem = await ProblemModel.findById(req.params.id);
+    if (problem) {
+      problem.day = req.body.day || problem.day;
+      problem.date = req.body.date || problem.date;
+      problem.title = req.body.title || problem.title;
+      problem.slug = req.body.slug || problem.slug;
+      problem.sequence = req.body.sequence || problem.sequence;
+      problem.level = req.body.level || problem.level;
+      problem.example = req.body.example || problem.example;
+      problem.constrain = req.body.constrain || problem.constrain;
+      problem.answer = req.body.answer || problem.answer;
+      problem.description = req.body.description || problem.description;
+      const updatedProblem = await problem.save();
+      res.send({ updatedProblem });
+    } else {
+      res.status(400).json({
+        message: "Problem not found!",
+      });
     }
-}
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * DELETE SINGLE PROBLEM
@@ -165,21 +163,21 @@ exports.updateProblem = async (req: Request, res: Response) => {
  */
 
 exports.deleteProblem = async (req: Request, res: Response) => {
-    try {
-        const problem = await ProblemModel.findById(req.params.id)
-        if (problem) {
-            const deletedProblem = await problem.deleteOne()
-            res.status(200).send({ message: 'success', problem: deletedProblem })
-        }
-        res.status(400).json({
-            message: 'Problem not found!'
-        })
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
+  try {
+    const problem = await ProblemModel.findById(req.params.id);
+    if (problem) {
+      const deletedProblem = await problem.deleteOne();
+      res.status(200).send({ message: "success", problem: deletedProblem });
     }
-}
+    res.status(400).json({
+      message: "Problem not found!",
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};
 
 /**
  * SOLVE SINGLE PROBLEM
@@ -187,44 +185,44 @@ exports.deleteProblem = async (req: Request, res: Response) => {
  */
 
 exports.solveProblem = async (req: Request, res: Response) => {
-    try {
-        const user = await UserModel.findById(req.user._id);
-        const problem = await ProblemModel.findById(req.body.id)
-        if (user) {
-            if ((problem?.answer == req.body.answer) && !(user.solvedProblems?.includes(req.body.id))) {
-                await user.solvedProblems?.push(req.params.id)
-                user.username = req.body.username || user.username
-                user.email = req.body.email || user.email
-                user.avatar = req.body.avatar || user.avatar
-                user.isAdmin = user.isAdmin
-                user.solvedProblems = user.solvedProblems
-                const updatedUser = await user.save()
-                res.send({
-                    _id: updatedUser._id,
-                    username: updatedUser.username,
-                    email: updatedUser.email,
-                    avatar: updatedUser.avatar,
-                    isAdmin: updatedUser.isAdmin,
-                    solvedProblems: updatedUser.solvedProblems,
-                    emailVerified: updatedUser.emailVerified,
-                    token: generateToken(updatedUser),
-                })
-            }
-            else {
-                res.status(400).json({
-                    message: 'Answer not correct!'
-                })
-            }
-        }
-        else {
-            res.status(404).json({
-                message: 'User not found!'
-            })
-        }
-    } catch (error) {
+  try {
+    const user = await UserModel.findById(req.user._id);
+    const problem = await ProblemModel.findById(req.body.id);
+    if (user) {
+      if (
+        problem?.answer == req.body.answer &&
+        !user.solvedProblems?.includes(req.body.id)
+      ) {
+        await user.solvedProblems?.push(req.params.id);
+        user.username = req.body.username || user.username;
+        user.email = req.body.email || user.email;
+        user.avatar = req.body.avatar || user.avatar;
+        user.isAdmin = user.isAdmin;
+        user.solvedProblems = user.solvedProblems;
+        const updatedUser = await user.save();
+        res.send({
+          _id: updatedUser._id,
+          username: updatedUser.username,
+          email: updatedUser.email,
+          avatar: updatedUser.avatar,
+          isAdmin: updatedUser.isAdmin,
+          solvedProblems: updatedUser.solvedProblems,
+          emailVerified: updatedUser.emailVerified,
+          token: generateToken(updatedUser),
+        });
+      } else {
         res.status(400).json({
-            message: error
-        })
+          message: "Answer not correct!",
+        });
+      }
+    } else {
+      res.status(404).json({
+        message: "User not found!",
+      });
     }
-}
-
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};

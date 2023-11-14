@@ -18,7 +18,9 @@ const UserProfileInfo = () => {
             className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
           ></img>
         </div>
-        <div className="stat-value text-primary hidden lg:block">{userInfo?.username}</div>
+        <div className="stat-value text-primary hidden lg:block">
+          {userInfo?.username}
+        </div>
       </div>
 
       <div className="stat">

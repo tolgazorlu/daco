@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
     fontFamily: {
       poppins: "Poppins",
-      aubette: "Aubette"
+      aubette: "Aubette",
     },
   },
   daisyui: {
@@ -46,4 +43,4 @@ export default {
   },
   // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
-}
+};

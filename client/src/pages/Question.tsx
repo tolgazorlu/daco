@@ -80,9 +80,15 @@ const Question = () => {
     <ErrorMessage>Question Not Found!</ErrorMessage>
   ) : (
     <>
-    <Helmet>
-        {problem.level == 'easy' ? <title>It's a piece of cake for you!</title> : problem.level == 'medium' ? <>You can do this!</> : <>Just focus!</>}
-    </Helmet>
+      <Helmet>
+        {problem.level == "easy" ? (
+          <title>It's a piece of cake for you!</title>
+        ) : problem.level == "medium" ? (
+          <>You can do this!</>
+        ) : (
+          <>Just focus!</>
+        )}
+      </Helmet>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -107,8 +113,8 @@ const Question = () => {
                 problem.level === "easy"
                   ? "py-1 px-2 bg-success-content text-success rounded-md"
                   : problem.level === "medium"
-                  ? "py-1 px-2 bg-warning-content text-warning rounded-md"
-                  : "py-1 px-2 bg-error-content text-error rounded-md"
+                    ? "py-1 px-2 bg-warning-content text-warning rounded-md"
+                    : "py-1 px-2 bg-error-content text-error rounded-md"
               }
             >
               {problem.level}

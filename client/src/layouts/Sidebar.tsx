@@ -8,13 +8,18 @@ const Sidebar = (props: { isOpen: boolean }) => {
   const { state } = useContext(User);
   const { userInfo } = state;
 
-  const [isCurrentDashboard, setIsCurrentDashboard] = useState(false)
+  const [isCurrentDashboard, setIsCurrentDashboard] = useState(false);
 
   useEffect(() => {
-    if(location == '/profile' || location == '/dashboard' || location == '/dashboard/users' || location == '/dashboard/problems'){
-      setIsCurrentDashboard(true)
+    if (
+      location == "/profile" ||
+      location == "/dashboard" ||
+      location == "/dashboard/users" ||
+      location == "/dashboard/problems"
+    ) {
+      setIsCurrentDashboard(true);
     }
-  }, [location])
+  }, [location]);
 
   return (
     <aside
@@ -23,8 +28,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
         !isCurrentDashboard
           ? "hidden"
           : props.isOpen
-          ? "fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-0 border-r border-base-300 sm:translate-x-0 bg-base-100"
-          : "fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
+            ? "fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-0 border-r border-base-300 sm:translate-x-0 bg-base-100"
+            : "fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
       }
       aria-label="Sidebar"
     >

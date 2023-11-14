@@ -144,6 +144,7 @@ _Below is an example of how you can instruct your audience on installing and set
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -160,6 +161,7 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
@@ -167,6 +169,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
+
 ## Contact
 
 Tolga Zorlu - [@linkedin](https://www.linkedin.com/in/tolgazorlu/)
@@ -176,23 +179,24 @@ Project Link: [https://github.com/tolgazorlu/daco](https://github.com/tolgazorlu
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* [React](https://react.dev/)
-* [Vite](https://vitejs.dev/)
-* [TailwindCSS](https://tailwindcss.com/)
-* [NodeJS](https://nodejs.org/en)
-* [ExpressJS](https://expressjs.com/)
-* [MongoDB](https://www.mongodb.com/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [JsonWebToken](https://jwt.io/)
-* [Eslint](https://eslint.org/)
-* [React Router Dom](https://reactrouter.com/en/main)
-* [React Context](https://react.dev/reference/react/useContext)
-* [React Query](https://tanstack.com/query/v3/)
-* [DaisyUI](https://daisyui.com/)
-* [Flowbite](https://flowbite.com/)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [NodeJS](https://nodejs.org/en)
+- [ExpressJS](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [JsonWebToken](https://jwt.io/)
+- [Eslint](https://eslint.org/)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [React Context](https://react.dev/reference/react/useContext)
+- [React Query](https://tanstack.com/query/v3/)
+- [DaisyUI](https://daisyui.com/)
+- [Flowbite](https://flowbite.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

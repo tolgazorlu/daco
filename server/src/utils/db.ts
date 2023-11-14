@@ -9,7 +9,7 @@ const setupDB = async () => {
     await mongoose
       .connect(database.url, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
       } as ConnectOptions)
       .then(() => {
         console.log(chalk.bgGreen("MongoDB Database connected!"));

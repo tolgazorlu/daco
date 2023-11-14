@@ -9,25 +9,23 @@ const UserMainStats = () => {
   const { state } = useContext(User);
   const { userInfo } = state;
   const { data: problems } = useGetDailyProblemsQuery();
-  const [day, setDay] = useState<number>()
-  const [solved, setSolved] = useState<number>(0)
-  
+  const [day, setDay] = useState<number>();
+  const [solved, setSolved] = useState<number>(0);
+
   useEffect(() => {
-    if(problems){
-      setDay(problems[0].day)
+    if (problems) {
+      setDay(problems[0].day);
     }
-    if(userInfo?.solvedProblems){
-      setSolved(userInfo.solvedProblems.length)
+    if (userInfo?.solvedProblems) {
+      setSolved(userInfo.solvedProblems.length);
     }
-  }, [problems, day, userInfo?.solvedProblems])
+  }, [problems, day, userInfo?.solvedProblems]);
 
   return (
     <div className="stats bg-primary shadow-md">
       <div className="stat">
         <div className="stat-title text-primary-content">Solved Problems</div>
-        <div className="stat-value text-primary-content">
-          {solved}
-        </div>
+        <div className="stat-value text-primary-content">{solved}</div>
         <div className="stat-actions">
           <a href="/" className="btn btn-sm btn-nautral-content text-nautral">
             Check New Problems

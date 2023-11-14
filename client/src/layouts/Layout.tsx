@@ -3,17 +3,16 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
 const Layout = () => {
-
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const setIsOpenSidebar = (state: boolean) => {
-    setIsOpen(state)
-  }
+    setIsOpen(state);
+  };
 
   return (
     <>
-      <Navbar setIsOpenSidebar={setIsOpenSidebar}/>
-      <Sidebar isOpen={isOpen}/>
+      <Navbar setIsOpenSidebar={setIsOpenSidebar} />
+      <Sidebar isOpen={isOpen} />
     </>
   );
 };

@@ -1,11 +1,11 @@
-const transportation = require("../config/nodemailer")
+const transportation = require("../config/nodemailer");
 
 const verifyEmail = async (email: string, username: string, link: string) => {
-    return await transportation.sendMail({
-        to: email,
-        from: process.env.AUTH_MAIL,
-        subject: 'Successfully registered',
-        html: `
+  return await transportation.sendMail({
+    to: email,
+    from: process.env.AUTH_MAIL,
+    subject: "Successfully registered",
+    html: `
         <!DOCTYPE html>
 <html
   xmlns:v="urn:schemas-microsoft-com:vml"
@@ -1560,8 +1560,8 @@ const verifyEmail = async (email: string, username: string, link: string) => {
   </body>
 </html>
 
-        `
-    })
-}
+        `,
+  });
+};
 
-module.exports = { verifyEmail }
+module.exports = { verifyEmail };

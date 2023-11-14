@@ -46,8 +46,8 @@ const UserSolvedProblemsTable = () => {
                           item.level == "easy"
                             ? "text-success"
                             : item.level == "medium"
-                            ? "text-warning"
-                            : "text-error"
+                              ? "text-warning"
+                              : "text-error"
                         }
                       >
                         {item.level}

@@ -11,15 +11,15 @@ const MainStats = () => {
         </div>
         <div className="stat-value text-primary-content">25</div>
         <div className="stat-actions">
-        <button
-        className="btn btn-sm btn-nautral-content text-nautral"
-        onClick={() => {
-          let el: any = document.getElementById("add-problem-modal")!;
-          el.showModal();
-        }}
-      >
-        Add Problem
-      </button>
+          <button
+            className="btn btn-sm btn-nautral-content text-nautral"
+            onClick={() => {
+              let el: any = document.getElementById("add-problem-modal")!;
+              el.showModal();
+            }}
+          >
+            Add Problem
+          </button>
           <AddAlgorithmModal />
         </div>
       </div>
