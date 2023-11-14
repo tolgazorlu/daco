@@ -16,7 +16,8 @@ import { Helmet } from "react-helmet-async";
 const Question = () => {
   const { slug } = useParams();
   const { data: problem, isLoading, error } = useGetProblemQuery(slug!);
-  const { mutateAsync: solveProblem } = useSolveProblemMutation();
+  const { mutateAsync: solveProblem, isLoading: solveProblemLoading } =
+    useSolveProblemMutation();
 
   const { state, dispatch } = useContext(User);
   const { userInfo } = state;
@@ -57,7 +58,7 @@ const Question = () => {
   return isLoading ? (
     <>
       <Layout />
-      <div className="px-0 lg:px-20 rounded-xl w-full mt-14">
+      <div className="p-20 rounded-xl w-full mt-14">
         <div className="p-4 max-h-full flex flex-col gap-4">
           <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
           <span className="bg-primary-content rounded-full h-6 w-12 animate-pulse" />
@@ -155,12 +156,18 @@ const Question = () => {
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
               />
-              <button
-                className="btn btn-primary btn-sm"
-                onClick={submitHandler}
-              >
-                Submit
-              </button>
+              {solveProblemLoading ? (
+                <button className="btn btn-primary btn-sm">
+                  <span className="loading loading-spinner"></span>
+                </button>
+              ) : (
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={submitHandler}
+                >
+                  Submit
+                </button>
+              )}
             </form>
           )}
         </div>

@@ -18,7 +18,6 @@ const Home = () => {
           <title>Welcome to DACO!</title>
         </Helmet>
       )}
-
       <div>
         <Layout />
         <Hero />
