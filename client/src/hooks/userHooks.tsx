@@ -84,3 +84,9 @@ export const useGetUsersQuery = () =>
     queryKey: ["all"],
     queryFn: async () => (await apiClient.get<UserInfo[]>(`api/user/all`)).data,
   });
+
+  export const useDeleteUserMutation = () =>
+  useMutation({
+    mutationFn: async (userId: string) =>
+      (await apiClient.delete<{ message: string, user: UserInfo[] }>(`api/user/delete/${userId}`)).data,
+  })

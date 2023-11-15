@@ -10,5 +10,6 @@ router.get("/verify", authController.Verify);
 router.put("/passwordUpdate", isAuth, authController.PasswordUpdate);
 router.put("/update", isAuth, authController.Update);
 router.get("/all", isAuth, isAdmin, authController.getUsers);
+router.delete('/delete/:id',isAuth, isAdmin, authController.deleteUser)
 
 module.exports = router;

@@ -250,7 +250,7 @@ module.exports.PasswordUpdate = async (req: Request, res: Response) => {
           .json({ message: "Current password is not true!" });
       }
 
-      if(newPassword == currentPassword){
+      if (newPassword == currentPassword) {
         return res
           .status(400)
           .json({ message: "You cannot use your old password!" });
@@ -287,3 +287,31 @@ module.exports.getUsers = async (req: Request, res: Response) => {
     });
   }
 };
+
+/**
+ * DELETE SINGLE USER
+ * api/user/delete
+ */
+
+module.exports.deleteUser = async (req: Request, res: Response) => {
+  try {
+    const user = await UserModel.findById(req.params.id)
+
+    if (user) {
+      if (user.isAdmin) {
+        res.status(400).send({ message: 'You can not delete admin account!' })
+        return
+      }
+      const deletedUser = await user.deleteOne()
+      res.status(200).json({ deletedUser })
+    }
+    else {
+      res.status(404).send({ message: 'User not found!' })
+    }
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+
+}

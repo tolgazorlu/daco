@@ -137,7 +137,7 @@ const Question = () => {
               return (
                 <span
                   key={item}
-                  className="py-1 px-2 bg-primary-content text-primary rounded-md"
+                  className="py-1 px-2 bg-secondary-content text-secondary rounded-md"
                 >
                   {item}
                 </span>
@@ -151,7 +151,7 @@ const Question = () => {
           ) : (
             <form className="flex flex-col md:w-1/3 gap-2">
               <input
-                className="px-4 py-1 rounded-md bg-secondary-content text-secondary placeholder:text-secondary"
+                className="px-4 py-1 rounded-md bg-accent-content text-accent placeholder:text-accent"
                 placeholder="Enter answer here!"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}

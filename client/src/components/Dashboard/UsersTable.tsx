@@ -1,7 +1,27 @@
-import { useGetUsersQuery } from "../../hooks/userHooks";
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
+import { useDeleteUserMutation, useGetUsersQuery } from "../../hooks/userHooks";
+import { toast } from "react-toastify";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 
 const UsersTable = () => {
-  const { data: users, isLoading, error } = useGetUsersQuery();
+  const { data: users, isLoading, error, refetch } = useGetUsersQuery();
+  const { mutateAsync: deleteUser, isLoading: loadingDelete } =
+    useDeleteUserMutation();
+
+  const [chooseUser, setChooseUser] = useState<string>('')
+
+  const userDeleteHandler = async (id: string) => {
+    try {
+      await deleteUser(id);
+      refetch();
+      toast.success("User deleted successfully");
+    } catch (error) {
+      toast.error(getError(error as ApiError));
+    }
+  };
 
   return (
     <>
@@ -115,9 +135,44 @@ const UsersTable = () => {
                             <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50">
                               Edit
                             </button>
-                            <button className="btn btn-xs btn-error text-error-content hover:bg-error/50">
+                            <button
+                              onClick={() => {
+                                let el: any =
+                                  document.getElementById("my_modal_1")!;
+                                el.showModal();
+                                setChooseUser(item._id);
+                              }}
+                              className="btn btn-xs btn-error text-error-content hover:bg-error/50"
+                            >
                               Delete
                             </button>
+                            {/* DELETE */}
+
+                            <dialog
+                              id="my_modal_1"
+                              className="modal modal-bottom sm:modal-middle"
+                            >
+                              <div className="modal-box">
+                                <h3 className="font-bold text-lg">
+                                  Attention!
+                                </h3>
+                                <p className="py-4">
+                                  Do you want to delete this user? You can not
+                                  take it back the process!
+                                </p>
+                                <div className="modal-action">
+                                  <form className="flex">
+                                    <button
+                                      className="btn btn-error mr-2 text-error-content"
+                                      onClick={() => userDeleteHandler(chooseUser)}
+                                    >
+                                      {loadingDelete ? <span className="loading"></span> : <span>Delete</span>}
+                                    </button>
+                                    <button className="btn">Close</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </dialog>
                           </td>
                         )}
                       </tr>
