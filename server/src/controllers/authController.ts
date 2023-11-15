@@ -185,14 +185,14 @@ module.exports.Update = async (req: Request, res: Response) => {
     const email = req.body.email
 
     const existingUsername = await UserModel.findOne({ username });
-    if (existingUsername) {
+    if (existingUsername && (existingUsername.username !== req.user.username)) {
       return res
         .status(400)
         .json({ message: "This username is already taken!" });
     }
 
     const existingEmail = await UserModel.findOne({ email });
-    if (existingEmail) {
+    if (existingEmail && (existingEmail.email !== req.user.email)) {
       return res
         .status(400)
         .json({ message: "This email is already using!" });
