@@ -74,7 +74,7 @@ const Login = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
       <Layout />
       <div className="flex h-screen py-8">

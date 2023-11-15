@@ -100,7 +100,7 @@ const Question = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
       <Layout />
       <div>

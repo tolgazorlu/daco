@@ -18,7 +18,7 @@ const Profile = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
       <Helmet>
         <title>This is your profile!</title>

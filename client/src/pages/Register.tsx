@@ -120,7 +120,7 @@ const Register = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
       <Layout />
       <div className="flex py-8 h-screen">
