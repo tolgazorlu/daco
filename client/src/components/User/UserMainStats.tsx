@@ -8,7 +8,7 @@ import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 const UserMainStats = () => {
   const { state } = useContext(User);
   const { userInfo } = state;
-  const { data: problems } = useGetDailyProblemsQuery();
+  const { data: problems, isLoading } = useGetDailyProblemsQuery();
   const [day, setDay] = useState<number>();
   const [solved, setSolved] = useState<number>(0);
 
@@ -35,7 +35,7 @@ const UserMainStats = () => {
 
       <div className="stat">
         <div className="stat-title text-primary-content">Total Day</div>
-        <div className="stat-value text-primary-content">{day}</div>
+        <div className="stat-value text-primary-content">{isLoading ? <span>?</span> : <span>{day}</span>}</div>
         <div className="stat-actions flex gap-2">
           <button className="btn btn-sm btn-disabled text-nautral">
             Check Statistics
