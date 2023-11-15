@@ -36,7 +36,7 @@ const Hero = () => {
               return (
                 <a
                   key={item._id}
-                  className="btn bg-primary-content px-4 py-2 text-primary font-bold border border-primary"
+                  className="btn bg-accent-content px-4 py-2 text-accent font-bold border border-accent"
                   href={"/question/" + item.slug}
                 >
                   {item.title}

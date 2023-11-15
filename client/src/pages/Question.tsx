@@ -137,7 +137,7 @@ const Question = () => {
               return (
                 <span
                   key={item}
-                  className="py-1 px-2 bg-secondary-content text-secondary rounded-md"
+                  className="py-1 px-2 bg-primary-content text-primary rounded-md"
                 >
                   {item}
                 </span>
@@ -157,12 +157,12 @@ const Question = () => {
                 onChange={(e) => setAnswer(e.target.value)}
               />
               {solveProblemLoading ? (
-                <button className="btn btn-primary btn-sm">
+                <button className="btn btn-accent btn-sm">
                   <span className="loading loading-spinner"></span>
                 </button>
               ) : (
                 <button
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-accent btn-sm"
                   onClick={submitHandler}
                 >
                   Submit

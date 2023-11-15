@@ -50,7 +50,7 @@ const Counter = () => {
 
   return (
     <div className="grid grid-flow-col gap-6 text-center auto-cols-max py-10 justify-center">
-      <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
+      <div className="flex flex-col p-2 bg-primary-content rounded-box text-primary">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette justify-center">
           <span style={valueHours}></span>
         </span>
@@ -58,13 +58,13 @@ const Counter = () => {
           &nbsp;&nbsp;hours&nbsp;&nbsp;
         </span>
       </div>
-      <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
+      <div className="flex flex-col p-2 bg-primary-content rounded-box text-primary">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette justify-center">
           <span style={valueMinutes}></span>
         </span>
         <span className="font-poppins text-xs lg:text-md">minutes</span>
       </div>
-      <div className="flex flex-col p-2 bg-primary rounded-box text-primary-content">
+      <div className="flex flex-col p-2 bg-primary-content rounded-box text-primary">
         <span className="countdown font-mono text-3xl md:text-8xl font-aubette justify-center">
           <span style={valueSeconds}></span>
         </span>

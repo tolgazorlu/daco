@@ -195,8 +195,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 alt="User dropdown"
                 className={
                   userInfo.isAdmin
-                    ? "w-8 h-8 rounded-full ring ring-primary"
-                    : "h-8 w-8 rounded-full ring ring-secondary"
+                    ? "w-8 h-8 rounded-full ring ring-accent"
+                    : "h-8 w-8 rounded-full ring ring-primary"
                 }
                 src={userInfo.avatar}
               />
@@ -212,7 +212,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                       alt="User dropdown"
                       className={
                         userInfo.isAdmin
-                          ? "w-10 h-10 rounded-full ring-4 ring-primary"
+                          ? "w-10 h-10 rounded-full ring-4 ring-accent"
                           : "w-10 h-10 rounded-full ring-4 ring-primary"
                       }
                       src={userInfo.avatar}
