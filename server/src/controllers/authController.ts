@@ -258,7 +258,7 @@ module.exports.PasswordUpdate = async (req: Request, res: Response) => {
 
       user.password = bcrypt.hashSync(newPassword, 12);
       const changedPasswordUser = await user.save();
-      res.send({
+      return res.send({
         _id: changedPasswordUser._id,
         token: generateToken(changedPasswordUser),
       });
@@ -299,14 +299,13 @@ module.exports.deleteUser = async (req: Request, res: Response) => {
 
     if (user) {
       if (user.isAdmin) {
-        res.status(400).send({ message: 'You can not delete admin account!' })
-        return
+        return res.status(400).send({ message: 'You can not delete admin account!' })
       }
       const deletedUser = await user.deleteOne()
       res.status(200).json({ deletedUser })
     }
     else {
-      res.status(404).send({ message: 'User not found!' })
+      return res.status(404).send({ message: 'User not found!' })
     }
   } catch (error) {
     res.status(400).json({
