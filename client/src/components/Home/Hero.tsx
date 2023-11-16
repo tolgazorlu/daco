@@ -1,11 +1,24 @@
+import { useContext, useEffect, useState } from "react";
 import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 import { ApiError } from "../../types/ApiError";
 import { getError } from "../../utils/getError";
 import ErrorMessage from "../ErrorMessage";
 import Counter from "./Counter";
+import { User } from "../../contexts/User";
 
 const Hero = () => {
   const { data: problems, isLoading, error } = useGetDailyProblemsQuery();
+  const { state } = useContext(User)
+  const { userInfo } = state
+
+
+  const [solvedArray, setSolvedArray] = useState([""])
+
+  useEffect(() => {
+    if(userInfo){
+      setSolvedArray(userInfo.solvedProblems)
+    }
+  }, [userInfo])
 
   return (
     <div className="hero h-screen">
@@ -36,7 +49,7 @@ const Hero = () => {
               return (
                 <a
                   key={item._id}
-                  className="btn bg-accent-content px-4 py-2 text-accent font-bold border border-accent"
+                  className={solvedArray.includes(item._id) ? "btn bg-disabled px-4 py-2 font-bold" : "btn bg-accent-content px-4 py-2 text-accent font-bold border border-accent"}
                   href={"/question/" + item.slug}
                 >
                   {item.title}
