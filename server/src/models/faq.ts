@@ -1,17 +1,14 @@
 import { modelOptions, prop, getModelForClass } from "@typegoose/typegoose";
 
 @modelOptions({ schemaOptions: { timestamps: true } })
-export class Contact {
+export class FAQ {
     public _id?: string;
 
     @prop({ required: true })
-    public email!: string;
+    public title!: string;
 
     @prop({ required: true })
-    public subject!: string;
-
-    @prop({ required: true })
-    public message!: string;
+    public description!: string;
 }
 
-export const ContactModel = getModelForClass(Contact);
+export const FAQModel = getModelForClass(FAQ);

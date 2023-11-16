@@ -13,6 +13,8 @@ import UserRoute from "./routes/UserRoute";
 import EmailVerify from "./pages/EmailVerify";
 import Contact from "./pages/Contact";
 import Contacts from "./pages/Dashboard/Contacts";
+import Faq from "./pages/Faq";
+import FAQs from "./pages/Dashboard/FAQs";
 
 const App = () => {
   return (
@@ -23,12 +25,14 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/question/:slug" element={<Question />} />
         <Route path="" element={<AdminRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/users" element={<Users />} />
           <Route path="/dashboard/problems" element={<Problems />} />
           <Route path="/dashboard/contacts" element={<Contacts />} />
+          <Route path="/dashboard/faqs" element={<FAQs />} />
         </Route>
         <Route path="" element={<UserRoute />}>
           <Route path="/verify" element={<EmailVerify />} />

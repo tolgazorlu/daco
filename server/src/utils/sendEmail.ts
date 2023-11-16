@@ -306,7 +306,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                         cellspacing="0"
                         cellpadding="0"
                         align="center"
-                        bgcolor="#5719f8"
+                        bgcolor="#2acdbc"
                       >
                         <tr>
                           <td align="left" style="padding: 0; margin: 0">
@@ -350,7 +350,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                                       >
                                         <img
                                           class="adapt-img"
-                                          src="https://ebpomtx.stripocdn.email/content/guids/bannerImgGuid/images/image16999946386819569.png"
+                                          src="https://i.ibb.co/5FXLhZ5/daco-banner.png"
                                           alt
                                           title
                                           width="100%"
@@ -391,7 +391,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                   <tr>
                     <td align="center" style="padding: 0; margin: 0">
                       <table
-                        bgcolor="#5719f8"
+                        bgcolor="#2acdbc"
                         class="es-content-body"
                         align="center"
                         cellpadding="0"
@@ -401,7 +401,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                           mso-table-rspace: 0pt;
                           border-collapse: collapse;
                           border-spacing: 0px;
-                          background-color: #5719f8;
+                          background-color: #2acdbc;
                           border-radius: 0 0 50px 50px;
                           width: 510px;
                         "
@@ -537,7 +537,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                                           style="
                                             border-style: solid;
                                             border-color: #2cb543;
-                                            background: #f222bc;
+                                            background: #07312d;
                                             border-width: 0px;
                                             display: inline-block;
                                             border-radius: 30px;
@@ -558,7 +558,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                                               font-size: 16px;
                                               padding: 15px 35px 15px 35px;
                                               display: inline-block;
-                                              background: #f222bc;
+                                              background: #07312d;
                                               border-radius: 30px;
                                               font-family: Poppins, sans-serif;
                                               font-weight: normal;
@@ -567,7 +567,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                                               width: auto;
                                               text-align: center;
                                               mso-padding-alt: 0;
-                                              mso-border-alt: 10px solid #f222bc;
+                                              mso-border-alt: 10px solid #07312d;
                                             "
                                             >Confirm email address</a
                                           ></span

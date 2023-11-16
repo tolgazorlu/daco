@@ -8,6 +8,7 @@ const cors = require("cors");
 const problemRoute = require("./routes/problemRoute");
 const authRoute = require("./routes/authRoute");
 const contactRoute = require("./routes/contactRoute");
+const faqRoute = require("./routes/faqRoute");
 
 const app: Express = express();
 
@@ -36,6 +37,7 @@ Job;
 app.use("/api/problems", problemRoute);
 app.use("/api/user", authRoute);
 app.use("/api/contact", contactRoute);
+app.use("/api/faq", faqRoute);
 
 
 //LISTEN

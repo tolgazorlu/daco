@@ -11,7 +11,6 @@ const Contacts = () => {
         <title>Contact Messages</title>
       </Helmet>
       <Layout />
-      return (
       <div className="sm:ml-64 mt-16 flex flex-col gap-4">
         {isLoading ? (
           <div className="p-2 rounded-lg">
@@ -92,7 +91,6 @@ const Contacts = () => {
           </div>
         )}
       </div>
-      );
     </>
   );
 };

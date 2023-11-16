@@ -16,8 +16,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
       location == "/dashboard" ||
       location == "/dashboard/users" ||
       location == "/dashboard/problems" ||
-      location == "/dashboard/contacts"
-
+      location == "/dashboard/contacts" ||
+      location == "/dashboard/faqs"
     ) {
       setIsCurrentDashboard(true);
     }
@@ -30,8 +30,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
         !isCurrentDashboard
           ? "hidden"
           : props.isOpen
-            ? "fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-0 border-r border-base-300 sm:translate-x-0 bg-base-100"
-            : "fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
+            ? "overflow-scroll fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-0 border-r border-base-300 sm:translate-x-0 bg-base-100"
+            : "overflow-scroll fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
       }
       aria-label="Sidebar"
     >
@@ -148,10 +148,33 @@ const Sidebar = (props: { isOpen: boolean }) => {
                       clipRule="evenodd"
                     />
                   </svg>
-
                   <span className="flex-1 ml-3 whitespace-nowrap">
                     Contacts
                   </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/dashboard/faqs"
+                  className={
+                    location === "/dashboard/faqs"
+                      ? "flex items-center p-2 rounded-lg bg-accent text-accent-content"
+                      : "flex items-center p-2 rounded-lg hover:bg-accent/50"
+                  }
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="flex-1 ml-3 whitespace-nowrap">FAQs</span>
                 </a>
               </li>
             </>
