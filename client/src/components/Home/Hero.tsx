@@ -12,11 +12,11 @@ const Hero = () => {
       <div>
         <span className="flex items-center justify-center w-full">
           {problems ? (
-            <h1 className="text-8xl font-bold font-aubette text-accent">
+            <h1 className="text-7xl font-bold font-aubette text-accent text-center sm:text-8xl">
               DACO DAY {problems[0].day}
             </h1>
           ) : (
-            <h1 className="text-8xl font-bold font-aubette text-accent">
+            <h1 className="text-8xl font-bold font-aubette text-accent text-center sm:text-8xl">
               DACO DAY ?
             </h1>
           )}

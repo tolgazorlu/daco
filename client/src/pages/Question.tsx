@@ -58,7 +58,7 @@ const Question = () => {
   return isLoading ? (
     <>
       <Layout />
-      <div className="p-20 rounded-xl w-full mt-14">
+      <div className="p-10 rounded-xl w-full mt-14">
         <div className="p-4 max-h-full flex flex-col gap-4">
           <span className="bg-accent-content rounded-full h-6 w-52 animate-pulse" />
           <span className="bg-accent-content rounded-full h-6 w-12 animate-pulse" />
@@ -104,7 +104,7 @@ const Question = () => {
       />
       <Layout />
       <div>
-        <div className="p-20 flex flex-col gap-4 mt-14">
+        <div className="py-10 px-2 flex flex-col gap-4 mt-14 md:p-10">
           <span className="font-bold text-2xl">
             <span>{problem.sequence}.</span> <span>{problem.title}</span>
           </span>
