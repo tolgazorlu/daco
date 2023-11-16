@@ -22,10 +22,10 @@ const UserMainStats = () => {
   }, [problems, day, userInfo?.solvedProblems]);
 
   return (
-    <div className="stats bg-primary shadow-md">
+    <div className="stats bg-accent shadow-md">
       <div className="stat">
-        <div className="stat-title text-primary-content">Solved Problems</div>
-        <div className="stat-value text-primary-content">{solved}</div>
+        <div className="stat-title text-accent-content">Solved Problems</div>
+        <div className="stat-value text-accent-content">{solved}</div>
         <div className="stat-actions">
           <a href="/" className="btn btn-sm btn-nautral-content text-nautral">
             Check New Problems
@@ -34,8 +34,8 @@ const UserMainStats = () => {
       </div>
 
       <div className="stat">
-        <div className="stat-title text-primary-content">Total Day</div>
-        <div className="stat-value text-primary-content">{isLoading ? <span>?</span> : <span>{day}</span>}</div>
+        <div className="stat-title text-accent-content">Total Day</div>
+        <div className="stat-value text-accent-content">{isLoading ? <span>?</span> : <span>{day}</span>}</div>
         <div className="stat-actions flex gap-2">
           <button className="btn btn-sm btn-disabled text-nautral">
             Check Statistics

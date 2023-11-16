@@ -91,7 +91,7 @@ const UpdateUserProfileModal = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full max-w-xs"
                 placeholder="username"
               />
             </div>
@@ -105,14 +105,14 @@ const UpdateUserProfileModal = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full max-w-xs"
                 placeholder="user@mail.com"
               />
             </div>
             <div>
               <label className="block mb-2 text-sm font-medium">Avatar</label>
               <input
-                className="input input-bordered input-sm input-primary w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full max-w-xs"
                 placeholder="https:avatar.png"
                 value={avatar}
                 onChange={(e) => setAvatar(e.target.value)}

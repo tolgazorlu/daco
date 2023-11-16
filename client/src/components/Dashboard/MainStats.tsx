@@ -4,12 +4,12 @@ import AddAlgorithmModal from "./AddProblemModal";
 
 const MainStats = () => {
   return (
-    <div className="stats bg-primary shadow-md">
+    <div className="stats bg-accent shadow-md">
       <div className="stat">
-        <div className="stat-title text-primary-content">
+        <div className="stat-title text-accent-content">
           Total Algorithm Questions
         </div>
-        <div className="stat-value text-primary-content">25</div>
+        <div className="stat-value text-accent-content">25</div>
         <div className="stat-actions">
           <button
             className="btn btn-sm btn-nautral-content text-nautral"
@@ -25,8 +25,8 @@ const MainStats = () => {
       </div>
 
       <div className="stat">
-        <div className="stat-title text-primary-content">Total Users</div>
-        <div className="stat-value text-primary-content">4200</div>
+        <div className="stat-title text-accent-content">Total Users</div>
+        <div className="stat-value text-accent-content">4200</div>
         <div className="stat-actions flex gap-2">
           <button className="btn btn-sm btn-nautral-content text-nautral">
             Check Users

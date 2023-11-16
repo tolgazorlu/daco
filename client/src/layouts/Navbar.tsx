@@ -4,17 +4,17 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { User } from "../contexts/User";
+import themes from "../utils/themes";
 
 export type navLinks = {
   name: string;
   href: string;
 };
 
-export type themes = string;
-
 const Navbar = (props: { setIsOpenSidebar: any }) => {
   const { state, dispatch } = useContext(User);
   const { userInfo } = state;
+
 
   const param = useParams();
   const location = useLocation();
@@ -26,38 +26,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
     { name: "Author", href: "https://github.com/tolgazorlu" },
   ];
 
-  const themes: themes[] = [
-    "light",
-    "dark",
-    "cupcake",
-    "bumblebee",
-    "emerald",
-    "corporate",
-    "synthwave",
-    "retro",
-    "cyberpunk",
-    "valentine",
-    "halloween",
-    "garden",
-    "forest",
-    "aqua",
-    "lofi",
-    "pastel",
-    "fantasy",
-    "wireframe",
-    "black",
-    "luxury",
-    "dracula",
-    "cmyk",
-    "autumn",
-    "business",
-    "acid",
-    "lemonade",
-    "night",
-    "coffee",
-    "winter",
-  ];
-
   /** @ts-ignore  */
   const localTheme = JSON.parse(localStorage.getItem("theme"));
 
@@ -66,18 +34,18 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
     setTheme((e.target as HTMLInputElement).value);
   };
 
+  useEffect(() => {
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+    document.getElementById("screen")?.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme, param.slug]);
+
   const signoutHandler = () => {
     dispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("cartItems");
     window.location.href = "/login";
   };
-
-  useEffect(() => {
-    document.querySelector("html")?.setAttribute("data-theme", theme);
-    document.getElementById("screen")?.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme, param.slug]);
 
   return (
     <nav
@@ -123,7 +91,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2.5}
-            className="w-6 h-6 stroke-secondary"
+            className="w-6 h-6 stroke-accent"
           >
             <path
               strokeLinecap="round"
@@ -131,7 +99,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <span className="font-bold text-2xl font-aubette text-primary">
+          <span className="font-bold text-2xl font-aubette text-accent">
             DACO
           </span>
         </a>
@@ -154,8 +122,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         </ul>
       </div>
       <div className="navbar-end">
-        {/** THEMES */}
 
+        {/** THEMES */}
         <div className="drawer-end">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-side z-50">
@@ -167,7 +135,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                   <li key={item}>
                     <button
                       className={
-                        theme === item ? "btn btn-sm btn-primary" : "btn btn-sm"
+                        theme === item ? "btn btn-sm btn-accent" : "btn btn-sm"
                       }
                       value={item}
                       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
@@ -184,7 +152,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         </div>
 
         {/** USER PROCESS */}
-
         {userInfo ? (
           <div className="dropdown dropdown-end">
             <label
@@ -195,8 +162,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 alt="User dropdown"
                 className={
                   userInfo.isAdmin
-                    ? "w-8 h-8 rounded-full ring ring-accent"
-                    : "h-8 w-8 rounded-full ring ring-primary"
+                    ? "w-8 h-8 rounded-full ring ring-primary"
+                    : "h-8 w-8 rounded-full ring ring-accent"
                 }
                 src={userInfo.avatar}
               />
@@ -212,8 +179,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                       alt="User dropdown"
                       className={
                         userInfo.isAdmin
-                          ? "w-10 h-10 rounded-full ring-4 ring-accent"
-                          : "w-10 h-10 rounded-full ring-4 ring-primary"
+                          ? "w-10 h-10 rounded-full ring-4 ring-primary"
+                          : "w-10 h-10 rounded-full ring-4 ring-accent"
                       }
                       src={userInfo.avatar}
                     />
@@ -228,7 +195,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               <li>
                 <a
                   href="/profile"
-                  className="hover:text-primary-content hover:bg-primary"
+                  className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
                 >
                   Profile
                 </a>
@@ -237,7 +204,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 <li>
                   <a
                     href="/dashboard"
-                    className="hover:text-primary-content hover:bg-primary"
+                    className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
                   >
                     Dashboard
                   </a>
@@ -248,7 +215,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               <li>
                 <label
                   htmlFor="my-drawer"
-                  className="hover:text-primary-content hover:bg-primary"
+                  className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
                 >
                   Themes
                 </label>
@@ -256,7 +223,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               <li>
                 <button
                   onClick={signoutHandler}
-                  className="hover:text-primary-content hover:bg-primary"
+                  className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
                 >
                   Logout
                 </button>
@@ -266,7 +233,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         ) : (
           <a
             href="/login"
-            className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
+            className="btn font-poppins btn-sm btn-outline btn-accent text-accent-content shadow-md shadow-accent/50 hover:accent/50"
           >
             Login
           </a>

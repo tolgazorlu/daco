@@ -83,7 +83,7 @@ const ChangePasswordModal = () => {
                 id="oldPassword"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full max-w-xs"
                 placeholder="********"
               />
             </div>
@@ -100,7 +100,7 @@ const ChangePasswordModal = () => {
                 id="newPassword"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full max-w-xs"
                 placeholder="********"
               />
             </div>
@@ -117,7 +117,7 @@ const ChangePasswordModal = () => {
                 id="confirmNewPassword"
                 value={confirmNewPassword}
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full max-w-xs"
                 placeholder="********"
               />
             </div>

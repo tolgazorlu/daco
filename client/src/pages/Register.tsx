@@ -125,7 +125,7 @@ const Register = () => {
       <Layout />
       <div className="flex py-8 h-screen">
         <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
-          <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
+          <h1 className="text-3xl font-semibold text-center text-accent font-aubette">
             REGISTER
           </h1>
           <form className="space-y-4 font-poppins" onSubmit={handleSubmit}>
@@ -138,7 +138,7 @@ const Register = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
-                className="w-full input input-bordered input-primary"
+                className="w-full input input-bordered input-accent"
                 required
               />
             </div>
@@ -151,7 +151,7 @@ const Register = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email Address"
-                className="w-full input input-bordered input-primary"
+                className="w-full input input-bordered input-accent"
                 required
               />
             </div>
@@ -167,7 +167,7 @@ const Register = () => {
                   validatePassword(e.target.value);
                 }}
                 placeholder="Enter Password"
-                className="w-full input input-bordered input-primary"
+                className="w-full input input-bordered input-accent"
                 required
               />
               {strength > 0 ? (
@@ -214,7 +214,7 @@ const Register = () => {
                   checkPasswordisMatch(e.target.value);
                 }}
                 placeholder="Confirm Password"
-                className="w-full input input-bordered input-primary"
+                className="w-full input input-bordered input-accent"
                 required
               />
             </div>
@@ -232,7 +232,7 @@ const Register = () => {
               <button
                 className={
                   strength > 3 && isPasswordMatched
-                    ? "px-6 btn btn-primary font-poppins shadow-md shadow-primary/50"
+                    ? "px-6 btn btn-accent font-poppins shadow-md shadow-accent/50"
                     : "px-6 btn btn-disabled font-poppins "
                 }
               >

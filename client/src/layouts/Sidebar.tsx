@@ -40,8 +40,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
               href="/profile"
               className={
                 location === "/profile"
-                  ? "flex items-center p-2 rounded-lg bg-primary text-primary-content"
-                  : "flex items-center p-2 rounded-lg hover:bg-primary/50"
+                  ? "flex items-center p-2 rounded-lg bg-accent text-accent-content"
+                  : "flex items-center p-2 rounded-lg hover:bg-accent/50"
               }
             >
               <svg
@@ -63,8 +63,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
                   href="/dashboard"
                   className={
                     location === "/dashboard"
-                      ? "flex items-center p-2 rounded-lg bg-primary text-primary-content"
-                      : "flex items-center p-2 rounded-lg hover:bg-primary/50"
+                      ? "flex items-center p-2 rounded-lg bg-accent text-accent-content"
+                      : "flex items-center p-2 rounded-lg hover:bg-accent/50"
                   }
                 >
                   <svg
@@ -86,8 +86,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
                   href="/dashboard/users"
                   className={
                     location === "/dashboard/users"
-                      ? "flex items-center p-2 rounded-lg bg-primary text-primary-content"
-                      : "flex items-center p-2 rounded-lg hover:bg-primary/50"
+                      ? "flex items-center p-2 rounded-lg bg-accent text-accent-content"
+                      : "flex items-center p-2 rounded-lg hover:bg-accent/50"
                   }
                 >
                   <svg
@@ -107,8 +107,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
                   href="/dashboard/problems"
                   className={
                     location === "/dashboard/problems"
-                      ? "flex items-center p-2 rounded-lg bg-primary text-primary-content"
-                      : "flex items-center p-2 rounded-lg hover:bg-primary/50"
+                      ? "flex items-center p-2 rounded-lg bg-accent text-accent-content"
+                      : "flex items-center p-2 rounded-lg hover:bg-accent/50"
                   }
                 >
                   <svg
@@ -135,7 +135,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
             <a
               href="https://www.buymeacoffee.com/tolgazorlu"
               target="_blank"
-              className="flex items-center p-2 transition duration-75 rounded-lg group hover:bg-primary/50"
+              className="flex items-center p-2 transition duration-75 rounded-lg group hover:bg-accent/50"
             >
               <svg
                 className="flex-shrink-0 w-5 h-5 transition duration-75 "
@@ -153,7 +153,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
             <a
               href="https://github.com/tolgazorlu/daco"
               target="_blank"
-              className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-primary/50"
+              className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-accent/50"
             >
               <svg
                 className="flex-shrink-0 w-5 h-5  transition duration-75 "
@@ -171,7 +171,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
             <a
               href="https://daisyui.com/docs/themes/"
               target="_blank"
-              className="flex items-center p-2 transition duration-75 rounded-lg  group hover:bg-primary/50"
+              className="flex items-center p-2 transition duration-75 rounded-lg  group hover:bg-accent/50"
             >
               <svg
                 className="flex-shrink-0 w-5 h-5 transition duration-75 "
@@ -190,7 +190,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
             <a
               href="https://github.com/tolgazorlu/daco#contributing"
               target="_blank"
-              className="flex items-center p-2 transition duration-75 rounded-lg  group hover:bg-primary/50"
+              className="flex items-center p-2 transition duration-75 rounded-lg  group hover:bg-accent/50"
             >
               <svg
                 className="flex-shrink-0 w-5 h-5  transition duration-75  group-hover "
@@ -207,15 +207,15 @@ const Sidebar = (props: { isOpen: boolean }) => {
         </ul>
         <div
           id="dropdown-cta"
-          className="p-4 mt-6 rounded-lg bg-primary font-poppins"
+          className="p-4 mt-6 rounded-lg bg-accent font-poppins"
           role="alert"
         >
           <div className="flex items-center mb-3">
-            <span className="bg-primary-content text-primary text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+            <span className="bg-accent-content text-accent text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
               Beta
             </span>
           </div>
-          <p className="mb-3 text-sm text-primary-content">
+          <p className="mb-3 text-sm text-accent-content">
             Preview the new As{" "}
             <span className="font-bold font-aubette">DACO</span>, we are here
             with the beta version. If you would like to support the project, you
@@ -223,13 +223,13 @@ const Sidebar = (props: { isOpen: boolean }) => {
             <a
               href="https://github.com/tolgazorlu/daco"
               target="_blank"
-              className=" font-aubette font-bold hover:text-primary-content/50"
+              className=" font-aubette font-bold hover:text-accent-content/50"
             >
               LINK HERE.
             </a>
           </p>
           <a
-            className="text-sm text-primary-content underline font-medium hover:text-primary-content/50"
+            className="text-sm text-accent-content underline font-medium hover:text-accent-content/50"
             href="https://github.com/tolgazorlu"
             target="_blank"
           >
