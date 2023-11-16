@@ -24,6 +24,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
   const navLinks: navLinks[] = [
     { name: "Project", href: "https://github.com/tolgazorlu/daco" },
     { name: "Author", href: "https://github.com/tolgazorlu" },
+    { name: "Contact", href: "/contact" },
   ];
 
   /** @ts-ignore  */
@@ -112,7 +113,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 <a
                   href={item.href}
                   className="font-poppins text-lg"
-                  target="_blank"
                 >
                   {item.name}
                 </a>

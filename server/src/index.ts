@@ -7,6 +7,7 @@ const cors = require("cors");
 //ROUTE IMPORTS
 const problemRoute = require("./routes/problemRoute");
 const authRoute = require("./routes/authRoute");
+const contactRoute = require("./routes/contactRoute");
 
 const app: Express = express();
 
@@ -34,6 +35,8 @@ Job;
 //ROUTES
 app.use("/api/problems", problemRoute);
 app.use("/api/user", authRoute);
+app.use("/api/contact", contactRoute);
+
 
 //LISTEN
 app.listen(port, () => {
