@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import Layout from "../layouts/Layout";
 import { useCreateContactMutation } from "../hooks/contactHook";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { getError } from "../utils/getError";
 import { ApiError } from "../types/ApiError";
 
@@ -20,14 +20,26 @@ const Contact = () => {
         subject: subject,
         message: message,
       });
-      toast.success('Message sended!')
+      toast.success("Message sended!");
     } catch (error) {
-        toast.error(getError(error as ApiError));
-      }
+      toast.error(getError(error as ApiError));
+    }
   };
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <Layout />
       <section className="mt-14">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md font-poppins">

@@ -12,6 +12,7 @@ import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
 import EmailVerify from "./pages/EmailVerify";
 import Contact from "./pages/Contact";
+import Contacts from "./pages/Dashboard/Contacts";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/users" element={<Users />} />
           <Route path="/dashboard/problems" element={<Problems />} />
+          <Route path="/dashboard/contacts" element={<Contacts />} />
         </Route>
         <Route path="" element={<UserRoute />}>
           <Route path="/verify" element={<EmailVerify />} />

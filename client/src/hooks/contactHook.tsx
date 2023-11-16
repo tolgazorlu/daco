@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import apiClient from "../utils/apiClient";
 import { Contact } from "../types/Contact";
 
@@ -15,4 +15,11 @@ export const useCreateContactMutation = () =>
           contact,
         )
       ).data,
+  });
+
+export const useGetContactsQuery = () =>
+  useQuery({
+    queryKey: ["all"],
+    queryFn: async () =>
+      (await apiClient.get<Contact[]>(`api/contact/all`)).data,
   });
