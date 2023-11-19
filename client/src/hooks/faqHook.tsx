@@ -27,6 +27,7 @@ export const useEditFAQMutation = () =>
     }) =>
       (
         await apiClient.put<FAQ>(`api/faq/update/${id}`, {
+          id,
           title,
           description,
         })

@@ -5,7 +5,6 @@ import {
   useDeleteProblemMutation,
   useGetDailyProblemsQuery,
 } from "../../hooks/problemHooks";
-import EditProblemModal from "./EditProblemModal";
 import { toast } from "react-toastify";
 import { getError } from "../../utils/getError";
 import { ApiError } from "../../types/ApiError";
@@ -121,7 +120,6 @@ const DailyProblemsTable = () => {
                         >
                           Detail
                         </a>
-                        <EditProblemModal item={item} />
                         <button
                           onClick={() => {
                             let el: any =

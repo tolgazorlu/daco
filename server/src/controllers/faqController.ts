@@ -47,7 +47,6 @@ exports.editFAQ = async (req: Request, res: Response) => {
       if (faq) {
         faq.title = req.body.title || faq.title;
         faq.description = req.body.description || faq.description;
-        faq.description = req.body.description || faq.description;
         const updatedFAQ = await faq.save();
         res.send({ updatedFAQ });
       } else {
