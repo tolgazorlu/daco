@@ -61,7 +61,7 @@ exports.getProblems = async (req: Request, res: Response) => {
 exports.getSolvedProblems = async (req: Request, res: Response) => {
   try {
     const problem = await ProblemModel.find({
-      _id: { $all: req.user.solvedProblems },
+      _id: { $in: req.user.solvedProblems },
     });
     if (problem) {
       res.status(200).send(problem);

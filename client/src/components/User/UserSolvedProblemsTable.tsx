@@ -1,14 +1,7 @@
-import { useEffect } from "react";
 import { useGetSolvedProblemsQuery } from "../../hooks/problemHooks";
 
 const UserSolvedProblemsTable = () => {
   const { data: problem, isLoading, error } = useGetSolvedProblemsQuery();
-
-  useEffect(() => {
-    if (problem) {
-      console.log(problem);
-    }
-  });
 
   return (
     <>
