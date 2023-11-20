@@ -18,7 +18,7 @@ const Register = () => {
 
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/";
+  const redirect = redirectInUrl ? redirectInUrl : "/login";
 
   const { mutateAsync: register, isLoading } = useRegisterMutation();
 
