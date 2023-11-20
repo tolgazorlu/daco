@@ -51,57 +51,78 @@ const UserSolvedProblemsTable = () => {
               <caption className="text-left text-xl font-bold mb-4">
                 Solved Problems
               </caption>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Day</th>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>Difficulty</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {problem?.map((item, index) => {
-                  return (
-                    <tr key={item._id}>
-                      <th>{index + 1}</th>
-                      <td>{item.day}</td>
-                      <td>{item.title}</td>
-                      <td>{item.date}</td>
-                      <td
-                        className={
-                          item.level == "easy"
-                            ? "text-success"
-                            : item.level == "medium"
-                              ? "text-warning"
-                              : "text-error"
-                        }
-                      >
-                        {item.level}
-                      </td>
-                      <td className="flex gap-1 h-12 items-center">
-                        <a
-                          href={`/question/${item.slug}`}
-                          className="btn btn-xs btn-info text-info-content hover:bg-info/50"
-                        >
-                          Detail
-                        </a>
-                      </td>
+              {problem?.length == 0 ? (
+                <div role="alert" className="alert">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    className="stroke-info shrink-0 w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <span>You don't solved any question yet.</span>
+                </div>
+              ) : (
+                <>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Day</th>
+                      <th>Title</th>
+                      <th>Date</th>
+                      <th>Difficulty</th>
+                      <th>Action</th>
                     </tr>
-                  );
-                })}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th></th>
-                  <th>Day</th>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>Difficulty</th>
-                  <th>Action</th>
-                </tr>
-              </tfoot>
+                  </thead>
+                  <tbody>
+                    {problem?.map((item, index) => {
+                      return (
+                        <tr key={item._id}>
+                          <th>{index + 1}</th>
+                          <td>{item.day}</td>
+                          <td>{item.title}</td>
+                          <td>{item.date}</td>
+                          <td
+                            className={
+                              item.level == "easy"
+                                ? "text-success"
+                                : item.level == "medium"
+                                  ? "text-warning"
+                                  : "text-error"
+                            }
+                          >
+                            {item.level}
+                          </td>
+                          <td className="flex gap-1 h-12 items-center">
+                            <a
+                              href={`/question/${item.slug}`}
+                              className="btn btn-xs btn-info text-info-content hover:bg-info/50"
+                            >
+                              Detail
+                            </a>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th></th>
+                      <th>Day</th>
+                      <th>Title</th>
+                      <th>Date</th>
+                      <th>Difficulty</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                </>
+              )}
             </table>
           </div>
         </div>
