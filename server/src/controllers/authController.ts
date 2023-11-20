@@ -55,16 +55,17 @@ module.exports.Register = async (
       return user;
     };
 
-    const link = `http://localhost:8000/api/user/verify?code=${emailToken}`;
-
-    verifyEmail(email, username, link);
-
     const newUser = await addUser(
       req.body.username,
       req.body.email,
       bcrypt.hashSync(req.body.password, 12),
       emailToken,
     );
+
+    const link = `http://localhost:5173/${newUser._id}/verify/${emailToken}`;
+
+    verifyEmail(email, username, link);
+
     res.status(201).json({
       _id: newUser._id,
       username: newUser.username,
@@ -95,11 +96,11 @@ module.exports.Verify = async (
   next: NextFunction,
 ) => {
   try {
-    const { code } = req.query;
-    const user = await UserModel.findOne({ verificationToken: code });
+
+    const user = await UserModel.findOne({ _id: req.params.id });
 
     if (!user) {
-      return res.status(400).json({ message: "Code is Invalid" });
+      return res.status(400).json({ message: "Link is invalid!" });
     }
 
     user.emailVerified = true;
@@ -107,11 +108,8 @@ module.exports.Verify = async (
 
     const verified = await user.save();
 
-    res.status(200).json({
-      verified,
-    });
+    res.status(200).send({verified});
 
-    next();
   } catch (error) {
     res.status(400).json({
       message: error,

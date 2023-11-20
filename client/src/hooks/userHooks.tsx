@@ -90,3 +90,21 @@ export const useGetUsersQuery = () =>
     mutationFn: async (userId: string) =>
       (await apiClient.delete<{ message: string, user: UserInfo[] }>(`api/user/delete/${userId}`)).data,
   })
+
+  export const useVerifyEmailMutation = () =>
+  useMutation({
+    mutationFn: async ({
+      id,
+      token,
+    }: {
+      id: string;
+      token: string;
+    }) =>
+      (
+        await apiClient.put<UserInfo>(`api/user/${id}/verify/${token}`, {
+          id,
+          token,
+        })
+      ).data,
+  });
+  

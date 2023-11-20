@@ -6,7 +6,7 @@ const router: Router = require("express").Router();
 
 router.post("/register", authController.Register);
 router.post("/login", authController.Login);
-router.get("/verify", authController.Verify);
+router.put("/:id/verify/:token/", authController.Verify);
 router.put("/passwordUpdate", isAuth, authController.PasswordUpdate);
 router.put("/update", isAuth, authController.Update);
 router.get("/all", isAuth, isAdmin, authController.getUsers);
