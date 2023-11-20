@@ -13,11 +13,17 @@ const Sidebar = (props: { isOpen: boolean }) => {
   useEffect(() => {
     if (
       location == "/profile" ||
+      location == "/profile/" ||
       location == "/dashboard" ||
+      location == "/dashboard/" ||
       location == "/dashboard/users" ||
+      location == "/dashboard/users/" ||
       location == "/dashboard/problems" ||
+      location == "/dashboard/problems/" ||
       location == "/dashboard/contacts" ||
-      location == "/dashboard/faqs"
+      location == "/dashboard/contacts/" ||
+      location == "/dashboard/faqs" ||
+      location == "/dashboard/faqs/"
     ) {
       setIsCurrentDashboard(true);
     }
@@ -201,7 +207,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
               <span className="ml-4">Support to Author</span>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="https://github.com/tolgazorlu/daco"
               target="_blank"
@@ -218,7 +224,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
               </svg>
               <span className="ml-3">Project</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               href="https://daisyui.com/docs/themes/"
