@@ -22,7 +22,7 @@ const UserMainStats = () => {
   }, [problems, day, userInfo?.solvedProblems]);
 
   return (
-    <div className="stats bg-accent shadow-md">
+    <div className="stats bg-accent shadow-md border">
       <div className="stat">
         <div className="stat-title text-accent-content">Solved Problems</div>
         <div className="stat-value text-accent-content">{solved}</div>

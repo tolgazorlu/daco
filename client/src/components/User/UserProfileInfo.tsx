@@ -10,7 +10,7 @@ const UserProfileInfo = () => {
   const { userInfo } = state;
 
   return (
-    <div className="stats bg-base shadow-md">
+    <div className="stats bg-base shadow-md border">
       <div className="stat gap-8 flex items-center justify-center lg:justify-start">
         <div>
           <img

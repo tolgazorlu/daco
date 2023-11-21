@@ -1,6 +1,11 @@
+import { useGetMiniStatisticsQuery } from "../../hooks/problemHooks";
+
 const MiniStats = () => {
+
+  const { data: statistics } = useGetMiniStatisticsQuery();
+
   return (
-    <div className="stats shadow-md">
+    <div className="stats shadow-md border">
       <div className="stat">
         <div className="stat-figure text-accent">
           <svg
@@ -19,8 +24,8 @@ const MiniStats = () => {
           </svg>
         </div>
         <div className="stat-title">Day</div>
-        <div className="stat-value">31</div>
-        <div className="stat-desc">November, 1, 2023</div>
+        <div className="stat-value">{statistics?.day}</div>
+        <div className="stat-desc">{statistics?.date}</div>
       </div>
 
       <div className="stat">
