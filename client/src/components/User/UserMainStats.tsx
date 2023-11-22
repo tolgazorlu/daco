@@ -34,7 +34,7 @@ const UserMainStats = () => {
       </div>
 
       <div className="stat">
-        <div className="stat-title text-accent-content">Total Day</div>
+        <div className="stat-title text-accent-content">Day</div>
         <div className="stat-value text-accent-content">{isLoading ? <span>?</span> : <span>{day}</span>}</div>
         <div className="stat-actions flex gap-2">
           <button className="btn btn-sm btn-disabled text-nautral">

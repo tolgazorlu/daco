@@ -26,6 +26,7 @@ const Question = () => {
 
   const [answer, setAnswer] = useState("");
   const [problemId, setProblemId] = useState("");
+  const [congratsAnimation, setCongratAnimation] = useState(false);
 
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,12 +36,18 @@ const Question = () => {
           id: problem._id,
           answer: answer,
         });
+        setCongratAnimation(true);
+        toast.success("Problem solved!");
         dispatch({ type: "USER_SIGNIN", payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
       } catch (error) {
         toast.error(getError(error as ApiError));
       }
     }
+  };
+
+  const animationCloseHandler = () => {
+    setCongratAnimation(false);
   };
 
   useEffect(() => {
@@ -103,6 +110,18 @@ const Question = () => {
         theme="colored"
       />
       <Layout />
+      {congratsAnimation ? (
+        <div
+          className="absolute h-[93vh] z-20 w-full bg-primary flex justify-center items-center"
+          onClick={animationCloseHandler}
+        >
+          <span className="text-8xl text-primary-content font-aubette relative animate-congrats">
+            CONGRATULATIONS!
+          </span>
+        </div>
+      ) : (
+        <></>
+      )}
       <div>
         <div className="py-10 px-2 flex flex-col gap-4 mt-14 md:p-10">
           <span className="font-bold text-2xl">

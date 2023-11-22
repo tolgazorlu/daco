@@ -236,6 +236,12 @@ module.exports.PasswordUpdate = async (req: Request, res: Response) => {
     const currentPassword = req.body.currentPassword;
     const newPassword = req.body.newPassword;
 
+    if(!newPassword.match(/\d+/g) || !newPassword.match(/[A-Z]+/g) || !newPassword.match(/[a-z]+/g) || newPassword.length < 7){
+      return res
+      .status(400)
+      .json({ message: "Choose strong password!" });
+    }
+
     const user = await UserModel.findById(req.user._id);
 
     if (user) {
@@ -251,7 +257,7 @@ module.exports.PasswordUpdate = async (req: Request, res: Response) => {
       if (newPassword == currentPassword) {
         return res
           .status(400)
-          .json({ message: "You cannot use your old password!" });
+          .json({ message: "You cannot use old password!" });
       }
 
       user.password = bcrypt.hashSync(newPassword, 12);

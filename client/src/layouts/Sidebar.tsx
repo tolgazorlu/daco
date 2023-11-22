@@ -36,8 +36,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
         !isCurrentDashboard
           ? "hidden"
           : props.isOpen
-            ? "overflow-scroll fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-0 border-r border-base-300 sm:translate-x-0 bg-base-100"
-            : "overflow-scroll fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
+            ? "overflow-scroll fixed top-0 left-0 z-20 w-64 h-screen pt-20 transition-transform -translate-x-0 border-r border-base-300 sm:translate-x-0 bg-base-100"
+            : "overflow-scroll fixed top-0 left-0 z-20 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-base-300 sm:translate-x-0 bg-base-100"
       }
       aria-label="Sidebar"
     >
