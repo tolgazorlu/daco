@@ -115,7 +115,7 @@ const Question = () => {
           className="absolute h-[93vh] z-20 w-full bg-primary flex justify-center items-center"
           onClick={animationCloseHandler}
         >
-          <span className="text-8xl text-primary-content font-aubette relative animate-congrats">
+          <span className="text-4xl sm:text-5xl md:text-8xl text-primary-content font-aubette relative animate-congrats">
             CONGRATULATIONS!
           </span>
         </div>
