@@ -46,9 +46,7 @@ const UpdateUserProfileModal = () => {
       <div className="modal-box">
         {/* <!-- Modal header --> */}
         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b border-base-content sm:mb-5">
-          <h3 className="text-lg font-semibold">
-            Update User
-          </h3>
+          <h3 className="text-lg font-semibold">Update User</h3>
           <button
             type="button"
             className="rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
@@ -77,7 +75,7 @@ const UpdateUserProfileModal = () => {
         {/* FORM */}
 
         <form action="#">
-          <div className="grid gap-4 mb-4 sm:grid-cols-2">
+          <div className="grid gap-4 mb-4">
             <div>
               <label
                 htmlFor="username"
@@ -91,7 +89,7 @@ const UpdateUserProfileModal = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full"
                 placeholder="username"
               />
             </div>
@@ -105,18 +103,16 @@ const UpdateUserProfileModal = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full max-w-xs"
+                className="input input-bordered input-sm input-accent w-full"
                 placeholder="user@mail.com"
               />
             </div>
             <div>
               <label className="block mb-2 text-sm font-medium">Avatar</label>
               <input
-                className="input input-bordered input-sm input-accent w-full max-w-xs"
-                placeholder="https:avatar.png"
-                value={avatar}
-                onChange={(e) => setAvatar(e.target.value)}
-              ></input>
+                type="file"
+                className="file-input file-input-bordered file-input-accent file-input-sm w-full"
+              />
             </div>
           </div>
           <button

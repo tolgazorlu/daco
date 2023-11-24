@@ -1,6 +1,6 @@
 //IMPORTS
 require("dotenv").config();
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import chalk from "chalk";
 import { Job } from "./utils/dailySchedule";
 const cors = require("cors");
@@ -9,6 +9,7 @@ const problemRoute = require("./routes/problemRoute");
 const authRoute = require("./routes/authRoute");
 const contactRoute = require("./routes/contactRoute");
 const faqRoute = require("./routes/faqRoute");
+const {uploadFile} = require('./utils/uploadImage')
 
 const app: Express = express();
 
@@ -39,6 +40,11 @@ app.use("/api/user", authRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/faq", faqRoute);
 
+app.post('/upload', async (req: Request, res: Response) => {
+    const result = await uploadFile(); 
+    console.log(result);
+    res.send(result);
+})
 
 //LISTEN
 app.listen(port, () => {
