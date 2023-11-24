@@ -1,14 +1,17 @@
-require('dotenv').config();
-import s3 from '../config/bucket'
+require("dotenv").config();
+import s3 from "../config/bucket";
+const fs = require("fs");
 
-const uploadFile = () => {
-    const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: 'hello.txt',
-        Body: 'Hello :)'
-    };
+const uploadFile = (file: { path: string; filename: string }) => {
+  const fileStream = fs.createReadStream(file.path);
 
-    return s3.putObject(params);
+  const params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Body: fileStream,
+    Key: file.filename,
+  };
+
+  return s3.putObject(params);
 };
 
-module.exports = {uploadFile};
+exports.uploadFile = uploadFile;

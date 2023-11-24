@@ -9,7 +9,14 @@ const problemRoute = require("./routes/problemRoute");
 const authRoute = require("./routes/authRoute");
 const contactRoute = require("./routes/contactRoute");
 const faqRoute = require("./routes/faqRoute");
-const {uploadFile} = require('./utils/uploadImage')
+const { uploadFile, getFileStream } = require("./utils/uploadImage");
+
+const fs = require("fs");
+const util = require("util");
+const unlinkFile = util.promisify(fs.unlink);
+
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 const app: Express = express();
 
@@ -40,11 +47,15 @@ app.use("/api/user", authRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/faq", faqRoute);
 
-app.post('/upload', async (req: Request, res: Response) => {
-    const result = await uploadFile(); 
-    console.log(result);
-    res.send(result);
-})
+app.post("/images", upload.single("image"), async (req, res) => {
+  const file = req.file;
+  console.log(file);
+
+  const result = await uploadFile(file);
+  await unlinkFile(file.path);
+  console.log(result);
+  res.send({ imagePath: `/images/${result.Key}` });
+});
 
 //LISTEN
 app.listen(port, () => {

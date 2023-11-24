@@ -11,5 +11,6 @@ declare namespace Express {
       verificationToken: string;
       solvedProblems: string[];
     };
+    file: any
   }
 }

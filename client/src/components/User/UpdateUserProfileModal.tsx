@@ -6,6 +6,18 @@ import { ApiError } from "../../types/ApiError";
 import { useUpdateUserMutation } from "../../hooks/userHooks";
 import { toast } from "react-toastify";
 import { User } from "../../contexts/User";
+import axios from "axios";
+
+async function postImage({ image, description }: any) {
+  const formData = new FormData();
+  formData.append("image", image);
+  formData.append("description", description);
+
+  const result = await axios.post("http://localhost:8000/images", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return result.data;
+}
 
 const UpdateUserProfileModal = () => {
   const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
@@ -15,6 +27,17 @@ const UpdateUserProfileModal = () => {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [avatar, setAvatar] = useState<string>("");
+
+  const [file, setFile] = useState();
+  const [images, setImages] = useState([]);
+
+  const submitImage = async (event: any) => {
+    event.preventDefault();
+    const result = await postImage({ image: file });
+    if (result.image) {
+      setImages([result.image, ...images]);
+    }
+  };
 
   const UpdateUserHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -39,6 +62,11 @@ const UpdateUserProfileModal = () => {
       setAvatar(userInfo.avatar);
     }
   }, [userInfo]);
+
+  const fileSelected = (event: { target: { files: any[] } }) => {
+    const file = event.target.files[0];
+    setFile(file);
+  };
 
   return (
     <dialog id="update-user-modal" className="modal">
@@ -76,6 +104,21 @@ const UpdateUserProfileModal = () => {
 
         <form action="#">
           <div className="grid gap-4 mb-4">
+            <div className="flex items-center justify-center flex-col gap-2">
+              <img src={userInfo?.avatar} />
+              <input
+                onChange={(event: any) => fileSelected(event)}
+                type="file"
+                accept="image/*"
+                className="file-input file-input-bordered file-input-accent file-input-sm w-full"
+              />
+              <button
+                className="float-right btn btn-sm bg-success text-success-content hover:bg-success/50 w-full"
+                onClick={submitImage}
+              >
+                Upload image
+              </button>
+            </div>
             <div>
               <label
                 htmlFor="username"
@@ -105,13 +148,6 @@ const UpdateUserProfileModal = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="input input-bordered input-sm input-accent w-full"
                 placeholder="user@mail.com"
-              />
-            </div>
-            <div>
-              <label className="block mb-2 text-sm font-medium">Avatar</label>
-              <input
-                type="file"
-                className="file-input file-input-bordered file-input-accent file-input-sm w-full"
               />
             </div>
           </div>
