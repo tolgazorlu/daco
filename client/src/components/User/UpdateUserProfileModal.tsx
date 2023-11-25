@@ -8,10 +8,10 @@ import { toast } from "react-toastify";
 import { User } from "../../contexts/User";
 import axios from "axios";
 
-async function postImage({ image, description }: any) {
+async function postImage(image: any) {
   const formData = new FormData();
   formData.append("image", image);
-  formData.append("description", description);
+  console.log(image);
 
   const result = await axios.post("http://localhost:8000/images", formData, {
     headers: { "Content-Type": "multipart/form-data" },
@@ -28,14 +28,17 @@ const UpdateUserProfileModal = () => {
   const [email, setEmail] = useState<string>("");
   const [avatar, setAvatar] = useState<string>("");
 
-  const [file, setFile] = useState();
-  const [images, setImages] = useState([]);
+  const [file, setFile] = useState<string>();
+  const [images, setImages] = useState<string[]>([]);
 
-  const submitImage = async (event: any) => {
-    event.preventDefault();
-    const result = await postImage({ image: file });
-    if (result.image) {
+  const uploadImageHandler = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const result = await postImage({ image: file });
       setImages([result.image, ...images]);
+      toast.success("profile picture uploaded!");
+    } catch (error) {
+      toast.error(getError(error as ApiError));
     }
   };
 
@@ -63,7 +66,7 @@ const UpdateUserProfileModal = () => {
     }
   }, [userInfo]);
 
-  const fileSelected = (event: { target: { files: any[] } }) => {
+  const fileSelected = (event: { target: { files: string[] } }) => {
     const file = event.target.files[0];
     setFile(file);
   };
@@ -114,7 +117,7 @@ const UpdateUserProfileModal = () => {
               />
               <button
                 className="float-right btn btn-sm bg-success text-success-content hover:bg-success/50 w-full"
-                onClick={submitImage}
+                onClick={uploadImageHandler}
               >
                 Upload image
               </button>
