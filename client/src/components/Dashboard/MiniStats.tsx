@@ -45,8 +45,7 @@ const MiniStats = () => {
           </svg>
         </div>
         <div className="stat-title">Today New Users</div>
-        <div className="stat-value">4200</div>
-        <div className="stat-desc">↗︎ 400 (22%)</div>
+        <div className="stat-value">+2</div>
       </div>
 
       <div className="stat">
@@ -67,8 +66,7 @@ const MiniStats = () => {
           </svg>
         </div>
         <div className="stat-title">Solved Problems</div>
-        <div className="stat-value">4200</div>
-        <div className="stat-desc">↗︎ 400 (22%)</div>
+        <div className="stat-value">+4200</div>
       </div>
     </div>
   );

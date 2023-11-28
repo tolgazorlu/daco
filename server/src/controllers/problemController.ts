@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import { ProblemModel } from "../models/problem";
-import { daily } from "../utils/dailySchedule";
+import { day } from "../utils/dailySchedule";
 import { UserModel } from "../models/user";
 import { generateToken } from "../utils/token";
 
@@ -84,7 +84,7 @@ exports.getSolvedProblems = async (req: Request, res: Response) => {
 
 exports.getDailyProblems = async (req: Request, res: Response) => {
   try {
-    const problem = await ProblemModel.find({ day: daily }, "-answer");
+    const problem = await ProblemModel.find({ day: day }, "-answer");
     if (problem) {
       res.status(200).send(problem);
     } else {
