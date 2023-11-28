@@ -168,13 +168,11 @@ exports.deleteProblem = async (req: Request, res: Response) => {
     if (problem) {
       const deletedProblem = await problem.deleteOne();
       res.status(200).send({ message: "success", problem: deletedProblem });
-    }
-    else {
+    } else {
       res.status(400).json({
         message: "Problem not found!",
       });
     }
-
   } catch (error) {
     res.status(400).json({
       message: error,
@@ -230,28 +228,39 @@ exports.solveProblem = async (req: Request, res: Response) => {
   }
 };
 
-exports.getStatistics =async (req:Request, res: Response) => {
-  try {
-    const countProblems = await ProblemModel.countDocuments()
-    const totalUsers = await UserModel.countDocuments()
-    res.status(200).send({countProblems, totalUsers})
-  } catch (error) {
-    res.status(400).json({
-      message: error,
-    });
-  }
-}
+/**
+ * GET STATISTICS
+ * api/problems/dashboardStatistics
+ */
 
-exports.getMiniStatistics = async (req:Request, res: Response) => {
+exports.getStatistics = async (req: Request, res: Response) => {
   try {
-    const lastProblem = await ProblemModel.findOne().sort({$natural: -1}).limit(1)
-    const day = lastProblem?.day
-    const date = lastProblem?.date
-    console.log(lastProblem)
-    res.status(200).send({day, date})
+    const countProblems = await ProblemModel.countDocuments();
+    const totalUsers = await UserModel.countDocuments();
+    res.status(200).send({ countProblems, totalUsers });
   } catch (error) {
     res.status(400).json({
       message: error,
     });
   }
-}
+};
+
+/**
+ * GET MINI STATISTICS
+ * api/problems/dashboardMiniStatistics
+ */
+
+exports.getMiniStatistics = async (req: Request, res: Response) => {
+  try {
+    const lastProblem = await ProblemModel.findOne()
+      .sort({ $natural: -1 })
+      .limit(1);
+    const day = lastProblem?.day;
+    const date = lastProblem?.date;
+    res.status(200).send({ day, date });
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+};

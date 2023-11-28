@@ -9,7 +9,7 @@ const problemRoute = require("./routes/problemRoute");
 const authRoute = require("./routes/authRoute");
 const contactRoute = require("./routes/contactRoute");
 const faqRoute = require("./routes/faqRoute");
-const { uploadFile, getFileStream } = require("./utils/uploadImage");
+const { uploadFile } = require("./utils/uploadImage");
 
 const fs = require("fs");
 const util = require("util");

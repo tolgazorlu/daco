@@ -96,7 +96,6 @@ module.exports.Verify = async (
   next: NextFunction,
 ) => {
   try {
-
     const user = await UserModel.findOne({ _id: req.params.id });
 
     if (!user) {
@@ -108,8 +107,7 @@ module.exports.Verify = async (
 
     const verified = await user.save();
 
-    res.status(200).send({verified});
-
+    res.status(200).send({ verified });
   } catch (error) {
     res.status(400).json({
       message: error,
@@ -179,21 +177,19 @@ module.exports.Login = async (
 module.exports.Update = async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findById(req.user._id);
-    const username = req.body.username
-    const email = req.body.email
+    const username = req.body.username;
+    const email = req.body.email;
 
     const existingUsername = await UserModel.findOne({ username });
-    if (existingUsername && (existingUsername.username !== req.user.username)) {
+    if (existingUsername && existingUsername.username !== req.user.username) {
       return res
         .status(400)
         .json({ message: "This username is already taken!" });
     }
 
     const existingEmail = await UserModel.findOne({ email });
-    if (existingEmail && (existingEmail.email !== req.user.email)) {
-      return res
-        .status(400)
-        .json({ message: "This email is already using!" });
+    if (existingEmail && existingEmail.email !== req.user.email) {
+      return res.status(400).json({ message: "This email is already using!" });
     }
 
     if (user) {
@@ -236,16 +232,18 @@ module.exports.PasswordUpdate = async (req: Request, res: Response) => {
     const currentPassword = req.body.currentPassword;
     const newPassword = req.body.newPassword;
 
-    if(!newPassword.match(/\d+/g) || !newPassword.match(/[A-Z]+/g) || !newPassword.match(/[a-z]+/g) || newPassword.length < 7){
-      return res
-      .status(400)
-      .json({ message: "Choose strong password!" });
+    if (
+      !newPassword.match(/\d+/g) ||
+      !newPassword.match(/[A-Z]+/g) ||
+      !newPassword.match(/[a-z]+/g) ||
+      newPassword.length < 7
+    ) {
+      return res.status(400).json({ message: "Choose strong password!" });
     }
 
     const user = await UserModel.findById(req.user._id);
 
     if (user) {
-
       const auth = await bcrypt.compare(currentPassword, user?.password);
 
       if (!auth) {
@@ -274,7 +272,7 @@ module.exports.PasswordUpdate = async (req: Request, res: Response) => {
       message: error,
     });
   }
-}
+};
 
 /**
  * GET ALL USERS
@@ -299,22 +297,22 @@ module.exports.getUsers = async (req: Request, res: Response) => {
 
 module.exports.deleteUser = async (req: Request, res: Response) => {
   try {
-    const user = await UserModel.findById(req.params.id)
+    const user = await UserModel.findById(req.params.id);
 
     if (user) {
       if (user.isAdmin) {
-        return res.status(400).send({ message: 'You can not delete admin account!' })
+        return res
+          .status(400)
+          .send({ message: "You can not delete admin account!" });
       }
-      const deletedUser = await user.deleteOne()
-      res.status(200).json({ deletedUser })
-    }
-    else {
-      return res.status(404).send({ message: 'User not found!' })
+      const deletedUser = await user.deleteOne();
+      res.status(200).json({ deletedUser });
+    } else {
+      return res.status(404).send({ message: "User not found!" });
     }
   } catch (error) {
     res.status(400).json({
       message: error,
     });
   }
-
-}
+};
