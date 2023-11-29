@@ -7,7 +7,7 @@ const ErrorMessage = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="bg-error-content px-4 py-2 w-full rounded-xl text-error font-poppins border border-secondary flex justify-center items-center">
+    <div className="bg-error px-4 py-2 w-full rounded-xl text-error-content font-poppins border border-error-content flex justify-center items-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="stroke-current shrink-0 h-6 w-6"

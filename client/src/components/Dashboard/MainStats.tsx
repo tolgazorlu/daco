@@ -1,10 +1,15 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useGetStatisticsQuery } from "../../hooks/problemHooks";
+import {
+  useGetTotalProblemsQuery,
+  useGetTotalUsersQuery,
+} from "../../hooks/statisticHook";
 import AddAlgorithmModal from "./AddProblemModal";
 
 const MainStats = () => {
-  const { data: statistics, isLoading, error } = useGetStatisticsQuery();
+  const { data: problems, isLoading, error } = useGetTotalProblemsQuery();
+  const { data: users, isLoading: isTotalUsersLoading } =
+    useGetTotalUsersQuery();
 
   return (
     <div className="stats bg-accent shadow-md border">
@@ -19,11 +24,7 @@ const MainStats = () => {
             <>?</>
           ) : (
             <span>
-              {statistics?.countProblems ? (
-                <>{statistics.countProblems}</>
-              ) : (
-                <></>
-              )}
+              {problems?.countProblems ? <>{problems.countProblems}</> : <></>}
             </span>
           )}
         </div>
@@ -44,18 +45,12 @@ const MainStats = () => {
       <div className="stat">
         <div className="stat-title text-accent-content">Total Users</div>
         <div className="stat-value text-accent-content">
-        {isLoading ? (
+          {isTotalUsersLoading ? (
             <span className="loading"></span>
           ) : error ? (
             <>?</>
           ) : (
-            <span>
-              {statistics?.totalUsers ? (
-                <>{statistics.totalUsers}</>
-              ) : (
-                <></>
-              )}
-            </span>
+            <span>{users?.totalUsers ? <>{users.totalUsers}</> : <></>}</span>
           )}
         </div>
         <div className="stat-actions flex gap-2">

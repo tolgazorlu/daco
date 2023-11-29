@@ -5,11 +5,13 @@ import chalk from "chalk";
 import { Job } from "./utils/dailySchedule";
 const cors = require("cors");
 //ROUTE IMPORTS
+const statisticRoute = require("./routes/satisticRoute");
 const problemRoute = require("./routes/problemRoute");
 const authRoute = require("./routes/authRoute");
 const contactRoute = require("./routes/contactRoute");
 const faqRoute = require("./routes/faqRoute");
 const { uploadFile } = require("./utils/uploadImage");
+const { getFileStream } = require("./utils/downloadImage");
 
 const fs = require("fs");
 const util = require("util");
@@ -43,9 +45,15 @@ Job;
 
 //ROUTES
 app.use("/api/problems", problemRoute);
+app.use("/api/statistic", statisticRoute);
 app.use("/api/user", authRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/faq", faqRoute);
+
+app.get("/images/:key", (req: Request, res: Response) => {
+  const key = req.params.key;
+  getFileStream(key).then((data: any) => data.Body.pipe(res));
+});
 
 app.post("/images", upload.single("image"), async (req, res) => {
   const file = req.file;

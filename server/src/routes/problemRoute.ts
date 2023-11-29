@@ -5,8 +5,6 @@ const problemController = require("../controllers/problemController");
 
 const router: express.Router = require("express").Router();
 
-router.get("/dashboardStatistics", problemController.getStatistics);
-router.get("/dashboardMiniStatistics", problemController.getMiniStatistics);
 router.get("/solved", isAuth, problemController.getSolvedProblems);
 router.get("/all", isAuth, isAdmin, problemController.getProblems);
 router.get("/daily", problemController.getDailyProblems);

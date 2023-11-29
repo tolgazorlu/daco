@@ -5,6 +5,7 @@ import {
   Ref,
 } from "@typegoose/typegoose";
 import { Problem } from "./problem";
+import { Date } from "mongoose";
 
 @modelOptions({ schemaOptions: { timestamps: true } })
 export class User {

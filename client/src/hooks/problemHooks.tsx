@@ -117,17 +117,3 @@ export const useDeleteProblemMutation = () =>
         )
       ).data,
   });
-
-  export const useGetStatisticsQuery = () =>
-  useQuery({
-    queryKey: ["statistics"],
-    queryFn: async () =>
-      (await apiClient.get<{countProblems: number, totalUsers: number}>(`api/problems/dashboardStatistics`)).data,
-  });
-
-  export const useGetMiniStatisticsQuery = () =>
-  useQuery({
-    queryKey: ["miniStatistics"],
-    queryFn: async () =>
-      (await apiClient.get<{day: number, date: string}>(`api/problems/dashboardMiniStatistics`)).data,
-  });

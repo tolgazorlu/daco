@@ -1,7 +1,11 @@
-import { useGetMiniStatisticsQuery } from "../../hooks/problemHooks";
+import {
+  useGetDayQuery,
+  useGetTodaysUsersQuery,
+} from "../../hooks/statisticHook";
 
 const MiniStats = () => {
-  const { data: statistics } = useGetMiniStatisticsQuery();
+  const { data: dayStats } = useGetDayQuery();
+  const { data: todaysUsers } = useGetTodaysUsersQuery();
 
   return (
     <div className="stats shadow-md border">
@@ -23,8 +27,8 @@ const MiniStats = () => {
           </svg>
         </div>
         <div className="stat-title">Day</div>
-        <div className="stat-value">{statistics?.day}</div>
-        <div className="stat-desc">{statistics?.date}</div>
+        <div className="stat-value">{dayStats?.day}</div>
+        <div className="stat-desc">{dayStats?.todaysDate}</div>
       </div>
 
       <div className="stat">
@@ -44,8 +48,8 @@ const MiniStats = () => {
             />
           </svg>
         </div>
-        <div className="stat-title">Today New Users</div>
-        <div className="stat-value">+2</div>
+        <div className="stat-title">Todays New Users</div>
+        <div className="stat-value">{todaysUsers?.todaysUsers}</div>
       </div>
 
       <div className="stat">

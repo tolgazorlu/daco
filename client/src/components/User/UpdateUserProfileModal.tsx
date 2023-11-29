@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { User } from "../../contexts/User";
 import axios from "axios";
 
-async function postImage(image: any) {
+async function postImage({ image }: any) {
   const formData = new FormData();
   formData.append("image", image);
   console.log(image);
@@ -30,17 +30,6 @@ const UpdateUserProfileModal = () => {
 
   const [file, setFile] = useState<string>();
   const [images, setImages] = useState<string[]>([]);
-
-  const uploadImageHandler = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    try {
-      const result = await postImage({ image: file });
-      setImages([result.image, ...images]);
-      toast.success("profile picture uploaded!");
-    } catch (error) {
-      toast.error(getError(error as ApiError));
-    }
-  };
 
   const UpdateUserHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -66,7 +55,18 @@ const UpdateUserProfileModal = () => {
     }
   }, [userInfo]);
 
-  const fileSelected = (event: { target: { files: string[] } }) => {
+  const uploadImageHandler = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const result = await postImage({ image: file });
+      setImages([result.image, ...images]);
+      toast.success("profile picture uploaded!");
+    } catch (error) {
+      toast.error(getError(error as ApiError));
+    }
+  };
+
+  const fileSelected = (event: { target: { files: any[] } }) => {
     const file = event.target.files[0];
     setFile(file);
   };
@@ -107,7 +107,7 @@ const UpdateUserProfileModal = () => {
 
         <form action="#">
           <div className="grid gap-4 mb-4">
-            <div className="flex items-center justify-center flex-col gap-2">
+            <div className="flex items-center justify-center flex-col gap-4">
               <img src={userInfo?.avatar} />
               <input
                 onChange={(event: any) => fileSelected(event)}
