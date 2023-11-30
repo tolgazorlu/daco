@@ -11,11 +11,13 @@ import axios from "axios";
 async function postImage({ image }: any) {
   const formData = new FormData();
   formData.append("image", image);
-  console.log(image);
-
-  const result = await axios.post("http://localhost:8000/images", formData, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
+  const result = await axios.post(
+    "http://localhost:8000/api/user/images",
+    formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    },
+  );
   return result.data;
 }
 
@@ -29,7 +31,6 @@ const UpdateUserProfileModal = () => {
   const [avatar, setAvatar] = useState<string>("");
 
   const [file, setFile] = useState<string>();
-  const [images, setImages] = useState<string[]>([]);
 
   const UpdateUserHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -59,7 +60,8 @@ const UpdateUserProfileModal = () => {
     e.preventDefault();
     try {
       const result = await postImage({ image: file });
-      setImages([result.image, ...images]);
+      console.log(result);
+      setAvatar(`http://localhost:8000/api/user${result.imagePath}`);
       toast.success("profile picture uploaded!");
     } catch (error) {
       toast.error(getError(error as ApiError));
@@ -108,7 +110,7 @@ const UpdateUserProfileModal = () => {
         <form action="#">
           <div className="grid gap-4 mb-4">
             <div className="flex items-center justify-center flex-col gap-4">
-              <img src={userInfo?.avatar} />
+              <img src={avatar} className="h-32 w-32" />
               <input
                 onChange={(event: any) => fileSelected(event)}
                 type="file"

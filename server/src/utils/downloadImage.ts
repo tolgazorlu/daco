@@ -12,7 +12,6 @@ async function getFileStream(fileKey: any) {
 
   try {
     const data = await s3.send(command);
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
