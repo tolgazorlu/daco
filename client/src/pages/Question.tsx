@@ -67,18 +67,18 @@ const Question = () => {
       <Layout />
       <div className="p-10 rounded-xl w-full mt-14">
         <div className="p-4 max-h-full flex flex-col gap-4">
-          <span className="bg-accent-content rounded-full h-6 w-52 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-12 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-52 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-2/3 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-2/3 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-1/3 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-52 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-64 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-52 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-72 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-72 animate-pulse" />
-          <span className="bg-accent-content rounded-full h-6 w-72 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-12 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-2/3 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-2/3 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-1/3 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-64 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
+          <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
         </div>
       </div>
     </>
@@ -146,7 +146,7 @@ const Question = () => {
           />
           <div className="flex flex-col gap-2 max-w-max">
             <strong>Constrain:</strong>
-            <span className="py-1 px-2 bg-accent-content text-accent rounded-md">
+            <span className="py-1 px-2 bg-primary-content text-primary rounded-md">
               {problem.constrain}
             </span>
           </div>
@@ -156,7 +156,7 @@ const Question = () => {
               return (
                 <span
                   key={item}
-                  className="py-1 px-2 bg-accent-content text-accent rounded-md"
+                  className="py-1 px-2 bg-primary-content text-primary rounded-md"
                 >
                   {item}
                 </span>
@@ -170,7 +170,7 @@ const Question = () => {
           ) : (
             <form className="flex flex-col md:w-1/3 gap-2">
               <input
-                className="px-4 py-1 rounded-md bg-primary-content text-primary placeholder:text-primary"
+                className="px-4 py-1 rounded-md bg-primary-content text-primary placeholder:text-primary border-2 border-secondary"
                 placeholder="Enter answer here!"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}

@@ -79,6 +79,21 @@ export const useChangePasswordMutation = () =>
       ).data,
   });
 
+export const useUploadAvatarMutation = () =>
+  useMutation({
+    mutationFn: async ({
+      image,
+    }: {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      image: any;
+    }) =>
+      (
+        await apiClient.post<FormData>(`api/user/image`, {
+          image,
+        })
+      ).data,
+  });
+
 export const useGetUsersQuery = () =>
   useQuery({
     queryKey: ["all"],

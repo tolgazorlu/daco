@@ -60,7 +60,7 @@ const Contact = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered input-accent w-full border-accent"
+                className="input input-bordered input-primary w-full border-primary"
                 placeholder="name@flowbite.com"
                 required
               />
@@ -77,7 +77,7 @@ const Contact = () => {
                 id="subject"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                className="input input-bordered input-accent w-full border-accent"
+                className="input input-bordered input-primary w-full border-primary"
                 placeholder="Let us know how we can help you"
                 required
               />
@@ -93,13 +93,13 @@ const Contact = () => {
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="textarea textarea-bordered textarea-accent textarea-md w-full border-accent"
+                className="textarea textarea-bordered textarea-primary textarea-md w-full border-primary"
                 placeholder="Leave a message..."
               ></textarea>
             </div>
             <button
               type="submit"
-              className="btn btn-accent btn-sm"
+              className="btn btn-primary btn-sm"
               onClick={submitHandler}
             >
               Send message

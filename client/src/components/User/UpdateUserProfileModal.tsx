@@ -3,23 +3,32 @@
 import { useContext, useEffect, useState } from "react";
 import { getError } from "../../utils/getError";
 import { ApiError } from "../../types/ApiError";
-import { useUpdateUserMutation } from "../../hooks/userHooks";
+import {
+  useUpdateUserMutation,
+  // useUploadAvatarMutation,
+} from "../../hooks/userHooks";
 import { toast } from "react-toastify";
 import { User } from "../../contexts/User";
 import axios from "axios";
 
 async function postImage({ image }: any) {
   const formData = new FormData();
+  console.log(formData);
   formData.append("image", image);
   const result = await axios.post(
     "http://localhost:8000/api/user/images",
     formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    },
   );
   return result.data;
 }
 
 const UpdateUserProfileModal = () => {
   const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
+  // const { mutateAsync: postImage, isLoading: uploadAvatarLoading } =
+  //   useUploadAvatarMutation();
   const { state, dispatch } = useContext(User);
   const { userInfo } = state;
 
@@ -57,7 +66,6 @@ const UpdateUserProfileModal = () => {
     e.preventDefault();
     try {
       const result = await postImage({ image: file });
-      console.log(result);
       setAvatar(`http://localhost:8000/api/user${result.imagePath}`);
       toast.success("profile picture uploaded!");
     } catch (error) {
@@ -112,13 +120,18 @@ const UpdateUserProfileModal = () => {
                 onChange={(event: any) => fileSelected(event)}
                 type="file"
                 accept="image/*"
-                className="file-input file-input-bordered file-input-accent file-input-sm w-full"
+                className="file-input file-input-bordered file-input-primary file-input-sm w-full"
               />
               <button
                 className="float-right btn btn-sm bg-success text-success-content hover:bg-success/50 w-full"
                 onClick={uploadImageHandler}
               >
-                Upload image
+                {/* {uploadAvatarLoading ? (
+                  <span className="loading loading-spinner"></span>
+                ) : (
+                  <span>Upload image</span>
+                )} */}
+                Upload Image
               </button>
             </div>
             <div>
@@ -134,7 +147,7 @@ const UpdateUserProfileModal = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full"
+                className="input input-bordered input-sm input-primary w-full"
                 placeholder="username"
               />
             </div>
@@ -148,7 +161,7 @@ const UpdateUserProfileModal = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full"
+                className="input input-bordered input-sm input-primary w-full"
                 placeholder="user@mail.com"
               />
             </div>

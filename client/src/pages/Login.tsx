@@ -79,7 +79,7 @@ const Login = () => {
       <Layout />
       <div className="flex h-screen py-8">
         <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
-          <h1 className="text-3xl font-semibold text-center text-accent font-aubette">
+          <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
             LOGIN
           </h1>
           <form className="space-y-4 font-poppins" onSubmit={submitHandler}>
@@ -97,7 +97,7 @@ const Login = () => {
                   validateEmail(e.target.value);
                 }}
                 placeholder="Email Address"
-                className="w-full input input-bordered input-accent"
+                className="w-full input input-bordered input-primary"
                 required
               />
               {!emailValidate && email.length > 10 ? (
@@ -117,7 +117,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter Password"
-                className="w-full input input-bordered input-accent"
+                className="w-full input input-bordered input-primary"
                 required
               />
             </div>
@@ -127,7 +127,7 @@ const Login = () => {
               </a>
             </div>
             <div>
-              <button className="btn btn-accent font-poppins shadow-md shadow-accent/50">
+              <button className="btn btn-primary font-poppins shadow-md shadow-primary/50">
                 {isLoading ? (
                   <VscLoading className="animate-spin" />
                 ) : (

@@ -15,7 +15,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
   const { state, dispatch } = useContext(User);
   const { userInfo } = state;
 
-
   const param = useParams();
   const location = useLocation();
 
@@ -92,7 +91,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2.5}
-            className="w-6 h-6 stroke-accent"
+            className="w-6 h-6 stroke-primary"
           >
             <path
               strokeLinecap="round"
@@ -100,7 +99,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <span className="font-bold text-2xl font-aubette text-accent">
+          <span className="font-bold text-2xl font-aubette text-primary">
             DACO
           </span>
         </a>
@@ -110,10 +109,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
           {navLinks.map((item) => {
             return (
               <li key={item.name}>
-                <a
-                  href={item.href}
-                  className="font-poppins text-lg"
-                >
+                <a href={item.href} className="font-poppins text-lg">
                   {item.name}
                 </a>
               </li>
@@ -122,7 +118,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         </ul>
       </div>
       <div className="navbar-end">
-
         {/** THEMES */}
         <div className="drawer-end">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -135,7 +130,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                   <li key={item}>
                     <button
                       className={
-                        theme === item ? "btn btn-sm btn-accent" : "btn btn-sm"
+                        theme === item ? "btn btn-sm btn-primary" : "btn btn-sm"
                       }
                       value={item}
                       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
@@ -163,7 +158,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 className={
                   userInfo.isAdmin
                     ? "w-8 h-8 rounded-full ring ring-primary"
-                    : "h-8 w-8 rounded-full ring ring-accent"
+                    : "h-8 w-8 rounded-full ring ring-primary"
                 }
                 src={userInfo.avatar}
               />
@@ -180,7 +175,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                       className={
                         userInfo.isAdmin
                           ? "w-10 h-10 rounded-full ring-4 ring-primary"
-                          : "w-10 h-10 rounded-full ring-4 ring-accent"
+                          : "w-10 h-10 rounded-full ring-4 ring-primary"
                       }
                       src={userInfo.avatar}
                     />
@@ -195,7 +190,11 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               <li>
                 <a
                   href="/profile"
-                  className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
+                  className={
+                    userInfo.isAdmin
+                      ? "hover:text-primary-content hover:bg-primary"
+                      : "hover:text-primary-content hover:bg-primary"
+                  }
                 >
                   Profile
                 </a>
@@ -204,7 +203,11 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 <li>
                   <a
                     href="/dashboard"
-                    className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
+                    className={
+                      userInfo.isAdmin
+                        ? "hover:text-primary-content hover:bg-primary"
+                        : "hover:text-primary-content hover:bg-primary"
+                    }
                   >
                     Dashboard
                   </a>
@@ -215,7 +218,11 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               <li>
                 <label
                   htmlFor="my-drawer"
-                  className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
+                  className={
+                    userInfo.isAdmin
+                      ? "hover:text-primary-content hover:bg-primary"
+                      : "hover:text-primary-content hover:bg-primary"
+                  }
                 >
                   Themes
                 </label>
@@ -223,7 +230,11 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               <li>
                 <button
                   onClick={signoutHandler}
-                  className={userInfo.isAdmin ? "hover:text-primary-content hover:bg-primary" : "hover:text-accent-content hover:bg-accent"}
+                  className={
+                    userInfo.isAdmin
+                      ? "hover:text-primary-content hover:bg-primary"
+                      : "hover:text-primary-content hover:bg-primary"
+                  }
                 >
                   Logout
                 </button>
@@ -233,7 +244,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         ) : (
           <a
             href="/login"
-            className="btn font-poppins btn-sm btn-outline btn-accent text-accent-content shadow-md shadow-accent/50 hover:accent/50"
+            className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
           >
             Login
           </a>

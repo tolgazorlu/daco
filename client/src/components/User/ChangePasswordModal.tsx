@@ -26,9 +26,8 @@ const ChangePasswordModal = () => {
       } catch (err) {
         toast.error(getError(err as ApiError));
       }
-    }
-    else{
-        toast.error("passwords not matching!");
+    } else {
+      toast.error("passwords not matching!");
     }
   };
 
@@ -38,9 +37,7 @@ const ChangePasswordModal = () => {
       <div className="modal-box">
         {/* <!-- Modal header --> */}
         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b border-base-content sm:mb-5">
-          <h3 className="text-lg font-semibold">
-            Change Password
-          </h3>
+          <h3 className="text-lg font-semibold">Change Password</h3>
           <button
             type="button"
             className="rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
@@ -83,7 +80,7 @@ const ChangePasswordModal = () => {
                 id="oldPassword"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full max-w-xs"
+                className="input input-bordered input-sm input-primary w-full max-w-xs"
                 placeholder="********"
               />
             </div>
@@ -100,7 +97,7 @@ const ChangePasswordModal = () => {
                 id="newPassword"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full max-w-xs"
+                className="input input-bordered input-sm input-primary w-full max-w-xs"
                 placeholder="********"
               />
             </div>
@@ -117,7 +114,7 @@ const ChangePasswordModal = () => {
                 id="confirmNewPassword"
                 value={confirmNewPassword}
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
-                className="input input-bordered input-sm input-accent w-full max-w-xs"
+                className="input input-bordered input-sm input-primary w-full max-w-xs"
                 placeholder="********"
               />
             </div>
