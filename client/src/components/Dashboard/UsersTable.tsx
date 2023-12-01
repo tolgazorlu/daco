@@ -11,7 +11,7 @@ const UsersTable = () => {
   const { mutateAsync: deleteUser, isLoading: loadingDelete } =
     useDeleteUserMutation();
 
-  const [chooseUser, setChooseUser] = useState<string>('')
+  const [chooseUser, setChooseUser] = useState<string>("");
 
   const userDeleteHandler = async (id: string) => {
     try {
@@ -88,7 +88,7 @@ const UsersTable = () => {
                 </thead>
                 {users?.map((item) => {
                   return (
-                    <tbody>
+                    <tbody key={item._id}>
                       <tr>
                         <th>
                           <label>
@@ -164,9 +164,15 @@ const UsersTable = () => {
                                   <form className="flex">
                                     <button
                                       className="btn btn-error mr-2 text-error-content"
-                                      onClick={() => userDeleteHandler(chooseUser)}
+                                      onClick={() =>
+                                        userDeleteHandler(chooseUser)
+                                      }
                                     >
-                                      {loadingDelete ? <span className="loading"></span> : <span>Delete</span>}
+                                      {loadingDelete ? (
+                                        <span className="loading"></span>
+                                      ) : (
+                                        <span>Delete</span>
+                                      )}
                                     </button>
                                     <button className="btn">Close</button>
                                   </form>

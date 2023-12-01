@@ -143,7 +143,7 @@ const ProblemsTable = () => {
             </thead>
             {problems?.map((item) => {
               return (
-                <tbody>
+                <tbody key={item._id}>
                   <tr>
                     <td>
                       <span className="badge">{item.sequence}</span>

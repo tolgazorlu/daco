@@ -14,9 +14,6 @@ async function postImage({ image }: any) {
   const result = await axios.post(
     "http://localhost:8000/api/user/images",
     formData,
-    {
-      headers: { "Content-Type": "multipart/form-data" },
-    },
   );
   return result.data;
 }
