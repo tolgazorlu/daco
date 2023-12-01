@@ -323,19 +323,29 @@ module.exports.deleteUser = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * UPLOAD USER AVATAR TO S3 BUCKET
+ * api/user/images
+ */
+
 module.exports.UploadImage = async (req: Request, res: Response) => {
   try {
     const file = req.file;
     await uploadFile(file);
     await unlinkFile(file.path);
     const path = file.path.split("/")[1];
-    res.send({ imagePath: `/images/${path}` });
+    return res.send({ imagePath: `/images/${path}` });
   } catch (error) {
     res.status(400).json({
       message: error,
     });
   }
 };
+
+/**
+ * GET USER AVATAR FROM S3 BUCKET
+ * api/user/images/:key
+ */
 
 module.exports.GetImageFromS3 = async (req: Request, res: Response) => {
   if (req.params.key) {

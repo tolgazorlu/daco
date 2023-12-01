@@ -62,7 +62,7 @@ export const useUpdateUserMutation = () =>
       ).data,
   });
 
-  export const useChangePasswordMutation = () =>
+export const useChangePasswordMutation = () =>
   useMutation({
     mutationFn: async ({
       currentPassword,
@@ -85,21 +85,19 @@ export const useGetUsersQuery = () =>
     queryFn: async () => (await apiClient.get<UserInfo[]>(`api/user/all`)).data,
   });
 
-  export const useDeleteUserMutation = () =>
+export const useDeleteUserMutation = () =>
   useMutation({
     mutationFn: async (userId: string) =>
-      (await apiClient.delete<{ message: string, user: UserInfo[] }>(`api/user/delete/${userId}`)).data,
-  })
+      (
+        await apiClient.delete<{ message: string; user: UserInfo[] }>(
+          `api/user/delete/${userId}`,
+        )
+      ).data,
+  });
 
-  export const useVerifyEmailMutation = () =>
+export const useVerifyEmailMutation = () =>
   useMutation({
-    mutationFn: async ({
-      id,
-      token,
-    }: {
-      id: string;
-      token: string;
-    }) =>
+    mutationFn: async ({ id, token }: { id: string; token: string }) =>
       (
         await apiClient.put<UserInfo>(`api/user/${id}/verify/${token}`, {
           id,
@@ -107,4 +105,3 @@ export const useGetUsersQuery = () =>
         })
       ).data,
   });
-  
