@@ -105,89 +105,43 @@ Her gün, düşünmeye teşvik edecek ve problem çözme yeteneklerini geliştir
 
 <details>
   <summary>Features</summary>
-  <ol>
+  <ul>
     <li>
-      <a href="#about-the-project">Pages</a>
+      <a">Features</a>
       <ul>
-        - [x] Home (Parallax Page)
-        - [x] Register to Bigbang
-        - [x] Login to Bigbang
-        - [x] Shop
-        - [x] 404 Not Found
-        - [x] Search
-        - [x] Single Product
-        - [x] Shopping Cart
-        - [x] Place Order
-        - [x] Shipping Address
-        - [x] Payment
-        - [x] Order
-        - [x] Dashboard
-            - [x] User
-            - [x] Product
-        - [x] User
-            - [x] Profile
-            - [x] Order History
+        <li>Daily Countdown</li>
+        <li>New Problems</li>
+        <li>Contact with DACO Author</li>
+        <li>FAQ List</li>
+        <li>User Register</li>
+        <li>User Email Verification</li>
+        <li>User Login</li>
+        <li>User Logout</li>
+        <li>User Solve Problem</li>
+        <li>Basic Statistics for Admin Dashboard (Total Algorithm Questions, Total Users, Day)</li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a>Pages</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+       <li>Home</li>
+       <li>Register</li>
+       <li>Login</li>
+       <li>Question</li>
+       <li>Contact</li>
+       <li>FAQ</li>
+       <li>Email Verification</li>
+       <li>404 Not Found</li>
+       <li>User Profile</li>
+       <li>Admin Dashboard</li>
+       <li>Users (Admin Dashboard)</li>
+       <li>Problems (Admin Dashboard)</li>
+       <li>Contact (Admin Dashboard)</li>
+       <li>FAQ (Admin Dashboard)</li>
       </ul>
     </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
+  </ul>
 </details>
-
-- [x] Pages
-  - [x] Home (Parallax Page)
-  - [x] Register to Bigbang
-  - [x] Login to Bigbang
-  - [x] Shop
-  - [x] 404 Not Found
-  - [x] Search
-  - [x] Single Product
-  - [x] Shopping Cart
-  - [x] Place Order
-  - [x] Shipping Address
-  - [x] Payment
-  - [x] Order
-  - [x] Dashboard
-    - [x] User
-    - [x] Product
-  - [x] User
-    - [x] Profile
-    - [x] Order History
-- [x] Features
-  - [x] User Register
-  - [x] User Login
-  - [x] Product add to Cart
-  - [x] Shipping information add to Order
-  - [x] Payment choose for Order (Test payment method for temporary)
-  - [x] Order products
-  - [x] Test pay for products
-  - [x] List Order History
-  - [x] Edit User Profile
-  - [x] SearchBox and Categories filtering
-  - [x] Admin Dashboard Page (only admin access)
-    - [x] User List
-    - [x] User Delete
-    - [x] Product List
-    - [x] Add new product
-    - [x] Update product
-    - [x] Delete product
-    - [x] New Order List
-    - [x] Order Deliver or delivery cancel
-  - [x] Deployed to web services
-- [ ] New features coming soon
-  - [ ] Checking strong password for user registration
-  - [ ] Upload user avatar to any cloud service
-  - [ ] About Page
-  - [ ] Contact Page
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
