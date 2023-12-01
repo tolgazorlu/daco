@@ -283,12 +283,12 @@ const Sidebar = (props: { isOpen: boolean }) => {
               target="_blank"
               className=" font-aubette font-bold hover:text-accent-content/50"
             >
-              LINK HERE.
+              LINK.
             </a>
           </p>
           <a
             className="text-sm text-accent-content underline font-medium hover:text-accent-content/50"
-            href="https://github.com/tolgazorlu"
+            href="https://tolg.dev"
             target="_blank"
           >
             Visit Author Page
