@@ -93,7 +93,101 @@ Her gün, düşünmeye teşvik edecek ve problem çözme yeteneklerini geliştir
   <a><img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white"/></a>
   <a><img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E"/></a>
   <a><img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"/></a>
+  <a><img src="https://camo.githubusercontent.com/11abd4260687620f9dd088cd666c8533595314c7f9886fe4d044ef23418bd1f3/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4178696f7326636f6c6f723d354132394534266c6f676f3d4178696f73266c6f676f436f6c6f723d464646464646266c6162656c3d"/></a>
+  
 </p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Features -->
+
+## Features
+
+<details>
+  <summary>Features</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">Pages</a>
+      <ul>
+        - [x] Home (Parallax Page)
+        - [x] Register to Bigbang
+        - [x] Login to Bigbang
+        - [x] Shop
+        - [x] 404 Not Found
+        - [x] Search
+        - [x] Single Product
+        - [x] Shopping Cart
+        - [x] Place Order
+        - [x] Shipping Address
+        - [x] Payment
+        - [x] Order
+        - [x] Dashboard
+            - [x] User
+            - [x] Product
+        - [x] User
+            - [x] Profile
+            - [x] Order History
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+- [x] Pages
+  - [x] Home (Parallax Page)
+  - [x] Register to Bigbang
+  - [x] Login to Bigbang
+  - [x] Shop
+  - [x] 404 Not Found
+  - [x] Search
+  - [x] Single Product
+  - [x] Shopping Cart
+  - [x] Place Order
+  - [x] Shipping Address
+  - [x] Payment
+  - [x] Order
+  - [x] Dashboard
+    - [x] User
+    - [x] Product
+  - [x] User
+    - [x] Profile
+    - [x] Order History
+- [x] Features
+  - [x] User Register
+  - [x] User Login
+  - [x] Product add to Cart
+  - [x] Shipping information add to Order
+  - [x] Payment choose for Order (Test payment method for temporary)
+  - [x] Order products
+  - [x] Test pay for products
+  - [x] List Order History
+  - [x] Edit User Profile
+  - [x] SearchBox and Categories filtering
+  - [x] Admin Dashboard Page (only admin access)
+    - [x] User List
+    - [x] User Delete
+    - [x] Product List
+    - [x] Add new product
+    - [x] Update product
+    - [x] Delete product
+    - [x] New Order List
+    - [x] Order Deliver or delivery cancel
+  - [x] Deployed to web services
+- [ ] New features coming soon
+  - [ ] Checking strong password for user registration
+  - [ ] Upload user avatar to any cloud service
+  - [ ] About Page
+  - [ ] Contact Page
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
