@@ -74,7 +74,7 @@ const FAQs = () => {
         {isLoading ? (
           <div className="p-2 rounded-lg">
             <button
-              className="btn btn-sm btn-primary text-primary-content hover:text-primary/50 float-right"
+              className="btn btn-sm btn-accent text-accent-content hover:text-accent/50 float-right"
               onClick={() => {
                 let el: any = document.getElementById("add-faq-modal")!;
                 el.showModal();
@@ -96,7 +96,7 @@ const FAQs = () => {
         ) : error ? (
           <div className="p-2 rounded-lg">
             <button
-              className="btn btn-sm btn-primary text-primary-content hover:text-primary/50 float-right"
+              className="btn btn-sm btn-accent text-accent-content hover:text-accent/50 float-right"
               onClick={() => {
                 let el: any = document.getElementById("add-faq-modal")!;
                 el.showModal();
@@ -132,7 +132,7 @@ const FAQs = () => {
           <div className="p-4 col-span-10">
             <div className="p-2 rounded-lg">
               <button
-                className="btn btn-sm btn-primary text-primary-content hover:text-primary/50 float-right"
+                className="btn btn-sm btn-accent text-accent-content hover:text-accent/50 float-right"
                 onClick={() => {
                   let el: any = document.getElementById("add-faq-modal")!;
                   el.showModal();
@@ -227,7 +227,7 @@ const FAQs = () => {
                                         onChange={(e) =>
                                           setTitle(e.target.value)
                                         }
-                                        className="input input-bordered input-sm input-primary w-full"
+                                        className="input input-bordered input-sm input-accent w-full"
                                         placeholder="FAQ title"
                                       />
                                     </div>
@@ -241,7 +241,7 @@ const FAQs = () => {
                                       <textarea
                                         id="description"
                                         rows={4}
-                                        className="textarea textarea-primary w-full"
+                                        className="textarea textarea-accent w-full"
                                         placeholder="Write FAQ description here"
                                         value={description}
                                         onChange={(e) =>

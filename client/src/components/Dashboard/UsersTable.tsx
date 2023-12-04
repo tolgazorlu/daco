@@ -121,7 +121,7 @@ const UsersTable = () => {
                         <td>{item.createdAt}</td>
                         <td>
                           {item.isAdmin ? (
-                            <span className="badge badge-primary text-primary-content">
+                            <span className="badge badge-accent text-accent-content">
                               Admin
                             </span>
                           ) : (

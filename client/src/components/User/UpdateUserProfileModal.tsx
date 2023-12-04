@@ -120,7 +120,7 @@ const UpdateUserProfileModal = () => {
                 onChange={(event: any) => fileSelected(event)}
                 type="file"
                 accept="image/*"
-                className="file-input file-input-bordered file-input-primary file-input-sm w-full"
+                className="file-input file-input-bordered file-input-accent file-input-sm w-full"
               />
               <button
                 className="float-right btn btn-sm bg-success text-success-content hover:bg-success/50 w-full"
@@ -147,7 +147,7 @@ const UpdateUserProfileModal = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full"
+                className="input input-bordered input-sm input-accent w-full"
                 placeholder="username"
               />
             </div>
@@ -161,7 +161,7 @@ const UpdateUserProfileModal = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered input-sm input-primary w-full"
+                className="input input-bordered input-sm input-accent w-full"
                 placeholder="user@mail.com"
               />
             </div>

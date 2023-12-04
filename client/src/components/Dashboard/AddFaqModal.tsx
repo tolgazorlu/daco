@@ -72,7 +72,7 @@ const AddFAQModal = () => {
                   id="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="input input-bordered input-sm input-primary w-full"
+                  className="input input-bordered input-sm input-accent w-full"
                   placeholder="FAQ title"
                 />
               </div>
@@ -86,7 +86,7 @@ const AddFAQModal = () => {
                 <textarea
                   id="description"
                   rows={4}
-                  className="textarea textarea-primary w-full"
+                  className="textarea textarea-accent w-full"
                   placeholder="Write FAQ description here"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}

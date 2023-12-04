@@ -25,7 +25,7 @@ const Faq = () => {
           <h2 className="mb-8 text-4xl tracking-tight font-extrabold">
             Frequently asked questions
           </h2>
-          <div className="grid pt-8 text-left border-t border-primary gap-8 md:grid-cols-2">
+          <div className="grid pt-8 text-left border-t border-accent gap-8 md:grid-cols-2">
             {faqs?.map((item) => {
               return (
                 <div key={item.title}>
