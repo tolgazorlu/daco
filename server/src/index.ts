@@ -3,6 +3,7 @@ require("dotenv").config();
 import express, { Express } from "express";
 import chalk from "chalk";
 import { Job } from "./utils/dailySchedule";
+import path from "path";
 const cors = require("cors");
 //ROUTE IMPORTS
 const statisticRoute = require("./routes/satisticRoute");
@@ -28,7 +29,6 @@ app.use(
     credentials: true,
   }),
 );
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -40,6 +40,11 @@ app.use("/api/statistic", statisticRoute);
 app.use("/api/user", authRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/faq", faqRoute);
+
+app.use(express.static(path.join(__dirname, "../../client/dist")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html")),
+);
 
 //LISTEN
 app.listen(port, () => {
