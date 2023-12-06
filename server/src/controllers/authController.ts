@@ -68,7 +68,7 @@ module.exports.Register = async (
       emailToken,
     );
 
-    const link = `http://localhost:5173/${newUser._id}/verify/${emailToken}`;
+    const link = `https://daco.onrender.com/${newUser._id}/verify/${emailToken}`;
 
     verifyEmail(email, username, link);
 
