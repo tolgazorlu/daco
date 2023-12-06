@@ -16,7 +16,7 @@ async function postImage({ image }: any) {
   console.log(formData);
   formData.append("image", image);
   const result = await axios.post(
-    "http://localhost:8000/api/user/images",
+    "https://daco.onrender.com/api/user/images",
     formData,
     {
       headers: { "Content-Type": "multipart/form-data" },
@@ -66,7 +66,7 @@ const UpdateUserProfileModal = () => {
     e.preventDefault();
     try {
       const result = await postImage({ image: file });
-      setAvatar(`http://localhost:8000/api/user${result.imagePath}`);
+      setAvatar(`https://daco.onrender.com/api/user${result.imagePath}`);
       toast.success("profile picture uploaded!");
     } catch (error) {
       toast.error(getError(error as ApiError));
