@@ -30,6 +30,9 @@ const themes: themes[] = [
   "night",
   "coffee",
   "winter",
+  "dim",
+  "nord",
+  "sunset",
 ];
 
 export default themes;

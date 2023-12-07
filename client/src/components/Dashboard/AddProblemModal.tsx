@@ -88,7 +88,7 @@ const AddProblemModal = () => {
                   id="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="Algorithm title"
                 />
               </div>
@@ -105,7 +105,7 @@ const AddProblemModal = () => {
                   id="slug"
                   value={slug}
                   onChange={(e) => setSlug(e.target.value)}
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="Algorithm slug"
                 />
               </div>
@@ -119,7 +119,7 @@ const AddProblemModal = () => {
                   id="day"
                   value={day}
                   onChange={(e) => setDay(parseInt(e.target.value))}
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="0"
                 />
               </div>
@@ -132,7 +132,7 @@ const AddProblemModal = () => {
                 </label>
                 <select
                   id="difficulty"
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   value={level}
                   onChange={(e) => setLevel(e.target.value)}
                 >
@@ -155,7 +155,7 @@ const AddProblemModal = () => {
                   id="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="November, 1, 2023"
                 />
               </div>
@@ -168,7 +168,7 @@ const AddProblemModal = () => {
                 </label>
                 <input
                   type="number"
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="5"
                   value={sequence}
                   onChange={(e) => setSequence(parseInt(e.target.value))}
@@ -179,7 +179,7 @@ const AddProblemModal = () => {
                   Example
                 </label>
                 <input
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="Example"
                   value={example}
                   onChange={(e) => setExample(e.target.value)}
@@ -190,7 +190,7 @@ const AddProblemModal = () => {
                   Constrain
                 </label>
                 <input
-                  className="input input-bordered input-sm input-accent w-full max-w-xs"
+                  className="input input-bordered input-sm input-primary w-full max-w-xs"
                   placeholder="constrain"
                   value={constrain}
                   onChange={(e) => setConstrain(e.target.value)}
@@ -199,7 +199,7 @@ const AddProblemModal = () => {
               <div className="sm:col-span-2">
                 <label className="block mb-2 text-sm font-medium">Answer</label>
                 <input
-                  className="input input-bordered input-sm input-accent w-full"
+                  className="input input-bordered input-sm input-primary w-full"
                   placeholder="answer"
                   value={answer}
                   onChange={(e) => setAnswer(e.target.value)}
@@ -215,7 +215,7 @@ const AddProblemModal = () => {
                 <textarea
                   id="description"
                   rows={4}
-                  className="textarea textarea-accent w-full"
+                  className="textarea textarea-primary w-full"
                   placeholder="Write algorithm description here"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}

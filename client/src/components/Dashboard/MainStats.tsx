@@ -12,12 +12,12 @@ const MainStats = () => {
     useGetTotalUsersQuery();
 
   return (
-    <div className="stats bg-accent shadow-md border">
+    <div className="stats bg-primary shadow-md border">
       <div className="stat">
-        <div className="stat-title text-accent-content">
+        <div className="stat-title text-primary-content">
           Total Algorithm Questions
         </div>
-        <div className="stat-value text-accent-content">
+        <div className="stat-value text-primary-content">
           {isLoading ? (
             <span className="loading"></span>
           ) : error ? (
@@ -43,8 +43,8 @@ const MainStats = () => {
       </div>
 
       <div className="stat">
-        <div className="stat-title text-accent-content">Total Users</div>
-        <div className="stat-value text-accent-content">
+        <div className="stat-title text-primary-content">Total Users</div>
+        <div className="stat-value text-primary-content">
           {isTotalUsersLoading ? (
             <span className="loading"></span>
           ) : error ? (

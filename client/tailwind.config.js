@@ -5,6 +5,7 @@ export default {
     extend: {},
     animation: {
       'congrats': 'wiggle 0.3s linear infinite',
+      'leftToRight':'leftToRight 15s ease infinite',
     },
     keyframes: {
       wiggle: {
@@ -19,7 +20,21 @@ export default {
         '80%': { transform: 'translate(-1px, -1px) rotate(1deg)' },
         '90%': { transform: 'translate(1px, 2px) rotate(0deg)' },
         '100%': { transform: 'translate(1px, -2px) rotate(-1deg)' },
+      },
+      leftToRight: {
+        '0%': {
+            'background-size':'400% 400%',
+            'background-position': '0% 50%'
+        },
+        '50%': {
+            'background-size':'400% 400%',
+            'background-position': '100% 50%'
+        },
+        '100%': {
+          'background-size':'400% 400%',
+          'background-position': '0% 50%'
       }
+    },
     },
     fontFamily: {
       poppins: "Poppins",
@@ -57,6 +72,9 @@ export default {
       "night",
       "coffee",
       "winter",
+      "dim",
+      "nord",
+      "sunset",
     ],
   },
   // eslint-disable-next-line no-undef

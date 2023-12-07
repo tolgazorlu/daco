@@ -24,11 +24,13 @@ const Hero = () => {
       <div>
         <span className="flex items-center justify-center w-full">
           {problems ? (
-            <h1 className="text-7xl font-bold font-aubette text-accent text-center sm:text-8xl">
-              DACO DAY {problems[0].day}
+            <h1 className="text-7xl font-bold font-aubette text-primary text-center sm:text-8xl">
+              <span className="bg-primary inline-block text-transparent bg-clip-text">
+                DACO DAY {problems[0].day}
+              </span>{" "}
             </h1>
           ) : (
-            <h1 className="text-8xl font-bold font-aubette text-accent text-center sm:text-8xl">
+            <h1 className="text-8xl font-bold font-aubette text-primary text-center sm:text-8xl">
               DACO DAY ?
             </h1>
           )}
@@ -37,7 +39,7 @@ const Hero = () => {
         <div className="text-2xl flex flex-col gap-4 justify-center">
           {isLoading ? (
             <div className="flex justify-center items-center">
-              <span className="loading loading-spinner text-accent loading-lg"></span>
+              <span className="loading loading-spinner text-primary loading-lg"></span>
             </div>
           ) : error ? (
             <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
@@ -50,12 +52,12 @@ const Hero = () => {
                   key={item._id}
                   className={
                     solvedArray.includes(item._id)
-                      ? "btn bg-disabled px-4 py-2 font-bold"
-                      : "btn bg-accent-content px-4 py-2 text-accent font-bold border border-accent"
+                      ? "btn bg-disabled p-1 md:px-4 md:py-2 text-content font-poppins font-extrabold text-lg shadow"
+                      : "btn bg-gradient-to-r from-primary to-secondary p-1 sm:px-4 sm:py-2 font-poppins text-primary-content font-extrabold text-lg shadow animate-leftToRight"
                   }
                   href={"/question/" + item.slug}
                 >
-                  {item.title}
+                  {item.title.toUpperCase().slice(0, 30)}...
                 </a>
               );
             })
