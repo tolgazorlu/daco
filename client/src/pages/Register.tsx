@@ -123,8 +123,8 @@ const Register = () => {
         theme="colored"
       />
       <Layout />
-      <div className="flex py-8 h-screen">
-        <div className="w-1/2 p-8 m-auto rounded-md  lg:max-w-lg">
+      <div className="flex h-screen justify-center items-center">
+        <div className="p-2 md:px-8 w-full md:w-1/2">
           <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
             REGISTER
           </h1>

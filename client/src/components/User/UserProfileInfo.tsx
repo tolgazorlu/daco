@@ -11,7 +11,7 @@ const UserProfileInfo = () => {
 
   return (
     <div className="stats bg-base shadow-md border">
-      <div className="stat gap-8 flex items-center justify-center lg:justify-start">
+      <div className="stat w-48 gap-8 flex items-center justify-center lg:justify-start">
         <div>
           <img
             src={userInfo?.avatar}
