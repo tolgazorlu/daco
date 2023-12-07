@@ -5,7 +5,7 @@ import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 const Counter = () => {
   const { data: problems } = useGetDailyProblemsQuery();
 
-  let deadline = "November, 1, 2023";
+  let deadline = "December, 8, 2023";
   if (problems) {
     deadline = problems[0].date;
   }
@@ -13,10 +13,6 @@ const Counter = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-
-  const leading0 = (num: number) => {
-    return num < 10 ? "0" + num : num;
-  };
 
   const getTimeUntil = (deadline: string) => {
     const time = Date.parse(deadline) - Date.parse(new Date().toString());
@@ -37,6 +33,10 @@ const Counter = () => {
 
     return () => getTimeUntil(deadline);
   }, [deadline]);
+
+  const leading0 = (num: number) => {
+    return num < 10 ? "0" + num : num;
+  };
 
   const valueHours: any = {
     "--value": leading0(hours),
