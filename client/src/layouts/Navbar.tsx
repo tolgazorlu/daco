@@ -91,7 +91,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2.5}
-            className="w-6 h-6 stroke-accent"
+            className="w-6 h-6 stroke-primary"
           >
             <path
               strokeLinecap="round"
@@ -99,7 +99,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <span className="font-bold text-2xl font-aubette text-accent">
+          <span className="font-bold text-2xl font-aubette text-primary">
             DACO
           </span>
         </a>
@@ -130,7 +130,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                   <li key={item}>
                     <button
                       className={
-                        theme === item ? "btn btn-sm btn-accent" : "btn btn-sm"
+                        theme === item ? "btn btn-sm btn-primary" : "btn btn-sm"
                       }
                       value={item}
                       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
@@ -157,8 +157,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 alt="User dropdown"
                 className={
                   userInfo.isAdmin
-                    ? "w-8 h-8 rounded-full ring ring-accent"
-                    : "h-8 w-8 rounded-full ring ring-accent"
+                    ? "w-8 h-8 rounded-full ring ring-primary"
+                    : "h-8 w-8 rounded-full ring ring-primary"
                 }
                 src={userInfo.avatar}
               />
@@ -174,8 +174,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                       alt="User dropdown"
                       className={
                         userInfo.isAdmin
-                          ? "w-10 h-10 rounded-full ring-4 ring-accent"
-                          : "w-10 h-10 rounded-full ring-4 ring-accent"
+                          ? "w-10 h-10 rounded-full ring-4 ring-primary"
+                          : "w-10 h-10 rounded-full ring-4 ring-primary"
                       }
                       src={userInfo.avatar}
                     />
@@ -192,8 +192,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                   href="/profile"
                   className={
                     userInfo.isAdmin
-                      ? "hover:text-accent-content hover:bg-accent"
-                      : "hover:text-accent-content hover:bg-accent"
+                      ? "hover:text-primary-content hover:bg-primary"
+                      : "hover:text-primary-content hover:bg-primary"
                   }
                 >
                   Profile
@@ -205,8 +205,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                     href="/dashboard"
                     className={
                       userInfo.isAdmin
-                        ? "hover:text-accent-content hover:bg-accent"
-                        : "hover:text-accent-content hover:bg-accent"
+                        ? "hover:text-primary-content hover:bg-primary"
+                        : "hover:text-primary-content hover:bg-primary"
                     }
                   >
                     Dashboard
@@ -220,8 +220,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                   htmlFor="my-drawer"
                   className={
                     userInfo.isAdmin
-                      ? "hover:text-accent-content hover:bg-accent"
-                      : "hover:text-accent-content hover:bg-accent"
+                      ? "hover:text-primary-content hover:bg-primary"
+                      : "hover:text-primary-content hover:bg-primary"
                   }
                 >
                   Themes
@@ -232,8 +232,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                   onClick={signoutHandler}
                   className={
                     userInfo.isAdmin
-                      ? "hover:text-accent-content hover:bg-accent"
-                      : "hover:text-accent-content hover:bg-accent"
+                      ? "hover:text-primary-content hover:bg-primary"
+                      : "hover:text-primary-content hover:bg-primary"
                   }
                 >
                   Logout
@@ -244,7 +244,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         ) : (
           <a
             href="/login"
-            className="btn font-poppins btn-sm btn-outline btn-accent text-accent-content shadow-md shadow-accent/50 hover:accent/50"
+            className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
           >
             Login
           </a>

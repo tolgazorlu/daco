@@ -57,6 +57,9 @@ export default {
       "night",
       "coffee",
       "winter",
+      "dim",
+      "nord",
+      "sunset",
     ],
   },
   // eslint-disable-next-line no-undef
