@@ -11,19 +11,18 @@ const UserProfileInfo = () => {
 
   return (
     <div className="stats bg-base shadow-md border">
-      <div className="stat w-48 gap-8 flex items-center justify-center lg:justify-start">
-        <div>
+      <div className="stat min-w-max">
+        <div className="flex justify-center md:justify-left items-center gap-8">
           <img
             src={userInfo?.avatar}
             alt={userInfo?.username}
             className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
           ></img>
-        </div>
-        <div className="stat-value text-primary hidden lg:block">
-          {userInfo?.username}
+          <div className="stat-value text-primary hidden lg:block">
+            {userInfo?.username}
+          </div>
         </div>
       </div>
-
       <div className="stat">
         <div className="stat-value text-base">Email</div>
         <div className="stat-title text-primary">{userInfo?.email}</div>
