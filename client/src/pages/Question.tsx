@@ -112,7 +112,7 @@ const Question = () => {
       <Layout />
       {congratsAnimation ? (
         <div
-          className="absolute h-[93vh] z-20 w-full bg-primary flex justify-center items-center"
+          className="absolute h-[93vh] z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
           onClick={animationCloseHandler}
         >
           <span className="text-4xl sm:text-5xl md:text-8xl text-primary-content font-aubette relative animate-congrats">
