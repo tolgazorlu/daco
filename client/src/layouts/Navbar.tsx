@@ -86,6 +86,9 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
           </svg>
         </button>
         <a href="/" className="flex items-center gap-2 normal-case text-xl">
+          <span className="font-bold text-3xl font-bandal text-primary">
+            daco
+          </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -99,9 +102,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <span className="font-bold text-2xl font-aubette text-primary">
-            DACO
-          </span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">

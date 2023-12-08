@@ -39,6 +39,7 @@ export default {
     fontFamily: {
       poppins: "Poppins",
       aubette: "Aubette",
+      bandal: "Bandal",
     },
   },
   daisyui: {

@@ -52,8 +52,8 @@ const Hero = () => {
                   key={item._id}
                   className={
                     solvedArray.includes(item._id)
-                      ? "btn bg-disabled p-1 md:px-4 md:py-2 text-content font-poppins font-extrabold text-lg shadow"
-                      : "btn bg-gradient-to-r from-primary to-secondary p-1 sm:px-4 sm:py-2 font-poppins text-primary-content font-extrabold text-lg shadow animate-leftToRight"
+                      ? "btn bg-disabled p-1 md:px-4 md:py-2 text-content font-bandal font-extrabold text-lg shadow"
+                      : "btn bg-gradient-to-r from-primary to-secondary p-1 sm:px-4 sm:py-2 font-bandal text-primary-content font-extrabold text-lg shadow animate-leftToRight"
                   }
                   href={"/question/" + item.slug}
                 >
