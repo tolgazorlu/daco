@@ -5,14 +5,19 @@ import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
 const Counter = () => {
   const { data: problems } = useGetDailyProblemsQuery();
 
-  let deadline = "December, 8, 2023";
-  if (problems) {
-    deadline = problems[0].date;
-  }
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+  const [deadline, setDeadline] = useState<string>("December, 10, 2028");
 
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+  useEffect(() => {
+    if (problems) {
+      setDeadline(problems[0].date);
+    }
+    setInterval(() => getTimeUntil(deadline), 1000);
+
+    return () => getTimeUntil(deadline);
+  }, [deadline, problems]);
 
   const getTimeUntil = (deadline: string) => {
     const time = Date.parse(deadline) - Date.parse(new Date().toString());
@@ -27,12 +32,6 @@ const Counter = () => {
       setSeconds(Math.floor((time / 1000) % 60));
     }
   };
-
-  useEffect(() => {
-    setInterval(() => getTimeUntil(deadline), 1000);
-
-    return () => getTimeUntil(deadline);
-  }, [deadline]);
 
   const leading0 = (num: number) => {
     return num < 10 ? "0" + num : num;
