@@ -10,9 +10,9 @@ const UserProfileInfo = () => {
   const { userInfo } = state;
 
   return (
-    <div className="stats bg-base shadow-md border">
+    <div className="stats bg-base shadow-md">
       <div className="stat min-w-max">
-        <div className="flex justify-center md:justify-left items-center gap-8">
+        <div className="flex justify-center lg:justify-start items-center gap-8">
           <img
             src={userInfo?.avatar}
             alt={userInfo?.username}

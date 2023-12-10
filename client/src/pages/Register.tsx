@@ -224,7 +224,10 @@ const Register = () => {
               </div>
             ) : null}
             <div>
-              <a href="/login" className="text-xs text-info hover:underline">
+              <a
+                href="/login"
+                className="text-xs text-secondary hover:underline"
+              >
                 If you have an account
               </a>
             </div>
@@ -232,8 +235,8 @@ const Register = () => {
               <button
                 className={
                   strength > 3 && isPasswordMatched
-                    ? "px-6 btn btn-primary font-poppins shadow-md shadow-primary/50"
-                    : "px-6 btn btn-disabled font-poppins "
+                    ? "px-6 btn w-full btn-primary font-poppins shadow-md shadow-primary/50"
+                    : "px-6 btn w-full btn-disabled font-poppins "
                 }
               >
                 {isLoading ? (

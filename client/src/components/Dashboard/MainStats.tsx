@@ -12,7 +12,7 @@ const MainStats = () => {
     useGetTotalUsersQuery();
 
   return (
-    <div className="stats bg-primary shadow-md border">
+    <div className="stats bg-primary shadow-md">
       <div className="stat">
         <div className="stat-title text-primary-content">
           Total Algorithm Questions

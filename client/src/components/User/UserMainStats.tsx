@@ -22,7 +22,7 @@ const UserMainStats = () => {
   }, [problems, day, userInfo?.solvedProblems]);
 
   return (
-    <div className="stats bg-primary shadow-md border">
+    <div className="stats bg-primary shadow-md">
       <div className="stat">
         <div className="stat-title text-primary-content">Solved Problems</div>
         <div className="stat-value text-primary-content">{solved}</div>

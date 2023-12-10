@@ -121,13 +121,24 @@ const Login = () => {
                 required
               />
             </div>
-            <div>
-              <a href="/register" className="text-xs text-info hover:underline">
-                If you don't have any account
-              </a>
+            <div className="flex justify-between">
+              <div>
+                <a href="/" className="text-xs text-info hover:underline">
+                  Forgot password
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/register"
+                  className="text-xs text-secondary hover:underline"
+                >
+                  If you don't have any account
+                </a>
+              </div>
             </div>
+
             <div>
-              <button className="btn btn-primary font-poppins shadow-md shadow-primary/50">
+              <button className="btn w-full btn-primary font-poppins shadow-md shadow-primary/50">
                 {isLoading ? (
                   <VscLoading className="animate-spin" />
                 ) : (

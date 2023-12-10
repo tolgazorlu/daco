@@ -8,7 +8,7 @@ const MiniStats = () => {
   const { data: todaysUsers } = useGetTodaysUsersQuery();
 
   return (
-    <div className="stats shadow-md border">
+    <div className="stats shadow-md">
       <div className="stat">
         <div className="stat-figure text-primary">
           <svg
