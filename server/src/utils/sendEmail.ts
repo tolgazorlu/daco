@@ -1,8 +1,7 @@
 const transportation = require("../config/nodemailer");
 
 const verifyEmail = async (email: string, username: string, link: string) => {
-  const template = `
-  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  const template = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="tr">
    <head>
     <meta charset="UTF-8">
@@ -71,10 +70,10 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                     <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
                      <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                        <tr>
-                        <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;font-size:0px"><img src="https://ebpomtx.stripocdn.email/content/guids/CABINET_b31a82a343b754bcdbcdf132f15cf88731c6b4c03741777a355e02aa71b5729b/images/illustration.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="100"></td>
+                        <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;font-size:0px"><img src="https://ebpomtx.stripocdn.email/content/guids/CABINET_b31a82a343b754bcdbcdf132f15cf88731c6b4c03741777a355e02aa71b5729b/images/email.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="100"></td>
                        </tr>
                        <tr>
-                        <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#2acdbc">Welcome <span style="color:#eeae3a">${username}</span></h1></td>
+                        <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#747fff">Welcome <span style="color:#eeae3a">${username}</span></h1></td>
                        </tr>
                        <tr>
                         <td align="center" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#cccccc;font-size:14px">You’ve received this message because your email address has been registered with our site. Please click the button below to verify your email address and confirm that you are the owner of this account.</p></td>
@@ -83,7 +82,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                         <td align="center" style="padding:0;Margin:0;padding-bottom:5px;padding-top:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#cccccc;font-size:14px">If you did not register with us, please disregard this email.</p></td>
                        </tr>
                        <tr>
-                        <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#2acdbc;border-width:0px;display:inline-block;border-radius:6px;width:auto"><a href="${link}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#ffffff;font-size:20px;padding:10px 30px 10px 30px;display:inline-block;background:#2acdbc;border-radius:6px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;mso-padding-alt:0;mso-border-alt:10px solid #2acdbc;padding-left:30px;padding-right:30px">CONFIRM YOUR EMAIL</a></span></td>
+                        <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#747fff;border-width:0px;display:inline-block;border-radius:6px;width:auto"><a href="${link}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#ffffff;font-size:20px;padding:10px 30px 10px 30px;display:inline-block;background:#747fff;border-radius:6px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;mso-padding-alt:0;mso-border-alt:10px solid #747fff;padding-left:30px;padding-right:30px">CONFIRM YOUR EMAIL</a></span></td>
                        </tr>
                        <tr>
                         <td align="center" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#cccccc;font-size:14px">Once confirmed, this email will be uniquely associated with your account.</p></td>
@@ -99,7 +98,7 @@ const verifyEmail = async (email: string, username: string, link: string) => {
                     <td valign="top" align="center" style="padding:0;Margin:0;width:580px">
                      <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                        <tr>
-                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://ebpomtx.stripocdn.email/content/guids/CABINET_b31a82a343b754bcdbcdf132f15cf88731c6b4c03741777a355e02aa71b5729b/images/dacobannerfotorbgremover20231204201325.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="180"></td>
+                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://ebpomtx.stripocdn.email/content/guids/CABINET_b31a82a343b754bcdbcdf132f15cf88731c6b4c03741777a355e02aa71b5729b/images/2.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="180"></td>
                        </tr>
                      </table></td>
                    </tr>
