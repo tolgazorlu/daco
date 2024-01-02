@@ -95,7 +95,7 @@ const Hero = () => {
         <span className="text-9xl font-bandal font-bold bg-gradient-to-r from-primary to-accent animate-leftToRight text-transparent bg-clip-text">
           dale
         </span>
-        <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl bg-gradient-to-r from-primary to-accent animate-leftToRight text-transparent bg-clip-text">
+        <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl">
           Don't Brake The Chain!
         </h1>
         <p className="mb-8 text-lg font-normal lg:text-xl sm:px-16 xl:px-48">
