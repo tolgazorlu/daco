@@ -3,8 +3,6 @@ import Hero from "../components/Home/Hero";
 import Layout from "../layouts/Layout";
 import { useContext } from "react";
 import { User } from "../contexts/User";
-import FeaturedIn from "../components/Home/FeaturedIn";
-
 const Home = () => {
   const { userInfo } = useContext(User).state;
 
@@ -16,13 +14,12 @@ const Home = () => {
         </Helmet>
       ) : (
         <Helmet>
-          <title>Welcome to DALE!</title>
+          <title>Welcome to DACO!</title>
         </Helmet>
       )}
       <div className="snap-y snap-mandatory h-screen overflow-scroll">
         <Layout />
         <Hero />
-        <FeaturedIn />
       </div>
     </>
   );

@@ -1,37 +1,37 @@
-// import { useContext, useEffect, useState } from "react";
-// import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
-// import { ApiError } from "../../types/ApiError";
-// import { getError } from "../../utils/getError";
-// import ErrorMessage from "../ErrorMessage";
-// import Counter from "./Counter";
-// import { User } from "../../contexts/User";
+import { useContext, useEffect, useState } from "react";
+import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
+import { ApiError } from "../../types/ApiError";
+import { getError } from "../../utils/getError";
+import ErrorMessage from "../ErrorMessage";
+import Counter from "./Counter";
+import { User } from "../../contexts/User";
 
 const Hero = () => {
-  // const { data: problems, isLoading, error } = useGetDailyProblemsQuery();
-  // const { state } = useContext(User);
-  // const { userInfo } = state;
+  const { data: problems, isLoading, error } = useGetDailyProblemsQuery();
+  const { state } = useContext(User);
+  const { userInfo } = state;
 
-  // const [solvedArray, setSolvedArray] = useState([""]);
+  const [solvedArray, setSolvedArray] = useState([""]);
 
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     setSolvedArray(userInfo.solvedProblems);
-  //   }
-  // }, [userInfo]);
+  useEffect(() => {
+    if (userInfo) {
+      setSolvedArray(userInfo.solvedProblems);
+    }
+  }, [userInfo]);
 
   return (
     <section className="hero h-screen md:snap-start">
-      {/* <div>
+      <div>
         <span className="flex items-center justify-center w-full">
           {problems ? (
             <h1 className="text-7xl font-bold font-aubette text-primary text-center sm:text-8xl">
               <span className="bg-primary inline-block text-transparent bg-clip-text">
-                DALE DAY {problems[0].day}
+                DACO DAY {problems[0].day}
               </span>{" "}
             </h1>
           ) : (
             <h1 className="text-8xl font-bold font-aubette text-primary text-center sm:text-8xl">
-              DALE DAY ?
+              DACO DAY ?
             </h1>
           )}
         </span>
@@ -63,9 +63,9 @@ const Hero = () => {
             })
           )}
         </div>
-      </div> */}
+      </div>
 
-      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+      {/* <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         <br />
         <a
           href="#"
@@ -136,7 +136,7 @@ const Hero = () => {
             Watch video
           </a>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

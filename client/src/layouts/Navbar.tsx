@@ -87,7 +87,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         </button>
         <a href="/" className="flex items-center gap-2 normal-case text-xl">
           <span className="font-bold text-3xl font-bandal text-primary">
-            dale
+            daco
           </span>
         </a>
       </div>
