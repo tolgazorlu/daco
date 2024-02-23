@@ -1,8 +1,8 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import ProblemsTable from "../../components/Dashboard/ProblemsTable";
-import AddProblemModal from "../../components/Dashboard/AddProblemModal";
-import Layout from "../../layouts/Layout";
+import ProblemsTable from "../ProblemsTable";
+import AddProblemModal from "../AddProblemModal";
+import Layout from "../../Layouts";
 import { Helmet } from "react-helmet-async";
 
 const Problems = () => {

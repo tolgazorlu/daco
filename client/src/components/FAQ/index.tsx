@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify";
-import Layout from "../layouts/Layout";
-import { useGetFAQsQuery } from "../hooks/faqHook";
+import Layout from "../Layouts";
+import { useGetFAQsQuery } from "../../hooks/faqHook";
 
 const Faq = () => {
   const { data: faqs } = useGetFAQsQuery();

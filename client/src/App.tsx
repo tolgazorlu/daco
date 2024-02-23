@@ -1,20 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Question from "./pages/Question";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Profile from "./pages/Profile";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Problems from "./pages/Dashboard/Problems";
-import Users from "./pages/Dashboard/Users";
+import Home from "./components/Home";
+import Question from "./components/Question";
+import NotFound from "./components/NotFound";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
+import Dashboard from "./components/Dashboard";
+import Problems from "./components/Dashboard/Problems";
+import Users from "./components/Dashboard/Users";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
-import EmailVerify from "./pages/EmailVerify";
-import Contact from "./pages/Contact";
-import Contacts from "./pages/Dashboard/Contacts";
-import Faq from "./pages/Faq";
-import FAQs from "./pages/Dashboard/FAQs";
+import EmailVerify from "./components/EmailVerify";
+import Contact from "./components/Contact";
+import Contacts from "./components/Dashboard/Contacts";
+import Faq from "./components/FAQ";
+import FAQs from "./components/Dashboard/FAQs";
 
 const App = () => {
   return (

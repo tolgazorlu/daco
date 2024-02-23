@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react";
-import Layout from "../layouts/Layout";
-import { useCreateContactMutation } from "../hooks/contactHook";
+import Layout from "../Layouts";
+import { useCreateContactMutation } from "../../hooks/contactHook";
 import { ToastContainer, toast } from "react-toastify";
-import { getError } from "../utils/getError";
-import { ApiError } from "../types/ApiError";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 
 const Contact = () => {
   const { mutateAsync: createContact } = useCreateContactMutation();

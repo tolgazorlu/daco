@@ -1,10 +1,10 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet-async";
-import DailyProblemsTable from "../../components/Dashboard/DailyProblemsTable";
-import MainStats from "../../components/Dashboard/MainStats";
-import MiniStats from "../../components/Dashboard/MiniStats";
-import Layout from "../../layouts/Layout";
+import DailyProblemsTable from "./DailyProblemsTable";
+import MainStats from "./MainStats";
+import MiniStats from "./MiniStats";
+import Layout from "../Layouts";
 
 const Dashboard = () => {
   return (

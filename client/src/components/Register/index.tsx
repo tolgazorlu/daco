@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { FormEvent, useContext, useEffect, useState } from "react";
-import { useRegisterMutation } from "../hooks/userHooks";
-import { getError } from "../utils/getError";
-import { ApiError } from "../types/ApiError";
+import { useRegisterMutation } from "../../hooks/userHooks";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { VscLoading } from "react-icons/vsc";
-import { User } from "../contexts/User";
-import Layout from "../layouts/Layout";
+import { User } from "../../contexts/User";
+import Layout from "../Layouts";
 
 const Register = () => {
   const navigation = useNavigate();

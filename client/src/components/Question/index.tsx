@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import {
   useGetProblemQuery,
   useSolveProblemMutation,
-} from "../hooks/problemHooks";
-import ErrorMessage from "../components/ErrorMessage";
-import { getError } from "../utils/getError";
-import { ApiError } from "../types/ApiError";
+} from "../../hooks/problemHooks";
+import ErrorMessage from "../ErrorMessage";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { User } from "../contexts/User";
-import Layout from "../layouts/Layout";
+import { User } from "../../contexts/User";
+import Layout from "../Layouts";
 import { Helmet } from "react-helmet-async";
 
 const Question = () => {

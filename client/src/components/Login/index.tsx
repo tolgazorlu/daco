@@ -1,13 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { User } from "../contexts/User";
-import { useLoginMutation } from "../hooks/userHooks";
+import { User } from "../../contexts/User";
+import { useLoginMutation } from "../../hooks/userHooks";
 import { ToastContainer, toast } from "react-toastify";
-import { getError } from "../utils/getError";
-import { ApiError } from "../types/ApiError";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 import { VscLoading } from "react-icons/vsc";
-import Layout from "../layouts/Layout";
+import Layout from "../Layouts";
 
 const Login = () => {
   const [email, setEmail] = useState("");

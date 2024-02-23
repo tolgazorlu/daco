@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Layout from "../layouts/Layout";
+import Layout from "../Layouts";
 
 const NotFount = () => {
   return (

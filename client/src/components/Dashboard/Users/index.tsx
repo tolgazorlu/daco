@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import UsersTable from "../../components/Dashboard/UsersTable";
-import Layout from "../../layouts/Layout";
+import UsersTable from "../UsersTable";
+import Layout from "../../Layouts";
 
 const Users = () => {
   return (

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import Layout from "../../layouts/Layout";
-import { useGetContactsQuery } from "../../hooks/contactHook";
+import Layout from "../../Layouts";
+import { useGetContactsQuery } from "../../../hooks/contactHook";
 
 const Contacts = () => {
   const { data: contacts, isLoading, error } = useGetContactsQuery();

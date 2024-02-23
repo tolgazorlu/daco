@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import Layout from "../layouts/Layout";
+import Layout from "../Layouts";
 import { useParams } from "react-router-dom";
-import { useVerifyEmailMutation } from "../hooks/userHooks";
+import { useVerifyEmailMutation } from "../../hooks/userHooks";
 import { useEffect, useState } from "react";
-import { getError } from "../utils/getError";
-import { ApiError } from "../types/ApiError";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
 
 const EmailVerify = () => {
   const [validUrl, setValidUrl] = useState(false);

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { User } from "../contexts/User";
+import { User } from "../../../contexts/User";
 import { useContext, useEffect, useState } from "react";
 
 const Sidebar = (props: { isOpen: boolean }) => {

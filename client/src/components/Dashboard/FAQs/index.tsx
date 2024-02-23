@@ -1,17 +1,17 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet-async";
-import Layout from "../../layouts/Layout";
+import Layout from "../../Layouts";
 import {
   useDeleteFAQMutation,
   useEditFAQMutation,
   useGetFAQsQuery,
-} from "../../hooks/faqHook";
-import AddFAQModal from "../../components/Dashboard/AddFaqModal";
+} from "../../../hooks/faqHook";
+import AddFAQModal from "../AddFaqModal";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { getError } from "../../utils/getError";
-import { ApiError } from "../../types/ApiError";
+import { getError } from "../../../utils/getError";
+import { ApiError } from "../../../types/ApiError";
 
 const FAQs = () => {
   const { data: faqs, isLoading, error, refetch } = useGetFAQsQuery();

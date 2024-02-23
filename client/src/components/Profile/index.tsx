@@ -1,8 +1,8 @@
 import { ToastContainer } from "react-toastify";
-import UserProfileInfo from "../components/User/UserProfileInfo";
-import UserMainStats from "../components/User/UserMainStats";
-import UserSolvedProblemsTable from "../components/User/UserSolvedProblemsTable";
-import Layout from "../layouts/Layout";
+import UserProfileInfo from "./UserProfileInfo";
+import UserMainStats from "./UserMainStats";
+import UserSolvedProblemsTable from "./UserSolvedProblemsTable";
+import Layout from "../Layouts";
 import { Helmet } from "react-helmet-async";
 
 const Profile = () => {

@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { User } from "../contexts/User";
-import themes from "../utils/themes";
+import { User } from "../../../contexts/User";
+import themes from "../../../utils/themes";
 
 export type navLinks = {
   name: string;
