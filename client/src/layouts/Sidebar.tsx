@@ -191,7 +191,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
         <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-base-200">
           <li>
             <a
-              href="https://www.buymeacoffee.com/tolgazorlu"
+              href="https://github.com/tolgazorlu/daco"
               target="_blank"
               className="flex items-center p-2 transition duration-75 rounded-lg group hover:bg-primary/50"
             >
@@ -204,7 +204,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
               >
                 <path d="M7.958 19.393a7.7 7.7 0 0 1-6.715-3.439c-2.868-4.832 0-9.376.944-10.654l.091-.122a3.286 3.286 0 0 0 .765-3.288A1 1 0 0 1 4.6.8c.133.1.313.212.525.347A10.451 10.451 0 0 1 10.6 9.3c.5-1.06.772-2.213.8-3.385a1 1 0 0 1 1.592-.758c1.636 1.205 4.638 6.081 2.019 10.441a8.177 8.177 0 0 1-7.053 3.795Z" />
               </svg>
-              <span className="ml-4">Support to Author</span>
+              <span className="ml-4">Support the Project</span>
             </a>
           </li>
           {/* <li>
