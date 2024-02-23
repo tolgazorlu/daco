@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { generateToken } from "../utils/token";
 import { UserModel } from "../models/user";
-import { uploadFile } from "../utils/uploadImage";
+import { uploadFile } from "../services/s3/uploadImage";
 const bcrypt = require("bcrypt");
 const { randomString } = require("../utils/randomString");
-const { verifyEmail } = require("../utils/sendEmail");
-const { getFileStream } = require("../utils/downloadImage");
+const { verifyEmail } = require("../services/email/sendVerificationEmail");
+const { getFileStream } = require("../services/s3/downloadImage");
 
 const fs = require("fs");
 const util = require("util");

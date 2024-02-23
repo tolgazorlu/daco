@@ -1,6 +1,6 @@
 import express = require("express");
-import { isAuth } from "../utils/isAuth";
-import { isAdmin } from "../utils/isAdmin";
+import { isAuth } from "../middlewares/isAuth";
+import { isAdmin } from "../middlewares/isAdmin";
 const problemController = require("../controllers/problemController");
 
 const router: express.Router = require("express").Router();

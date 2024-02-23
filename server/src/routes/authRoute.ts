@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { isAuth } from "../utils/isAuth";
-import { isAdmin } from "../utils/isAdmin";
+import { isAuth } from "../middlewares/isAuth";
+import { isAdmin } from "../middlewares/isAdmin";
 const authController = require("../controllers/authController");
 const router: Router = require("express").Router();
 

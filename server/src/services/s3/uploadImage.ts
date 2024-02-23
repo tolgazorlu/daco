@@ -1,5 +1,5 @@
 require("dotenv").config();
-import s3 from "../config/bucket";
+import s3 from "../../config/bucket.config";
 const fs = require("fs");
 
 const uploadFile = (file: { path: string; filename: string }) => {

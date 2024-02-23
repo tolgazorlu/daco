@@ -1,6 +1,6 @@
 require("dotenv").config();
 import { GetObjectCommand } from "@aws-sdk/client-s3";
-import s3 from "../config/bucket";
+import s3 from "../../config/bucket.config";
 
 async function getFileStream(fileKey: any) {
   const params = {
