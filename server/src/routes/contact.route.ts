@@ -1,11 +1,11 @@
 import express = require("express");
-import { isAuth } from "../middlewares/isAuth";
-import { isAdmin } from "../middlewares/isAdmin";
+import { Auth } from "../middlewares/auth";
+import { Admin } from "../middlewares/admin";
 const contactController = require("../controllers/contact.controller");
 
 const router: express.Router = require("express").Router();
 
-router.get("/all", isAuth, isAdmin, contactController.getContacts);
+router.get("/all", Auth, Admin, contactController.getContacts);
 router.post("/create", contactController.CreateContact);
 
 module.exports = router;

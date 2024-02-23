@@ -4,7 +4,7 @@ import { UserModel } from "../models/user.model";
 import { uploadFile } from "../services/s3/uploadImage";
 const bcrypt = require("bcrypt");
 const { randomString } = require("../utils/randomString");
-const { verifyEmail } = require("../services/email/sendVerificationEmail");
+const { verifyEmail } = require("../services/email/verificationEmail");
 const { getFileStream } = require("../services/s3/downloadImage");
 
 const fs = require("fs");

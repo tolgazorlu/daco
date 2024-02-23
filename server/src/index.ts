@@ -4,7 +4,6 @@ import express, { Express } from "express";
 import chalk from "chalk";
 import { Job } from "./utils/schedule";
 import path from "path";
-const cors = require("cors");
 //ROUTE IMPORTS
 const statisticRoute = require("./routes/satistic.route");
 const problemRoute = require("./routes/problem.route");
@@ -22,6 +21,7 @@ const { port } = keys;
 const setupDB = require("./utils/database");
 setupDB();
 
+const cors = require("cors");
 app.use(
   cors({
     origin: "*",
