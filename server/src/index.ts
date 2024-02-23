@@ -7,7 +7,8 @@ import path from "path";
 //ROUTE IMPORTS
 const statisticRoute = require("./routes/satistic.route");
 const problemRoute = require("./routes/problem.route");
-const authRoute = require("./routes/auth.route");
+const authRoute = require("./routes/auth.route")
+const userRoute = require("./routes/user.route");
 const contactRoute = require("./routes/contact.route");
 const faqRoute = require("./routes/faq.route");
 
@@ -35,9 +36,10 @@ app.use(express.json());
 Job;
 
 //ROUTES
+app.use("/api/auth", authRoute)
+app.use("/api/user", userRoute);
 app.use("/api/problems", problemRoute);
 app.use("/api/statistic", statisticRoute);
-app.use("/api/user", authRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/faq", faqRoute);
 

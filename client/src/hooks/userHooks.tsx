@@ -12,7 +12,7 @@ export const useLoginMutation = () =>
       password: string;
     }) =>
       (
-        await apiClient.post<UserInfo>(`api/user/login`, {
+        await apiClient.post<UserInfo>(`api/auth/login`, {
           email,
           password,
         })
@@ -33,7 +33,7 @@ export const useRegisterMutation = () =>
       isAdmin: boolean;
     }) =>
       (
-        await apiClient.post<UserInfo>(`api/user/register`, {
+        await apiClient.post<UserInfo>(`api/auth/register`, {
           username,
           email,
           password,
@@ -72,7 +72,7 @@ export const useChangePasswordMutation = () =>
       newPassword: string;
     }) =>
       (
-        await apiClient.put<UserInfo>(`api/user/passwordUpdate`, {
+        await apiClient.put<UserInfo>(`api/auth/passwordUpdate`, {
           currentPassword,
           newPassword,
         })
@@ -105,7 +105,7 @@ export const useDeleteUserMutation = () =>
     mutationFn: async (userId: string) =>
       (
         await apiClient.delete<{ message: string; user: UserInfo[] }>(
-          `api/user/delete/${userId}`,
+          `api/auth/delete/${userId}`,
         )
       ).data,
   });
@@ -114,7 +114,7 @@ export const useVerifyEmailMutation = () =>
   useMutation({
     mutationFn: async ({ id, token }: { id: string; token: string }) =>
       (
-        await apiClient.put<UserInfo>(`api/user/${id}/verify/${token}`, {
+        await apiClient.put<UserInfo>(`api/auth/${id}/verify/${token}`, {
           id,
           token,
         })

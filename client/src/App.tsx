@@ -15,6 +15,8 @@ import Contact from "./components/Contact";
 import Contacts from "./components/Dashboard/Contacts";
 import Faq from "./components/FAQ";
 import FAQs from "./components/Dashboard/FAQs";
+import ForgotPassword from './components/ForgotPassword'
+import ResetPassword from "./components/ResetPassword";
 
 const App = () => {
   return (
@@ -38,6 +40,11 @@ const App = () => {
         <Route path="" element={<UserRoute />}>
           <Route path="/profile" element={<Profile />} />
         </Route>
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route
+                    path="/reset-password/:token"
+                    element={<ResetPassword />}
+                />
       </Routes>
     </BrowserRouter>
   );
