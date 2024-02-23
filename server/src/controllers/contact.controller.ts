@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ContactModel } from "../models/contact";
+import { ContactModel } from "../models/contact.model";
 
 /**
  * CREATE CONTACT

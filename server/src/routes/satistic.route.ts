@@ -1,5 +1,5 @@
 import express = require("express");
-const statisticController = require("../controllers/statisticController");
+const statisticController = require("../controllers/statistic.controller");
 
 const router: express.Router = require("express").Router();
 

@@ -1,7 +1,7 @@
 import express = require("express");
 import { isAuth } from "../middlewares/isAuth";
 import { isAdmin } from "../middlewares/isAdmin";
-const faqController = require("../controllers/faqController");
+const faqController = require("../controllers/faq.controller");
 
 const router: express.Router = require("express").Router();
 

@@ -4,7 +4,7 @@ import {
   getModelForClass,
   Ref,
 } from "@typegoose/typegoose";
-import { Problem } from "./problem";
+import { Problem } from "./problem.model";
 
 @modelOptions({ schemaOptions: { timestamps: true } })
 export class User {

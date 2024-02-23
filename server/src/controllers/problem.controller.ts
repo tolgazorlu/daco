@@ -1,7 +1,7 @@
 import { Response, Request, NextFunction } from "express";
-import { ProblemModel } from "../models/problem";
-import { day } from "../utils/dailySchedule";
-import { UserModel } from "../models/user";
+import { ProblemModel } from "../models/problem.model";
+import { day } from "../utils/schedule";
+import { UserModel } from "../models/user.model";
 import { generateToken } from "../utils/token";
 
 /**

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { FAQModel } from "../models/faq";
+import { FAQModel } from "../models/faq.model";
 
 /**
  * CREATE SINGLE FAQ

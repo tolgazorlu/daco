@@ -1,13 +1,13 @@
 import { Response, Request } from "express";
-import { Job, day, todaysDate } from "../utils/dailySchedule";
+import { day, todaysDate } from "../utils/schedule";
 
 /**
  * GET STATISTICS
  * api/statistic/totalProblems
  */
 
-import { ProblemModel } from "../models/problem";
-import { UserModel } from "../models/user";
+import { ProblemModel } from "../models/problem.model";
+import { UserModel } from "../models/user.model";
 
 exports.getTotalProblemStat = async (req: Request, res: Response) => {
   try {

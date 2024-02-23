@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { isAuth } from "../middlewares/isAuth";
 import { isAdmin } from "../middlewares/isAdmin";
-const authController = require("../controllers/authController");
+const authController = require("../controllers/auth.controller");
 const router: Router = require("express").Router();
 
 const multer = require("multer");

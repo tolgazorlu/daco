@@ -1,7 +1,7 @@
 import express = require("express");
 import { isAuth } from "../middlewares/isAuth";
 import { isAdmin } from "../middlewares/isAdmin";
-const contactController = require("../controllers/contactController");
+const contactController = require("../controllers/contact.controller");
 
 const router: express.Router = require("express").Router();
 

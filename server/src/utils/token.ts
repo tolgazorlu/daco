@@ -1,6 +1,6 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
-import { User } from "../models/user";
+import { User } from "../models/user.model";
 
 export const generateToken = (user: User) => {
   return jwt.sign(

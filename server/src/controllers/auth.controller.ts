@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { generateToken } from "../utils/token";
-import { UserModel } from "../models/user";
+import { UserModel } from "../models/user.model";
 import { uploadFile } from "../services/s3/uploadImage";
 const bcrypt = require("bcrypt");
 const { randomString } = require("../utils/randomString");
