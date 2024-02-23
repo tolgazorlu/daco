@@ -78,7 +78,7 @@ const ResetPassword = () => {
 
                     <div>
                         <button className="btn w-full bg-gradient-to-r from-[#694dff] to-[#4716eb] text-white font-poppins">
-                            <span>Send Email</span>
+                            <span>Reset Password</span>
                         </button>
                     </div>
                 </form>

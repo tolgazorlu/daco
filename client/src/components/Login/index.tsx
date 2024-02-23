@@ -123,7 +123,7 @@ const Login = () => {
             </div>
             <div className="flex justify-between">
               <div>
-                <a href="/" className="text-xs text-info hover:underline">
+                <a href="/forgot-password" className="text-xs text-info hover:underline">
                   Forgot password
                 </a>
               </div>

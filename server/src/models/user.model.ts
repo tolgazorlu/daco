@@ -42,6 +42,12 @@ export class User {
 
   @prop({ required: true, default: false })
   public isAdmin!: boolean;
+
+  @prop()
+  resetPasswordToken?: String;
+
+  @prop()
+  resetPasswordExpires?: Date;
 }
 
 export const UserModel = getModelForClass(User);

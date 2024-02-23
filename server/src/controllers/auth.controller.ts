@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { generateToken } from "../utils/token";
 import { UserModel } from "../models/user.model";
-import { uploadFile } from "../services/s3/uploadImage";
 const bcrypt = require("bcrypt");
 const { randomString } = require("../utils/randomString");
 const { verifyEmail } = require("../services/email/verificationEmail");
 const { getFileStream } = require("../services/s3/downloadImage");
+const { forgotPasswordEmail } = require("../services/email/forgotPasswordEmail");
 
 const fs = require("fs");
 const util = require("util");
@@ -255,5 +255,58 @@ module.exports.deleteUser = async (req: Request, res: Response) => {
     res.status(400).json({
       message: error,
     });
+  }
+};
+
+
+
+module.exports.ForgotPassword = async (req: Request, res: Response) => {
+  try {
+      const { email } = req.body;
+      const user = await UserModel.findOne({ email });
+
+      if (!user) {
+          return res.status(400).send("User not found.");
+      }
+
+      const token = randomString(20);
+      user.resetPasswordToken = token;
+      user.resetPasswordExpires = new Date(Date.now() + 3600000); // 1 hour
+      await user.save();
+
+      const resetURL = `http://localhost:5173/reset-password/${token}`;
+
+      forgotPasswordEmail(email, resetURL);
+  } catch (error) {
+      res.status(400).json({
+          message: error,
+      });
+  }
+};
+
+module.exports.ResetPassword = async (req: Request, res: Response) => {
+  try {
+      const { token, password } = req.body;
+      const user = await UserModel.findOne({
+          resetPasswordToken: token,
+          resetPasswordExpires: { $gt: Date.now() },
+      });
+
+      if (!user) {
+          return res
+              .status(400)
+              .send("Password reset token is invalid or has expired.");
+      }
+
+      (user.password = bcrypt.hashSync(req.body.password, 12)),
+          (user.resetPasswordToken = undefined);
+      user.resetPasswordExpires = undefined;
+      await user.save();
+
+      res.send("Your password has been updated.");
+  } catch (error) {
+      res.status(400).json({
+          message: error,
+      });
   }
 };

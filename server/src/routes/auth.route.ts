@@ -9,5 +9,7 @@ router.post("/login", authController.Login);
 router.put("/:id/verify/:token/", authController.Verify);
 router.put("/passwordUpdate", Auth, authController.PasswordUpdate);
 router.delete("/delete/:id", Auth, Admin, authController.deleteUser);
+router.post("/forgot-password", authController.ForgotPassword);
+router.put("/reset-password", authController.ResetPassword);
 
 module.exports = router;
