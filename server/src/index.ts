@@ -2,7 +2,7 @@
 require("dotenv").config();
 import express, { Express } from "express";
 import chalk from "chalk";
-import { Job } from "./utils/schedule";
+import { Daily } from "./utils/schedule";
 import path from "path";
 //ROUTE IMPORTS
 const statisticRoute = require("./routes/satistic.route");
@@ -33,7 +33,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-Job;
+Daily;
 
 //ROUTES
 app.use("/api/auth", authRoute)

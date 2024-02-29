@@ -1,5 +1,5 @@
 import { Response, Request } from "express";
-import { day, todaysDate } from "../utils/schedule";
+// import { day, todaysDate } from "../utils/schedule";
 
 /**
  * GET STATISTICS
@@ -41,24 +41,24 @@ exports.getTotalUserStat = async (req: Request, res: Response) => {
  * api/statistic/day
  */
 
-exports.getDayStat = async (req: Request, res: Response) => {
-  try {
-    res.status(200).send({ day, todaysDate });
-  } catch (error) {
-    res.status(400).json({
-      message: error,
-    });
-  }
-};
+// exports.getDayStat = async (req: Request, res: Response) => {
+//   try {
+//     res.status(200).send({ day, todaysDate });
+//   } catch (error) {
+//     res.status(400).json({
+//       message: error,
+//     });
+//   }
+// };
 
-exports.getTodaysUsersStat = async (req: Request, res: Response) => {
-  try {
-    const users = await UserModel.find({ createdAt: todaysDate });
-    const todaysUsers = users.length;
-    res.status(200).send({ todaysUsers });
-  } catch (error) {
-    res.status(400).json({
-      message: error,
-    });
-  }
-};
+// exports.getTodaysUsersStat = async (req: Request, res: Response) => {
+//   try {
+//     const users = await UserModel.find({ createdAt: todaysDate });
+//     const todaysUsers = users.length;
+//     res.status(200).send({ todaysUsers });
+//   } catch (error) {
+//     res.status(400).json({
+//       message: error,
+//     });
+//   }
+// };

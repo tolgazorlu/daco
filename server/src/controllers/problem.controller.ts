@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import { ProblemModel } from "../models/problem.model";
-import { day } from "../utils/schedule";
+// import { day } from "../utils/schedule";
 import { UserModel } from "../models/user.model";
 import { generateToken } from "../utils/token";
 
@@ -82,22 +82,22 @@ exports.getSolvedProblems = async (req: Request, res: Response) => {
  * api/problems/daily
  */
 
-exports.getDailyProblems = async (req: Request, res: Response) => {
-  try {
-    const problem = await ProblemModel.find({ day: day }, "-answer");
-    if (problem) {
-      res.status(200).send(problem);
-    } else {
-      res.status(400).json({
-        message: "Problem not found!",
-      });
-    }
-  } catch (error) {
-    res.status(400).json({
-      message: error,
-    });
-  }
-};
+// exports.getDailyProblems = async (req: Request, res: Response) => {
+//   try {
+//     const problem = await ProblemModel.find({ day: day }, "-answer");
+//     if (problem) {
+//       res.status(200).send(problem);
+//     } else {
+//       res.status(400).json({
+//         message: "Problem not found!",
+//       });
+//     }
+//   } catch (error) {
+//     res.status(400).json({
+//       message: error,
+//     });
+//   }
+// };
 
 /**
  * GET SINGLE PROBLEM

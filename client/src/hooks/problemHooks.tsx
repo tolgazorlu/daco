@@ -21,7 +21,7 @@ export const useGetDailyProblemsQuery = () =>
   useQuery({
     queryKey: ["daily"],
     queryFn: async () =>
-      (await apiClient.get<Problem[]>(`api/problems/daily`)).data,
+      (await apiClient.get<Problem[]>(`api/user/problems`)).data,
   });
 
 export const useGetSolvedProblemsQuery = () =>

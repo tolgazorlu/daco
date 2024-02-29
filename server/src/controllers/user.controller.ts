@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { UserModel } from "../models/user.model";
 import { generateToken } from "../utils/token";
 import { uploadFile } from "../services/s3/uploadImage";
+import { ProblemModel } from "../models/problem.model";
 
 const { getFileStream } = require("../services/s3/downloadImage");
 
@@ -80,6 +81,26 @@ module.exports.getUsers = async (req: Request, res: Response) => {
     }
   };
 
+  /**
+ * GET USER DAILY PROBLEMS
+ * api/user/problems
+ */
+
+module.exports.GetUserDailyProblems = async (req: Request, res: Response) => {
+  try {
+    const user = await UserModel.findById(req.user._id)
+    if (user){
+      const problems = await ProblemModel.find({ day: user.currentDay }, "-answer");
+      res.status(200).send(problems)
+    }
+   
+  } catch (error) {
+    res.status(400).json({
+      message: error,
+    });
+  }
+}
+
 
 /**
  * UPLOAD USER AVATAR TO S3 BUCKET
@@ -111,4 +132,4 @@ module.exports.UploadImage = async (req: Request, res: Response) => {
       getFileStream(key).then((data: any) => data.Body.pipe(res));
     }
   };
-  
+

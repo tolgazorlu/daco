@@ -34,6 +34,9 @@ export class User {
   @prop({ ref: Problem })
   public solvedProblems?: Ref<Problem>[];
 
+  @prop({ required: false, default: 1})
+  public currentDay ?: number
+
   @prop({ required: true, default: false })
   public emailVerified!: boolean;
 

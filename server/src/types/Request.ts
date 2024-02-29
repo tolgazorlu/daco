@@ -10,6 +10,7 @@ declare namespace Express {
       emailVerified: boolean;
       verificationToken: string;
       solvedProblems: string[];
+      currentDay: number;
     };
     file: any
   }

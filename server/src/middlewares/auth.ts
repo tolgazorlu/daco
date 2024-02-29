@@ -19,6 +19,7 @@ export const Auth = (req: Request, res: Response, next: NextFunction) => {
       verificationToken: string;
       solvedProblems: string[];
       token: string;
+      currentDay: number;
     };
     next();
   } else {
