@@ -19,6 +19,7 @@ import remarkToc from 'remark-toc'
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/a11y-dark.css"
 
+
 const Question = () => {
   const { slug } = useParams();
   const { data: problem, isLoading, error } = useGetProblemQuery(slug!);
@@ -146,29 +147,6 @@ const Question = () => {
               {problem.level}
             </span>
           </div>
-          {/* <span
-            dangerouslySetInnerHTML={{ __html: problem.description }}
-            className="leading-24"
-          />
-          <div className="flex flex-col gap-2 max-w-max">
-            <strong>Constrain:</strong>
-            <span className="py-1 px-2 bg-primary-content text-primary rounded-md">
-              {problem.constrain}
-            </span>
-          </div>
-          <div className="flex flex-col gap-2 max-w-max">
-            <strong>Example:</strong>
-            {examples?.map((item: string) => {
-              return (
-                <span
-                  key={item}
-                  className="py-1 px-2 bg-primary-content text-primary rounded-md"
-                >
-                  {item}
-                </span>
-              );
-            })}
-          </div> */}
           <div className="prose lg:prose-xl">
           <Markdown
           remarkPlugins={[remarkGfm, remarkToc]}

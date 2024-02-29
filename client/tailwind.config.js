@@ -2,7 +2,26 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: '&nbsp;&nbsp;',
+            },
+            'code::after': {
+              content: '&nbsp;&nbsp;',
+            },
+            code: {
+              wordWrap: 'break-word',
+              boxDecorationBreak: 'clone',
+              padding: '.1rem .3rem .2rem',
+              borderRadius: '.2rem',
+            }
+          },
+        },
+      }
+    },
     animation: {
       'congrats': 'wiggle 0.3s linear infinite',
       'leftToRight':'leftToRight 15s ease infinite',
