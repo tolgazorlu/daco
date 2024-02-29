@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -12,6 +13,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { User } from "../../contexts/User";
 import Layout from "../Layouts";
 import { Helmet } from "react-helmet-async";
+import Markdown from "react-markdown";
+import remarkGfm from 'remark-gfm'
+import remarkToc from 'remark-toc'
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/a11y-dark.css"
 
 const Question = () => {
   const { slug } = useParams();
@@ -60,7 +66,7 @@ const Question = () => {
   }, [problem, problemId, userInfo]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const examples: string[] | any = problem?.example;
+  // const examples: string[] | any = problem?.example;
 
   return isLoading ? (
     <>
@@ -140,7 +146,7 @@ const Question = () => {
               {problem.level}
             </span>
           </div>
-          <span
+          {/* <span
             dangerouslySetInnerHTML={{ __html: problem.description }}
             className="leading-24"
           />
@@ -162,6 +168,14 @@ const Question = () => {
                 </span>
               );
             })}
+          </div> */}
+          <div className="prose lg:prose-xl">
+          <Markdown
+          remarkPlugins={[remarkGfm, remarkToc]}
+          rehypePlugins={[rehypeHighlight]}
+    children={problem.description}
+    
+  />
           </div>
           {isSolved ? (
             <form className="flex flex-col md:w-1/3 gap-2">

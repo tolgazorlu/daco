@@ -92,8 +92,10 @@ module.exports.GetUserDailyProblems = async (req: Request, res: Response) => {
     if (user){
       const problems = await ProblemModel.find({ day: user.currentDay }, "-answer");
       res.status(200).send(problems)
+    } else {
+      const problems = await ProblemModel.find({ day: 1 }, "-answer");
+      res.status(200).send(problems)
     }
-   
   } catch (error) {
     res.status(400).json({
       message: error,

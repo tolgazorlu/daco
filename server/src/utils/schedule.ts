@@ -22,7 +22,6 @@ const schedule = require("node-schedule");
 
 const Daily = schedule.scheduleJob('0 0 * * *', async () => {
   try {
-      // Increment day count for all users
       await UserModel.updateMany({}, { $inc: { currentDay: 1 } });
       console.log('Day count incremented for all users');
   } catch (error) {
