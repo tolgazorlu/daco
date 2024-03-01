@@ -58,15 +58,16 @@ const Question = () => {
 
     useEffect(() => {
         if (problem) {
-            setProblemId(problem?._id);
+            setProblemId(problem._id);
         }
         if (userInfo?.solvedProblems) {
-            setIsSolved(userInfo?.solvedProblems.includes(problemId));
+            setIsSolved(
+                userInfo.solvedProblems.some(
+                    (solvedProblem) => solvedProblem.problemId === problemId,
+                ),
+            );
         }
     }, [problem, problemId, userInfo]);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // const examples: string[] | any = problem?.example;
 
     return isLoading ? (
         <>
