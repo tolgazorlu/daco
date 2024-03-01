@@ -3,49 +3,68 @@
 
 import { useContext, useEffect, useState } from "react";
 import { User } from "../../contexts/User";
-import { useGetDailyProblemsQuery } from "../../hooks/problemHooks";
+import Calendar from "react-github-contribution-calendar";
+
+interface CalendarValues {
+    [date: string]: number;
+}
 
 const UserMainStats = () => {
-  const { state } = useContext(User);
-  const { userInfo } = state;
-  const { data: problems, isLoading } = useGetDailyProblemsQuery();
-  const [day, setDay] = useState<number>();
-  const [solved, setSolved] = useState<number>(0);
+    const { state } = useContext(User);
+    const { userInfo } = state;
+    const [solved, setSolved] = useState<number>(0);
 
-  useEffect(() => {
-    if (problems) {
-      setDay(problems[0].day);
-    }
-    if (userInfo?.solvedProblems) {
-      setSolved(userInfo.solvedProblems.length);
-    }
-  }, [problems, day, userInfo?.solvedProblems]);
+    // Your component code
+    const [calendarValues, setCalendarValues] = useState<CalendarValues>({});
 
-  return (
-    <div className="stats bg-primary shadow-md ">
-      <div className="stat">
-        <div className="stat-title text-primary-content">Solved Problems</div>
-        <div className="stat-value text-primary-content">{solved}</div>
-        <div className="stat-actions">
-          <a href="/" className="btn btn-sm btn-nautral-content text-nautral">
-            Check New Problems
-          </a>
-        </div>
-      </div>
+    useEffect(() => {
+        if (userInfo?.solvedProblems) {
+            setSolved(userInfo.solvedProblems.length);
+            if (userInfo.solvedProblems.length > 0) {
+                const dateCounts: CalendarValues =
+                    userInfo.solvedProblems.reduce(
+                        (acc: CalendarValues, solvedProblem) => {
+                            const date = solvedProblem.date.split("T")[0]; // Extracting date part
+                            acc[date] = (acc[date] || 0) + 1; // Incrementing count for each date
+                            return acc;
+                        },
+                        {},
+                    );
+                setCalendarValues(dateCounts);
+            }
+        }
+    }, [userInfo?.solvedProblems]);
 
-      <div className="stat">
-        <div className="stat-title text-primary-content">Day</div>
-        <div className="stat-value text-primary-content">
-          {isLoading ? <span>?</span> : <span>{day}</span>}
+    const until = "2024-03-01";
+
+    const panelColors = ["#fffbeb", "#fabe25"];
+
+    return (
+        <div className="stats bg-neutral shadow-md ">
+            <div className="stat">
+                <Calendar
+                    values={calendarValues}
+                    until={until}
+                    weekLabelAttributes={undefined}
+                    monthLabelAttributes={undefined}
+                    panelAttributes={undefined}
+                    panelColors={panelColors}
+                />
+            </div>
+
+            <div className="stat">
+                <div className="stat-title text-neutral-content">
+                    Solved Problems
+                </div>
+                <div className="stat-value text-neutral-content">{solved}</div>
+                <div className="stat-actions">
+                    <a href="/" className="btn btn-sm btn-primary-content">
+                        Check New Problems
+                    </a>
+                </div>
+            </div>
         </div>
-        <div className="stat-actions flex gap-2">
-          <button className="btn btn-sm btn-disabled text-nautral">
-            Check Statistics
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default UserMainStats;
