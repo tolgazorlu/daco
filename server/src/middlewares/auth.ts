@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { Date } from "mongoose";
 
 export const Auth = (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
@@ -17,7 +18,10 @@ export const Auth = (req: Request, res: Response, next: NextFunction) => {
       isAdmin: boolean;
       emailVerified: boolean;
       verificationToken: string;
-      solvedProblems: string[];
+      solvedProblems: {
+        problemId: string,
+        date: string
+      }[]
       token: string;
       currentDay: number;
     };

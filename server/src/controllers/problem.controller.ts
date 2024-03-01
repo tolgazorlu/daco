@@ -60,44 +60,22 @@ exports.getProblems = async (req: Request, res: Response) => {
 
 exports.getSolvedProblems = async (req: Request, res: Response) => {
   try {
-    const problem = await ProblemModel.find({
-      _id: { $in: req.user.solvedProblems },
+    // Extract problemId values from req.user.solvedProblems array
+    const problemIds = req.user.solvedProblems.map(solvedProblem => solvedProblem.problemId);
+
+    // Find problems with _id matching the extracted problemIds
+    const problems = await ProblemModel.find({
+      _id: { $in: problemIds },
     });
-    if (problem) {
-      res.status(200).send(problem);
-    } else {
-      res.status(400).json({
-        message: "Problem not found!",
-      });
-    }
+
+   res.status(200).send(problems);
   } catch (error) {
     res.status(400).json({
-      message: error,
+      message: error || "An error occurred while fetching solved problems.",
     });
   }
 };
 
-/**
- * GET DAILY PROBLEMS
- * api/problems/daily
- */
-
-// exports.getDailyProblems = async (req: Request, res: Response) => {
-//   try {
-//     const problem = await ProblemModel.find({ day: day }, "-answer");
-//     if (problem) {
-//       res.status(200).send(problem);
-//     } else {
-//       res.status(400).json({
-//         message: "Problem not found!",
-//       });
-//     }
-//   } catch (error) {
-//     res.status(400).json({
-//       message: error,
-//     });
-//   }
-// };
 
 /**
  * GET SINGLE PROBLEM
@@ -192,14 +170,11 @@ exports.solveProblem = async (req: Request, res: Response) => {
     if (user) {
       if (
         problem?.answer == req.body.answer &&
-        !user.solvedProblems?.includes(req.body.id)
+        !user.solvedProblems.some(solvedProblem => solvedProblem.problemId === req.body.id)
       ) {
-        await user.solvedProblems?.push(req.params.id);
-        user.username = req.body.username || user.username;
-        user.email = req.body.email || user.email;
-        user.avatar = req.body.avatar || user.avatar;
-        user.isAdmin = user.isAdmin;
-        user.solvedProblems = user.solvedProblems;
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString().split('T')[0];
+        user.solvedProblems.push({ problemId: req.body.id, date: formattedDate });
         const updatedUser = await user.save();
         res.send({
           _id: updatedUser._id,

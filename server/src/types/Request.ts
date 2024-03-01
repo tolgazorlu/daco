@@ -1,4 +1,9 @@
 declare namespace Express {
+
+  interface solvedProblems{
+    problemId: string
+    date: string
+  }
   export interface Request {
     user: {
       _id: string;
@@ -9,7 +14,7 @@ declare namespace Express {
       token: string;
       emailVerified: boolean;
       verificationToken: string;
-      solvedProblems: string[];
+      solvedProblems: solvedProblems[]
       currentDay: number;
     };
     file: any

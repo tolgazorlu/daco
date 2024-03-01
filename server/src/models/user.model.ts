@@ -3,10 +3,22 @@ import {
   prop,
   getModelForClass,
   Ref,
+  Severity
 } from "@typegoose/typegoose";
 import { Problem } from "./problem.model";
+import mongoose from "mongoose";
 
-@modelOptions({ schemaOptions: { timestamps: true } })
+class solvedProblems {
+
+  @prop({ ref: Problem })
+  public problemId?: Ref<Problem>;
+
+  @prop({required: true})
+  public date!: string
+  
+}
+
+@modelOptions({ schemaOptions: { timestamps: true }, options: { allowMixed: Severity.ALLOW }, })
 export class User {
   public _id?: string;
 
@@ -31,8 +43,8 @@ export class User {
   })
   public avatar!: string;
 
-  @prop({ ref: Problem })
-  public solvedProblems?: Ref<Problem>[];
+  @prop({ type: mongoose.Schema.Types.Array })
+  public solvedProblems!: solvedProblems[];
 
   @prop({ required: false, default: 1})
   public currentDay ?: number
