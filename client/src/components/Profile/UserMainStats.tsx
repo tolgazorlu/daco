@@ -55,11 +55,9 @@ const UserMainStats = () => {
                 />
             </div>
 
-            <div className="stat">
-                <div className="stat-title text-neutral-content">
-                    Solved Problems
-                </div>
-                <div className="stat-value text-neutral-content">{solved}</div>
+            <div className="stat bg-base-300">
+                <div className="stat-title">Total Solved Problems</div>
+                <div className="stat-value">{solved}</div>
                 <div className="stat-actions">
                     <a href="/" className="btn btn-sm btn-primary-content">
                         Check New Problems
