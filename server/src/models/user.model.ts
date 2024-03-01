@@ -63,6 +63,9 @@ export class User {
 
   @prop()
   resetPasswordExpires?: Date;
+
+  @prop()
+  public createdAt!: Date;
 }
 
 export const UserModel = getModelForClass(User);

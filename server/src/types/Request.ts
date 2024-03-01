@@ -16,6 +16,7 @@ declare namespace Express {
       verificationToken: string;
       solvedProblems: solvedProblems[]
       currentDay: number;
+      createdAt: Date;
     };
     file: any
   }
