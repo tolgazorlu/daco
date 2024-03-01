@@ -18,7 +18,6 @@ const UserMainStats = () => {
 
     useEffect(() => {
         if (userInfo?.solvedProblems) {
-            setSolved(userInfo.solvedProblems.length);
             if (userInfo.solvedProblems.length > 0) {
                 const dateCounts: CalendarValues =
                     userInfo.solvedProblems.reduce(
@@ -34,6 +33,7 @@ const UserMainStats = () => {
                         {},
                     );
                 setCalendarValues(dateCounts);
+                setSolved(userInfo.solvedProblems.length);
             }
         }
     }, [userInfo?.solvedProblems]);
