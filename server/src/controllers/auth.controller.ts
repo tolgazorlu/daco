@@ -4,7 +4,6 @@ import { UserModel } from "../models/user.model";
 const bcrypt = require("bcrypt");
 const { randomString } = require("../utils/randomString");
 const { verifyEmail } = require("../services/email/verificationEmail");
-const { getFileStream } = require("../services/s3/downloadImage");
 const { forgotPasswordEmail } = require("../services/email/forgotPasswordEmail");
 
 const fs = require("fs");
@@ -165,7 +164,9 @@ module.exports.Login = async (
       emailVerified: user.emailVerified,
       verificationToken: user.verificationToken,
       solvedProblems: user.solvedProblems,
+      currentDay: user.currentDay,
       token: generateToken(user),
+      createdAt: user.createdAt,
     });
     next();
   } catch (error) {
