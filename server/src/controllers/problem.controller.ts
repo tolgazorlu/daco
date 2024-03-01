@@ -184,6 +184,8 @@ exports.solveProblem = async (req: Request, res: Response) => {
           isAdmin: updatedUser.isAdmin,
           solvedProblems: updatedUser.solvedProblems,
           emailVerified: updatedUser.emailVerified,
+          createdAt: updatedUser.createdAt,
+          currentDay: updatedUser.currentDay,
           token: generateToken(updatedUser),
         });
       } else {
