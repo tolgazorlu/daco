@@ -14,7 +14,6 @@ const UserMainStats = () => {
     const { userInfo } = state;
     const [solved, setSolved] = useState<number>(0);
 
-    // Your component code
     const [calendarValues, setCalendarValues] = useState<CalendarValues>({});
 
     useEffect(() => {
@@ -24,8 +23,12 @@ const UserMainStats = () => {
                 const dateCounts: CalendarValues =
                     userInfo.solvedProblems.reduce(
                         (acc: CalendarValues, solvedProblem) => {
-                            const date = solvedProblem.date.split("T")[0]; // Extracting date part
-                            acc[date] = (acc[date] || 0) + 1; // Incrementing count for each date
+                            const date = solvedProblem.date
+                                ? solvedProblem.date.split("T")[0]
+                                : null;
+                            if (date) {
+                                acc[date] = (acc[date] || 0) + 1;
+                            }
                             return acc;
                         },
                         {},
