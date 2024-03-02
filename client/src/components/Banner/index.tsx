@@ -38,12 +38,12 @@ const index = () => {
                     <span className="text-9xl font-bandal font-bold bg-primary text-transparent bg-clip-text">
                         daco
                     </span>
-                    <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl bg-gradient-to-r from-base-content to-primary animate-leftToRight text-transparent bg-clip-text">
+                    <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl ">
                         Don't Brake The Chain!
                     </h1>
                     <p className="mb-8 text-lg font-normal lg:text-xl sm:px-16 xl:px-48">
                         Discover daily algorithms at{" "}
-                        <span className="font-bandal text-warning text-3xl">
+                        <span className="font-bandal text-primary text-3xl">
                             daco
                         </span>
                         , where new algorithms are added every day across
@@ -72,7 +72,7 @@ const index = () => {
                         </a>
                         <a
                             href="https://github.com/tolgazorlu/daco"
-                            className="inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary-content text-primary border border-primary"
+                            className="inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg text-primary border border-primary"
                         >
                             Learn more
                             <svg
