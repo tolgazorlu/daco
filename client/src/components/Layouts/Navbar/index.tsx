@@ -51,8 +51,8 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         <nav
             className={
                 location.pathname == "/"
-                    ? "navbar fixed top-0 z-30 w-full bg-base-100 lg:px-10"
-                    : "navbar fixed top-0 z-30 w-full bg-base-100 border-b border-base-300 lg:px-10"
+                    ? "navbar fixed top-0 z-30 w-full bg-base-100 lg:px-32 px-8"
+                    : "navbar fixed top-0 z-30 w-full bg-base-100 border-b border-base-300 lg:px-32 px-8"
             }
         >
             <div className="navbar-start">
@@ -159,38 +159,40 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                                 alt="User dropdown"
                                 className={
                                     userInfo.isAdmin
-                                        ? "w-8 h-8 rounded-full ring ring-primary"
-                                        : "h-8 w-8 rounded-full ring ring-primary"
+                                        ? "w-7 h-7 rounded-full ring-2 ring-primary"
+                                        : "h-7 w-7 rounded-full ring-2 ring-neutral"
                                 }
                                 src={userInfo.avatar}
                             />
                         </label>
                         <ul
                             tabIndex={0}
-                            className="dropdown-content z-[1] menu p-2 shadow bg-neutral/100 rounded-box text-neutral-content w-48"
+                            className="dropdown-content z-[1] menu p-2 shadow bg-neutral/100 rounded-box text-neutral-content min-w-max"
                         >
-                            {/* <li>
-                                <div className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content">
+                            <li>
+                                <div className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content gap-6">
                                     <div>
                                         <img
                                             alt="User dropdown"
                                             className={
                                                 userInfo.isAdmin
-                                                    ? "w-10 h-10 rounded-full ring-4 ring-primary"
-                                                    : "w-10 h-10 rounded-full ring-4 ring-primary"
+                                                    ? "w-12 h-12 rounded-full ring-2 ring-secondary"
+                                                    : "w-12 h-12 rounded-full ring-2 ring-primary"
                                             }
                                             src={userInfo.avatar}
                                         />
                                     </div>
-                                    <div>
-                                        <div>{userInfo.username}</div>
-                                        <div className="font-medium truncate">
-                                            {userInfo.email}
-                                        </div>
+                                    <div className="flex flex-col">
+                                        <span className="font-bold text-xl font-bandal">
+                                            {userInfo.username}
+                                        </span>
+                                        <span className="font-medium truncate font-bandal">
+                                            Solved Total:{" "}
+                                            {userInfo.solvedProblems.length}
+                                        </span>
                                     </div>
                                 </div>
                             </li>
-                            <hr className="mt-2 mb-2"></hr> */}
                             <li>
                                 <a
                                     href="/profile"
@@ -248,7 +250,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 ) : (
                     <a
                         href="/login"
-                        className="btn font-poppins btn-sm btn-outline btn-primary text-primary-content shadow-md shadow-primary/50 hover:primary/50"
+                        className="btn font-poppins btn-sm btn-primary text-primary-content hover:primary/50"
                     >
                         Login
                     </a>
