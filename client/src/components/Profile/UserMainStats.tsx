@@ -40,7 +40,7 @@ const UserMainStats = () => {
 
     const until = "2024-03-01";
 
-    const panelColors = ["#e7e4ff", "#6a3bff"];
+    const panelColors = ["#ffe3f9", "#ff21cb"];
 
     return (
         <div className="stats border shadow-lg border-base-300">
@@ -57,9 +57,12 @@ const UserMainStats = () => {
 
             <div className="stat">
                 <div className="stat-title">Total Solved Problems</div>
-                <div className="stat-value">{solved}</div>
+                <div className="stat-value text-secondary">{solved}</div>
                 <div className="stat-actions">
-                    <a href="/" className="btn btn-sm btn-primary-content">
+                    <a
+                        href="/"
+                        className="btn btn-sm btn-secondary text-sencondary-content"
+                    >
                         Check New Problems
                     </a>
                 </div>
