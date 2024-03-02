@@ -167,53 +167,40 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="dropdown-content z-[1] menu p-2 shadow bg-neutral/100 rounded-box text-neutral-content min-w-max"
+                            className="dropdown-content z-[1] menu p-2 shadow-lg border border-base-300 bg-base-300 rounded-box text-neutral-content min-w-max"
                         >
                             <li>
-                                <div className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content gap-6">
+                                <a
+                                    href="/profile"
+                                    className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content gap-6"
+                                >
                                     <div>
                                         <img
                                             alt="User dropdown"
                                             className={
                                                 userInfo.isAdmin
-                                                    ? "w-12 h-12 rounded-full ring-2 ring-secondary"
-                                                    : "w-12 h-12 rounded-full ring-2 ring-primary"
+                                                    ? "w-12 h-12 rounded-full ring-2 ring-primary"
+                                                    : "w-12 h-12 rounded-full ring-2 ring-neutral"
                                             }
                                             src={userInfo.avatar}
                                         />
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="font-bold text-xl font-bandal">
+                                        <span className="font-bold text-xl font-bandal text-primary">
                                             {userInfo.username}
                                         </span>
-                                        <span className="font-medium truncate font-bandal">
-                                            Solved Total:{" "}
+                                        <span className="font-medium truncate font-bandal text-accent">
+                                            Solved:{" "}
                                             {userInfo.solvedProblems.length}
                                         </span>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a
-                                    href="/profile"
-                                    className={
-                                        userInfo.isAdmin
-                                            ? "hover:text-primary-content hover:bg-primary"
-                                            : "hover:text-primary-content hover:bg-primary"
-                                    }
-                                >
-                                    Profile
                                 </a>
                             </li>
                             {userInfo.isAdmin ? (
                                 <li>
                                     <a
                                         href="/dashboard"
-                                        className={
-                                            userInfo.isAdmin
-                                                ? "hover:text-primary-content hover:bg-primary"
-                                                : "hover:text-primary-content hover:bg-primary"
-                                        }
+                                        className="text-base-content hover:text-primary-content hover:bg-primary"
                                     >
                                         Dashboard
                                     </a>
@@ -224,11 +211,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                             <li>
                                 <label
                                     htmlFor="my-drawer"
-                                    className={
-                                        userInfo.isAdmin
-                                            ? "hover:text-primary-content hover:bg-primary"
-                                            : "hover:text-primary-content hover:bg-primary"
-                                    }
+                                    className="text-base-content hover:text-primary-content hover:bg-primary"
                                 >
                                     Themes
                                 </label>
@@ -236,11 +219,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                             <li>
                                 <button
                                     onClick={signoutHandler}
-                                    className={
-                                        userInfo.isAdmin
-                                            ? "hover:text-primary-content hover:bg-primary"
-                                            : "hover:text-primary-content hover:bg-primary"
-                                    }
+                                    className="text-base-content hover:text-primary-content hover:bg-primary"
                                 >
                                     Logout
                                 </button>
