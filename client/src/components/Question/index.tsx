@@ -130,7 +130,7 @@ const Question = () => {
                 <></>
             )}
             <div>
-                <div className="py-10 px-2 flex flex-col gap-4 mt-14 md:p-10">
+                <div className="py-10 px-2 lg:px-32 flex flex-col gap-4 mt-14 md:p-10">
                     <span className="font-bold text-2xl">
                         <span>{problem.sequence}.</span>{" "}
                         <span>{problem.title}</span>
