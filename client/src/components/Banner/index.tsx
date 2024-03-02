@@ -4,7 +4,8 @@ const index = () => {
     return (
         <>
             <Layout />
-            <section className="hero md:h-screen md:snap-start ">
+            <section className="hero md:h-screen md:snap-start">
+                <div className="h-[60vh] w-[80vh] bg-base-300 blur-3xl rounded-full absolute -z-10"></div>
                 <div className="py-16 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                     <br />
                     <a
@@ -35,7 +36,7 @@ const index = () => {
                         </svg>
                     </a>
                     <br></br>
-                    <span className="text-9xl font-bandal font-bold bg-primary text-transparent bg-clip-text">
+                    <span className="text-9xl font-bandal font-bold text-primary">
                         daco
                     </span>
                     <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl ">
@@ -72,7 +73,7 @@ const index = () => {
                         </a>
                         <a
                             href="https://github.com/tolgazorlu/daco"
-                            className="inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg text-primary border border-primary"
+                            className="inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary-content text-primary border border-primary"
                         >
                             Learn more
                             <svg
