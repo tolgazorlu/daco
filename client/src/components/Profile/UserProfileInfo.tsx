@@ -25,15 +25,50 @@ const UserProfileInfo = () => {
         <>
             {userInfo && (
                 <>
-                    <div className="stats">
-                        <div className="stat flex justify-center items-center min-w-24">
+                    <div className="stats shadow-lg border border-base-300">
+                        <div className="stat flex justify-center items-center min-w-24 shadow-lg">
                             <img
                                 src={userInfo?.avatar}
                                 alt={userInfo?.username}
-                                className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                                className="w-24 rounded-full ring ring-neutral"
                             />
                         </div>
                         <div className="stat">
+                            <div className="stat-value text-base">Username</div>
+                            <div className="stat-title text-primary">
+                                {userInfo?.username}
+                            </div>
+                            <div className="stat-actions flex gap-2">
+                                <button
+                                    onClick={() => {
+                                        let el: any =
+                                            document.getElementById(
+                                                "update-user-modal",
+                                            )!;
+                                        el.showModal();
+                                    }}
+                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
+                                >
+                                    Update Profile
+                                </button>
+                                <UpdateUserProfileModal />
+                                <button
+                                    onClick={() => {
+                                        let el: any = document.getElementById(
+                                            "change-password-modal",
+                                        )!;
+                                        el.showModal();
+                                    }}
+                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
+                                >
+                                    Change Password
+                                </button>
+                                <ChangePasswordModal />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="stats shadow-lg border border-base-300">
+                        <div className="stat  shadow-lg">
                             <div className="stat-figure text-primary">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -78,42 +113,6 @@ const UserProfileInfo = () => {
                             </div>
                             <div className="stat-desc">
                                 You created your account this date!
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="stats bg-base-300 shadow-md">
-                        <div className="stat">
-                            <div className="stat-value text-base">Username</div>
-                            <div className="stat-title text-primary">
-                                {userInfo?.username}
-                            </div>
-                            <div className="stat-actions flex gap-2">
-                                <button
-                                    onClick={() => {
-                                        let el: any =
-                                            document.getElementById(
-                                                "update-user-modal",
-                                            )!;
-                                        el.showModal();
-                                    }}
-                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
-                                >
-                                    Update Profile
-                                </button>
-                                <UpdateUserProfileModal />
-                                <button
-                                    onClick={() => {
-                                        let el: any = document.getElementById(
-                                            "change-password-modal",
-                                        )!;
-                                        el.showModal();
-                                    }}
-                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
-                                >
-                                    Change Password
-                                </button>
-                                <ChangePasswordModal />
                             </div>
                         </div>
                     </div>

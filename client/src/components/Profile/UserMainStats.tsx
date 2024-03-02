@@ -40,11 +40,11 @@ const UserMainStats = () => {
 
     const until = "2024-03-01";
 
-    const panelColors = ["#fffbeb", "#fabe25"];
+    const panelColors = ["#e7e4ff", "#6a3bff"];
 
     return (
-        <div className="stats bg-neutral shadow-md ">
-            <div className="stat">
+        <div className="stats border shadow-lg border-base-300">
+            <div className="stat shadow-lg">
                 <Calendar
                     values={calendarValues}
                     until={until}
@@ -55,7 +55,7 @@ const UserMainStats = () => {
                 />
             </div>
 
-            <div className="stat bg-base-300">
+            <div className="stat">
                 <div className="stat-title">Total Solved Problems</div>
                 <div className="stat-value">{solved}</div>
                 <div className="stat-actions">
