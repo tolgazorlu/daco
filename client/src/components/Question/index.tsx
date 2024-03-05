@@ -1,23 +1,23 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import {
-    useGetProblemQuery,
-    useSolveProblemMutation,
-} from "../../hooks/problemHooks";
-import ErrorMessage from "../ErrorMessage";
-import { getError } from "../../utils/getError";
-import { ApiError } from "../../types/ApiError";
-import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { User } from "../../contexts/User";
-import Layout from "../Layouts";
 import { Helmet } from "react-helmet-async";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/a11y-dark.css";
+
+import Layout from "../Layouts";
+import ErrorMessage from "../ErrorMessage";
+import { getError } from "../../utils/getError";
+import { User } from "../../contexts/User";
+import {
+    useGetProblemQuery,
+    useSolveProblemMutation,
+} from "../../hooks/problemHooks";
+import { ApiError } from "../../types/ApiError";
+import Loading from "../Loading";
 
 const Question = () => {
     const { slug } = useParams();
@@ -29,10 +29,22 @@ const Question = () => {
     const { userInfo } = state;
 
     const [isSolved, setIsSolved] = useState(false);
-
     const [answer, setAnswer] = useState("");
     const [problemId, setProblemId] = useState("");
     const [congratsAnimation, setCongratAnimation] = useState(false);
+
+    useEffect(() => {
+        if (problem) {
+            setProblemId(problem._id);
+        }
+        if (userInfo?.solvedProblems) {
+            setIsSolved(
+                userInfo.solvedProblems.some(
+                    (solvedProblem) => solvedProblem.problemId === problemId,
+                ),
+            );
+        }
+    }, [problem, problemId, userInfo]);
 
     const submitHandler = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -56,44 +68,20 @@ const Question = () => {
         setCongratAnimation(false);
     };
 
-    useEffect(() => {
-        if (problem) {
-            setProblemId(problem._id);
-        }
-        if (userInfo?.solvedProblems) {
-            setIsSolved(
-                userInfo.solvedProblems.some(
-                    (solvedProblem) => solvedProblem.problemId === problemId,
-                ),
-            );
-        }
-    }, [problem, problemId, userInfo]);
+    if (isLoading) {
+        return (
+            <>
+                <Layout />
+                <Loading />
+            </>
+        );
+    }
 
-    return isLoading ? (
-        <>
-            <Layout />
-            <div className="p-10 rounded-xl w-full mt-14">
-                <div className="p-4 max-h-full flex flex-col gap-4">
-                    <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-12 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-2/3 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-2/3 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-1/3 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-64 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-52 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
-                    <span className="bg-primary-content rounded-full h-6 w-72 animate-pulse" />
-                </div>
-            </div>
-        </>
-    ) : error ? (
-        <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>
-    ) : !problem ? (
-        <ErrorMessage>Question Not Found!</ErrorMessage>
-    ) : (
+    if (error || !problem) {
+        return <ErrorMessage>{getError(error as ApiError)}</ErrorMessage>;
+    }
+
+    return (
         <>
             <Helmet>
                 {problem.level == "easy" ? (

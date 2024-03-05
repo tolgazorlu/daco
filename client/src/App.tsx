@@ -23,14 +23,20 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<Banner />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/question/:slug" element={<Question />} />
                 <Route path="/:id/verify/:token" element={<EmailVerify />} />
-                <Route path="/" element={<Banner />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route
+                    path="/reset-password/:token"
+                    element={<ResetPassword />}
+                />
+
+                {/* Dashboard Routes */}
                 <Route path="" element={<AdminRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/dashboard/users" element={<Users />} />
@@ -38,15 +44,15 @@ const App = () => {
                     <Route path="/dashboard/contacts" element={<Contacts />} />
                     <Route path="/dashboard/faqs" element={<FAQs />} />
                 </Route>
+
+                {/* User Routes */}
                 <Route path="" element={<UserRoute />}>
                     <Route path="/home" index={true} element={<Home />} />
                     <Route path="/profile" element={<Profile />} />
                 </Route>
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route
-                    path="/reset-password/:token"
-                    element={<ResetPassword />}
-                />
+
+                {/* Catch-all route */}
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );

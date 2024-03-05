@@ -14,15 +14,9 @@ const UserMainStats = () => {
     const { state } = useContext(User);
     const { userInfo } = state;
     const [solved, setSolved] = useState<number>(0);
-    const [calendarTheme, setCalendarTheme] = useState<string[]>([
-        "#ffe3f9",
-        "#ff21cb",
-    ]);
+    const calendarTheme: string[] = ["#fff5c5", "#ffa400"];
 
     const [calendarValues, setCalendarValues] = useState<CalendarValues>({});
-
-    /** @ts-ignore  */
-    const localTheme = JSON.parse(localStorage.getItem("theme"));
 
     useEffect(() => {
         if (userInfo?.solvedProblems) {
@@ -44,16 +38,16 @@ const UserMainStats = () => {
                 setSolved(userInfo.solvedProblems.length);
             }
         }
-        if (localTheme == "bumblebee") {
-            setCalendarTheme(["#fff5c5", "#ffa400"]);
-        } else if (localTheme == "light") {
-            setCalendarTheme(["#ffe3f9", "#ff21cb"]);
-        } else if (localTheme == "dark") {
-            setCalendarTheme(["#ffe3f9", "#ff52d9"]);
-        }
-    }, [userInfo?.solvedProblems, localTheme]);
+    }, [userInfo?.solvedProblems]);
 
-    const until = "2024-03-01";
+    const date = new Date();
+    const year = String(date.getFullYear());
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Adding 1 because months are zero-indexed
+    const day = String(date.getDate()).padStart(2, "0");
+
+    let until = `${year}-${month}-${day}`;
+
+    console.log(until);
 
     return (
         <div className="stats border shadow-lg border-base-300">
