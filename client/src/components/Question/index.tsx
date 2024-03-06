@@ -118,25 +118,36 @@ const Question = () => {
                 <></>
             )}
             <div>
-                <div className="py-10 px-2 lg:px-32 flex flex-col gap-4 mt-14 md:p-10">
-                    <span className="font-bold text-2xl">
-                        <span>{problem.sequence}.</span>{" "}
-                        <span>{problem.title}</span>
-                    </span>
-                    <div>
+                <div className="py-10 px-2 lg:px-32 gap-4 mt-14 md:p-10">
+                    {userInfo?.isAdmin ? (
+                        <a
+                            href={`/question/${slug}/edit`}
+                            className="btn btn-accent btn-sm float-right text-accent-content"
+                        >
+                            Edit Problem
+                        </a>
+                    ) : (
+                        <></>
+                    )}
+                    <div className="flex items-center gap-4">
+                        <span className="text-3xl font-bold">
+                            {" "}
+                            {problem.sequence} - {problem.title}{" "}
+                        </span>
                         <span
                             className={
                                 problem.level === "easy"
-                                    ? "py-1 px-2 bg-success-content text-success rounded-md"
+                                    ? "bg-success text-success-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
                                     : problem.level === "medium"
-                                      ? "py-1 px-2 bg-warning-content text-warning rounded-md"
-                                      : "py-1 px-2 bg-error-content text-error rounded-md"
+                                      ? "bg-warning text-warning-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
+                                      : "bg-error text-error-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
                             }
                         >
                             {problem.level}
                         </span>
                     </div>
-                    <div className="prose lg:prose-xl">
+                    <br></br>
+                    <div className="prose">
                         <Markdown
                             remarkPlugins={[remarkGfm, remarkToc]}
                             rehypePlugins={[rehypeHighlight]}
