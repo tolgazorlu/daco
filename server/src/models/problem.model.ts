@@ -8,15 +8,9 @@ export class Problem {
   public day!: number;
 
   @prop({ required: true })
-  public date!: string;
-
-  @prop({ required: true, unique: true })
-  public sequence!: number;
-
-  @prop({ required: true })
   public level!: string;
 
-  @prop({ required: true, unique: true })
+  @prop({ required: false, unique: true })
   public slug!: string;
 
   @prop({ required: true })

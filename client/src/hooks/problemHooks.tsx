@@ -35,14 +35,9 @@ export const useCreateProblemMutation = () =>
     useMutation({
         mutationFn: async (problem: {
             day: number;
-            date: string;
             title: string;
-            slug: string;
-            sequence: number;
             level: string;
             description: string;
-            example: string;
-            constrain: string;
             answer: string;
         }) =>
             (

@@ -12,16 +12,11 @@ import { generateToken } from "../utils/token";
 exports.createProblem = async (req: Request, res: Response) => {
   try {
     const problem = await ProblemModel.create({
-      sequence: req.body.sequence,
-      slug: req.body.slug,
       level: req.body.level,
       title: req.body.title,
       description: req.body.description,
-      example: req.body.example,
-      constrain: req.body.constrain,
       answer: req.body.answer,
       day: req.body.day,
-      date: req.body.date,
     });
     res.status(201).json(problem);
   } catch (error) {

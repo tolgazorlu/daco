@@ -4,7 +4,6 @@ import {
     useGetTotalProblemsQuery,
     useGetTotalUsersQuery,
 } from "../../hooks/statisticHook";
-import AddAlgorithmModal from "./AddProblemModal";
 
 const MainStats = () => {
     const { data: problems, isLoading, error } = useGetTotalProblemsQuery();
@@ -48,19 +47,12 @@ const MainStats = () => {
                     </div>
                     <div className="stat-desc">You're amazing!</div>
                     <div className="stat-actions">
-                        <button
+                        <a
                             className="btn btn-sm btn-primary text-primary-content"
-                            onClick={() => {
-                                let el: any =
-                                    document.getElementById(
-                                        "add-problem-modal",
-                                    )!;
-                                el.showModal();
-                            }}
+                            href="/question/create"
                         >
                             Add Problem
-                        </button>
-                        <AddAlgorithmModal />
+                        </a>
                     </div>
                 </div>
 
