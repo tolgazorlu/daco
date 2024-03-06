@@ -1,10 +1,4 @@
 import { modelOptions, prop, getModelForClass } from "@typegoose/typegoose";
-import mongoose from "mongoose";
-
-class Example {
-  @prop({ required: true })
-  public detail!: string;
-}
 
 @modelOptions({ schemaOptions: { timestamps: true } })
 export class Problem {
@@ -30,12 +24,6 @@ export class Problem {
 
   @prop({ required: true })
   public description!: string;
-
-  @prop({ type: mongoose.Schema.Types.String })
-  public example!: Example[];
-
-  @prop()
-  public constrain!: string;
 
   @prop({ required: true })
   public answer!: string;

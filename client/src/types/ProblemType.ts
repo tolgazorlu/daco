@@ -1,13 +1,10 @@
 export type Problem = {
-  _id: string;
-  sequence: number;
-  slug: string;
-  level: string;
-  title: string;
-  description: keyof JSX.IntrinsicElements;
-  example: string;
-  constrain: string;
-  answer: string;
-  date: string;
-  day: number;
+    _id: string;
+    sequence: number;
+    slug: string;
+    level: string;
+    title: string;
+    description: keyof JSX.IntrinsicElements;
+    answer: string;
+    day: number;
 };

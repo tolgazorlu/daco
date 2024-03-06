@@ -112,13 +112,8 @@ exports.updateProblem = async (req: Request, res: Response) => {
     const problem = await ProblemModel.findById(req.params.id);
     if (problem) {
       problem.day = req.body.day || problem.day;
-      problem.date = req.body.date || problem.date;
       problem.title = req.body.title || problem.title;
-      problem.slug = req.body.slug || problem.slug;
-      problem.sequence = req.body.sequence || problem.sequence;
       problem.level = req.body.level || problem.level;
-      problem.example = req.body.example || problem.example;
-      problem.constrain = req.body.constrain || problem.constrain;
       problem.answer = req.body.answer || problem.answer;
       problem.description = req.body.description || problem.description;
       const updatedProblem = await problem.save();
