@@ -18,6 +18,7 @@ import FAQs from "./components/Dashboard/FAQs";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import Banner from "./components/Banner";
+import EditProblem from "./components/Dashboard/EditProblem";
 
 const App = () => {
     return (
@@ -38,6 +39,10 @@ const App = () => {
 
                 {/* Dashboard Routes */}
                 <Route path="" element={<AdminRoute />}>
+                    <Route
+                        path="/question/:slug/edit"
+                        element={<EditProblem />}
+                    />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/dashboard/users" element={<Users />} />
                     <Route path="/dashboard/problems" element={<Problems />} />
