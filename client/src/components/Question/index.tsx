@@ -107,7 +107,7 @@ const Question = () => {
             <Layout />
             {congratsAnimation ? (
                 <div
-                    className="absolute h-[93vh] z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
+                    className="fixed h-[93vh] z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
                     onClick={animationCloseHandler}
                 >
                     <span className="text-4xl sm:text-5xl md:text-8xl text-primary-content font-aubette relative animate-congrats">
@@ -130,6 +130,34 @@ const Question = () => {
                         <></>
                     )}
                     <div className="flex items-center gap-4">
+                        <div className="btm-nav bg-neutral">
+                            {isSolved ? (
+                                <span>Submitted</span>
+                            ) : (
+                                <form className="flex flex-row">
+                                    <input
+                                        className="px-4 py-1 rounded-md bg-primary-content text-primary border-2 border-primary"
+                                        placeholder="Enter answer here!"
+                                        value={answer}
+                                        onChange={(e) =>
+                                            setAnswer(e.target.value)
+                                        }
+                                    />
+                                    {solveProblemLoading ? (
+                                        <button className="btn btn-primary btn-sm">
+                                            <span className="loading loading-spinner"></span>
+                                        </button>
+                                    ) : (
+                                        <button
+                                            className="btn btn-primary btn-sm"
+                                            onClick={submitHandler}
+                                        >
+                                            Submit
+                                        </button>
+                                    )}
+                                </form>
+                            )}
+                        </div>
                         <span className="text-3xl font-bold">
                             {" "}
                             {problem.sequence} - {problem.title}{" "}
@@ -154,34 +182,6 @@ const Question = () => {
                             children={problem.description}
                         />
                     </div>
-                    {isSolved ? (
-                        <form className="flex flex-col md:w-1/3 gap-2">
-                            <button className="btn btn-disabled btn-sm">
-                                Submited
-                            </button>
-                        </form>
-                    ) : (
-                        <form className="flex flex-col md:w-1/3 gap-2">
-                            <input
-                                className="px-4 py-1 rounded-md bg-primary-content text-primary placeholder:text-primary border-2 border-secondary"
-                                placeholder="Enter answer here!"
-                                value={answer}
-                                onChange={(e) => setAnswer(e.target.value)}
-                            />
-                            {solveProblemLoading ? (
-                                <button className="btn btn-primary btn-sm">
-                                    <span className="loading loading-spinner"></span>
-                                </button>
-                            ) : (
-                                <button
-                                    className="btn btn-primary btn-sm"
-                                    onClick={submitHandler}
-                                >
-                                    Submit
-                                </button>
-                            )}
-                        </form>
-                    )}
                 </div>
             </div>
         </>
