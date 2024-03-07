@@ -4,7 +4,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { User } from "../../../contexts/User";
-import themes from "../../../utils/themes";
 
 export type navLinks = {
     name: string;
@@ -30,10 +29,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
     const localTheme = JSON.parse(localStorage.getItem("theme"));
 
     const [theme, setTheme] = useState(localTheme);
-    const clickThemeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setTheme((e.target as HTMLInputElement).value);
-    };
-
     useEffect(() => {
         document.querySelector("html")?.setAttribute("data-theme", theme);
         document.getElementById("screen")?.setAttribute("data-theme", theme);
@@ -45,6 +40,14 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         localStorage.removeItem("userInfo");
         localStorage.removeItem("cartItems");
         window.location.href = "/login";
+    };
+
+    const clichThemeHandler = () => {
+        if (theme == "dark") {
+            setTheme("light");
+        } else {
+            setTheme("dark");
+        }
     };
 
     return (
@@ -111,43 +114,6 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/** THEMES */}
-                <div className="drawer-end">
-                    <input
-                        id="my-drawer"
-                        type="checkbox"
-                        className="drawer-toggle"
-                    />
-                    <div className="drawer-side z-30">
-                        <label
-                            htmlFor="my-drawer"
-                            className="drawer-overlay"
-                        ></label>
-                        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                            {/* Sidebar content here */}
-                            {themes.map((item) => {
-                                return (
-                                    <li key={item}>
-                                        <button
-                                            className={
-                                                theme === item
-                                                    ? "btn btn-sm btn-primary"
-                                                    : "btn btn-sm"
-                                            }
-                                            value={item}
-                                            onClick={(
-                                                e: React.MouseEvent<HTMLButtonElement>,
-                                            ) => clickThemeHandler(e)}
-                                        >
-                                            {item}
-                                        </button>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                </div>
-
                 {/** USER PROCESS */}
                 {userInfo ? (
                     <div className="dropdown dropdown-end">
@@ -200,28 +166,82 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                                 <li>
                                     <a
                                         href="/dashboard"
-                                        className="text-base-content hover:text-primary-content hover:bg-primary"
+                                        className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
                                     >
-                                        Dashboard
+                                        <span>Dashboard</span>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            className="w-4 h-4"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+                                            />
+                                        </svg>
                                     </a>
                                 </li>
                             ) : (
                                 <></>
                             )}
                             <li>
-                                <label
-                                    htmlFor="my-drawer"
-                                    className="text-base-content hover:text-primary-content hover:bg-primary"
+                                <button
+                                    onClick={clichThemeHandler}
+                                    className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
                                 >
-                                    Themes
-                                </label>
+                                    <span>Themes</span>
+                                    {theme == "light" ? (
+                                        <div>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                className="w-4 h-4"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+                                                    clipRule="evenodd"
+                                                />
+                                            </svg>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <svg
+                                                className="fill-current w-4 h-4"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                                            </svg>
+                                        </div>
+                                    )}
+                                </button>
                             </li>
                             <li>
                                 <button
                                     onClick={signoutHandler}
-                                    className="text-base-content hover:text-primary-content hover:bg-primary"
+                                    className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
                                 >
-                                    Logout
+                                    <span>Logout</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        className="w-4 h-4"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+                                        />
+                                    </svg>
                                 </button>
                             </li>
                         </ul>
