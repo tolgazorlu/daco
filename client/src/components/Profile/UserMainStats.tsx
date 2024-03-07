@@ -10,13 +10,26 @@ interface CalendarValues {
     [date: string]: number;
 }
 
+interface ThemeColors {
+    [theme: string]: string[];
+}
+
+const themeColors: ThemeColors = {
+    light: ["#F2F2F2", "#4A00FF"],
+    dark: ["#15191E", "#747FFF"],
+};
+
 const UserMainStats = () => {
     const { state } = useContext(User);
     const { userInfo } = state;
     const [solved, setSolved] = useState<number>(0);
-    const calendarTheme: string[] = ["#fff5c5", "#ffa400"];
-
     const [calendarValues, setCalendarValues] = useState<CalendarValues>({});
+
+    const storedTheme = localStorage.getItem("theme");
+    const currentTheme = storedTheme ? JSON.parse(storedTheme) : "light";
+    const currentThemeColors = themeColors[currentTheme];
+    console.log(currentTheme);
+    console.log(themeColors[currentTheme]);
 
     useEffect(() => {
         if (userInfo?.solvedProblems) {
@@ -46,9 +59,6 @@ const UserMainStats = () => {
     const day = String(date.getDate()).padStart(2, "0");
 
     let until = `${year}-${month}-${day}`;
-
-    console.log(until);
-
     return (
         <div className="stats border shadow-lg border-base-300">
             <div className="stat shadow-lg flex items-center">
@@ -58,12 +68,12 @@ const UserMainStats = () => {
                     weekLabelAttributes={undefined}
                     monthLabelAttributes={undefined}
                     panelAttributes={undefined}
-                    panelColors={calendarTheme}
+                    panelColors={currentThemeColors}
                 />
             </div>
 
             <div className="stat">
-                <div className="stat-figure text-secondary">
+                <div className="stat-figure text-accent">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -79,14 +89,14 @@ const UserMainStats = () => {
                     </svg>
                 </div>
                 <div className="stat-title">Total Solved Problems</div>
-                <div className="stat-value text-secondary">{solved}</div>
+                <div className="stat-value text-accent">{solved}</div>
                 <div className="stat-desc">
                     You created your account this date!
                 </div>
                 <div className="stat-actions">
                     <a
                         href="/"
-                        className="btn btn-sm btn-secondary text-sencondary-content"
+                        className="btn btn-sm btn-accent text-accent-content"
                     >
                         Check New Problems
                     </a>
