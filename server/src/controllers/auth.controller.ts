@@ -67,7 +67,7 @@ module.exports.Register = async (
       emailToken,
     );
 
-    const link = `https://daco.space/${newUser._id}/verify/${emailToken}`;
+    const link = `${process.env.EMAIL_LINK}${newUser._id}/verify/${emailToken}`;
 
     verifyEmail(email, username, link);
 
@@ -275,7 +275,7 @@ module.exports.ForgotPassword = async (req: Request, res: Response) => {
       user.resetPasswordExpires = new Date(Date.now() + 3600000); // 1 hour
       await user.save();
 
-      const resetURL = `https://daco.space/reset-password/${token}`;
+      const resetURL = `${process.env.EMAIL_LINK}reset-password/${token}`;
 
       forgotPasswordEmail(email, resetURL);
   } catch (error) {
