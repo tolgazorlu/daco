@@ -54,7 +54,7 @@ module.exports.Register = async (
         username: username,
         email: email,
         password: password,
-        avatar: `https://source.boringavatars.com/pixel/120/${username}?square`,
+        avatar: `https://source.boringavatars.com/beam/120/${username}?square`,
         verificationToken: verificationToken,
       });
       return user;
