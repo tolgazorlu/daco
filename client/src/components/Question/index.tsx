@@ -122,7 +122,7 @@ const Question = () => {
                     {userInfo?.isAdmin ? (
                         <a
                             href={`/question/${slug}/edit`}
-                            className="btn btn-accent btn-sm float-right text-accent-content"
+                            className="btn btn-info btn-sm float-right text-accent-content"
                         >
                             Edit Problem
                         </a>
@@ -130,13 +130,32 @@ const Question = () => {
                         <></>
                     )}
                     <div className="flex items-center gap-4">
-                        <div className="btm-nav bg-neutral">
+                        <div className="bg-neutral fixed right-0 left-0 bottom-0 w-full px-32 py-6 flex justify-between items-center">
+                            <span className="text-3xl font-bandal text-neutral-content">
+                                {problem.title}{" "}
+                            </span>
                             {isSolved ? (
-                                <span>Submitted</span>
+                                <button className="btn btn-success btn-sm w-64">
+                                    <span>This problem solved!</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        className="w-5 h-5"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                        />
+                                    </svg>
+                                </button>
                             ) : (
-                                <form className="flex flex-row">
+                                <form className="flex flex-row gap-4">
                                     <input
-                                        className="px-4 py-1 rounded-md bg-primary-content text-primary border-2 border-primary"
+                                        className="px-4 py-1 rounded-md bg-neutral-content text-neutral placeholder:text-neutral"
                                         placeholder="Enter answer here!"
                                         value={answer}
                                         onChange={(e) =>
@@ -144,12 +163,12 @@ const Question = () => {
                                         }
                                     />
                                     {solveProblemLoading ? (
-                                        <button className="btn btn-primary btn-sm">
+                                        <button className="btn btn-warning btn-sm w-32">
                                             <span className="loading loading-spinner"></span>
                                         </button>
                                     ) : (
                                         <button
-                                            className="btn btn-primary btn-sm"
+                                            className="btn btn-primary btn-sm w-32"
                                             onClick={submitHandler}
                                         >
                                             Submit
