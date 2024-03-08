@@ -7,4 +7,5 @@ export type Problem = {
     description: keyof JSX.IntrinsicElements;
     answer: string;
     day: number;
+    date: string;
 };
