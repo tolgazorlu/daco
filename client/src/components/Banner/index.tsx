@@ -1,48 +1,19 @@
 import Layout from "../Layouts";
+import Image from "./illustration.svg";
 
 const index = () => {
     return (
         <>
             <Layout />
-            <section className="hero md:h-screen md:snap-start">
-                <div className="h-[60vh] w-[80vh] bg-base-300 blur-3xl rounded-full absolute -z-10"></div>
-                <div className="py-16 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-                    <br />
-                    <a
-                        href="#"
-                        className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full border border-primary"
-                        role="alert"
-                    >
-                        <span className="text-xs rounded-full px-4 py-1.5 mr-3 text-primary-content bg-primary">
-                            New
-                        </span>{" "}
-                        <a
-                            href="https://github.com/tolgazorlu/dale?tab=readme-ov-file#features"
-                            className="text-sm font-medium"
-                        >
-                            DACO is out! See what's new
-                        </a>
-                        <svg
-                            className="ml-2 w-5 h-5 stroke-primary-content"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clipRule="evenodd"
-                            ></path>
-                        </svg>
-                    </a>
-                    <br></br>
+            <section className="lg:grid grid-cols-2 px-8 lg:px-32">
+                <div className="h-screen md:snap-start flex flex-col justify-center">
                     <span className="text-9xl font-bandal font-bold text-primary">
                         daco
                     </span>
-                    <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl ">
-                        Don't Brake The Chain!
-                    </h1>
-                    <p className="mb-8 text-lg font-normal lg:text-xl sm:px-16 xl:px-48">
+                    <span className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl font-poppins">
+                        Don't Break The Chain
+                    </span>
+                    <p className="mb-8 text-lg font-normal lg:text-xl font-poppins">
                         Discover daily algorithms at{" "}
                         <span className="font-bandal text-primary text-3xl">
                             daco
@@ -50,10 +21,10 @@ const index = () => {
                         , where new algorithms are added every day across
                         various subjects.
                     </p>
-                    <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <div className="flex flex-col mt-8 mb-8 lg:mb-16 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                         <a
                             href="/login"
-                            className="inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary text-primary-content"
+                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary text-primary-content"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +44,7 @@ const index = () => {
                         </a>
                         <a
                             href="https://github.com/tolgazorlu/daco"
-                            className="inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary-content text-primary border border-primary"
+                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary-content text-primary border border-primary"
                         >
                             Learn more
                             <svg
@@ -90,6 +61,9 @@ const index = () => {
                             </svg>
                         </a>
                     </div>
+                </div>
+                <div className="hidden md:h-screen lg:flex flex-col justify-center">
+                    <img src={Image} />
                 </div>
             </section>
         </>
