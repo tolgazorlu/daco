@@ -13,4 +13,5 @@ export type UserInfo = {
     emailVerified: boolean;
     solvedProblems: solvedProblems[];
     currentDay: number;
+    email: string;
 };
