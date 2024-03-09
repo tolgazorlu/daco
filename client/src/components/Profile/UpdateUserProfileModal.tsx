@@ -3,10 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { getError } from "../../utils/getError";
 import { ApiError } from "../../types/ApiError";
-import {
-    useUpdateUserMutation,
-    // useUploadAvatarMutation,
-} from "../../hooks/userHooks";
+import { useUpdateUserMutation } from "../../hooks/userHooks";
 import { toast } from "react-toastify";
 import { User } from "../../contexts/User";
 import axios from "axios";
@@ -27,8 +24,6 @@ async function postImage({ image }: any) {
 
 const UpdateUserProfileModal = () => {
     const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
-    // const { mutateAsync: postImage, isLoading: uploadAvatarLoading } =
-    //     useUploadAvatarMutation();
     const { state, dispatch } = useContext(User);
     const { userInfo } = state;
 

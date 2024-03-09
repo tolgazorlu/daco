@@ -1,7 +1,7 @@
 const transportation = require("../../config/nodemailer.config");
 
 const verifyEmail = async (email: string, username: string, link: string) => {
-  const template = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    const template = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="tr">
    <head>
     <meta charset="UTF-8">
@@ -114,12 +114,12 @@ const verifyEmail = async (email: string, username: string, link: string) => {
   </html>
   `;
 
-  return await transportation.sendMail({
-    to: email,
-    from: process.env.AUTH_MAIL,
-    subject: "Successfully registered",
-    html: template,
-  });
+    return await transportation.sendMail({
+        to: email,
+        from: process.env.AUTH_MAIL,
+        subject: "Successfully registered",
+        html: template,
+    });
 };
 
 module.exports = { verifyEmail };

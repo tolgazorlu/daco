@@ -15,7 +15,6 @@ const Hero = () => {
 
     useEffect(() => {
         if (userInfo) {
-            // Extracting only problemId from solvedProblems
             const problemIds = userInfo.solvedProblems.map(
                 (solvedProblem) => solvedProblem.problemId,
             );

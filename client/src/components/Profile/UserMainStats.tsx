@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { useContext, useEffect, useState } from "react";
 import { User } from "../../contexts/User";
 import Calendar from "react-github-contribution-calendar";
@@ -28,8 +24,6 @@ const UserMainStats = () => {
     const storedTheme = localStorage.getItem("theme");
     const currentTheme = storedTheme ? JSON.parse(storedTheme) : "light";
     const currentThemeColors = themeColors[currentTheme];
-    console.log(currentTheme);
-    console.log(themeColors[currentTheme]);
 
     useEffect(() => {
         if (userInfo?.solvedProblems) {
@@ -55,10 +49,10 @@ const UserMainStats = () => {
 
     const date = new Date();
     const year = String(date.getFullYear());
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Adding 1 because months are zero-indexed
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
 
-    let until = `${year}-${month}-${day}`;
+    const until = `${year}-${month}-${day}`;
     return (
         <div className="stats border shadow-lg border-base-300">
             <div className="stat shadow-lg flex items-center">

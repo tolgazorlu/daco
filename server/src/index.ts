@@ -7,7 +7,7 @@ import path from "path";
 //ROUTE IMPORTS
 const statisticRoute = require("./routes/satistic.route");
 const problemRoute = require("./routes/problem.route");
-const authRoute = require("./routes/auth.route")
+const authRoute = require("./routes/auth.route");
 const userRoute = require("./routes/user.route");
 const contactRoute = require("./routes/contact.route");
 const faqRoute = require("./routes/faq.route");
@@ -24,11 +24,11 @@ setupDB();
 
 const cors = require("cors");
 app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  }),
+    cors({
+        origin: "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+    }),
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -36,7 +36,7 @@ app.use(express.json());
 Daily;
 
 //ROUTES
-app.use("/api/auth", authRoute)
+app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/problems", problemRoute);
 app.use("/api/statistic", statisticRoute);
@@ -45,10 +45,10 @@ app.use("/api/faq", faqRoute);
 
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "../../client/dist/index.html")),
+    res.sendFile(path.join(__dirname, "../../client/dist/index.html")),
 );
 
 //LISTEN
 app.listen(port, () => {
-  console.log(`Port is running on ${chalk.blue(port)}`);
+    console.log(`Port is running on ${chalk.blue(port)}`);
 });

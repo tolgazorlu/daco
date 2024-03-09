@@ -1,5 +1,9 @@
 import { modelOptions, prop, getModelForClass } from "@typegoose/typegoose";
 
+/**
+ * @desc CONTACT MODEL
+ */
+
 @modelOptions({ schemaOptions: { timestamps: true } })
 export class Contact {
     public _id?: string;
