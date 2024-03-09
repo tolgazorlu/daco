@@ -28,7 +28,7 @@ async function postImage({ image }: any) {
 const UpdateUserProfileModal = () => {
     const { mutateAsync: updateUser, isLoading } = useUpdateUserMutation();
     // const { mutateAsync: postImage, isLoading: uploadAvatarLoading } =
-    //   useUploadAvatarMutation();
+    //     useUploadAvatarMutation();
     const { state, dispatch } = useContext(User);
     const { userInfo } = state;
 
@@ -130,10 +130,10 @@ const UpdateUserProfileModal = () => {
                                 onClick={uploadImageHandler}
                             >
                                 {/* {uploadAvatarLoading ? (
-                  <span className="btn btn-sm font-poppins bg-neutral text-neutral-content w-full loading loading-spinner"></span>
-                ) : (
-                  <span>Upload image</span>
-                )} */}
+                                    <span className="btn btn-sm font-poppins bg-neutral text-neutral-content w-full loading loading-spinner"></span>
+                                ) : (
+                                    <span>Upload image</span>
+                                )} */}
                                 Set Image
                             </button>
                         </div>
