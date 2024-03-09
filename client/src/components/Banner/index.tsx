@@ -8,8 +8,8 @@ const index = () => {
             <section className="lg:grid grid-cols-2 px-8 lg:px-32">
                 <div className="h-screen md:snap-start flex flex-col justify-center">
                     <a
-                        href="#"
-                        className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full w-2/3"
+                        href="https://discord.gg/VWz8eYjtf3"
+                        className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full md:w-1/2 lg:w-2/3"
                         role="alert"
                     >
                         <span className="text-xs bg-primary text-primary-content rounded-full px-4 py-1.5 mr-3">
