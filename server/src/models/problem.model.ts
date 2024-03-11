@@ -14,7 +14,7 @@ export class Problem {
     @prop({ required: true })
     public level!: string;
 
-    @prop({ required: false, unique: true })
+    @prop({ required: true, unique: true })
     public slug!: string;
 
     @prop({ required: true })

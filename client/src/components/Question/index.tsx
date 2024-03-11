@@ -179,7 +179,7 @@ const Question = () => {
                         </div>
                         <span className="text-3xl font-bold">
                             {" "}
-                            {problem.sequence} - {problem.title}{" "}
+                            {problem.title}{" "}
                         </span>
                         <span
                             className={

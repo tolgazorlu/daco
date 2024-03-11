@@ -1,8 +1,8 @@
 import { Response, Request, NextFunction } from "express";
 import { ProblemModel } from "../models/problem.model";
-// import { day } from "../utils/schedule";
 import { UserModel } from "../models/user.model";
 import { generateToken } from "../utils/token";
+import slugify from "slugify";
 
 /**
  * @desc CREATE NEW PROBLEM
@@ -11,12 +11,14 @@ import { generateToken } from "../utils/token";
 
 exports.createProblem = async (req: Request, res: Response) => {
     try {
+        const newProblemSlug = slugify(req.body.title);
         const problem = await ProblemModel.create({
             level: req.body.level,
             title: req.body.title,
             description: req.body.description,
             answer: req.body.answer,
             day: req.body.day,
+            slug: newProblemSlug,
         });
         res.status(201).json(problem);
     } catch (error) {

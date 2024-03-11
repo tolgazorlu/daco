@@ -69,7 +69,6 @@ const ProblemsTable = () => {
                         <table className="table table-xs font-poppins table-zebra">
                             <thead>
                                 <tr>
-                                    <th></th>
                                     <th>Day</th>
                                     <th>Title</th>
                                     <th>Answer</th>
@@ -81,11 +80,6 @@ const ProblemsTable = () => {
                                 return (
                                     <tbody key={item._id}>
                                         <tr>
-                                            <td>
-                                                <span className="badge">
-                                                    {item.sequence}
-                                                </span>
-                                            </td>
                                             <td>000{item.day}</td>
                                             <td>{item.title}</td>
                                             <td>{item.answer}</td>
@@ -172,7 +166,6 @@ const ProblemsTable = () => {
                             })}
                             <tfoot>
                                 <tr>
-                                    <th></th>
                                     <th>Day</th>
                                     <th>Date</th>
                                     <th>Title</th>
