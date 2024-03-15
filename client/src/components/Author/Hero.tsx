@@ -1,3 +1,5 @@
+import TolgaZorluCV from "../../assets/TolgaZorluCV.pdf";
+
 const Hero = () => {
     return (
         <section className="lg:grid grid-cols-2 px-8 lg:px-32">
@@ -46,7 +48,10 @@ const Hero = () => {
                 </p>
                 <div className="flex flex-col mt-8 mb-8 lg:mb-16 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                     <a
-                        href="/login"
+                        href={TolgaZorluCV}
+                        download="TolgaZorluCV"
+                        target="_blank"
+                        rel="noreferrer"
                         className="font-poppins font-bold inline-flex justify-center items-center py-3 px-5 text-center rounded-lg bg-warning text-warning-content shadow-md"
                     >
                         <svg
@@ -66,10 +71,10 @@ const Hero = () => {
                         Download CV
                     </a>
                     <a
-                        href="https://github.com/tolgazorlu/daco"
+                        href="mailto:tolgazorlu17@gmail.com"
                         className="font-poppins font-bold inline-flex justify-center items-center py-3 px-5 text-center rounded-lg bg-neutral text-neutral-content shadow-md"
                     >
-                        Contact with Me
+                        Contact Me
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
