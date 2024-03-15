@@ -20,7 +20,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
     const [sidebarToggle, setSidebarToggle] = useState<boolean>(false);
 
     const navLinks: navLinks[] = [
-        { name: "Author", href: "https://github.com/tolgazorlu" },
+        { name: "Author", href: "/author" },
         { name: "Contact", href: "/contact" },
         { name: "FAQ", href: "/faq" },
     ];

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Question from "./components/Question";
 import NotFound from "./components/NotFound";
+import Author from "./components/Author";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
@@ -26,6 +27,7 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Banner />} />
+                <Route path="/author" element={<Author />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/contact" element={<Contact />} />
