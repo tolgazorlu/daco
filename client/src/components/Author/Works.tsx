@@ -26,7 +26,7 @@ const works = [
 const Works = () => {
     return (
         <section className="px-8 lg:px-32 h-screen bg-base-300 flex flex-col justify-center text-base-content">
-            <h2 className="text-4xl tracking-tight font-extrabold text-center">
+            <h2 className="text-4xl tracking-tight font-extrabold text-center font-poppins">
                 Works
             </h2>
             <br />
