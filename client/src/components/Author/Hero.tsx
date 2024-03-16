@@ -1,11 +1,12 @@
 import TolgaZorluCV from "../../assets/TolgaZorluCV.pdf";
+import TolgaZorluImage from "../../assets/tolgazorlu.jpg";
 
 const Hero = () => {
     return (
         <section className="lg:grid grid-cols-2 px-8 lg:px-32">
             <div className="h-screen md:snap-start flex flex-col justify-center">
                 <a
-                    href="https://discord.gg/VWz8eYjtf3"
+                    href="https://www.youtube.com/channel/UCbQ2CNMwWjNeRDaXoKi9eAA"
                     className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full md:w-1/2 lg:w-2/3"
                     role="alert"
                 >
@@ -28,9 +29,6 @@ const Hero = () => {
                         ></path>
                     </svg>
                 </a>
-                <span className="mb-4 text-5xl font-extrabold tracking-tight leading-none  lg:text-6xl font-bandal">
-                    Tolga Zorlu
-                </span>
                 <span className="text-7xl font-bandal font-bold text-warning">
                     Software Engineer
                 </span>
@@ -91,6 +89,14 @@ const Hero = () => {
                         </svg>
                     </a>
                 </div>
+            </div>
+            <div className="hidden h-screen md:flex flex-col items-center justify-center gap-10 ">
+                <div className="w-72 h-72 absolute rounded-md bg-warning -mt-8 -mr-8"></div>
+                <div className="w-72 h-72 rounded-md bg-neutral"></div>
+                <img
+                    className="w-72 absolute rounded-md -mt-16 -mr-16"
+                    src={TolgaZorluImage}
+                />
             </div>
         </section>
     );
