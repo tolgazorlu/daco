@@ -90,7 +90,7 @@ const Hero = () => {
                     </a>
                 </div>
             </div>
-            <div className="hidden h-screen md:flex flex-col items-center justify-center gap-10 ">
+            <div className="hidden h-screen lg:flex flex-col items-center justify-center gap-10 ">
                 <div className="w-72 h-72 absolute rounded-md bg-warning -mt-8 -mr-8"></div>
                 <div className="w-72 h-72 rounded-md bg-neutral"></div>
                 <img
