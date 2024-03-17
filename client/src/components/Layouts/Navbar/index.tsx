@@ -161,7 +161,7 @@ const Navbar = ({ setIsOpenSidebar }: NavbarProps) => {
                                         <span className="font-bold text-xl font-bandal text-primary">
                                             {userInfo.username}
                                         </span>
-                                        <span className="font-medium truncate font-bandal text-accent">
+                                        <span className="font-medium truncate font-bandal text-base-content">
                                             Solved:{" "}
                                             {userInfo.solvedProblems.length}
                                         </span>
