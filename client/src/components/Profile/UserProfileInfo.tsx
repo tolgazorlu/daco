@@ -26,7 +26,7 @@ const UserProfileInfo = () => {
             {userInfo && (
                 <>
                     <div className="stats shadow-lg border border-base-300">
-                        <div className="stat flex justify-center items-center min-w-24 shadow-lg">
+                        <div className="stat hidden md:flex justify-center items-center min-w-[12em] shadow-lg">
                             <img
                                 src={userInfo?.avatar}
                                 alt={userInfo?.username}
@@ -87,7 +87,7 @@ const UserProfileInfo = () => {
                     </div>
 
                     <div className="stats shadow-lg border border-base-300">
-                        <div className="stat  shadow-lg">
+                        <div className="stat shadow-lg">
                             <div className="stat-figure text-accent">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@ const UserProfileInfo = () => {
                             <div className="stat-desc">You're amazing!</div>
                         </div>
 
-                        <div className="stat">
+                        <div className="hidden md:stat">
                             <div className="stat-figure text-accent">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

@@ -122,20 +122,36 @@ const Question = () => {
                     {userInfo?.isAdmin ? (
                         <a
                             href={`/question/${slug}/edit`}
-                            className="btn btn-info btn-sm float-right text-accent-content"
+                            className={
+                                problem.level === "easy"
+                                    ? "btn btn-info btn-sm float-right bg-success text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                    : problem.level === "medium"
+                                      ? "btn btn-info btn-sm float-right bg-warning text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                      : "btn btn-info btn-sm float-right bg-error text-error-content text-sm font-medium me-2 px-2.5 py-0.5"
+                            }
                         >
                             Edit Problem
                         </a>
                     ) : (
-                        <></>
+                        <div
+                            className={
+                                problem.level === "easy"
+                                    ? "btn btn-info btn-sm float-right bg-success text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                    : problem.level === "medium"
+                                      ? "btn btn-info btn-sm float-right bg-warning text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                      : "btn btn-info btn-sm float-right bg-error text-error-content text-sm font-medium me-2 px-2.5 py-0.5 "
+                            }
+                        >
+                            {problem.level}
+                        </div>
                     )}
                     <div className="flex items-center gap-4">
-                        <div className="bg-neutral fixed right-0 left-0 bottom-0 w-full px-32 py-6 flex justify-between items-center">
+                        <div className="bg-neutral fixed right-0 left-0 bottom-0 w-full px-4 lg:px-32 py-6 flex justify-between items-center">
                             <span className="text-3xl font-bandal text-neutral-content">
                                 {problem.title}{" "}
                             </span>
                             {isSolved ? (
-                                <button className="btn btn-success btn-sm w-64">
+                                <button className="btn btn-success btn-sm sm:w-64">
                                     <span>This problem solved!</span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -180,17 +196,6 @@ const Question = () => {
                         <span className="text-3xl font-bold">
                             {" "}
                             {problem.title}{" "}
-                        </span>
-                        <span
-                            className={
-                                problem.level === "easy"
-                                    ? "bg-success text-success-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
-                                    : problem.level === "medium"
-                                      ? "bg-warning text-warning-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
-                                      : "bg-error text-error-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
-                            }
-                        >
-                            {problem.level}
                         </span>
                     </div>
                     <br></br>

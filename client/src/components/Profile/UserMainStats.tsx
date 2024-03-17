@@ -66,7 +66,7 @@ const UserMainStats = () => {
                 />
             </div>
 
-            <div className="stat">
+            <div className="hidden md:stat">
                 <div className="stat-figure text-accent">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
