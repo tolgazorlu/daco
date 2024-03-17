@@ -124,10 +124,10 @@ const Question = () => {
                             href={`/question/${slug}/edit`}
                             className={
                                 problem.level === "easy"
-                                    ? "btn btn-info btn-sm float-right bg-success text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                    ? "btn btn-success btn-sm float-right text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
                                     : problem.level === "medium"
-                                      ? "btn btn-info btn-sm float-right bg-warning text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
-                                      : "btn btn-info btn-sm float-right bg-error text-error-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                      ? "btn btn-warning btn-sm float-right text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                      : "btn btn-error btn-sm float-right text-error-content text-sm font-medium me-2 px-2.5 py-0.5"
                             }
                         >
                             Edit Problem
@@ -136,10 +136,10 @@ const Question = () => {
                         <div
                             className={
                                 problem.level === "easy"
-                                    ? "btn btn-info btn-sm float-right bg-success text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                    ? "btn btn-success btn-sm float-right  text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
                                     : problem.level === "medium"
-                                      ? "btn btn-info btn-sm float-right bg-warning text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
-                                      : "btn btn-info btn-sm float-right bg-error text-error-content text-sm font-medium me-2 px-2.5 py-0.5 "
+                                      ? "btn btn-warning btn-sm float-right text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
+                                      : "btn btn-error btn-sm float-right text-error-content text-sm font-medium me-2 px-2.5 py-0.5 "
                             }
                         >
                             {problem.level}
@@ -169,7 +169,7 @@ const Question = () => {
                                     </svg>
                                 </button>
                             ) : (
-                                <form className="flex flex-row gap-4">
+                                <form className="flex flex-col md:flex-row gap-4">
                                     <input
                                         className="px-4 py-1 rounded-md bg-neutral-content text-neutral placeholder:text-neutral"
                                         placeholder="Enter answer here!"
@@ -184,7 +184,7 @@ const Question = () => {
                                         </button>
                                     ) : (
                                         <button
-                                            className="btn btn-primary btn-sm w-32"
+                                            className="btn btn-primary btn-sm w-full md:w-32"
                                             onClick={submitHandler}
                                         >
                                             Submit
