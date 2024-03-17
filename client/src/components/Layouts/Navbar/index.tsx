@@ -1,7 +1,4 @@
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { User } from "../../../contexts/User";
 
@@ -10,30 +7,46 @@ export type navLinks = {
     href: string;
 };
 
-const Navbar = (props: { setIsOpenSidebar: any }) => {
+type ParamType = {
+    slug?: string;
+};
+
+type NavbarProps = {
+    setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Navbar = ({ setIsOpenSidebar }: NavbarProps) => {
     const { state, dispatch } = useContext(User);
     const { userInfo } = state;
 
-    const param = useParams();
+    const { slug } = useParams<ParamType>();
     const location = useLocation();
 
     const [sidebarToggle, setSidebarToggle] = useState<boolean>(false);
+    const [theme, setTheme] = useState<string | null>(() => {
+        const localTheme = JSON.parse(localStorage.getItem("theme") || "null");
+        return localTheme;
+    });
 
-    const navLinks: navLinks[] = [
-        { name: "Author", href: "/author" },
-        { name: "Contact", href: "/contact" },
-        { name: "FAQ", href: "/faq" },
-    ];
-
-    /** @ts-ignore  */
-    const localTheme = JSON.parse(localStorage.getItem("theme"));
-
-    const [theme, setTheme] = useState(localTheme);
     useEffect(() => {
-        document.querySelector("html")?.setAttribute("data-theme", theme);
-        document.getElementById("screen")?.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", JSON.stringify(theme));
-    }, [theme, param.slug]);
+        if (theme) {
+            document.querySelector("html")?.setAttribute("data-theme", theme);
+            document
+                .getElementById("screen")
+                ?.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", JSON.stringify(theme));
+        }
+    }, [theme, slug]);
+
+    const toggleSidebar = () => {
+        const updatedSidebarToggle = !sidebarToggle;
+        setSidebarToggle(updatedSidebarToggle);
+        setIsOpenSidebar(updatedSidebarToggle);
+    };
+
+    const handleThemeClick = () => {
+        setTheme(theme === "dark" ? "light" : "dark");
+    };
 
     const signoutHandler = () => {
         dispatch({ type: "USER_SIGNOUT" });
@@ -42,27 +55,20 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
         window.location.href = "/login";
     };
 
-    const clichThemeHandler = () => {
-        if (theme == "dark") {
-            setTheme("light");
-        } else {
-            setTheme("dark");
-        }
-    };
+    const navLinks: navLinks[] = [
+        { name: "Author", href: "/author" },
+        { name: "Contact", href: "/contact" },
+        { name: "FAQ", href: "/faq" },
+    ];
 
     return (
         <nav
-            className={
-                location.pathname == "/"
-                    ? "navbar fixed top-0 z-30 w-full lg:px-32 px-8"
-                    : "navbar fixed top-0 z-30 w-full bg-base-100 border-b border-base-300 lg:px-32 px-8"
-            }
+            className={`navbar fixed top-0 z-30 w-full lg:px-32 px-8 ${location.pathname === "/" ? "" : "bg-base-100 border-b border-base-300"}`}
         >
             <div className="navbar-start">
                 <button
                     onClick={() => {
-                        setSidebarToggle(!sidebarToggle);
-                        props.setIsOpenSidebar(sidebarToggle);
+                        toggleSidebar();
                     }}
                     type="button"
                     className={
@@ -190,7 +196,7 @@ const Navbar = (props: { setIsOpenSidebar: any }) => {
                             )}
                             <li>
                                 <button
-                                    onClick={clichThemeHandler}
+                                    onClick={handleThemeClick}
                                     className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
                                 >
                                     <span>Themes</span>
