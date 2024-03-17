@@ -110,8 +110,8 @@ const Question = () => {
                     className="fixed h-[93vh] z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
                     onClick={animationCloseHandler}
                 >
-                    <span className="text-4xl sm:text-5xl md:text-8xl text-primary-content font-aubette relative animate-congrats">
-                        CONGRATULATIONS!
+                    <span className="text-5xl sm:text-6xl md:text-8xl text-primary-content font-bandal relative animate-congrats">
+                        Congratulations!
                     </span>
                 </div>
             ) : (
