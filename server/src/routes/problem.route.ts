@@ -7,7 +7,6 @@ const router: express.Router = require("express").Router();
 
 router.get("/solved", Auth, problemController.getSolvedProblems);
 router.get("/all", Auth, Admin, problemController.getProblems);
-// router.get("/daily", problemController.getDailyProblems);
 router.get("/:slug", problemController.getProblem);
 router.put("/solveProblem/:id", Auth, problemController.solveProblem);
 router.put("/update/:id", Auth, Admin, problemController.updateProblem);
