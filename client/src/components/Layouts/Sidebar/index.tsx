@@ -1,17 +1,17 @@
 import { useLocation } from "react-router-dom";
-import { User } from "../../../contexts/User";
 import { useContext, useEffect, useState } from "react";
+import { User } from "../../../contexts/User";
 import { adminLinks } from "./Links/admin";
 import { userLinks } from "./Links/user";
 import { footerLinks } from "./Links/footer";
 
-const Sidebar = (props: { isOpen: boolean }) => {
+const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
     const location = useLocation().pathname;
 
     const { state } = useContext(User);
     const { userInfo } = state;
 
-    const [dashboardActive, setDashboardActive] = useState(false);
+    const [isDashboardActive, setIsDashboardActive] = useState(false);
 
     useEffect(() => {
         const dashboardRoutes = [
@@ -22,104 +22,60 @@ const Sidebar = (props: { isOpen: boolean }) => {
             "/dashboard/contacts",
             "/dashboard/faqs",
         ];
-        setDashboardActive(dashboardRoutes.includes(location));
-    }, [location]);
+        setIsDashboardActive(dashboardRoutes.includes(location));
+    }, [location, setIsDashboardActive]);
 
     return (
         <aside
-            className={
-                !dashboardActive
-                    ? "hidden"
-                    : props.isOpen
-                      ? "overflow-scroll fixed top-0 left-0 lg:left-24 z-20 w-64 h-screen pt-20 transition-transform -translate-x-0  sm:translate-x-0 bg-base-100 shadow-md sm:shadow-none"
-                      : "overflow-scroll fixed top-0 left-0 lg:left-24 z-20 w-64 h-screen pt-20 transition-transform -translate-x-full  sm:translate-x-0 bg-base-100 shadow-md sm:shadow-none"
-            }
+            className={`sidebar ${isDashboardActive ? "active" : ""} ${isOpen ? "open" : ""}`}
         >
-            <div className="h-full px-3 py-4">
-                {/* USER LINKS */}
-
-                <ul className="space-y-2 font-medium">
+            <div className="sidebar-content">
+                <ul className="navigation">
+                    {/* User Links */}
                     {userLinks.map((item) => (
                         <li key={item.path}>
                             <a
-                                href={item.path}
-                                className={`flex items-center p-2 rounded-lg ${
-                                    location === item.path
-                                        ? "bg-primary text-primary-content"
-                                        : "hover:bg-primary/50"
-                                }`}
+                                className={`nav-item ${location === item.path ? "active" : ""}`}
+                                href={item.path} // Replace with Link from react-router-dom
                             >
                                 {item.icon}
-                                <span className="ml-3">{item.label}</span>
+                                <span className="label">{item.label}</span>
                             </a>
                         </li>
                     ))}
 
-                    {/* ADMIN LINKS */}
-
+                    {/* Admin Links */}
                     {userInfo?.isAdmin &&
                         adminLinks.map((item) => (
                             <li key={item.path}>
                                 <a
-                                    href={item.path}
-                                    className={`flex items-center p-2 rounded-lg ${
-                                        location === item.path
-                                            ? "bg-primary text-primary-content"
-                                            : "hover:bg-primary/50"
-                                    }`}
+                                    className={`nav-item ${location === item.path ? "active" : ""}`}
+                                    href={item.path} // Replace with Link from react-router-dom
                                 >
                                     {item.icon}
-                                    <span className="ml-3">{item.label}</span>
+                                    <span className="label">{item.label}</span>
                                 </a>
                             </li>
                         ))}
                 </ul>
 
-                {/* BOTTOM LINKS */}
-
-                <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-base-200">
+                {/* Footer Links */}
+                <ul className="footer-links">
                     {footerLinks.map((item) => (
                         <li key={item.path}>
                             <a
-                                href={item.path}
-                                className={`flex items-center p-2 rounded-lg ${
-                                    location === item.path
-                                        ? "bg-primary text-primary-content"
-                                        : "hover:bg-primary/50"
-                                }`}
+                                className={`nav-item ${location === item.path ? "active" : ""}`}
+                                href={item.path} // Replace with Link from react-router-dom
                             >
                                 {item.icon}
-                                <span className="ml-3">{item.label}</span>
+                                <span className="label">{item.label}</span>
                             </a>
                         </li>
                     ))}
                 </ul>
-                <div
-                    id="dropdown-cta"
-                    className="p-4 mt-6 rounded-lg bg-primary font-poppins"
-                    role="alert"
-                >
-                    <div className="flex items-center mb-3">
-                        <span className="bg-primary-content text-primary text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
-                            Beta
-                        </span>
-                    </div>
-                    <p className="mb-3 text-sm text-primary-content">
-                        Preview the new as{" "}
-                        <span className="font-bold font-bandal text-xl">
-                            daco
-                        </span>
-                        , we are here with the beta version. If you would like
-                        to support the author, you can access the auhtor page.
-                    </p>
-                    <a
-                        className="text-sm text-primary-content underline font-medium hover:text-primary-content/50"
-                        href="daco.space/author"
-                        target="_blank"
-                    >
-                        Visit Author Page
-                    </a>
-                </div>
+
+                {/* Dropdown CTA */}
+                <div className="dropdown-cta">{/* Content here */}</div>
             </div>
         </aside>
     );

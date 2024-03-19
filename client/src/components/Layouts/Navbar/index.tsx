@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { User } from "../../../contexts/User";
 
@@ -11,11 +11,8 @@ type ParamType = {
     slug?: string;
 };
 
-type NavbarProps = {
-    setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-const Navbar = ({ setIsOpenSidebar }: NavbarProps) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Navbar = ({ setIsOpenSidebar }: any) => {
     const { state, dispatch } = useContext(User);
     const { userInfo } = state;
 
