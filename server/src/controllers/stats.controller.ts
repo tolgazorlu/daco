@@ -35,30 +35,3 @@ exports.getTotalUserStat = async (req: Request, res: Response) => {
         });
     }
 };
-
-/**
- * GET STATISTICS
- * api/statistic/day
- */
-
-// exports.getDayStat = async (req: Request, res: Response) => {
-//   try {
-//     res.status(200).send({ day, todaysDate });
-//   } catch (error) {
-//     res.status(400).json({
-//       message: error,
-//     });
-//   }
-// };
-
-// exports.getTodaysUsersStat = async (req: Request, res: Response) => {
-//   try {
-//     const users = await UserModel.find({ createdAt: todaysDate });
-//     const todaysUsers = users.length;
-//     res.status(200).send({ todaysUsers });
-//   } catch (error) {
-//     res.status(400).json({
-//       message: error,
-//     });
-//   }
-// };

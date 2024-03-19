@@ -5,7 +5,7 @@ import chalk from "chalk";
 import { Daily } from "./utils/schedule";
 import path from "path";
 //ROUTE IMPORTS
-const statisticRoute = require("./routes/satistic.route");
+const statsRoute = require("./routes/stats.route");
 const problemRoute = require("./routes/problem.route");
 const authRoute = require("./routes/auth.route");
 const userRoute = require("./routes/user.route");
@@ -39,7 +39,7 @@ Daily;
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/problems", problemRoute);
-app.use("/api/statistic", statisticRoute);
+app.use("/api/stats", statsRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/faq", faqRoute);
 
