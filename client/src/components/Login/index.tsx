@@ -79,7 +79,7 @@ const Login = () => {
             <Layout />
             <div className="flex h-screen justify-center items-center">
                 <div className="p-2 md:px-8 w-full md:w-1/2">
-                    <h1 className="text-3xl font-semibold text-center text-primary font-aubette">
+                    <h1 className="text-3xl font-semibold text-center text-primary font-poppins">
                         LOGIN
                     </h1>
                     <form
@@ -148,7 +148,7 @@ const Login = () => {
                         </div>
 
                         <div>
-                            <button className="btn w-full btn-primary font-poppins shadow-md shadow-primary/50">
+                            <button className="btn w-full bg-primary text-primary-content font-poppins">
                                 {isLoading ? (
                                     <VscLoading className="animate-spin" />
                                 ) : (
