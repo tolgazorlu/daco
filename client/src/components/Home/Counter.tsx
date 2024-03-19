@@ -50,26 +50,26 @@ const Counter = () => {
     };
 
     return (
-        <div className="grid grid-flow-col gap-6 text-center auto-cols-max py-10 justify-center">
+        <div className="grid grid-flow-col gap-6 text-center auto-cols-max py-4 justify-center">
             {/* Display hours */}
-            <div className="flex flex-col p-2 bg-base-300 rounded-box text-primary">
-                <span className="countdown text-7xl md:text-8xl font-aubette justify-center">
+            <div className="flex flex-col p-2">
+                <span className="countdown text-7xl font-aubette justify-center text-primary">
                     <span style={hourstyle}></span>
                 </span>
                 <span className="font-poppins text-xs lg:text-md">
                     &nbsp;&nbsp;hours&nbsp;&nbsp;
                 </span>
             </div>
-            <div className="flex flex-col p-2 bg-base-300 rounded-box text-primary">
-                <span className="countdown text-7xl md:text-8xl font-aubette justify-center">
+            <div className="flex flex-col p-2">
+                <span className="countdown text-7xl font-aubette justify-center text-primary">
                     <span style={minutestyle}></span>
                 </span>
                 <span className="font-poppins text-xs lg:text-md">
                     &nbsp;&nbsp;minutes&nbsp;&nbsp;
                 </span>
             </div>
-            <div className="flex flex-col p-2 bg-base-300 rounded-box text-primary">
-                <span className="countdown text-7xl md:text-8xl font-aubette justify-center">
+            <div className="flex flex-col p-2">
+                <span className="countdown text-7xl font-aubette justify-center text-primary">
                     <span style={secondstyle}></span>
                 </span>
                 <span className="font-poppins text-xs lg:text-md">
