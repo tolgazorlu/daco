@@ -196,7 +196,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                                     onClick={handleThemeClick}
                                     className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
                                 >
-                                    <span>Themes</span>
+                                    <span>Theme</span>
                                     {theme == "light" ? (
                                         <div>
                                             <svg
