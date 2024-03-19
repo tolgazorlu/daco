@@ -3,7 +3,7 @@
 import {
     useGetTotalProblemsQuery,
     useGetTotalUsersQuery,
-} from "../../hooks/statisticHook";
+} from "../../hooks/statsHooks";
 
 const MainStats = () => {
     const { data: problems, isLoading, error } = useGetTotalProblemsQuery();
