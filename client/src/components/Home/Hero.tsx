@@ -47,7 +47,7 @@ const Hero = () => {
                                         <div className="flex flex-col">
                                             {parseInt(day._id) ==
                                             userInfo?.currentDay ? (
-                                                <span className="text-center px-6 p-2 rounded-lg bg-accent text-accent-content mb-4 font-aubette">
+                                                <span className="text-center px-6 p-2 rounded-lg bg-primary text-primary-content mb-4 font-aubette">
                                                     {day._id}. DAY - TODAY
                                                 </span>
                                             ) : (
@@ -70,7 +70,13 @@ const Hero = () => {
                                                                     item._id,
                                                                 )
                                                                     ? "max-w-lg p-6 rounded-lg hover:bg-base-300 bg-base-200 shadow-lg flex flex-col gap-2"
-                                                                    : "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-primary text-primary-content shadow-lg flex flex-col gap-2"
+                                                                    : item.level ==
+                                                                        "easy"
+                                                                      ? "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-success text-success-content shadow-lg flex flex-col gap-2"
+                                                                      : item.level ==
+                                                                          "medium"
+                                                                        ? "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-warning text-warning-content shadow-lg flex flex-col gap-2"
+                                                                        : "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-error text-error-content shadow-lg flex flex-col gap-2"
                                                             }
                                                         >
                                                             <span className="text-2xl font-bold font-poppins">
