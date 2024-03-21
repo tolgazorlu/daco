@@ -9,8 +9,9 @@ const upload = multer({ dest: "uploads/" });
 
 router.get("/images/:key", userController.GetImageFromS3);
 router.post("/images", upload.single("image"), userController.UploadImage);
-router.get("/problems", Auth, userController.GetUserDailyProblems)
+router.get("/dailyProblems", Auth, userController.GetUserDailyProblems);
 router.put("/update", Auth, userController.Update);
+router.get("/allProblems", Auth, userController.GetUserProblemsSoFar);
 router.get("/all", Auth, Admin, userController.getUsers);
 
 module.exports = router;

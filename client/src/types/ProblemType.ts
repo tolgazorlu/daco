@@ -8,3 +8,8 @@ export type Problem = {
     day: number;
     date: string;
 };
+
+export type SoFarProblems = {
+    _id: string;
+    problems: Problem[];
+};

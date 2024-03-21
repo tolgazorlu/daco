@@ -86,7 +86,7 @@ module.exports.getUsers = async (req: Request, res: Response) => {
 
 /**
  * @desc GET USER DAILY PROBLEMS
- * @route api/user/problems
+ * @route api/user/dailyProblems
  */
 
 module.exports.GetUserDailyProblems = async (req: Request, res: Response) => {
@@ -102,6 +102,39 @@ module.exports.GetUserDailyProblems = async (req: Request, res: Response) => {
             const problems = await ProblemModel.find({ day: 1 }, "-answer");
             res.status(200).send(problems);
         }
+    } catch (error) {
+        res.status(400).json({
+            message: error,
+        });
+    }
+};
+
+/**
+ * @desc GET USER PROBLEMS SO FAR
+ * @route api/user/allProblems
+ */
+
+module.exports.GetUserProblemsSoFar = async (req: Request, res: Response) => {
+    try {
+        const user = await UserModel.findById(req.user._id);
+        let pipeline = [];
+
+        if (user) {
+            pipeline.push({
+                $match: { day: { $lte: user.currentDay } },
+            });
+        }
+
+        pipeline.push({
+            $group: {
+                _id: "$day",
+                problems: { $push: "$$ROOT" },
+            },
+        });
+
+        const groupedProblems = await ProblemModel.aggregate(pipeline);
+
+        res.status(200).send(groupedProblems);
     } catch (error) {
         res.status(400).json({
             message: error,

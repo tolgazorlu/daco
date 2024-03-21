@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import apiClient from "../utils/apiClient";
-import { Problem } from "../types/ProblemType";
+import { Problem, SoFarProblems } from "../types/ProblemType";
 import { UserInfo } from "../types/UserInfo";
 
 export const useGetProblemsQuery = () =>
@@ -21,7 +21,14 @@ export const useGetDailyProblemsQuery = () =>
     useQuery({
         queryKey: ["daily"],
         queryFn: async () =>
-            (await apiClient.get<Problem[]>(`api/user/problems`)).data,
+            (await apiClient.get<Problem[]>(`api/user/dailyProblems`)).data,
+    });
+
+export const useGetAllProblemsSoFarQuery = () =>
+    useQuery({
+        queryKey: ["problems-so-far"],
+        queryFn: async () =>
+            (await apiClient.get<SoFarProblems[]>(`api/user/allProblems`)).data,
     });
 
 export const useGetSolvedProblemsQuery = () =>
