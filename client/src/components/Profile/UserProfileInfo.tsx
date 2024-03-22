@@ -25,7 +25,7 @@ const UserProfileInfo = () => {
         <>
             {userInfo && (
                 <>
-                    <div className="stats shadow-lg border border-base-300">
+                    <div className="stats shadow-lg border border-base-300 rounded">
                         <div className="stat hidden md:flex justify-center items-center min-w-[12em] shadow-lg">
                             <img
                                 src={userInfo?.avatar}
@@ -49,7 +49,7 @@ const UserProfileInfo = () => {
                                     />
                                 </svg>
                             </div>
-                            <div className="stat-title">Username</div>
+                            <div className="stat-title font-bold">Username</div>
                             <div className="stat-value text-primary">
                                 {userInfo.username}
                             </div>
@@ -65,7 +65,7 @@ const UserProfileInfo = () => {
                                             )!;
                                         el.showModal();
                                     }}
-                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
+                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50 rounded"
                                 >
                                     Update Profile
                                 </button>
@@ -77,7 +77,7 @@ const UserProfileInfo = () => {
                                         )!;
                                         el.showModal();
                                     }}
-                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50"
+                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50 rounded"
                                 >
                                     Change Password
                                 </button>
@@ -86,7 +86,7 @@ const UserProfileInfo = () => {
                         </div>
                     </div>
 
-                    <div className="stats shadow-lg border border-base-300">
+                    <div className="stats shadow-lg border border-base-300 rounded">
                         <div className="stat shadow-lg">
                             <div className="stat-figure text-accent">
                                 <svg
@@ -103,7 +103,9 @@ const UserProfileInfo = () => {
                                     />
                                 </svg>
                             </div>
-                            <div className="stat-title">You're in</div>
+                            <div className="stat-title font-bold">
+                                You're in
+                            </div>
                             <div className="stat-value text-accent">
                                 {day}. Day
                             </div>
@@ -126,7 +128,9 @@ const UserProfileInfo = () => {
                                     />
                                 </svg>
                             </div>
-                            <div className="stat-title">Created At</div>
+                            <div className="stat-title font-bold">
+                                Created At
+                            </div>
                             <div className="stat-value text-accent">
                                 {registerAt}
                             </div>

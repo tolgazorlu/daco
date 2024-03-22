@@ -26,18 +26,16 @@ const UsersTable = () => {
     return (
         <>
             {isLoading ? (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="stats shadow-lg border border-base-300">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
-                        <div className="stat-title">All Users</div>
                         <div className="alert flex justify-center">
                             <span className="loading loading-lg"></span>
                         </div>
                     </div>
                 </div>
             ) : error ? (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="stats shadow-lg border border-base-300">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
-                        <div className="stat-title">All Users</div>
                         <div className="alert alert-error">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -57,9 +55,9 @@ const UsersTable = () => {
                     </div>
                 </div>
             ) : (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="stats shadow-lg border border-base-300 rounded">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
-                        <div className="stat-title">All Users</div>
+                        <div className="stat-title font-bold">All Users</div>
                         <table className="table table-xs font-poppins table-zebra">
                             <thead>
                                 <tr>
@@ -117,11 +115,11 @@ const UsersTable = () => {
                                             <td>{item.createdAt}</td>
                                             <td>
                                                 {item.isAdmin ? (
-                                                    <span className="badge badge-primary text-primary-content">
+                                                    <span className="badge badge-primary text-primary-content rounded">
                                                         Admin
                                                     </span>
                                                 ) : (
-                                                    <span className="badge">
+                                                    <span className="badge rounded">
                                                         User
                                                     </span>
                                                 )}
@@ -130,7 +128,7 @@ const UsersTable = () => {
                                                 <td className="h-16"></td>
                                             ) : (
                                                 <td className="flex gap-1 h-16 items-center">
-                                                    <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50">
+                                                    <button className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50 rounded">
                                                         Edit
                                                     </button>
                                                     <button
@@ -144,7 +142,7 @@ const UsersTable = () => {
                                                                 item._id,
                                                             );
                                                         }}
-                                                        className="btn btn-xs btn-error text-error-content hover:bg-error/50"
+                                                        className="btn btn-xs btn-error text-error-content hover:bg-error/50 rounded"
                                                     >
                                                         Delete
                                                     </button>

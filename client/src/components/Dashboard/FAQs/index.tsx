@@ -70,9 +70,9 @@ const FAQs = () => {
                 theme="colored"
             />
             <Layout />
-            <div className="px-4 py-8 lg:px-32 sm:ml-64 mt-14 flex flex-col gap-4">
+            <div className="px-4 py-8 lg:px-24 sm:ml-64 mt-16 flex flex-col gap-4">
                 {isLoading ? (
-                    <div className="p-2 stats shadow-lg border border-base-300">
+                    <div className="stats shadow-lg border border-base-300 rounded">
                         <div className="stat overflow-x-auto flex flex-col gap-4">
                             <div className="stat-title">FAQ</div>
                             <div className="alert flex justify-center">
@@ -81,7 +81,7 @@ const FAQs = () => {
                         </div>
                     </div>
                 ) : error ? (
-                    <div className="p-2 stats shadow-lg border border-base-300">
+                    <div className="stats shadow-lg border border-base-300 rounded">
                         <div className="stat overflow-x-auto flex flex-col gap-4">
                             <div className="stat-title">FAQ</div>
                             <div className="alert alert-error">
@@ -104,7 +104,18 @@ const FAQs = () => {
                     </div>
                 ) : (
                     <>
-                        <div className="p-2 stats shadow-lg border border-base-300">
+                        <button
+                            className="btn btn-sm btn-primary text-primary-content hover:text-primary/50 rounded"
+                            onClick={() => {
+                                let el: any =
+                                    document.getElementById("add-faq-modal")!;
+                                el.showModal();
+                            }}
+                        >
+                            Add FAQ
+                        </button>
+                        <AddFAQModal />
+                        <div className="stats shadow-lg border border-base-300 rounded">
                             <div className="stat overflow-x-auto flex flex-col gap-4">
                                 <div className="stat-title">FAQ Messages</div>
                                 <table className="table table-xs font-poppins table-zebra">
@@ -327,17 +338,6 @@ const FAQs = () => {
                                 </table>
                             </div>
                         </div>
-                        <button
-                            className="btn btn-sm btn-primary text-primary-content hover:text-primary/50 float-right"
-                            onClick={() => {
-                                let el: any =
-                                    document.getElementById("add-faq-modal")!;
-                                el.showModal();
-                            }}
-                        >
-                            Add FAQ
-                        </button>
-                        <AddFAQModal />
                     </>
                 )}
             </div>

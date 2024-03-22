@@ -54,18 +54,7 @@ const UserMainStats = () => {
 
     const until = `${year}-${month}-${day}`;
     return (
-        <div className="stats border shadow-lg border-base-300">
-            <div className="stat shadow-lg flex items-center">
-                <Calendar
-                    values={calendarValues}
-                    until={until}
-                    weekLabelAttributes={undefined}
-                    monthLabelAttributes={undefined}
-                    panelAttributes={undefined}
-                    panelColors={currentThemeColors}
-                />
-            </div>
-
+        <div className="stats border shadow-lg border-base-300 rounded">
             <div className="hidden md:stat">
                 <div className="stat-figure text-accent">
                     <svg
@@ -82,7 +71,9 @@ const UserMainStats = () => {
                         />
                     </svg>
                 </div>
-                <div className="stat-title">Total Solved Problems</div>
+                <div className="stat-title font-bold">
+                    Total Solved Problems
+                </div>
                 <div className="stat-value text-accent">{solved}</div>
                 <div className="stat-desc">
                     You created your account this date!
@@ -90,11 +81,21 @@ const UserMainStats = () => {
                 <div className="stat-actions">
                     <a
                         href="/"
-                        className="btn btn-sm btn-accent text-accent-content"
+                        className="btn btn-sm btn-accent text-accent-content rounded"
                     >
                         Check New Problems
                     </a>
                 </div>
+            </div>
+            <div className="stat shadow-lg flex items-center">
+                <Calendar
+                    values={calendarValues}
+                    until={until}
+                    weekLabelAttributes={undefined}
+                    monthLabelAttributes={undefined}
+                    panelAttributes={undefined}
+                    panelColors={currentThemeColors}
+                />
             </div>
         </div>
     );

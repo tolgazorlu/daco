@@ -41,9 +41,9 @@ const Contact = () => {
                 theme="colored"
             />
             <Layout />
-            <section className="mt-14">
+            <section className="mt-20">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md font-poppins">
-                    <h2 className="mb-4 text-4xl tracking-tight font-poppins text-center">
+                    <h2 className="mb-4 text-4xl tracking-tight font-poppins text-center font-extrabold">
                         Contact Us
                     </h2>
                     <p className="mb-8 lg:mb-16 font-poppins text-center sm:text-xl">
@@ -64,7 +64,7 @@ const Contact = () => {
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="input input-bordered w-full "
+                                className="input input-bordered w-full rounded "
                                 placeholder="name@flowbite.com"
                                 required
                             />
@@ -81,7 +81,7 @@ const Contact = () => {
                                 id="subject"
                                 value={subject}
                                 onChange={(e) => setSubject(e.target.value)}
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full rounded"
                                 placeholder="Let us know how we can help you"
                                 required
                             />
@@ -97,13 +97,13 @@ const Contact = () => {
                                 id="message"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
-                                className="textarea textarea-bordered textarea-md w-full"
+                                className="textarea textarea-bordered textarea-md w-full rounded"
                                 placeholder="Leave a message..."
                             ></textarea>
                         </div>
                         <button
                             type="submit"
-                            className="btn btn-primary text-primary-content float-right"
+                            className="btn btn-primary text-primary-content float-right rounded"
                             onClick={submitHandler}
                         >
                             Send message

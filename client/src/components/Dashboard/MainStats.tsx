@@ -12,7 +12,7 @@ const MainStats = () => {
 
     return (
         <>
-            <div className="stats shadow-lg border border-base-300">
+            <div className="stats shadow-lg border border-base-300 rounded">
                 <div className="stat  shadow-lg">
                     <div className="stat-figure text-primary">
                         <svg
@@ -29,7 +29,9 @@ const MainStats = () => {
                             />
                         </svg>
                     </div>
-                    <div className="stat-title">Algorithm Questions</div>
+                    <div className="stat-title font-bold">
+                        Algorithm Questions
+                    </div>
                     <div className="stat-value text-primary">
                         {isLoading ? (
                             <span className="loading"></span>
@@ -48,7 +50,7 @@ const MainStats = () => {
                     <div className="stat-desc">You're amazing!</div>
                     <div className="stat-actions">
                         <a
-                            className="btn btn-sm btn-primary text-primary-content"
+                            className="btn btn-sm btn-primary text-primary-content rounded"
                             href="/question/create"
                         >
                             Add Problem
@@ -72,7 +74,9 @@ const MainStats = () => {
                             />
                         </svg>
                     </div>
-                    <div className="stat-title">Total Number of Users</div>
+                    <div className="stat-title font-bold">
+                        Total Number of Users
+                    </div>
                     <div className="stat-value text-accent">
                         {isTotalUsersLoading ? (
                             <span className="loading"></span>
@@ -93,7 +97,7 @@ const MainStats = () => {
                     </div>
                     <div className="stat-actions flex gap-2">
                         <a
-                            className="btn btn-sm btn-accent text-accent-content"
+                            className="btn btn-sm btn-accent text-accent-content rounded"
                             href="/dashboard/users"
                         >
                             Check Users

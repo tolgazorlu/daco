@@ -13,7 +13,7 @@ const Dashboard = () => {
                 <title>Admin cockpit for Dashboard</title>
             </Helmet>
             <Layout />
-            <div className="px-4 py-8 lg:px-32 sm:ml-64 mt-14 flex flex-col gap-4">
+            <div className="px-4 py-4 lg:px-24 sm:ml-64 mt-20 flex flex-col gap-4">
                 <MainStats />
                 <DailyProblemsTable />
                 <ContactTable />

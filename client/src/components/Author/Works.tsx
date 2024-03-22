@@ -25,7 +25,7 @@ const works = [
 
 const Works = () => {
     return (
-        <section className="px-8 py-8 lg:px-32 bg-base-300 flex flex-col items-center text-base-content">
+        <section className="px-4 py-8 lg:px-24 bg-base-300 flex flex-col items-center text-base-content">
             <h2 className="text-4xl tracking-tight font-extrabold text-center font-poppins">
                 Works
             </h2>
@@ -34,7 +34,7 @@ const Works = () => {
                 {works.map((item) => {
                     return (
                         <>
-                            <div className="hidden lg:flex card w-96 bg-base-100 text-base-content shadow-md">
+                            <div className="flex rounded w-96 bg-base-100 text-base-content shadow-md">
                                 <div className="card-body">
                                     <img src={item.imgUrl} />
                                     <br></br>
@@ -46,39 +46,13 @@ const Works = () => {
                                     <div className="card-actions">
                                         <a
                                             href={item.href}
-                                            className="btn btn-warning"
+                                            className="btn btn-warning rounded"
                                         >
                                             Click More
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <a
-                                href="#"
-                                className="flex bg-base-100 text-base-content shadow-md lg:hidden flex-col items-center rounded-lg md:flex-row md:max-w-xl font-poppins"
-                            >
-                                <img
-                                    className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                                    src={item.imgUrl}
-                                    alt=""
-                                />
-                                <div className="flex flex-col justify-between p-4 leading-normal">
-                                    <h5 className="mb-2 text-2xl font-bold tracking-tight font-bandal">
-                                        {item.title}
-                                    </h5>
-                                    <p className="mb-3 font-normal">
-                                        {item.desc}
-                                    </p>
-                                    <div className="card-actions">
-                                        <a
-                                            href={item.href}
-                                            className="btn btn-sm btn-warning"
-                                        >
-                                            Click More
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
                         </>
                     );
                 })}

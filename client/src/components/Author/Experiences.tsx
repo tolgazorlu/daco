@@ -38,7 +38,7 @@ const experienced = [
 
 export default function Experiences() {
     return (
-        <section className="px-8 lg:px-32 h-screen bg-base-200 flex flex-col justify-center text-base-content font-poppins">
+        <section className="px-4 lg:px-24 h-screen bg-base-200 flex flex-col justify-center text-base-content font-poppins">
             <h2 className="text-4xl tracking-tight font-extrabold text-center">
                 Experiences
             </h2>
@@ -48,7 +48,7 @@ export default function Experiences() {
                     return (
                         <>
                             <li className="mb-10 ml-4">
-                                <div className="absolute w-3 h-3 bg-accent rounded-full mt-1.5 -left-1.5 border border-accent"></div>
+                                <div className="absolute w-3 h-3 bg-accent rounded mt-1.5 -left-1.5 border border-accent"></div>
                                 <time className="mb-1 text-md font-bold leading-none text-primary">
                                     {item.title}
                                 </time>

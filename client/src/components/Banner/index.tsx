@@ -5,14 +5,14 @@ const index = () => {
     return (
         <>
             <Layout />
-            <section className="lg:grid grid-cols-2 px-4 lg:px-32">
+            <section className="lg:grid grid-cols-2 px-4 lg:px-24">
                 <div className="h-screen md:snap-start flex flex-col justify-center">
                     <a
                         href="https://discord.gg/VWz8eYjtf3"
-                        className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full md:w-1/2 lg:w-2/3"
+                        className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-xl md:w-1/2 lg:w-2/3"
                         role="alert"
                     >
-                        <span className="text-xs bg-primary text-primary-content rounded-full px-4 py-1.5 mr-3">
+                        <span className="text-xs bg-primary text-primary-content rounded-lg px-4 py-1.5 mr-3">
                             Discord
                         </span>{" "}
                         <span className="text-sm font-medium">
@@ -31,14 +31,14 @@ const index = () => {
                             ></path>
                         </svg>
                     </a>
-                    <span className="text-9xl font-bandal font-bold text-primary">
-                        daco
+                    <span className="text-6xl lg:text-8xl font-aubette font-bold text-primary">
+                        DACOSPACE
                     </span>
-                    <span className="mb-4 text-xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl font-poppins">
-                        Don't Break The Chain
+                    <span className="mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-5xl font-poppins">
+                        Don't Brake The Chain!
                     </span>
                     <p className="mb-8 text-lg font-normal lg:text-xl font-poppins">
-                        Discover daily algorithms at{" "}
+                        Discover daily problems at{" "}
                         <span className="font-bandal text-primary text-3xl">
                             daco
                         </span>
@@ -48,7 +48,7 @@ const index = () => {
                     <div className="flex flex-col mt-8 mb-8 lg:mb-16 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                         <a
                             href="/login"
-                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary text-primary-content"
+                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded bg-primary text-primary-content"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const index = () => {
                         </a>
                         <a
                             href="https://github.com/tolgazorlu/daco"
-                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded-lg bg-primary-content text-primary border border-primary"
+                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded bg-primary-content text-primary border border-primary"
                         >
                             Learn more
                             <svg

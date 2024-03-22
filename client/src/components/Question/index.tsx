@@ -105,109 +105,104 @@ const Question = () => {
                 theme="colored"
             />
             <Layout />
-            {congratsAnimation ? (
-                <div
-                    className="fixed h-[93vh] z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
-                    onClick={animationCloseHandler}
-                >
-                    <span className="text-5xl sm:text-6xl md:text-8xl text-primary-content font-bandal relative animate-congrats">
-                        Congratulations!
-                    </span>
-                </div>
-            ) : (
-                <></>
-            )}
-            <div>
-                <div className="py-10 px-2 lg:px-32 gap-4 mt-14 md:p-10">
-                    {userInfo?.isAdmin ? (
-                        <a
-                            href={`/question/${slug}/edit`}
-                            className={
-                                problem.level === "easy"
-                                    ? "btn btn-success btn-sm float-right text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
-                                    : problem.level === "medium"
-                                      ? "btn btn-warning btn-sm float-right text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
-                                      : "btn btn-error btn-sm float-right text-error-content text-sm font-medium me-2 px-2.5 py-0.5"
-                            }
-                        >
-                            Edit Problem
-                        </a>
-                    ) : (
-                        <div
-                            className={
-                                problem.level === "easy"
-                                    ? "btn btn-success btn-sm float-right  text-success-content text-sm font-medium me-2 px-2.5 py-0.5"
-                                    : problem.level === "medium"
-                                      ? "btn btn-warning btn-sm float-right text-warning-content text-sm font-medium me-2 px-2.5 py-0.5"
-                                      : "btn btn-error btn-sm float-right text-error-content text-sm font-medium me-2 px-2.5 py-0.5 "
-                            }
-                        >
-                            {problem.level}
+
+            <main>
+                <div className="py-10 px-4 lg:px-24 gap-4 mt-20 md:p-10 h-[85vh] lg:h-[90vh]">
+                    <div className="h-5/6 overflow-x-scroll">
+                        {userInfo?.isAdmin ? (
+                            <a
+                                href={`/question/${slug}/edit`}
+                                className={
+                                    problem.level === "easy"
+                                        ? "btn btn-success btn-sm float-right text-success-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
+                                        : problem.level === "medium"
+                                          ? "btn btn-warning btn-sm float-right text-warning-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
+                                          : "btn btn-error btn-sm float-right text-error-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
+                                }
+                            >
+                                Edit Problem
+                            </a>
+                        ) : (
+                            <div
+                                className={
+                                    problem.level === "easy"
+                                        ? "btn btn-success btn-sm float-right  text-success-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
+                                        : problem.level === "medium"
+                                          ? "btn btn-warning btn-sm float-right text-warning-content text-sm font-medium me-2 px-2.5 py-0.5 rounded"
+                                          : "btn btn-error btn-sm float-right text-error-content text-sm font-medium me-2 px-2.5 py-0.5 rounded "
+                                }
+                            >
+                                {problem.level}
+                            </div>
+                        )}
+                        <div className="prose lg:prose-xl">
+                            <Markdown
+                                remarkPlugins={[remarkGfm, remarkToc]}
+                                rehypePlugins={[rehypeHighlight]}
+                                children={problem.description}
+                            />
                         </div>
-                    )}
-                    <div className="flex items-center gap-4">
-                        <div className="bg-neutral fixed right-0 left-0 bottom-0 w-full px-4 lg:px-32 py-6 flex justify-between items-center">
-                            <span className="text-3xl font-bandal text-neutral-content">
-                                {problem.title}{" "}
-                            </span>
-                            {isSolved ? (
-                                <button className="btn btn-success btn-sm sm:w-64">
-                                    <span>This problem solved!</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={1.5}
-                                        stroke="currentColor"
-                                        className="w-5 h-5"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                                        />
-                                    </svg>
-                                </button>
-                            ) : (
-                                <form className="flex flex-col md:flex-row gap-4">
-                                    <input
-                                        className="px-4 py-1 rounded-md bg-neutral-content text-neutral placeholder:text-neutral"
-                                        placeholder="Enter answer here!"
-                                        value={answer}
-                                        onChange={(e) =>
-                                            setAnswer(e.target.value)
-                                        }
-                                    />
-                                    {solveProblemLoading ? (
-                                        <button className="btn btn-warning btn-sm w-32">
-                                            <span className="loading loading-spinner"></span>
-                                        </button>
-                                    ) : (
-                                        <button
-                                            className="btn btn-primary btn-sm w-full md:w-32"
-                                            onClick={submitHandler}
-                                        >
-                                            Submit
-                                        </button>
-                                    )}
-                                </form>
-                            )}
-                        </div>
-                        <span className="text-3xl font-bold">
-                            {" "}
+                    </div>
+
+                    <div className="flex justify-between items-center fixed right-0 left-0 bottom-0 w-full px-4 lg:px-24 bg-base-300 h-1/6">
+                        <span className="text-xl md:text-3xl font-bandal text-base-content">
                             {problem.title}{" "}
                         </span>
-                    </div>
-                    <br></br>
-                    <div className="prose">
-                        <Markdown
-                            remarkPlugins={[remarkGfm, remarkToc]}
-                            rehypePlugins={[rehypeHighlight]}
-                            children={problem.description}
-                        />
+                        {isSolved ? (
+                            <button className="btn btn-success btn-sm sm:w-64 rounded">
+                                <span>This problem solved!</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="w-5 h-5"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                    />
+                                </svg>
+                            </button>
+                        ) : (
+                            <form className="flex flex-col md:flex-row gap-4">
+                                <input
+                                    className="px-4 py-1 rounded bg-neutral-content text-neutral placeholder:text-neutral"
+                                    placeholder="Enter answer here!"
+                                    value={answer}
+                                    onChange={(e) => setAnswer(e.target.value)}
+                                />
+                                {solveProblemLoading ? (
+                                    <button className="btn btn-warning btn-sm w-32 rounded">
+                                        <span className="loading loading-spinner"></span>
+                                    </button>
+                                ) : (
+                                    <button
+                                        className="btn btn-primary btn-sm w-full md:w-32 rounded"
+                                        onClick={submitHandler}
+                                    >
+                                        Submit
+                                    </button>
+                                )}
+                            </form>
+                        )}
+                        {congratsAnimation ? (
+                            <div
+                                className="fixed bottom-0 p-2 z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
+                                onClick={animationCloseHandler}
+                            >
+                                <span className="text-4xl sm:text-5xl md:text-7xl text-primary-content font-bandal relative animate-congrats">
+                                    Congratulations!
+                                </span>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
                     </div>
                 </div>
-            </div>
+            </main>
         </>
     );
 };

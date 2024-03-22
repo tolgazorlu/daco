@@ -28,7 +28,7 @@ const ProblemsTable = () => {
     return (
         <>
             {isLoading ? (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="shadow-lg">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
                         <div className="stat-title">All Problems</div>
                         <div className="alert flex justify-center">
@@ -37,7 +37,7 @@ const ProblemsTable = () => {
                     </div>
                 </div>
             ) : error ? (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="shadow-lg">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
                         <div className="stat-title">All Problems</div>
                         <div className="alert alert-error">
@@ -59,7 +59,7 @@ const ProblemsTable = () => {
                     </div>
                 </div>
             ) : (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="shadow-lg border rounded">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
                         <div className="stat-title">All Problems</div>
                         <table className="table table-xs font-poppins table-zebra">
@@ -94,12 +94,12 @@ const ProblemsTable = () => {
                                             <td className="flex gap-1 h-12 items-center float-right">
                                                 <a
                                                     href={`/question/${item.slug}`}
-                                                    className="btn btn-xs btn-info text-info-content hover:bg-info/50"
+                                                    className="btn btn-xs btn-info text-info-content hover:bg-info/50 rounded"
                                                 >
                                                     Detail
                                                 </a>
                                                 <a
-                                                    className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50"
+                                                    className="btn btn-xs btn-warning text-warning-content hover:bg-warning/50 rounded"
                                                     href={`/question/${item.slug}/edit`}
                                                 >
                                                     Edit
@@ -116,7 +116,7 @@ const ProblemsTable = () => {
                                                             item._id,
                                                         );
                                                     }}
-                                                    className="btn btn-xs btn-error text-error-content hover:bg-error/50"
+                                                    className="btn btn-xs btn-error text-error-content hover:bg-error/50 rounded"
                                                 >
                                                     Delete
                                                 </button>

@@ -6,27 +6,13 @@ const ContactTable = () => {
     return (
         <>
             {isLoading ? (
-                <div className="p-2 rounded-lg">
-                    <div className="overflow-x-auto">
-                        <table className="table font-poppins">
-                            <caption className="text-left text-xl font-bold mb-4">
-                                Contact Messages
-                            </caption>
-                        </table>
-                    </div>
+                <div className="rounded">
                     <div className="alert flex justify-center">
                         <span className="loading loading-lg"></span>
                     </div>
                 </div>
             ) : error ? (
-                <div className="p-2 rounded-lg">
-                    <div className="overflow-x-auto">
-                        <table className="table font-poppins">
-                            <caption className="text-left text-xl font-bold mb-4">
-                                Contact Messages
-                            </caption>
-                        </table>
-                    </div>
+                <div className="rounded">
                     <div className="alert alert-error">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -41,13 +27,13 @@ const ContactTable = () => {
                                 d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                             />
                         </svg>
-                        <span>Error! Something went wrong.</span>
+                        <span>Error! Messages can not loaded.</span>
                     </div>
                 </div>
             ) : (
-                <div className="p-2 stats shadow-lg border border-base-300">
+                <div className="stats shadow-lg border border-base-300 rounded">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
-                        <div className="stat-title">All Users</div>
+                        <div className="stat-title font-bold">Messages</div>
                         <table className="table table-xs font-poppins table-zebra">
                             <thead>
                                 <tr>

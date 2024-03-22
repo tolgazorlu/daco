@@ -60,7 +60,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
 
     return (
         <nav
-            className={`navbar fixed top-0 z-30 w-full px-4 lg:px-32 ${location.pathname === "/" ? "" : "bg-base-100 border-b border-base-300"}`}
+            className={`navbar fixed top-0 z-30 w-full px-4 lg:px-24 ${location.pathname === "/" ? "" : "bg-base-100 border-b border-base-300"}`}
         >
             <div className="navbar-start">
                 <button
@@ -96,7 +96,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                     className="flex items-center gap-2 normal-case text-xl"
                 >
                     <span className="font-bold text-3xl font-bandal text-primary">
-                        daco
+                        dacospace
                     </span>
                 </a>
             </div>
@@ -137,12 +137,12 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="dropdown-content z-[1] menu p-2 shadow-lg border border-base-300 bg-base-300 rounded-box text-neutral-content min-w-max"
+                            className="dropdown-content z-[1] menu p-2 shadow-lg border border-base-300 bg-base-300 rounded text-neutral-content min-w-max"
                         >
                             <li>
                                 <a
                                     href="/profile"
-                                    className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content gap-6"
+                                    className="px-4 py-3 text-sm flex items-center justify-between hover:text-neutral-content gap-6 rounded"
                                 >
                                     <div>
                                         <img
@@ -170,7 +170,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                                 <li>
                                     <a
                                         href="/dashboard"
-                                        className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
+                                        className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between rounded"
                                     >
                                         <span>Dashboard</span>
                                         <svg
@@ -195,7 +195,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                             <li>
                                 <button
                                     onClick={handleThemeClick}
-                                    className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
+                                    className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between rounded"
                                 >
                                     <span>Theme</span>
                                     {theme == "light" ? (
@@ -229,7 +229,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                             <li>
                                 <button
                                     onClick={signoutHandler}
-                                    className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between"
+                                    className="text-base-content hover:text-primary-content hover:bg-primary flex justify-between rounded"
                                 >
                                     <span>Logout</span>
                                     <svg
@@ -253,7 +253,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                 ) : (
                     <a
                         href="/login"
-                        className="btn font-poppins btn-sm btn-primary text-primary-content hover:primary/50"
+                        className="btn font-poppins btn-sm btn-primary text-primary-content hover:primary/50 rounded"
                     >
                         Login
                     </a>

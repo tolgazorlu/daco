@@ -53,7 +53,7 @@ const Counter = () => {
         <div className="grid grid-flow-col gap-6 text-center auto-cols-max justify-center">
             {/* Display hours */}
             <div className="flex flex-col p-2">
-                <span className="countdown text-6xl font-aubette justify-center text-primary">
+                <span className="countdown text-4xl lg:text-6xl font-aubette justify-center text-primary">
                     <span style={hourstyle}></span>
                 </span>
                 <span className="font-poppins text-xs lg:text-md">
@@ -61,7 +61,7 @@ const Counter = () => {
                 </span>
             </div>
             <div className="flex flex-col p-2">
-                <span className="countdown text-6xl font-aubette justify-center text-primary">
+                <span className="countdown text-4xl lg:text-6xl font-aubette justify-center text-primary">
                     <span style={minutestyle}></span>
                 </span>
                 <span className="font-poppins text-xs lg:text-md">
@@ -69,7 +69,7 @@ const Counter = () => {
                 </span>
             </div>
             <div className="flex flex-col p-2">
-                <span className="countdown text-6xl font-aubette justify-center text-primary">
+                <span className="countdown text-4xl lg:text-6xl font-aubette justify-center text-primary">
                     <span style={secondstyle}></span>
                 </span>
                 <span className="font-poppins text-xs lg:text-md">

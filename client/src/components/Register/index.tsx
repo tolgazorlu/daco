@@ -143,7 +143,7 @@ const Register = () => {
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 placeholder="Username"
-                                className="w-full input input-bordered input-primary"
+                                className="w-full input input-bordered input-primary rounded"
                                 required
                             />
                         </div>
@@ -158,7 +158,7 @@ const Register = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email Address"
-                                className="w-full input input-bordered input-primary"
+                                className="w-full input input-bordered input-primary rounded"
                                 required
                             />
                         </div>
@@ -176,7 +176,7 @@ const Register = () => {
                                     validatePassword(e.target.value);
                                 }}
                                 placeholder="Enter Password"
-                                className="w-full input input-bordered input-primary"
+                                className="w-full input input-bordered input-primary rounded"
                                 required
                             />
                             {strength > 0 ? (
@@ -225,7 +225,7 @@ const Register = () => {
                                     checkPasswordisMatch(e.target.value);
                                 }}
                                 placeholder="Confirm Password"
-                                className="w-full input input-bordered input-primary"
+                                className="w-full input input-bordered input-primary rounded"
                                 required
                             />
                         </div>
@@ -247,8 +247,8 @@ const Register = () => {
                             <button
                                 className={
                                     strength > 3 && isPasswordMatched
-                                        ? "px-6 btn w-full btn-primary text-primary-content font-poppins "
-                                        : "px-6 btn w-full btn-disabled font-poppins "
+                                        ? "px-6 btn w-full btn-primary text-primary-content font-poppins rounded"
+                                        : "px-6 btn w-full btn-disabled font-poppins rounded"
                                 }
                             >
                                 {isLoading ? (

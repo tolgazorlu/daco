@@ -102,7 +102,7 @@ const Login = () => {
                                     validateEmail(e.target.value);
                                 }}
                                 placeholder="Email Address"
-                                className="w-full input input-bordered input-primary"
+                                className="w-full input input-bordered input-primary rounded"
                                 required
                             />
                             {!emailValidate && email.length > 10 ? (
@@ -124,7 +124,7 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter Password"
-                                className="w-full input input-bordered input-primary"
+                                className="w-full input input-bordered input-primary rounded"
                                 required
                             />
                         </div>
@@ -148,7 +148,7 @@ const Login = () => {
                         </div>
 
                         <div>
-                            <button className="btn w-full bg-primary text-primary-content font-poppins">
+                            <button className="btn w-full bg-primary text-primary-content font-poppins rounded">
                                 {isLoading ? (
                                     <VscLoading className="animate-spin" />
                                 ) : (

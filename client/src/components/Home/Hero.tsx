@@ -36,7 +36,7 @@ const Hero = () => {
 
     return (
         <section className="h-screen flex flex-col justify-between ">
-            <div className="mt-20 flex flex-col gap-4 p-4 px-32 h-5/6 overflow-scroll">
+            <div className="mt-20 flex flex-col gap-4 p-4 px-4 lg:px-24 h-5/6 overflow-scroll">
                 <div className="flex flex-col gap-3">
                     <div className="text-2xl flex flex-col gap-4">
                         {problems
@@ -47,11 +47,11 @@ const Hero = () => {
                                         <div className="flex flex-col">
                                             {parseInt(day._id) ==
                                             userInfo?.currentDay ? (
-                                                <span className="text-center px-6 p-2 rounded-lg bg-primary text-primary-content mb-4 font-aubette">
+                                                <span className="text-center px-6 p-2 rounded bg-primary text-primary-content mb-4 font-aubette">
                                                     {day._id}. DAY - TODAY
                                                 </span>
                                             ) : (
-                                                <span className="text-center px-6 p-2 rounded-lg bg-base-300 text-base-content mb-4 font-extrabold font-aubette">
+                                                <span className="text-center px-6 p-2 rounded bg-base-300 text-base-content mb-4 font-extrabold font-aubette">
                                                     {day._id}. DAY
                                                 </span>
                                             )}
@@ -69,14 +69,14 @@ const Hero = () => {
                                                                 solvedArray.includes(
                                                                     item._id,
                                                                 )
-                                                                    ? "max-w-lg p-6 rounded-lg hover:bg-base-300 bg-base-200 shadow-lg flex flex-col gap-2"
+                                                                    ? "max-w-lg p-6 rounded hover:bg-base-300 bg-base-200 shadow-lg flex flex-col gap-2"
                                                                     : item.level ==
                                                                         "easy"
-                                                                      ? "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-success text-success-content shadow-lg flex flex-col gap-2"
+                                                                      ? "max-w-lg p-6 rounded hover:bg-base-300 hover:text-base-content bg-success text-success-content shadow-lg flex flex-col gap-2"
                                                                       : item.level ==
                                                                           "medium"
-                                                                        ? "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-warning text-warning-content shadow-lg flex flex-col gap-2"
-                                                                        : "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-error text-error-content shadow-lg flex flex-col gap-2"
+                                                                        ? "max-w-lg p-6 rounded hover:bg-base-300 hover:text-base-content bg-warning text-warning-content shadow-lg flex flex-col gap-2"
+                                                                        : "max-w-lg p-6 rounded hover:bg-base-300 hover:text-base-content bg-error text-error-content shadow-lg flex flex-col gap-2"
                                                             }
                                                         >
                                                             <span className="text-xl font-bold font-poppins">
@@ -96,7 +96,7 @@ const Hero = () => {
 
             <div className="flex flex-col justify-center items-center bg-base-300 w-full h-1/6 overflow-hidden">
                 <Counter />
-                <span className="font-bandal text-2xl text-accent font-bold">
+                <span className="font-bandal hidden lg:flex text-2xl text-accent font-bold">
                     left
                 </span>
             </div>

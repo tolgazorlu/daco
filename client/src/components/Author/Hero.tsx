@@ -3,14 +3,14 @@ import TolgaZorluImage from "../../assets/auhtor/tolgazorlu.jpg";
 
 const Hero = () => {
     return (
-        <section className="lg:grid grid-cols-2 px-8 lg:px-32">
+        <section className="lg:grid grid-cols-2 px-4 lg:px-24">
             <div className="h-screen md:snap-start flex flex-col justify-center">
                 <a
                     href="https://www.youtube.com/channel/UCbQ2CNMwWjNeRDaXoKi9eAA"
-                    className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full md:w-1/2 lg:w-2/3"
+                    className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-xl md:w-1/2 lg:w-2/3"
                     role="alert"
                 >
-                    <span className="text-xs bg-warning text-warning-content rounded-full px-4 py-1.5 mr-3">
+                    <span className="text-xs bg-warning text-warning-content rounded-lg px-4 py-1.5 mr-3">
                         New
                     </span>{" "}
                     <span className="text-sm font-medium">
@@ -50,7 +50,7 @@ const Hero = () => {
                         download="TolgaZorluCV"
                         target="_blank"
                         rel="noreferrer"
-                        className="font-poppins font-bold inline-flex justify-center items-center py-3 px-5 text-center rounded-lg bg-warning text-warning-content shadow-md"
+                        className="font-poppins font-bold inline-flex justify-center items-center py-3 px-5 text-center rounded bg-warning text-warning-content shadow-md"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const Hero = () => {
                     </a>
                     <a
                         href="mailto:tolgazorlu17@gmail.com"
-                        className="font-poppins font-bold inline-flex justify-center items-center py-3 px-5 text-center rounded-lg bg-neutral text-neutral-content shadow-md"
+                        className="font-poppins font-bold inline-flex justify-center items-center py-3 px-5 text-center rounded bg-neutral text-neutral-content shadow-md"
                     >
                         Contact Me
                         <svg
@@ -91,10 +91,10 @@ const Hero = () => {
                 </div>
             </div>
             <div className="hidden h-screen lg:flex flex-col items-center justify-center gap-10 ">
-                <div className="w-72 h-72 absolute rounded-md bg-warning -mt-8 -mr-8"></div>
-                <div className="w-72 h-72 rounded-md bg-neutral"></div>
+                <div className="w-72 h-72 absolute rounded bg-warning -mt-8 -mr-8"></div>
+                <div className="w-72 h-72 rounded bg-neutral"></div>
                 <img
-                    className="w-72 absolute rounded-md -mt-16 -mr-16"
+                    className="w-72 absolute rounded -mt-16 -mr-16"
                     src={TolgaZorluImage}
                 />
             </div>
