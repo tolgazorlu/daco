@@ -60,7 +60,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
 
     return (
         <nav
-            className={`navbar fixed top-0 z-30 w-full lg:px-32 px-8 ${location.pathname === "/" ? "" : "bg-base-100 border-b border-base-300"}`}
+            className={`navbar fixed top-0 z-30 w-full px-4 lg:px-32 ${location.pathname === "/" ? "" : "bg-base-100 border-b border-base-300"}`}
         >
             <div className="navbar-start">
                 <button
@@ -118,6 +118,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
             </div>
             <div className="navbar-end">
                 {/** USER PROCESS */}
+
                 {userInfo ? (
                     <div className="dropdown dropdown-end">
                         <label

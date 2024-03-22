@@ -5,7 +5,7 @@ const index = () => {
     return (
         <>
             <Layout />
-            <section className="lg:grid grid-cols-2 px-8 lg:px-32">
+            <section className="lg:grid grid-cols-2 px-4 lg:px-32">
                 <div className="h-screen md:snap-start flex flex-col justify-center">
                     <a
                         href="https://discord.gg/VWz8eYjtf3"

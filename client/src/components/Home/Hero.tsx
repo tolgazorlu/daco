@@ -36,7 +36,7 @@ const Hero = () => {
 
     return (
         <section className="h-screen flex flex-col justify-between ">
-            <div className="mt-20 flex flex-col gap-4 p-4 px-12 h-5/6 overflow-scroll">
+            <div className="mt-20 flex flex-col gap-4 p-4 px-32 h-5/6 overflow-scroll">
                 <div className="flex flex-col gap-3">
                     <div className="text-2xl flex flex-col gap-4">
                         {problems
@@ -79,7 +79,7 @@ const Hero = () => {
                                                                         : "max-w-lg p-6 rounded-lg hover:bg-base-300 hover:text-base-content bg-error text-error-content shadow-lg flex flex-col gap-2"
                                                             }
                                                         >
-                                                            <span className="text-2xl font-bold font-poppins">
+                                                            <span className="text-xl font-bold font-poppins">
                                                                 {item.title}
                                                             </span>
                                                         </a>
