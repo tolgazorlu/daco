@@ -35,8 +35,8 @@ const Hero = () => {
     }
 
     return (
-        <section className="h-screen flex flex-col justify-between overflow-scroll">
-            <div className="mt-20 flex flex-col gap-4 p-4 px-12">
+        <section className="h-screen flex flex-col justify-between ">
+            <div className="mt-20 flex flex-col gap-4 p-4 px-12 h-5/6 overflow-scroll">
                 <div className="flex flex-col gap-3">
                     <div className="text-2xl flex flex-col gap-4">
                         {problems
@@ -82,25 +82,6 @@ const Hero = () => {
                                                             <span className="text-2xl font-bold font-poppins">
                                                                 {item.title}
                                                             </span>
-                                                            <p className="text-sm">
-                                                                Lorem ipsum
-                                                                dolor sit amet,
-                                                                consectetur
-                                                                adipiscing elit,
-                                                                sed do eiusmod
-                                                                tempor
-                                                                incididunt ut
-                                                                labore et dolore
-                                                                magna aliqua. Ut
-                                                                enim ad minim
-                                                                veniam, quis
-                                                                nostrud
-                                                                exercitation
-                                                                ullamco laboris
-                                                                nisi ut aliquip
-                                                                ex ea commodo
-                                                                consequat.
-                                                            </p>
                                                         </a>
                                                     </li>
                                                 ),
@@ -113,9 +94,9 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col justify-center items-center bg-base-300 fixed bottom-0 w-full">
+            <div className="flex flex-col justify-center items-center bg-base-300 w-full h-1/6 overflow-hidden">
                 <Counter />
-                <span className="font-bandal text-4xl text-accent font-bold">
+                <span className="font-bandal text-2xl text-accent font-bold">
                     left
                 </span>
             </div>
