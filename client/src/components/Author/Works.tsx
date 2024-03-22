@@ -1,6 +1,6 @@
-import DacoBanner from "../../assets/daco-banner.png";
-import DaleBanner from "../../assets/dale-banner.png";
-import BigbangBanner from "../../assets/bigbang-banner.png";
+import DacoBanner from "../../assets/auhtor/daco-banner.png";
+import DaleBanner from "../../assets/auhtor/dale-banner.png";
+import BigbangBanner from "../../assets/auhtor/bigbang-banner.png";
 
 const works = [
     {

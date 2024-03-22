@@ -1,5 +1,5 @@
 import Layout from "../Layouts";
-import Image from "./illustration.svg";
+import Image from "../../assets/banner/illustration.svg";
 
 const index = () => {
     return (

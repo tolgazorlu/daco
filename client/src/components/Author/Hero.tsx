@@ -1,5 +1,5 @@
-import TolgaZorluCV from "../../assets/TolgaZorluCV.pdf";
-import TolgaZorluImage from "../../assets/tolgazorlu.jpg";
+import TolgaZorluCV from "../../assets/auhtor/TolgaZorluCV.pdf";
+import TolgaZorluImage from "../../assets/auhtor/tolgazorlu.jpg";
 
 const Hero = () => {
     return (
