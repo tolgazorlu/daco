@@ -148,7 +148,7 @@ const Login = () => {
                         </div>
 
                         <div>
-                            <button className="btn w-full bg-primary text-primary-content font-poppins rounded">
+                            <button className="btn w-full btn-primary text-primary-content font-poppins rounded">
                                 {isLoading ? (
                                     <VscLoading className="animate-spin" />
                                 ) : (
