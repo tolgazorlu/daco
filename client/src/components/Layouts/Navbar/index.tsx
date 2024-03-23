@@ -95,7 +95,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                     href="/"
                     className="flex items-center gap-2 normal-case text-xl"
                 >
-                    <span className="font-bold text-3xl font-bandal text-primary">
+                    <span className="font-bold text-3xl font-bandal">
                         dacospace
                     </span>
                 </a>

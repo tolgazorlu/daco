@@ -144,13 +144,13 @@ const Question = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-between items-center fixed right-0 left-0 bottom-0 w-full px-4 lg:px-24 bg-base-300 h-1/6">
+                    <div className="flex justify-between items-center fixed right-0 left-0 bottom-0 w-full px-4 lg:px-24 bg-base-300 py-8">
                         <span className="text-xl md:text-3xl font-bandal text-base-content">
                             {problem.title}{" "}
                         </span>
                         {isSolved ? (
                             <button className="btn btn-success btn-sm sm:w-64 rounded">
-                                <span>This problem solved!</span>
+                                <span>This problem is solved!</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -169,7 +169,7 @@ const Question = () => {
                         ) : (
                             <form className="flex flex-col md:flex-row gap-4">
                                 <input
-                                    className="px-4 py-1 rounded bg-neutral-content text-neutral placeholder:text-neutral"
+                                    className="px-4 py-1 rounded input-sm border border-primary"
                                     placeholder="Enter answer here!"
                                     value={answer}
                                     onChange={(e) => setAnswer(e.target.value)}
@@ -190,7 +190,7 @@ const Question = () => {
                         )}
                         {congratsAnimation ? (
                             <div
-                                className="fixed bottom-0 p-2 z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
+                                className="fixed bottom-0 left-0 p-2 z-20 w-full bg-gradient-to-r from-primary to-accent flex justify-center items-center animate-leftToRight"
                                 onClick={animationCloseHandler}
                             >
                                 <span className="text-4xl sm:text-5xl md:text-7xl text-primary-content font-bandal relative animate-congrats">

@@ -96,7 +96,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
                 </ul>
                 <div
                     id="dropdown-cta"
-                    className="p-4 mt-6 rounded-lg bg-primary font-poppins"
+                    className="p-4 mt-6 rounded bg-primary font-poppins"
                     role="alert"
                 >
                     <div className="flex items-center mb-3">

@@ -87,8 +87,11 @@ const EditProblem = () => {
 
             {/* Publish or Save Action Section */}
 
-            <section className="px-8 lg:px-32 mt-20 h-16 flex gap-4 bg-neutral justify-between items-center overflow-y-auto">
-                <div className="flex gap-4 items-center text-neutral-content">
+            <section
+                tabIndex={0}
+                className="mt-20 flex justify-between py-2 px-4  bg-base-200 rounded-none"
+            >
+                <div className="flex gap-4 items-center rounded">
                     <label>Day:</label>
                     <input
                         type="number"
@@ -96,7 +99,7 @@ const EditProblem = () => {
                         id="day"
                         value={day}
                         onChange={(e) => setDay(parseInt(e.target.value))}
-                        className="input input-bordered input-sm w-20 bg-base-200 text-base-content"
+                        className="input input-bordered input-sm w-20 rounded"
                     />
                     |<label>Title:</label>
                     <input
@@ -105,13 +108,13 @@ const EditProblem = () => {
                         id="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="input input-bordered input-sm w-32  bg-base-200 text-base-content"
+                        className="input input-bordered input-sm w-32 rounded"
                         placeholder="Algorithm title"
                     />
                     |<label>Difficulty:</label>
                     <select
                         id="difficulty"
-                        className="input input-bordered input-sm  bg-base-200 text-base-content"
+                        className="input input-bordered input-sm rounded"
                         value={level}
                         onChange={(e) => setLevel(e.target.value)}
                     >
@@ -122,7 +125,7 @@ const EditProblem = () => {
                     </select>
                     |<label>Answer:</label>
                     <input
-                        className="input input-bordered input-sm w-32  bg-base-200 text-base-content"
+                        className="input input-bordered input-sm w-32 rounded"
                         type="text"
                         name="answer"
                         id="answer"
@@ -131,11 +134,11 @@ const EditProblem = () => {
                     ></input>
                 </div>
                 <div className="gap-2 h-full flex items-center">
-                    <button className="btn btn-accent text-accent-content btn-sm">
+                    <button className="btn btn-accent text-accent-content rounded btn-sm">
                         Save Draft
                     </button>
                     <button
-                        className="btn btn-primary text-primary-content btn-sm"
+                        className="btn btn-primary text-primary-content rounded btn-sm"
                         onClick={() => {
                             updateProblemHandler();
                         }}
