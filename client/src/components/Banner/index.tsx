@@ -44,7 +44,7 @@ const index = () => {
                         </span>
                     </h1>
                     <span className="mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-5xl font-poppins">
-                        Don't Brake The Chain!
+                        Don't Break The Chain!
                     </span>
                     <p className="mb-8 text-lg font-normal lg:text-xl font-poppins">
                         Discover daily problems at{" "}
