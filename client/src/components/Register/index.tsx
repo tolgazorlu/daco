@@ -125,7 +125,7 @@ const Register = () => {
             <Layout />
             <div className="flex h-screen justify-center items-center">
                 <div className="p-2 md:px-8 w-full md:w-1/2">
-                    <h1 className="text-3xl font-semibold text-center text-neutral font-poppins">
+                    <h1 className="text-3xl font-semibold text-center font-poppins">
                         REGISTER
                     </h1>
                     <form
