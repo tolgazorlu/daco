@@ -1,9 +1,9 @@
 import TolgaZorluCV from "../../assets/auhtor/TolgaZorluCV.pdf";
 const Window = () => {
     return (
-        <div className="hidden md:h-screen lg:flex flex-col justify-center p-6 w-[100vh]">
-            <div className="mockup-window bg-base-200 shadow-2xl">
-                <div className="px-16 py-8">
+        <div className="md:h-screen lg:flex flex-col justify-center p-6 w-[100vh]">
+            <div className="mt-20 mockup-window bg-base-200 shadow-2xl">
+                <div className="p-4 md:px-16 md:py-8">
                     <code className="whitespace-pre-wrap bg-base-200">
                         <span className="text-base-content/50 hover:text-base-content  italic ">
                             // Author: Tolga Zorlu
