@@ -184,12 +184,12 @@ const Register = () => {
                                     hidden={password.length === 0}
                                     className={
                                         strength == 1
-                                            ? "progress w-full progress-error"
+                                            ? "w-full h-5 mt-2 progress-error"
                                             : strength == 2
-                                              ? "progress w-full progress-warning"
+                                              ? "transition rounded w-full h-5 mt-2 progress-warning"
                                               : strength == 3
-                                                ? "progress w-full progress-info"
-                                                : "progress w-full progress-success"
+                                                ? "rounded w-full h-5 mt-2 progress-info"
+                                                : "rounded w-full h-5 mt-2 progress-success"
                                     }
                                     value={strength}
                                     max="4"
