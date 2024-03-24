@@ -79,7 +79,7 @@ const Login = () => {
             <Layout />
             <div className="flex h-screen justify-center items-center">
                 <div className="p-2 md:px-8 w-full md:w-1/2">
-                    <h1 className="text-3xl font-semibold text-center text-primary font-poppins">
+                    <h1 className="text-3xl font-semibold text-center text-neutral font-poppins">
                         LOGIN
                     </h1>
                     <form
@@ -102,7 +102,7 @@ const Login = () => {
                                     validateEmail(e.target.value);
                                 }}
                                 placeholder="Email Address"
-                                className="w-full input input-bordered input-primary rounded"
+                                className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
                             {!emailValidate && email.length > 10 ? (
@@ -124,7 +124,7 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter Password"
-                                className="w-full input input-bordered input-primary rounded"
+                                className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
                         </div>
@@ -132,7 +132,7 @@ const Login = () => {
                             <div>
                                 <a
                                     href="/forgot-password"
-                                    className="text-xs text-info hover:underline"
+                                    className="text-xs text-primary hover:underline"
                                 >
                                     Forgot password
                                 </a>
@@ -140,7 +140,7 @@ const Login = () => {
                             <div>
                                 <a
                                     href="/register"
-                                    className="text-xs text-secondary hover:underline"
+                                    className="text-xs text-info hover:underline"
                                 >
                                     If you don't have any account
                                 </a>
@@ -148,7 +148,7 @@ const Login = () => {
                         </div>
 
                         <div>
-                            <button className="btn w-full btn-primary text-primary-content font-poppins rounded">
+                            <button className="btn w-full btn-neutral text-neutral-content font-poppins rounded">
                                 {isLoading ? (
                                     <VscLoading className="animate-spin" />
                                 ) : (

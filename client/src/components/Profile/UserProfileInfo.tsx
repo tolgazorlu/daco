@@ -34,7 +34,7 @@ const UserProfileInfo = () => {
                             />
                         </div>
                         <div className="stat">
-                            <div className="stat-figure text-primary">
+                            <div className="stat-figure text-neutral">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -65,7 +65,7 @@ const UserProfileInfo = () => {
                                             )!;
                                         el.showModal();
                                     }}
-                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50 rounded"
+                                    className="btn btn-sm btn-neutral text-neutral-content hover:text-neutral-content/50 rounded"
                                 >
                                     Update Profile
                                 </button>
@@ -77,7 +77,7 @@ const UserProfileInfo = () => {
                                         )!;
                                         el.showModal();
                                     }}
-                                    className="btn btn-sm btn-primary text-primary-content hover:text-primary-content/50 rounded"
+                                    className="btn btn-sm btn-neutral text-neutral-content hover:text-neutral-content/50 rounded"
                                 >
                                     Change Password
                                 </button>
@@ -88,7 +88,7 @@ const UserProfileInfo = () => {
 
                     <div className="stats shadow-lg border border-base-300 rounded">
                         <div className="stat shadow-lg">
-                            <div className="stat-figure text-accent">
+                            <div className="stat-figure text-neutral">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -106,14 +106,14 @@ const UserProfileInfo = () => {
                             <div className="stat-title font-bold">
                                 You're in
                             </div>
-                            <div className="stat-value text-accent">
+                            <div className="stat-value text-primary">
                                 {day}. Day
                             </div>
                             <div className="stat-desc">You're amazing!</div>
                         </div>
 
                         <div className="hidden md:stat">
-                            <div className="stat-figure text-accent">
+                            <div className="stat-figure">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -131,9 +131,7 @@ const UserProfileInfo = () => {
                             <div className="stat-title font-bold">
                                 Created At
                             </div>
-                            <div className="stat-value text-accent">
-                                {registerAt}
-                            </div>
+                            <div className="stat-value">{registerAt}</div>
                             <div className="stat-desc">
                                 You created your account this date!
                             </div>

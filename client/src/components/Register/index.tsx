@@ -125,7 +125,7 @@ const Register = () => {
             <Layout />
             <div className="flex h-screen justify-center items-center">
                 <div className="p-2 md:px-8 w-full md:w-1/2">
-                    <h1 className="text-3xl font-semibold text-center text-primary font-poppins">
+                    <h1 className="text-3xl font-semibold text-center text-neutral font-poppins">
                         REGISTER
                     </h1>
                     <form
@@ -143,7 +143,7 @@ const Register = () => {
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 placeholder="Username"
-                                className="w-full input input-bordered input-primary rounded"
+                                className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
                         </div>
@@ -158,7 +158,7 @@ const Register = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email Address"
-                                className="w-full input input-bordered input-primary rounded"
+                                className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
                         </div>
@@ -176,7 +176,7 @@ const Register = () => {
                                     validatePassword(e.target.value);
                                 }}
                                 placeholder="Enter Password"
-                                className="w-full input input-bordered input-primary rounded"
+                                className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
                             {strength > 0 ? (
@@ -225,7 +225,7 @@ const Register = () => {
                                     checkPasswordisMatch(e.target.value);
                                 }}
                                 placeholder="Confirm Password"
-                                className="w-full input input-bordered input-primary rounded"
+                                className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
                         </div>
@@ -238,7 +238,7 @@ const Register = () => {
                         <div>
                             <a
                                 href="/login"
-                                className="text-xs text-secondary hover:underline"
+                                className="text-xs text-primary hover:underline"
                             >
                                 If you have an account
                             </a>
@@ -247,7 +247,7 @@ const Register = () => {
                             <button
                                 className={
                                     strength > 3 && isPasswordMatched
-                                        ? "px-6 btn w-full btn-primary text-primary-content font-poppins rounded"
+                                        ? "px-6 btn w-full btn-neutral text-neutral-content font-poppins rounded"
                                         : "px-6 btn w-full btn-disabled font-poppins rounded"
                                 }
                             >

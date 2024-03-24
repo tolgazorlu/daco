@@ -12,7 +12,7 @@ const index = () => {
                         className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-xl md:w-1/2 lg:w-2/3"
                         role="alert"
                     >
-                        <span className="text-xs bg-primary text-primary-content rounded-lg px-4 py-1.5 mr-3">
+                        <span className="text-xs bg-neutral text-neutral-content rounded-lg px-4 py-1.5 mr-3 border">
                             Discord
                         </span>{" "}
                         <span className="text-sm font-medium">
@@ -49,7 +49,7 @@ const index = () => {
                     <p className="mb-8 text-lg font-normal lg:text-xl font-poppins">
                         Discover daily problems at{" "}
                         <span className="font-bandal text-primary text-3xl">
-                            daco
+                            dacospace
                         </span>
                         , where new algorithms are added every day across
                         various subjects.
@@ -57,7 +57,7 @@ const index = () => {
                     <div className="flex flex-col mt-8 mb-8 lg:mb-16 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                         <a
                             href="/login"
-                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded bg-primary text-primary-content"
+                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded bg-neutral text-neutral-content"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const index = () => {
                         </a>
                         <a
                             href="https://github.com/tolgazorlu/daco"
-                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded bg-primary-content text-primary border border-primary"
+                            className="font-poppins inline-flex justify-center items-center py-3 px-5 font-medium text-center rounded bg-neutral-content text-neutral border border-neutral"
                         >
                             Learn more
                             <svg

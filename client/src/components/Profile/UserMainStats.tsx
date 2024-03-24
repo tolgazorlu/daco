@@ -12,7 +12,7 @@ interface ThemeColors {
 
 const themeColors: ThemeColors = {
     light: ["#F2F2F2", "#4A00FF"],
-    dark: ["#15191E", "#747FFF"],
+    dark: ["#222A33", "#747FFF"],
 };
 
 const UserMainStats = () => {
@@ -56,7 +56,7 @@ const UserMainStats = () => {
     return (
         <div className="stats border shadow-lg border-base-300 rounded">
             <div className="hidden md:stat">
-                <div className="stat-figure text-accent">
+                <div className="stat-figure text-neutral">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -74,14 +74,14 @@ const UserMainStats = () => {
                 <div className="stat-title font-bold">
                     Total Solved Problems
                 </div>
-                <div className="stat-value text-accent">{solved}</div>
+                <div className="stat-value text-primary">{solved}</div>
                 <div className="stat-desc">
                     You created your account this date!
                 </div>
                 <div className="stat-actions">
                     <a
                         href="/"
-                        className="btn btn-sm btn-accent text-accent-content rounded"
+                        className="btn btn-sm btn-neutral text-neutral-content rounded"
                     >
                         Check New Problems
                     </a>

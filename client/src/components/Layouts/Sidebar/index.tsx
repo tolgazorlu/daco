@@ -45,8 +45,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
                                 href={item.path}
                                 className={`flex items-center p-2 rounded ${
                                     location === item.path
-                                        ? "bg-primary text-primary-content"
-                                        : "hover:bg-primary/50"
+                                        ? "bg-neutral text-neutral-content"
+                                        : "hover:bg-neutral/50"
                                 }`}
                             >
                                 {item.icon}
@@ -64,8 +64,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
                                     href={item.path}
                                     className={`flex items-center p-2 rounded ${
                                         location === item.path
-                                            ? "bg-primary text-primary-content"
-                                            : "hover:bg-primary/50"
+                                            ? "bg-neutral text-neutral-content"
+                                            : "hover:bg-neutral/50"
                                     }`}
                                 >
                                     {item.icon}
@@ -84,8 +84,8 @@ const Sidebar = (props: { isOpen: boolean }) => {
                                 href={item.path}
                                 className={`flex items-center p-2 rounded ${
                                     location === item.path
-                                        ? "bg-primary text-primary-content"
-                                        : "hover:bg-primary/50"
+                                        ? "bg-neutral text-neutral-content"
+                                        : "hover:bg-neutral/50"
                                 }`}
                             >
                                 {item.icon}
@@ -96,15 +96,15 @@ const Sidebar = (props: { isOpen: boolean }) => {
                 </ul>
                 <div
                     id="dropdown-cta"
-                    className="p-4 mt-6 rounded bg-primary font-poppins"
+                    className="p-4 mt-6 rounded bg-neutral font-poppins"
                     role="alert"
                 >
                     <div className="flex items-center mb-3">
-                        <span className="bg-primary-content text-primary text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+                        <span className="bg-neutral-content text-neutral text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
                             Beta
                         </span>
                     </div>
-                    <p className="mb-3 text-sm text-primary-content">
+                    <p className="mb-3 text-sm text-neutral-content">
                         Preview the new as{" "}
                         <span className="font-bold font-bandal text-xl">
                             daco
@@ -113,7 +113,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
                         to support the author, you can access the auhtor page.
                     </p>
                     <a
-                        className="text-sm text-primary-content underline font-medium hover:text-primary-content/50"
+                        className="text-sm text-neutral-content underline font-medium hover:text-neutral-content/50"
                         href="daco.space/author"
                         target="_blank"
                     >
