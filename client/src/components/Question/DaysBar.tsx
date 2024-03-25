@@ -39,7 +39,7 @@ const DaysBar = () => {
                     return (
                         <li
                             key={day._id}
-                            className="collapse collapse-plus bg-base-200 rounded"
+                            className="collapse collapse-arrow bg-base-200 rounded"
                         >
                             <input
                                 type="radio"
@@ -76,24 +76,48 @@ const DaysBar = () => {
                                                 </span>
                                             </a>
                                         ) : (
-                                            <a
-                                                href={item.slug}
-                                                className={
-                                                    item.level == "easy"
-                                                        ? "bg-success rounded p-2 btn border-0 justify-start"
-                                                        : item.level == "medium"
-                                                          ? "bg-warning rounded p-2 btn border-0 justify-start"
-                                                          : "bg-error rounded p-2 btn border-0 justify-start"
-                                                }
-                                            >
-                                                <input
-                                                    type="checkbox"
-                                                    className="checkbox checkbox-sm border-2 border-base-200"
-                                                />{" "}
-                                                <span className="ml-2 text-primary-content">
-                                                    {item.title}
-                                                </span>
-                                            </a>
+                                            <>
+                                                {item.level == "easy" ? (
+                                                    <a
+                                                        href={item.slug}
+                                                        className="bg-success rounded p-2 btn border-0 justify-start"
+                                                    >
+                                                        <input
+                                                            type="checkbox"
+                                                            className="checkbox checkbox-sm border-2 border-base-200"
+                                                        />{" "}
+                                                        <span className="ml-2 text-success-content">
+                                                            {item.title}
+                                                        </span>
+                                                    </a>
+                                                ) : item.level == "medium" ? (
+                                                    <a
+                                                        href={item.slug}
+                                                        className="bg-warning rounded p-2 btn border-0 justify-start"
+                                                    >
+                                                        <input
+                                                            type="checkbox"
+                                                            className="checkbox checkbox-sm border-2 border-base-200"
+                                                        />{" "}
+                                                        <span className="ml-2 text-warning-content">
+                                                            {item.title}
+                                                        </span>
+                                                    </a>
+                                                ) : (
+                                                    <a
+                                                        href={item.slug}
+                                                        className="bg-error rounded p-2 btn border-0 justify-start"
+                                                    >
+                                                        <input
+                                                            type="checkbox"
+                                                            className="checkbox checkbox-sm border-2 border-base-200"
+                                                        />{" "}
+                                                        <span className="ml-2 text-error-content">
+                                                            {item.title}
+                                                        </span>
+                                                    </a>
+                                                )}{" "}
+                                            </>
                                         )}
                                     </li>
                                 ))}
