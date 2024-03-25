@@ -34,7 +34,7 @@ const DaysBar = () => {
     return (
         <ul className="hidden col-span-1 md:flex gap-2 flex-col">
             {problems
-                ?.sort((a, b) => parseInt(b._id) - parseInt(a._id))
+                ?.sort((a, b) => parseInt(a._id) - parseInt(b._id))
                 .map((day) => {
                     return (
                         <li

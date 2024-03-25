@@ -128,7 +128,15 @@ module.exports.GetUserProblemsSoFar = async (req: Request, res: Response) => {
         pipeline.push({
             $group: {
                 _id: "$day",
-                problems: { $push: "$$ROOT" },
+                problems: {
+                    $push: {
+                        _id: "$_id",
+                        day: "$day",
+                        level: "$level",
+                        slug: "$slug",
+                        title: "$title",
+                    },
+                },
             },
         });
 
