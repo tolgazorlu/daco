@@ -46,9 +46,10 @@ export const useCreateProblemMutation = () =>
             level: string;
             description: string;
             answer: string;
+            slug: string;
         }) =>
             (
-                await apiClient.post<{ problem: Problem }>(
+                await apiClient.post<{ problem: Problem; slug: string }>(
                     `api/problems/create`,
                     problem,
                 )

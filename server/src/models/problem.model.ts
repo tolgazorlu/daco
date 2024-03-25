@@ -25,6 +25,9 @@ export class Problem {
 
     @prop({ required: true })
     public answer!: string;
+
+    @prop({ default: true })
+    public isDraft?: boolean;
 }
 
 export const ProblemModel = getModelForClass(Problem);

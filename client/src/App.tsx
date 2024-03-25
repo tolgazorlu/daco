@@ -20,7 +20,6 @@ import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import Banner from "./components/Banner";
 import EditProblem from "./components/Dashboard/EditProblem";
-import AddProblem from "./components/Dashboard/AddProblem";
 
 const App = () => {
     return (
@@ -46,7 +45,6 @@ const App = () => {
                         path="/question/:slug/edit"
                         element={<EditProblem />}
                     />
-                    <Route path="/question/create" element={<AddProblem />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/dashboard/users" element={<Users />} />
                     <Route path="/dashboard/problems" element={<Problems />} />

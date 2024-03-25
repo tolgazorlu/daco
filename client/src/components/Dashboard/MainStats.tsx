@@ -1,14 +1,54 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { toast } from "react-toastify";
+import { useCreateProblemMutation } from "../../hooks/problemHooks";
 import {
     useGetTotalProblemsQuery,
     useGetTotalUsersQuery,
 } from "../../hooks/statsHooks";
+import { getError } from "../../utils/getError";
+import { ApiError } from "../../types/ApiError";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const MainStats = () => {
     const { data: problems, isLoading, error } = useGetTotalProblemsQuery();
     const { data: users, isLoading: isTotalUsersLoading } =
         useGetTotalUsersQuery();
+    const { mutateAsync: createProblem } = useCreateProblemMutation();
+
+    const [createButtonLoading, setCreateButtonLoading] =
+        useState<boolean>(false);
+
+    const navigation = useNavigate();
+
+    const day = 1;
+    const title = "New Problem";
+    const level = "easy";
+    const description = "## New Problem";
+    const answer = "answer";
+    const slug = "slug";
+
+    const createProblemHandler = async () => {
+        try {
+            const data = await createProblem({
+                day: day,
+                title: title,
+                level: level,
+                description: description,
+                answer: answer,
+                slug: slug,
+            });
+            toast.success("Problem created!");
+            setCreateButtonLoading(true);
+            setInterval(() => {
+                navigation("/question/" + data.slug + "/edit");
+            }, 1000);
+        } catch (error) {
+            toast.error(getError(error as ApiError));
+            setCreateButtonLoading(false);
+        }
+    };
 
     return (
         <>
@@ -49,12 +89,16 @@ const MainStats = () => {
                     </div>
                     <div className="stat-desc">You're amazing!</div>
                     <div className="stat-actions">
-                        <a
+                        <button
                             className="btn btn-sm btn-primary text-primary-content rounded"
-                            href="/question/create"
+                            onClick={() => createProblemHandler()}
                         >
-                            Add Problem
-                        </a>
+                            {createButtonLoading ? (
+                                <span className="loading loading-sm"></span>
+                            ) : (
+                                <span>Add New Problem</span>
+                            )}
+                        </button>
                     </div>
                 </div>
 
