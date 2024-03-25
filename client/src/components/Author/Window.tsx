@@ -15,7 +15,7 @@ const Window = () => {
                         <br />
                         <br />
                         <span className="text-primary">package</span>{" "}
-                        <span>main</span>
+                        <span>author</span>
                         <br />
                         <br />
                         <span className="text-primary">import</span>{" "}
