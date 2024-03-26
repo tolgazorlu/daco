@@ -28,7 +28,7 @@ const ProblemsTable = () => {
     return (
         <>
             {isLoading ? (
-                <div className="shadow-lg">
+                <div className="shadow-lg border border-base-300">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
                         <div className="stat-title">All Problems</div>
                         <div className="alert flex justify-center">
@@ -37,7 +37,7 @@ const ProblemsTable = () => {
                     </div>
                 </div>
             ) : error ? (
-                <div className="shadow-lg">
+                <div className="shadow-lg border border-base-300">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
                         <div className="stat-title">All Problems</div>
                         <div className="alert alert-error">
@@ -59,7 +59,7 @@ const ProblemsTable = () => {
                     </div>
                 </div>
             ) : (
-                <div className="shadow-lg border rounded">
+                <div className="shadow-lg border border-base-300 rounded">
                     <div className="stat overflow-x-auto flex flex-col gap-4">
                         <div className="stat-title">All Problems</div>
                         <table className="table table-xs font-poppins table-zebra">
