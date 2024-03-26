@@ -25,7 +25,7 @@ const UserProfileInfo = () => {
         <>
             {userInfo && (
                 <>
-                    <div className="stats shadow-lg border border-base-300 rounded">
+                    <div className="stats shadow-lg border border-base-300 bg-base-200 rounded">
                         <div className="stat hidden md:flex justify-center items-center min-w-[12em] shadow-lg">
                             <img
                                 src={userInfo?.avatar}

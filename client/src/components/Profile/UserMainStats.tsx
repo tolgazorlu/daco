@@ -54,7 +54,7 @@ const UserMainStats = () => {
 
     const until = `${year}-${month}-${day}`;
     return (
-        <div className="stats border shadow-lg border-base-300 rounded">
+        <div className="stats border shadow-lg border-base-300 rounded bg-base-300">
             <div className="hidden md:stat">
                 <div className="stat-figure text-neutral">
                     <svg

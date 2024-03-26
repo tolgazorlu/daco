@@ -52,7 +52,7 @@ const MainStats = () => {
 
     return (
         <>
-            <div className="stats shadow-lg border border-base-300 rounded">
+            <div className="stats shadow-lg border border-base-300 rounded bg-base-300">
                 <div className="stat  shadow-lg">
                     <div className="stat-figure text-primary">
                         <svg
