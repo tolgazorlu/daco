@@ -7,6 +7,7 @@ export type Problem = {
     answer: string;
     day: number;
     date: string;
+    isDraft: boolean;
 };
 
 export type SoFarProblems = {

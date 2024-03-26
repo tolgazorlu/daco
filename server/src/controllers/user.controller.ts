@@ -121,7 +121,10 @@ module.exports.GetUserProblemsSoFar = async (req: Request, res: Response) => {
 
         if (user) {
             pipeline.push({
-                $match: { day: { $lte: user.currentDay } },
+                $match: {
+                    day: { $lte: user.currentDay },
+                    isDraft: false,
+                },
             });
         }
 
@@ -135,6 +138,7 @@ module.exports.GetUserProblemsSoFar = async (req: Request, res: Response) => {
                         level: "$level",
                         slug: "$slug",
                         title: "$title",
+                        isDraft: "$isDraft",
                     },
                 },
             },

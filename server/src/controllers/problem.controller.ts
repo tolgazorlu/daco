@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction } from "express";
+import { Response, Request } from "express";
 import { ProblemModel } from "../models/problem.model";
 import { UserModel } from "../models/user.model";
 import { generateToken } from "../utils/token";
@@ -102,6 +102,28 @@ exports.getProblem = async (req: Request, res: Response) => {
 };
 
 /**
+ * @desc GET SINGLE PROBLEM FOR EDIT PAGE
+ * @route api/problems/editProblem/:slug
+ */
+
+exports.getProblemForEdit = async (req: Request, res: Response) => {
+    try {
+        const problem = await ProblemModel.findOne({ slug: req.params.slug });
+        if (problem) {
+            res.status(200).send(problem);
+        } else {
+            res.status(400).json({
+                message: "Problem not found!",
+            });
+        }
+    } catch (error) {
+        res.status(400).json({
+            message: error,
+        });
+    }
+};
+
+/**
  * @desc UPDATE SINGLE PROBLEM
  * @route api/problems/update/:id
  */
@@ -115,6 +137,44 @@ exports.updateProblem = async (req: Request, res: Response) => {
             problem.level = req.body.level || problem.level;
             problem.answer = req.body.answer || problem.answer;
             problem.description = req.body.description || problem.description;
+            const updatedProblem = await problem.save();
+            res.send({ updatedProblem });
+        } else {
+            res.status(400).json({
+                message: "Problem not found!",
+            });
+        }
+    } catch (error) {
+        res.status(400).json({
+            message: error,
+        });
+    }
+};
+
+module.exports.publishProblem = async (req: Request, res: Response) => {
+    try {
+        const problem = await ProblemModel.findById(req.params.id);
+        if (problem) {
+            problem.isDraft = false;
+            const updatedProblem = await problem.save();
+            res.send({ updatedProblem });
+        } else {
+            res.status(400).json({
+                message: "Problem not found!",
+            });
+        }
+    } catch (error) {
+        res.status(400).json({
+            message: error,
+        });
+    }
+};
+
+module.exports.draftProblem = async (req: Request, res: Response) => {
+    try {
+        const problem = await ProblemModel.findById(req.params.id);
+        if (problem) {
+            problem.isDraft = true;
             const updatedProblem = await problem.save();
             res.send({ updatedProblem });
         } else {

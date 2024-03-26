@@ -17,6 +17,14 @@ export const useGetProblemQuery = (slug: string) =>
             (await apiClient.get<Problem>(`api/problems/${slug}`)).data,
     });
 
+export const useGetProblemForEditQuery = (slug: string) =>
+    useQuery({
+        queryKey: ["problem-for-edit", slug],
+        queryFn: async () =>
+            (await apiClient.get<Problem>(`api/problems/editProblem/${slug}`))
+                .data,
+    });
+
 export const useGetDailyProblemsQuery = () =>
     useQuery({
         queryKey: ["daily"],
@@ -81,6 +89,26 @@ export const useUpdateProblemMutation = () =>
                     level,
                     description,
                     answer,
+                })
+            ).data,
+    });
+
+export const usePublishProblemMutation = () =>
+    useMutation({
+        mutationFn: async ({ id }: { id: string }) =>
+            (
+                await apiClient.put<Problem>(`api/problems/publish/${id}`, {
+                    id,
+                })
+            ).data,
+    });
+
+export const useDraftProblemMutation = () =>
+    useMutation({
+        mutationFn: async ({ id }: { id: string }) =>
+            (
+                await apiClient.put<Problem>(`api/problems/draft/${id}`, {
+                    id,
                 })
             ).data,
     });

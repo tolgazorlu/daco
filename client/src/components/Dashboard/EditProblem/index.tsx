@@ -8,7 +8,9 @@ import { useEffect, useState } from "react";
 import { getError } from "../../../utils/getError";
 import { ApiError } from "../../../types/ApiError";
 import {
-    useGetProblemQuery,
+    useDraftProblemMutation,
+    useGetProblemForEditQuery,
+    usePublishProblemMutation,
     useUpdateProblemMutation,
 } from "../../../hooks/problemHooks";
 import { useParams } from "react-router-dom";
@@ -23,11 +25,20 @@ const EditProblem = () => {
     const [title, setTitle] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [itemId, setItemId] = useState<string>("");
+    const [isDraft, setIsDraft] = useState<boolean>(true);
     const { mutateAsync: updateProblem, isLoading: updateLoading } =
         useUpdateProblemMutation();
+    const { mutateAsync: updatePublishProblem, isLoading: publishLoading } =
+        usePublishProblemMutation();
+    const { mutateAsync: updateDraftProblem, isLoading: draftLoading } =
+        useDraftProblemMutation();
 
     const { slug } = useParams();
-    const { data: problem, isLoading, error } = useGetProblemQuery(slug!);
+    const {
+        data: problem,
+        isLoading,
+        error,
+    } = useGetProblemForEditQuery(slug!);
 
     const updateProblemHandler = async () => {
         try {
@@ -45,6 +56,32 @@ const EditProblem = () => {
         }
     };
 
+    const updatePublishHandler = async () => {
+        try {
+            updateProblemHandler();
+            await updatePublishProblem({
+                id: itemId,
+            });
+            setIsDraft(false);
+            toast.success("Problem published!");
+        } catch (error) {
+            toast.error(getError(error as ApiError));
+        }
+    };
+
+    const updateDraftHandler = async () => {
+        try {
+            updateProblemHandler();
+            await updateDraftProblem({
+                id: itemId,
+            });
+            setIsDraft(true);
+            toast.success("Problem drafted!");
+        } catch (error) {
+            toast.error(getError(error as ApiError));
+        }
+    };
+
     useEffect(() => {
         if (problem) {
             setDay(problem.day);
@@ -53,6 +90,7 @@ const EditProblem = () => {
             setLevel(problem.level);
             setDescription(problem.description);
             setItemId(problem._id);
+            setIsDraft(problem.isDraft);
         }
     }, [problem]);
 
@@ -134,21 +172,46 @@ const EditProblem = () => {
                     ></input>
                 </div>
                 <div className="gap-2 h-full flex items-center">
-                    <button className="btn btn-accent text-accent-content rounded btn-sm">
-                        Save Draft
-                    </button>
-                    <button
-                        className="btn btn-primary text-primary-content rounded btn-sm"
-                        onClick={() => {
-                            updateProblemHandler();
-                        }}
-                    >
-                        {updateLoading ? (
-                            <span className="loading loading-lg"></span>
-                        ) : (
-                            <span>Save & Publish</span>
-                        )}
-                    </button>
+                    {updateLoading ? (
+                        <span className="loading loading-lg"></span>
+                    ) : (
+                        <button
+                            className="btn btn-accent text-accent-content rounded btn-sm"
+                            onClick={() => {
+                                updateProblemHandler();
+                            }}
+                        >
+                            Save
+                        </button>
+                    )}
+
+                    {publishLoading ? (
+                        <button className="btn btn-primary btn-sm px-8">
+                            <span className="loading"></span>
+                        </button>
+                    ) : draftLoading ? (
+                        <button className="btn btn-primary btn-sm px-8">
+                            <span className="loading"></span>
+                        </button>
+                    ) : isDraft == true ? (
+                        <button
+                            className="btn btn-primary text-primary-content rounded btn-sm"
+                            onClick={() => {
+                                updatePublishHandler();
+                            }}
+                        >
+                            Publish
+                        </button>
+                    ) : (
+                        <button
+                            className="btn btn-secondary text-secondary-content rounded btn-sm"
+                            onClick={() => {
+                                updateDraftHandler();
+                            }}
+                        >
+                            Set Draft
+                        </button>
+                    )}
                 </div>
             </section>
 
