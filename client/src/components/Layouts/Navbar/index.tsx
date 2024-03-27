@@ -69,11 +69,14 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                     }}
                     type="button"
                     className={
-                        location.pathname == "/" ||
-                        location.pathname == "/login" ||
-                        location.pathname == "/register"
-                            ? "hidden"
-                            : "inline-flex items-center p-2 text-sm sm:hidden"
+                        location.pathname == "/profile" ||
+                        location.pathname == "/dashboard" ||
+                        location.pathname == "/dashboard/problems" ||
+                        location.pathname == "/dashboard/contacts" ||
+                        location.pathname == "/dashboard/faqs" ||
+                        location.pathname == "/dashboard/users"
+                            ? "inline-flex items-center p-2 text-sm sm:hidden"
+                            : "hidden"
                     }
                 >
                     <span className="sr-only">Open sidebar</span>
@@ -99,6 +102,45 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                         dacospace
                     </span>
                 </a>
+                <div className="dropdown dropdown-bottom lg:hidden">
+                    <div
+                        tabIndex={0}
+                        role="button"
+                        className="btn btn-xs btn-ghost m-3"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                            />
+                        </svg>
+                    </div>
+                    <ul
+                        tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        {navLinks.map((item) => {
+                            return (
+                                <li key={item.name}>
+                                    <a
+                                        href={item.href}
+                                        className="text-xl font-bandal"
+                                    >
+                                        {item.name}
+                                    </a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
