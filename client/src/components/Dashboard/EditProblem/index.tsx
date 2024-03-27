@@ -187,7 +187,7 @@ const EditProblem = () => {
                 </div>
                 <div className="flex justify-end p-2 gap-2 h-full items-center">
                     {updateLoading ? (
-                        <span className="loading loading-lg"></span>
+                        <span className="loading loading-sm"></span>
                     ) : (
                         <button
                             className="btn btn-accent text-accent-content rounded btn-sm"
