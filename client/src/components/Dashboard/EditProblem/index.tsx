@@ -50,7 +50,6 @@ const EditProblem = () => {
                 description: description,
                 answer: answer,
             });
-            toast.success("Problem updated!");
         } catch (err) {
             toast.error(getError(error as ApiError));
         }
@@ -81,6 +80,16 @@ const EditProblem = () => {
             toast.error(getError(error as ApiError));
         }
     };
+
+    useEffect(() => {
+        const saveTimeout = setTimeout(() => {
+            updateProblemHandler();
+        }, 3000);
+
+        return () => {
+            clearTimeout(saveTimeout);
+        };
+    }, [day, title, level, description, answer]);
 
     useEffect(() => {
         if (problem) {
