@@ -29,16 +29,17 @@ const Contact = () => {
     return (
         <>
             <ToastContainer
-                position="top-right"
+                position="bottom-right"
                 autoClose={5000}
-                hideProgressBar={true}
+                hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colored"
+                theme="colorful"
+                stacked
             />
             <Layout />
             <section className="mt-20">

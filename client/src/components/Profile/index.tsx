@@ -9,16 +9,17 @@ const Profile = () => {
     return (
         <div>
             <ToastContainer
-                position="top-right"
+                position="bottom-right"
                 autoClose={5000}
-                hideProgressBar={true}
+                hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colored"
+                theme="colorful"
+                stacked
             />
             <Helmet>
                 <title>This is your profile!</title>

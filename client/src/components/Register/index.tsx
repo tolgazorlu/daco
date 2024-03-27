@@ -111,16 +111,17 @@ const Register = () => {
                 <title>Register and deep dive into it!</title>
             </Helmet>
             <ToastContainer
-                position="top-right"
+                position="bottom-right"
                 autoClose={5000}
-                hideProgressBar={true}
+                hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colored"
+                theme="colorful"
+                stacked
             />
             <Layout />
             <div className="flex h-screen justify-center items-center">

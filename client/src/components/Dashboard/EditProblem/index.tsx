@@ -50,6 +50,7 @@ const EditProblem = () => {
                 description: description,
                 answer: answer,
             });
+            toast.success("Updated!");
         } catch (err) {
             toast.error(getError(error as ApiError));
         }
@@ -119,16 +120,17 @@ const EditProblem = () => {
     return (
         <div className="h-screen flex flex-col">
             <ToastContainer
-                position="top-right"
+                position="bottom-right"
                 autoClose={5000}
-                hideProgressBar={true}
+                hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colored"
+                theme="colorful"
+                stacked
             />
             <Layout />
 
