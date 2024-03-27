@@ -90,6 +90,7 @@ const EditProblem = () => {
         return () => {
             clearTimeout(saveTimeout);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [day, title, level, description, answer]);
 
     useEffect(() => {

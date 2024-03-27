@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import UsersTable from "../UsersTable";
+import UsersTable from "./UsersTable";
 import Layout from "../../Layouts";
 
 const Users = () => {

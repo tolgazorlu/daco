@@ -1,10 +1,10 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet-async";
-import DailyProblemsTable from "./DailyProblemsTable";
+import DailyProblemsTable from "./TodaysProblemsTable";
 import MainStats from "./MainStats";
 import Layout from "../Layouts";
-import ContactTable from "./ContactTable";
+import ContactTable from "./Contacts/ContactTable";
 
 const Dashboard = () => {
     return (

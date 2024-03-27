@@ -1,7 +1,7 @@
-import { useGetSolvedProblemsQuery } from "../../hooks/problemHooks";
+import { useGetContactsQuery } from "../../../hooks/contactHook";
 
-const UserSolvedProblemsTable = () => {
-    const { data: problem, isLoading, error } = useGetSolvedProblemsQuery();
+const ContactTable = () => {
+    const { data: contacts, isLoading, error } = useGetContactsQuery();
 
     return (
         <>
@@ -27,15 +27,17 @@ const UserSolvedProblemsTable = () => {
                                 d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                             />
                         </svg>
-                        <span>Error! Solved Problems can not loaded.</span>
+                        <span>Error! Messages can not loaded.</span>
                     </div>
                 </div>
             ) : (
                 <>
-                    <div className="stat-title font-bold">Solved Problems</div>
-                    <div className="relative overflow-x-auto sm:rounded shadow-md">
+                    <div className="stat-title font-bold font-poppins">
+                        Messages
+                    </div>
+                    <div className="relative overflow-x-auto rounded shadow-lg ">
                         <table className="w-full text-sm text-left">
-                            {problem?.length == 0 ? (
+                            {contacts?.length == 0 ? (
                                 <tbody>
                                     <tr>
                                         <td role="alert" className="alert">
@@ -53,8 +55,7 @@ const UserSolvedProblemsTable = () => {
                                                 ></path>
                                             </svg>
                                             <span>
-                                                You don't solved any question
-                                                yet.
+                                                You don't have any messages
                                             </span>
                                         </td>
                                     </tr>
@@ -67,64 +68,44 @@ const UserSolvedProblemsTable = () => {
                                                 scope="col"
                                                 className="px-6 py-3"
                                             >
-                                                Day
+                                                Subject
                                             </th>
                                             <th
                                                 scope="col"
                                                 className="px-6 py-3"
                                             >
-                                                Problem Name
+                                                Email
                                             </th>
                                             <th
                                                 scope="col"
                                                 className="px-6 py-3"
                                             >
-                                                Difficulty
-                                            </th>
-                                            <th
-                                                scope="col"
-                                                className="px-6 py-3"
-                                            >
-                                                Action
+                                                Message
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {problem?.map((item) => {
+                                        {contacts?.map((item, index) => {
                                             return (
                                                 <tr
-                                                    key={item._id}
+                                                    key={index}
                                                     className="border-b border-base-300 bg-base-200"
                                                 >
                                                     <th className="px-6 py-4 font-medium">
-                                                        {item.day}
+                                                        {item.subject}
                                                     </th>
                                                     <th
                                                         scope="row"
                                                         className="px-6 py-4 font-medium"
                                                     >
-                                                        {item.title}
+                                                        {item.email}
                                                     </th>
-                                                    <td
-                                                        className={
-                                                            item.level == "easy"
-                                                                ? "text-success px-6 py-4"
-                                                                : item.level ==
-                                                                    "medium"
-                                                                  ? "text-warning px-6 py-4"
-                                                                  : "text-error px-6 py-4"
-                                                        }
+                                                    <th
+                                                        scope="row"
+                                                        className="px-6 py-4 font-medium"
                                                     >
-                                                        {item.level}
-                                                    </td>
-                                                    <td className="px-6 py-4">
-                                                        <a
-                                                            href={`/question/${item.slug}`}
-                                                            className="font-medium text-info hover:underline"
-                                                        >
-                                                            Detail
-                                                        </a>
-                                                    </td>
+                                                        {item.message}
+                                                    </th>
                                                 </tr>
                                             );
                                         })}
@@ -139,4 +120,4 @@ const UserSolvedProblemsTable = () => {
     );
 };
 
-export default UserSolvedProblemsTable;
+export default ContactTable;

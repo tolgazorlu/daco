@@ -1,4 +1,4 @@
-import ProblemsTable from "../ProblemsTable";
+import ProblemsTable from "./ProblemsTable";
 import Layout from "../../Layouts";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
