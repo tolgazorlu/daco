@@ -125,53 +125,58 @@ const EditProblem = () => {
 
             {/* Publish or Save Action Section */}
 
-            <section
-                tabIndex={0}
-                className="mt-20 flex justify-between py-2 px-4  bg-base-200 rounded-none"
-            >
-                <div className="flex gap-4 items-center rounded">
-                    <label>Day:</label>
-                    <input
-                        type="number"
-                        name="day"
-                        id="day"
-                        value={day}
-                        onChange={(e) => setDay(parseInt(e.target.value))}
-                        className="input input-bordered input-sm w-20 rounded"
-                    />
-                    |<label>Title:</label>
-                    <input
-                        type="text"
-                        name="title"
-                        id="title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        className="input input-bordered input-sm w-32 rounded"
-                        placeholder="Algorithm title"
-                    />
-                    |<label>Difficulty:</label>
-                    <select
-                        id="difficulty"
-                        className="input input-bordered input-sm rounded"
-                        value={level}
-                        onChange={(e) => setLevel(e.target.value)}
-                    >
-                        <option>Difficulty</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                    |<label>Answer:</label>
-                    <input
-                        className="input input-bordered input-sm w-32 rounded"
-                        type="text"
-                        name="answer"
-                        id="answer"
-                        value={answer}
-                        onChange={(e) => setAnswer(e.target.value)}
-                    ></input>
+            <section className="mt-20 flex flex-col md:flex-row justify-between md:py-2 md:px-4 bg-base-200 rounded-none">
+                <div className="p-2 grid grid-cols-2 lg:grid-cols-4 gap-2">
+                    <div>
+                        Day
+                        <input
+                            type="number"
+                            name="day"
+                            id="day"
+                            value={day}
+                            onChange={(e) => setDay(parseInt(e.target.value))}
+                            className="input input-bordered input-sm rounded  text-base-content w-full"
+                        />
+                    </div>
+                    <div>
+                        Title
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            className="input input-bordered input-sm rounded text-base-content w-full"
+                            placeholder="Algorithm title"
+                        />
+                    </div>
+                    <div>
+                        Difficulty
+                        <select
+                            id="difficulty"
+                            className="input input-bordered input-sm rounded text-base-content w-full "
+                            value={level}
+                            onChange={(e) => setLevel(e.target.value)}
+                        >
+                            <option>Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div>
+                        Answer
+                        <input
+                            className="input input-bordered input-sm rounded text-base-content w-full"
+                            type="text"
+                            name="answer"
+                            id="answer"
+                            value={answer}
+                            onChange={(e) => setAnswer(e.target.value)}
+                        ></input>
+                    </div>
                 </div>
-                <div className="gap-2 h-full flex items-center">
+                <div className="flex justify-end p-2 gap-2 h-full items-center">
                     {updateLoading ? (
                         <span className="loading loading-lg"></span>
                     ) : (
