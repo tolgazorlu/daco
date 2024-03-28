@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
+import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/a11y-dark.css";
 
@@ -141,7 +142,7 @@ const Question = () => {
                     <div className="prose lg:prose-lg">
                         <Markdown
                             remarkPlugins={[remarkGfm, remarkToc]}
-                            rehypePlugins={[rehypeHighlight]}
+                            rehypePlugins={[rehypeHighlight, rehypeRaw]}
                             children={problem.description}
                         />
                     </div>
