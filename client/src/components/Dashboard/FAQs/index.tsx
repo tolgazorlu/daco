@@ -139,16 +139,17 @@ const FAQs = () => {
                 <title>FAQs</title>
             </Helmet>
             <ToastContainer
-                position="top-right"
+                position="bottom-right"
                 autoClose={5000}
-                hideProgressBar={true}
+                hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colored"
+                theme="dark"
+                stacked
             />
             <Layout />
             <div className="px-4 py-8 lg:px-24 sm:ml-64 mt-16 flex flex-col gap-4">

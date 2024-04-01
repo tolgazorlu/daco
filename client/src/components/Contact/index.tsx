@@ -38,7 +38,7 @@ const Contact = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colorful"
+                theme="dark"
                 stacked
             />
             <Layout />

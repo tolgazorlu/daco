@@ -104,7 +104,7 @@ const Question = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colorful"
+                theme="dark"
                 stacked
             />
             <Layout />

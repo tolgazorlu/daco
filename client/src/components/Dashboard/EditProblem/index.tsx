@@ -130,7 +130,7 @@ const EditProblem = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colorful"
+                theme="dark"
                 stacked
             />
             <Layout />

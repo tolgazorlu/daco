@@ -17,7 +17,7 @@ const Faq = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colorful"
+                theme="dark"
                 stacked
             />
             <Layout />
