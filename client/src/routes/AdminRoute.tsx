@@ -3,13 +3,13 @@ import { Navigate, Outlet } from "react-router-dom";
 import { User } from "../contexts/User";
 
 export default function AdminRoute() {
-  const {
-    state: { userInfo },
-  } = useContext(User);
+    const {
+        state: { userInfo },
+    } = useContext(User);
 
-  if (userInfo && userInfo.isAdmin) {
-    return <Outlet />;
-  } else {
-    return <Navigate to="/login" />;
-  }
+    if (userInfo && userInfo.role == "admin") {
+        return <Outlet />;
+    } else {
+        return <Navigate to="/login" />;
+    }
 }

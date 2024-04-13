@@ -113,7 +113,7 @@ const Question = () => {
                 {/** MARKDOWN SECTION */}
 
                 <section className="overflow-x-scroll col-span-3 md:col-span-2">
-                    {userInfo?.isAdmin ? (
+                    {userInfo?.role == "admin" ? (
                         <a
                             href={`/question/${slug}/edit`}
                             className={

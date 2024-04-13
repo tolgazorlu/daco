@@ -12,6 +12,13 @@ import mongoose from "mongoose";
  * @desc USER MODEL
  */
 
+export enum Role {
+    Admin = "admin",
+    Editor = "editor",
+    Teacher = "teacher",
+    Learner = "learner",
+}
+
 class solvedProblems {
     @prop({ ref: Problem })
     public problemId?: Ref<Problem>;
@@ -60,8 +67,12 @@ export class User {
     @prop()
     public verificationToken!: string;
 
-    @prop({ required: true, default: false })
-    public isAdmin!: boolean;
+    @prop({
+        type: String,
+        enum: Role,
+        default: Role.Learner,
+    })
+    public role?: Role;
 
     @prop()
     resetPasswordToken?: String;

@@ -243,7 +243,7 @@ exports.solveProblem = async (req: Request, res: Response) => {
                     username: updatedUser.username,
                     email: updatedUser.email,
                     avatar: updatedUser.avatar,
-                    isAdmin: updatedUser.isAdmin,
+                    role: updatedUser.role,
                     solvedProblems: updatedUser.solvedProblems,
                     emailVerified: updatedUser.emailVerified,
                     createdAt: updatedUser.createdAt,

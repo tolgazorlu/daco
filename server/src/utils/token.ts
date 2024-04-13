@@ -14,7 +14,7 @@ export const generateToken = (user: User) => {
             username: user.username,
             email: user.email,
             avatar: user.avatar,
-            isAdmin: user.isAdmin,
+            role: user.role,
             solvedProblems: user.solvedProblems,
         },
         process.env.TOKEN_KEY || "somethingsecret",

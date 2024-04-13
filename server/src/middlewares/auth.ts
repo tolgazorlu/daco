@@ -19,7 +19,7 @@ export const Auth = (req: Request, res: Response, next: NextFunction) => {
             username: string;
             email: string;
             avatar: string;
-            isAdmin: boolean;
+            role: string;
             emailVerified: boolean;
             verificationToken: string;
             solvedProblems: {

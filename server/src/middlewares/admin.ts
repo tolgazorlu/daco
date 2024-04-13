@@ -6,7 +6,7 @@ import { NextFunction, Request, Response } from "express";
  */
 
 export const Admin = (req: Request, res: Response, next: NextFunction) => {
-    if (req.user && req.user.isAdmin) {
+    if (req.user && req.user.role == "admin") {
         next();
     } else {
         res.status(401).send({ message: "Invalid Admin Token" });

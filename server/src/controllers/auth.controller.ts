@@ -76,7 +76,7 @@ module.exports.Register = async (
             username: newUser.username,
             email: newUser.email,
             avatar: newUser.avatar,
-            isAdmin: newUser.isAdmin,
+            role: newUser.role,
             emailVerified: newUser.emailVerified,
             verificationToken: newUser.verificationToken,
             solvedProblems: newUser.solvedProblems,
@@ -164,7 +164,7 @@ module.exports.Login = async (
             username: user.username,
             email: user.email,
             avatar: user.avatar,
-            isAdmin: user.isAdmin,
+            role: user.role,
             emailVerified: user.emailVerified,
             verificationToken: user.verificationToken,
             solvedProblems: user.solvedProblems,
@@ -242,7 +242,7 @@ module.exports.deleteUser = async (req: Request, res: Response) => {
         const user = await UserModel.findById(req.params.id);
 
         if (user) {
-            if (user.isAdmin) {
+            if (user.role) {
                 return res
                     .status(400)
                     .send({ message: "You can not delete admin account!" });

@@ -8,7 +8,7 @@ export type UserInfo = {
     username: string;
     token: string;
     avatar: string;
-    isAdmin: boolean;
+    role: string;
     createdAt: string;
     emailVerified: boolean;
     solvedProblems: solvedProblems[];

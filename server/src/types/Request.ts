@@ -9,7 +9,7 @@ declare namespace Express {
             username: string;
             email: string;
             avatar: string;
-            isAdmin: boolean;
+            role: string;
             token: string;
             emailVerified: boolean;
             verificationToken: string;

@@ -170,7 +170,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                             <img
                                 alt="User dropdown"
                                 className={
-                                    userInfo.isAdmin
+                                    userInfo.role == "admin"
                                         ? "w-7 h-7 rounded-full ring-2 ring-primary"
                                         : "h-7 w-7 rounded-full ring-2 ring-neutral"
                                 }
@@ -190,7 +190,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                                         <img
                                             alt="User dropdown"
                                             className={
-                                                userInfo.isAdmin
+                                                userInfo.role == "admin"
                                                     ? "w-12 h-12 rounded-full ring-2 ring-primary"
                                                     : "w-12 h-12 rounded-full ring-2 ring-neutral"
                                             }
@@ -208,7 +208,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                                     </div>
                                 </a>
                             </li>
-                            {userInfo.isAdmin ? (
+                            {userInfo.role == "admin" ? (
                                 <li>
                                     <a
                                         href="/dashboard"

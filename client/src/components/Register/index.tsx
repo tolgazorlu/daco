@@ -87,7 +87,7 @@ const Register = () => {
                     username: username,
                     email: email,
                     password: password,
-                    isAdmin: false,
+                    role: "learner",
                 });
                 toast.success("Please check your email!");
                 setInterval(() => {

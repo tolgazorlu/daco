@@ -57,7 +57,7 @@ const Sidebar = (props: { isOpen: boolean }) => {
 
                     {/* ADMIN LINKS */}
 
-                    {userInfo?.isAdmin &&
+                    {userInfo?.role == "admin" &&
                         adminLinks.map((item) => (
                             <li key={item.path}>
                                 <a

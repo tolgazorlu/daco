@@ -42,7 +42,7 @@ module.exports.Update = async (req: Request, res: Response) => {
             user.username = req.body.username || user.username;
             user.email = req.body.email || user.email;
             user.avatar = req.body.avatar || user.avatar;
-            user.isAdmin = user.isAdmin;
+            user.role = user.role;
             user.solvedProblems = user.solvedProblems;
             user.emailVerified = user.emailVerified;
             user.verificationToken = user.verificationToken;
@@ -52,7 +52,7 @@ module.exports.Update = async (req: Request, res: Response) => {
                 username: updatedUser.username,
                 email: updatedUser.email,
                 avatar: updatedUser.avatar,
-                isAdmin: updatedUser.isAdmin,
+                role: updatedUser.role,
                 emailVerified: updatedUser.emailVerified,
                 verificationToken: updatedUser.verificationToken,
                 solvedProblems: updatedUser.solvedProblems,
