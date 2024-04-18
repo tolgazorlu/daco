@@ -60,7 +60,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
 
     return (
         <nav
-            className={`navbar fixed top-0 z-30 w-full px-4 lg:px-24 ${location.pathname === "/" ? "" : "bg-base-100 border-b border-base-300"}`}
+            className={`navbar fixed top-0 z-30 w-full px-4 lg:px-24 ${location.pathname === "/" ? "" : location.pathname === "/author" ? "bg-black text-[#A5ADBB]" : "bg-base-100 border-b border-base-300"}`}
         >
             <div className="navbar-start">
                 <button
@@ -98,7 +98,9 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
                     href="/"
                     className="flex items-center gap-2 normal-case text-xl"
                 >
-                    <span className="font-bold text-3xl font-bandal">
+                    <span
+                        className={`font-bold text-3xl font-bandal text-base-content ${location.pathname === "/author" ? "text-[#A5ADBB]" : ""}`}
+                    >
                         dacospace
                     </span>
                 </a>

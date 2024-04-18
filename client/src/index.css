@@ -18,6 +18,12 @@
   src: url("assets/fonts/bandal.ttf") format("opentype");
 }
 
+@font-face {
+  font-family: Bricolage;
+  src: url("assets/fonts/bricolage.ttf") format("opentype");
+}
+
+
 @layer base {
   code {
     @apply bg-base-300;

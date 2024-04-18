@@ -25,8 +25,15 @@ export default {
     animation: {
       'congrats': 'wiggle 0.3s linear infinite',
       'leftToRight':'leftToRight 15s ease infinite',
+      textLeft: 'pulses 2s',
+      textRight: 'pulses 3s',
     },
     keyframes: {
+      pulses: {
+        "0%": { opacity: "0" },
+        "75%": { opacity: "0" },
+        "100%": { opacity: "1" },
+      },
       wiggle: {
         '0%': { transform: 'translate(1px, 1px) rotate(0deg)' },
         '10%': { transform: 'translate(-1px, -2px) rotate(-1deg)' },
@@ -52,13 +59,15 @@ export default {
         '100%': {
           'background-size':'400% 400%',
           'background-position': '0% 50%'
-      }
+      },
+      
     },
     },
     fontFamily: {
       poppins: "Poppins",
       aubette: "Aubette",
       bandal: "Bandal",
+      bricolage: "Bricolage",
     },
   },
   daisyui: {

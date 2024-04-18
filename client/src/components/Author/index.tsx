@@ -1,16 +1,14 @@
 import Layout from "../Layouts";
-import Footer from "../Layouts/Footer";
-import Experiences from "./Experiences";
-import Hero from "./Hero";
-import Works from "./Works";
+import ParallaxPage from "./ParallaxPage";
 const Author = () => {
     return (
         <>
             <Layout />
-            <Hero />
+            <ParallaxPage />
+            {/* <Hero />
             <Works />
             <Experiences />
-            <Footer />
+            <Footer /> */}
         </>
     );
 };
