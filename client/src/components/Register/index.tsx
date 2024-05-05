@@ -122,7 +122,29 @@ const Register = () => {
                 theme="dark"
                 stacked
             />
-            <section className="lg:grid grid-cols-2 overflow-hidden">
+            <section className="lg:grid grid-cols-2 overflow-hidden font-bandal">
+                <div className="grid grid-cols-1 border-r border-primary/30 w-full bg-base-200">
+                    <div className=" flex justify-center items-end">
+                        <span className="text-8xl font-bandal text-neutral absolute">
+                            dacospace
+                        </span>
+                        <span className="text-8xl font-bandal text-base-content absolute mb-3 mr-3">
+                            dacospace
+                        </span>
+                        <span className="text-8xl font-bandal text-primary absolute mb-1.5 mr-1.5">
+                            dacospace
+                        </span>
+                    </div>
+                    <div className=" flex justify-center px-24 text-center text-2xl">
+                        <span>
+                            <span className="text-warning">Welcome back!</span>{" "}
+                            We're delighted to have you here. Please enter your
+                            credentials to access your account and begin your
+                            journey with{" "}
+                            <span className="text-primary">dacospace</span>.
+                        </span>
+                    </div>
+                </div>
                 <div className="h-screen md:snap-start flex flex-col justify-center items-center">
                     <h1 className="text-3xl font-semibold font-bandal">
                         Create your free account!
@@ -293,11 +315,6 @@ const Register = () => {
                             </a>
                         </div>
                     </form>
-                </div>
-                <div className="border-l w-full h-full bg-base-200 flex justify-center items-center">
-                    <span className="text-8xl font-bandal text-accent">
-                        dacospace
-                    </span>
                 </div>
             </section>
         </>
