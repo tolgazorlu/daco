@@ -8,7 +8,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { VscLoading } from "react-icons/vsc";
 import { User } from "../../contexts/User";
-import Layout from "../Layouts";
 
 const Register = () => {
     const navigation = useNavigate();
@@ -123,11 +122,10 @@ const Register = () => {
                 theme="dark"
                 stacked
             />
-            <Layout />
-            <div className="flex h-screen justify-center items-center">
-                <div className="p-2 md:px-8 w-full md:w-1/2">
-                    <h1 className="text-3xl font-semibold text-center font-poppins">
-                        REGISTER
+            <section className="lg:grid grid-cols-2 overflow-hidden">
+                <div className="h-screen md:snap-start flex flex-col justify-center items-center">
+                    <h1 className="text-3xl font-semibold font-bandal">
+                        Create your free account!
                     </h1>
                     <form
                         className="space-y-4 font-poppins"
@@ -180,37 +178,36 @@ const Register = () => {
                                 className="w-full input input-bordered input-neutral rounded"
                                 required
                             />
-                            {strength > 0 ? (
-                                <progress
-                                    hidden={password.length === 0}
-                                    className={
-                                        strength == 1
-                                            ? "w-full h-5 mt-2 progress-error"
-                                            : strength == 2
-                                              ? "transition rounded w-full h-5 mt-2 progress-warning"
-                                              : strength == 3
-                                                ? "rounded w-full h-5 mt-2 progress-info"
-                                                : "rounded w-full h-5 mt-2 progress-success"
-                                    }
-                                    value={strength}
-                                    max="4"
-                                />
-                            ) : null}
-                            <br />
                             <div
                                 className={
                                     strength == 1
-                                        ? "text-error"
+                                        ? "text-error mt-2"
                                         : strength == 2
-                                          ? "text-warning"
+                                          ? "text-warning mt-2"
                                           : strength == 3
-                                            ? "text-info"
-                                            : "text-success"
+                                            ? "text-info mt-2"
+                                            : "text-success mt-2"
                                 }
                                 hidden={password.length === 0}
                             >
                                 {feedback}
                             </div>
+                            {strength > 0 ? (
+                                <progress
+                                    hidden={password.length === 0}
+                                    className={
+                                        strength == 1
+                                            ? "w-full mt-2 progress-error"
+                                            : strength == 2
+                                              ? "transition  w-full  mt-2 progress-warning"
+                                              : strength == 3
+                                                ? " w-full  mt-2 progress-info"
+                                                : " w-full  mt-2 progress-success"
+                                    }
+                                    value={strength}
+                                    max="4"
+                                />
+                            ) : null}
                         </div>
                         <div>
                             <label className="label">
@@ -236,18 +233,27 @@ const Register = () => {
                                 Passwords is not same! Please check again!
                             </div>
                         ) : null}
+
                         <div>
-                            <a
-                                href="/login"
-                                className="text-xs text-primary hover:underline"
+                            <button
+                                className={
+                                    strength > 3 && isPasswordMatched
+                                        ? "px-6 btn w-full btn-primary text-primary-content font-poppins rounded"
+                                        : "px-6 btn w-full btn-disabled font-poppins rounded"
+                                }
                             >
-                                If you have an account
-                            </a>
+                                {isLoading ? (
+                                    <VscLoading className="animate-spin" />
+                                ) : (
+                                    <span>Register</span>
+                                )}
+                            </button>
                         </div>
+                        <div className="divider">OR</div>
                         <div className="grid grid-cols-2 gap-2">
                             <button
                                 type="button"
-                                className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded text-sm px-5 py-2.5 text-center inline-flex items-center justify-between"
+                                className="btn w-full text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded text-sm px-5 py-2.5 text-center inline-flex items-center justify-between"
                             >
                                 <svg
                                     width="20"
@@ -263,7 +269,7 @@ const Register = () => {
                             </button>
                             <button
                                 type="button"
-                                className="text-white  bg-neutral hover:bg-neutral/80 focus:ring-4 focus:outline-none focus:ring-[#4B5563]/50 font-medium rounded text-sm px-5 py-2.5 text-center inline-flex items-center justify-between"
+                                className="btn w-full text-white  bg-neutral hover:bg-neutral/80 focus:ring-4 focus:outline-none focus:ring-[#4B5563]/50 font-medium rounded text-sm px-5 py-2.5 text-center inline-flex items-center justify-between"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -279,23 +285,21 @@ const Register = () => {
                             </button>
                         </div>
                         <div>
-                            <button
-                                className={
-                                    strength > 3 && isPasswordMatched
-                                        ? "px-6 btn w-full btn-neutral text-neutral-content font-poppins rounded"
-                                        : "px-6 btn w-full btn-disabled font-poppins rounded"
-                                }
+                            <a
+                                href="/login"
+                                className="text-xs text-info hover:underline float-right"
                             >
-                                {isLoading ? (
-                                    <VscLoading className="animate-spin" />
-                                ) : (
-                                    <span>Register</span>
-                                )}
-                            </button>
+                                If you have an account
+                            </a>
                         </div>
                     </form>
                 </div>
-            </div>
+                <div className="border-l w-full h-full bg-base-200 flex justify-center items-center">
+                    <span className="text-8xl font-bandal text-accent">
+                        dacospace
+                    </span>
+                </div>
+            </section>
         </>
     );
 };
