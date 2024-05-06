@@ -21,6 +21,8 @@ import Banner from "./components/Banner";
 import EditProblem from "./components/Dashboard/EditProblem";
 import About from "./components/About";
 import Creator from "./components/Creator";
+import Policy from "./components/Docs/Policy";
+import Terms from "./components/Docs/Terms";
 
 const App = () => {
     return (
@@ -33,6 +35,8 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<Faq />} />
+                <Route path="/policy" element={<Policy />} />
+                <Route path="/terms" element={<Terms />} />
                 <Route path="/question/:slug" element={<Question />} />
                 <Route path="/:id/verify/:token" element={<EmailVerify />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
