@@ -41,7 +41,7 @@ const Hero = () => {
                     </span>
                 </span>
             </h1>
-            <p className="mb-8 text-lg font-normal lg:text-xl font-bricolage font-poppins">
+            <p className="mb-8 text-lg font-normal lg:text-xl font-poppins">
                 Discover daily problems at{" "}
                 <span className="font-bandal font-bold text-3xl">
                     dacospace
