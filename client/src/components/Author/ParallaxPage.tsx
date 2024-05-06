@@ -17,7 +17,8 @@ const ParallaxPage = () => {
                         Hello World,
                     </span>
                     <span className="text-2xl animate-textRight font-bold text-white">
-                        This is <span className="text-accent">dacospace</span>!
+                        This is <span className="text-accent">Tolga Zorlu</span>
+                        .
                     </span>
                 </div>
             </ParallaxLayer>
