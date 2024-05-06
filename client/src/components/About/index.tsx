@@ -1,6 +1,6 @@
 import Layout from "../Layouts";
 import ParallaxPage from "./ParallaxPage";
-const Author = () => {
+const About = () => {
     return (
         <>
             <Layout />
@@ -13,4 +13,4 @@ const Author = () => {
     );
 };
 
-export default Author;
+export default About;

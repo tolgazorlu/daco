@@ -125,13 +125,13 @@ const Register = () => {
             <section className="lg:grid grid-cols-2 overflow-hidden font-bandal">
                 <div className="grid grid-cols-1 border-r border-primary/30 w-full bg-base-200">
                     <div className=" flex justify-center items-end">
-                        <span className="text-8xl font-bandal text-neutral absolute">
+                        <span className="text-8xl font-extrabold font-bandal text-neutral absolute">
                             dacospace
                         </span>
-                        <span className="text-8xl font-bandal text-base-content absolute mb-3 mr-3">
+                        <span className="text-8xl font-extrabold font-bandal text-base-content absolute mb-3 mr-3">
                             dacospace
                         </span>
-                        <span className="text-8xl font-bandal text-primary absolute mb-1.5 mr-1.5">
+                        <span className="text-8xl font-extrabold font-bandal text-primary absolute mb-1.5 mr-1.5">
                             dacospace
                         </span>
                     </div>

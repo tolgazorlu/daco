@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Question from "./components/Question";
 import NotFound from "./components/NotFound";
-import Author from "./components/Author";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
@@ -20,13 +19,16 @@ import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import Banner from "./components/Banner";
 import EditProblem from "./components/Dashboard/EditProblem";
+import About from "./components/About";
+import Creator from "./components/Creator";
 
 const App = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Banner />} />
-                <Route path="/author" element={<Author />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/creator" element={<Creator />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/contact" element={<Contact />} />
