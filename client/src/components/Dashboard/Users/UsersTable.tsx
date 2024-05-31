@@ -141,7 +141,7 @@ const UsersTable = () => {
                                                 {item.createdAt}
                                             </td>
                                             <td className="px-6 py-4">
-                                                {item.isAdmin ? (
+                                                {item.role === "admin" ? (
                                                     <span className="text-primary">
                                                         Admin
                                                     </span>
