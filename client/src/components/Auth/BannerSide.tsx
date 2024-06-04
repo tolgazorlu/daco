@@ -1,5 +1,3 @@
-import React from "react";
-
 const BannerSide = () => {
     return (
         <div className="hidden lg:grid grid-cols-1 border-r border-primary/30 w-full bg-base-200 font-bandal">
