@@ -16,7 +16,7 @@ const Vision = () => {
                         </p>
                         <p className="mt-5">
                             <a
-                                className="inline-flex items-center gap-x-1 font-medium text-blue-600"
+                                className="inline-flex items-center gap-x-1 font-medium text-info"
                                 href="#"
                             >
                                 Contact sales to learn more

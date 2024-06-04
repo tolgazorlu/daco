@@ -4,8 +4,8 @@ const Hero = () => {
             {/* Hero */}
             <div className="max-w-7xl mx-auto lg:py-14 px-4">
                 <h1 className="font-semibold text-gray-200 text-5xl md:text-6xl">
-                    <span className="text-warning ">Preline Agency:</span>{" "}
-                    Transforming ideas into reality
+                    <span className="text-warning ">Daily Contents:</span>{" "}
+                    Improve your skills!
                 </h1>
                 <div className="max-w-4xl">
                     <p className="mt-5 text-neutral-400 text-lg">
