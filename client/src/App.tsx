@@ -2,27 +2,27 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Question from "./components/Question";
 import NotFound from "./components/NotFound";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Problems from "./components/Dashboard/Problems";
 import Users from "./components/Dashboard/Users";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
-import EmailVerify from "./components/EmailVerify";
 import Contact from "./components/Contact";
 import Contacts from "./components/Dashboard/Contacts";
 import Faq from "./components/FAQ";
 import FAQs from "./components/Dashboard/FAQs";
-import ForgotPassword from "./components/ForgotPassword";
-import ResetPassword from "./components/ResetPassword";
+import ForgotPassword from "./components/Auth/ForgotPassword";
+import ResetPassword from "./components/Auth/ResetPassword";
 import Banner from "./components/Landing";
 import EditProblem from "./components/Dashboard/EditProblem";
 import About from "./components/About";
 import Creator from "./components/Creator";
 import Policy from "./components/Docs/Policy";
 import Terms from "./components/Docs/Terms";
+import EmailVerify from "./components/Auth/EmailVerify";
 
 const App = () => {
     return (
