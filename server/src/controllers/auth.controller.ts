@@ -72,15 +72,7 @@ module.exports.Register = async (
         verifyEmail(email, username, link);
 
         res.status(201).json({
-            _id: newUser._id,
-            username: newUser.username,
-            email: newUser.email,
-            avatar: newUser.avatar,
-            role: newUser.role,
-            emailVerified: newUser.emailVerified,
-            verificationToken: newUser.verificationToken,
-            solvedProblems: newUser.solvedProblems,
-            token: generateToken(newUser),
+            success: true,
         });
         next();
     } catch (error) {
@@ -112,7 +104,9 @@ module.exports.Verify = async (
 
         const verified = await user.save();
 
-        res.status(200).send({ verified });
+        res.status(200).json({
+            success: true,
+        });
     } catch (error) {
         res.status(400).json({
             message: error,
@@ -160,9 +154,7 @@ module.exports.Login = async (
         }
 
         res.status(201).json({
-            _id: user._id,
             username: user.username,
-            email: user.email,
             avatar: user.avatar,
             role: user.role,
             emailVerified: user.emailVerified,

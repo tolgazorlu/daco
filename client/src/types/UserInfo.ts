@@ -4,7 +4,6 @@ type solvedProblems = {
 };
 
 export type UserInfo = {
-    _id: string;
     username: string;
     token: string;
     avatar: string;
