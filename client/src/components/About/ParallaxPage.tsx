@@ -1,4 +1,5 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import Banner from "../Banner";
 
 import StarsImage from "../../assets/parallax/stars.png";
 import NeutronImage from "../../assets/parallax/neutron.png";
@@ -13,11 +14,15 @@ const ParallaxPage = () => {
             </ParallaxLayer>
             <ParallaxLayer offset={0} speed={0.1}>
                 <div className="h-[70vh] w-full flex justify-around items-center text-secondary-content font-bandal">
-                    <span className="text-2xl animate-textLeft font-bold text-white">
+                    <span className="text-2xl animate-textLeft font-bold text-gray-300 blur-[0.5px]">
                         Hello World,
                     </span>
-                    <span className="text-2xl animate-textRight font-bold text-white">
-                        This is <span className="text-accent">dacospace</span>!
+                    <span className="text-2xl animate-textRight font-bold text-gray-300 blur-[0.5px]">
+                        This is{" "}
+                        <span className="text-gray-300 blur-[0.5px]">
+                            dacospace
+                        </span>
+                        !
                     </span>
                 </div>
             </ParallaxLayer>
@@ -29,8 +34,8 @@ const ParallaxPage = () => {
             </ParallaxLayer>
             <ParallaxLayer offset={0} speed={2.5}>
                 <img src={AstronoutImage} />
-                <div className="h-auto bg-black text-slate-300 px-24 font-bricolage text-xl">
-                    <p>
+                <div className="lg:py-20">
+                    {/* <p>
                         Hi, This is Tolga!
                         <br />
                         <br />
@@ -49,7 +54,8 @@ const ParallaxPage = () => {
                         My journey is a blend of technical expertise, artistic
                         exploration, and a passion for making a positive impact
                         through technology and creativity.
-                    </p>
+                    </p> */}
+                    <Banner />
                 </div>
             </ParallaxLayer>
         </Parallax>

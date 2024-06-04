@@ -11,7 +11,7 @@ const { randomString } = require("../utils/randomString");
 
 exports.createProblem = async (req: Request, res: Response) => {
     try {
-        const randomSlug = randomString(20);
+        const randomSlug = randomString(5);
         const problem = await ProblemModel.create({
             level: req.body.level,
             title: req.body.title,
