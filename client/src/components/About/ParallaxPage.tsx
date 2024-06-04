@@ -1,5 +1,5 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import Banner from "../Banner";
+import Banner from "../Landing";
 
 import StarsImage from "../../assets/parallax/stars.png";
 import NeutronImage from "../../assets/parallax/neutron.png";

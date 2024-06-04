@@ -17,7 +17,7 @@ import Faq from "./components/FAQ";
 import FAQs from "./components/Dashboard/FAQs";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
-import Banner from "./components/Banner";
+import Banner from "./components/Landing";
 import EditProblem from "./components/Dashboard/EditProblem";
 import About from "./components/About";
 import Creator from "./components/Creator";
