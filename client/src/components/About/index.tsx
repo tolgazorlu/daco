@@ -4,11 +4,9 @@ const About = () => {
     return (
         <>
             <Layout />
-            <ParallaxPage />
-            {/* <Hero />
-            <Works />
-            <Experiences />
-            <Footer /> */}
+            <div className="hidden lg:block">
+                <ParallaxPage />
+            </div>
         </>
     );
 };

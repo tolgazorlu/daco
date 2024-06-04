@@ -1,14 +1,15 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import Banner from "../Landing";
-
 import StarsImage from "../../assets/parallax/stars.png";
 import NeutronImage from "../../assets/parallax/neutron.png";
 import GroundImage from "../../assets/parallax/ground.png";
 import AstronoutImage from "../../assets/parallax/astronaut.png";
+import Hero from "./Hero";
+import Vision from "./Vision";
+import Testimotion from "./Testimotion";
 
 const ParallaxPage = () => {
     return (
-        <Parallax pages={1.3} className="bg-black">
+        <Parallax pages={1.5} className="bg-black">
             <ParallaxLayer offset={0} speed={0.5}>
                 <img src={StarsImage} className="absolute animate-pulse" />
             </ParallaxLayer>
@@ -35,27 +36,9 @@ const ParallaxPage = () => {
             <ParallaxLayer offset={0} speed={2.5}>
                 <img src={AstronoutImage} />
                 <div className="lg:py-20">
-                    {/* <p>
-                        Hi, This is Tolga!
-                        <br />
-                        <br />
-                        Born and raised in Turkey, my fascination with computers
-                        led me to pursue a career in software engineering.
-                        Specializing in web3, AI, and full-stack development,
-                        I've enjoyed solving complex problems and crafting
-                        innovative solutions.
-                        <br />
-                        <br /> Outside of work, I'm an avid reader and music
-                        enthusiast. Exploring the intersection of art and
-                        technology has been a constant source of inspiration,
-                        fueling my creativity and drive.
-                        <br />
-                        <br />
-                        My journey is a blend of technical expertise, artistic
-                        exploration, and a passion for making a positive impact
-                        through technology and creativity.
-                    </p> */}
-                    <Banner />
+                    <Hero />
+                    <Vision />
+                    <Testimotion />
                 </div>
             </ParallaxLayer>
         </Parallax>
