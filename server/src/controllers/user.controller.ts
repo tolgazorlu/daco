@@ -46,6 +46,8 @@ module.exports.Update = async (req: Request, res: Response) => {
             user.solvedProblems = user.solvedProblems;
             user.emailVerified = user.emailVerified;
             user.verificationToken = user.verificationToken;
+            user.createdAt = user.createdAt;
+            user.currentDay = user.currentDay;
             const updatedUser = await user.save();
             res.send({
                 _id: updatedUser._id,
@@ -56,6 +58,8 @@ module.exports.Update = async (req: Request, res: Response) => {
                 emailVerified: updatedUser.emailVerified,
                 verificationToken: updatedUser.verificationToken,
                 solvedProblems: updatedUser.solvedProblems,
+                currentDay: updatedUser.currentDay,
+                createdAt: updatedUser.createdAt,
                 token: generateToken(updatedUser),
             });
         } else {
