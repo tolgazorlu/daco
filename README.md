@@ -7,7 +7,7 @@
     <img style="border-radius: 10px" src="/daco-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">DACO</h3>
+  <h3 align="center">DACOSPACE</h3>
 
   <p align="center">
     BY TOLGA ZORLU
@@ -46,8 +46,6 @@
 </details>
 
 ## About The Project
-
-<img style="border-radius: 10px" src="/daco-banner.png" alt="DACO" title="DACO">
 
 ### English
 
