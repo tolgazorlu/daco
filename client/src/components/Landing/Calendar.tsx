@@ -1,6 +1,6 @@
 const Calendar = () => {
     return (
-        <div className="hidden md:h-screen lg:flex flex-col justify-center p-6 w-[100vh]">
+        <div className="hidden lg:h-screen lg:flex flex-col justify-center p-6 w-[100vh]">
             <div className="mockup-window bg-base-200 shadow-2xl -rotate-3 skew-x-6">
                 <div className="grid">
                     <div className="grid grid-cols-7 font-poppins text-xs font-semibold">

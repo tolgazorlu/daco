@@ -1,7 +1,7 @@
 const Hero = () => {
     return (
         <div className="h-screen md:snap-start flex flex-col justify-center">
-            <a
+            {/* <a
                 href="https://discord.gg/VWz8eYjtf3"
                 className="bg-neutral text-neutral-content inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-xl md:w-1/2 lg:w-2/3"
                 role="alert"
@@ -88,6 +88,99 @@ const Hero = () => {
                         ></path>
                     </svg>
                 </a>
+            </div> */}
+            <div>
+                <div className="flex flex-col items-center gap-6 xl:flex-row">
+                    <div className="flex gap-2 font-mono">
+                        <a
+                            className="link link-hover text-base-content/70 italic"
+                            href="https://discord.gg/VWz8eYjtf3"
+                            target="_blank"
+                            rel="noopener, noreferrer"
+                        >
+                            dacospace discord server is live!
+                        </a>
+                    </div>
+                </div>{" "}
+                <div className="h-4" />{" "}
+                <h1 className="font-title text-center text-[clamp(2rem,6vw,4.2rem)] font-black leading-[1.1] [word-break:auto-phrase] xl:w-[115%] xl:text-start [:root[dir=rtl]_&]:leading-[1.35]">
+                    <span className="[&::selection]:text-base-content brightness-150 contrast-150 [&::selection]:bg-blue-700/20">
+                        The best daily
+                    </span>{" "}
+                    <br />{" "}
+                    <span className="inline-grid">
+                        <span
+                            className="pointer-events-none col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text blur-xl [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] before:content-[attr(data-text)] [@supports(color:oklch(0%_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]"
+                            aria-hidden="true"
+                            data-text="learning platform"
+                        />{" "}
+                        <span className="[&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0%_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]">
+                            learning platform
+                        </span>
+                    </span>{" "}
+                    <br />{" "}
+                    <span className="[&::selection]:text-base-content brightness-150 contrast-150 [&::selection]:bg-blue-700/20">
+                        for beginners
+                    </span>
+                </h1>{" "}
+                <div className="h-4" />{" "}
+                <p className="text-base-content/70 font-title py-4 font-light md:text-lg xl:text-2xl">
+                    dacospace adds new daily contents across various subjects so
+                    you can learn new things{" "}
+                    <span className="border-base-content/20 border-b-2">
+                        faster than ever.
+                    </span>
+                </p>{" "}
+                <div className="h-10" />{" "}
+                <div>
+                    <div className="inline-flex w-full flex-col items-stretch justify-center gap-6 px-4 md:flex-row xl:justify-start xl:px-0">
+                        <a
+                            data-sveltekit-preload-data=""
+                            href="/components/"
+                            className="btn md:btn-lg btn-primary text-primary-content group grow  px-12"
+                        >
+                            <span className="hidden sm:flex items-center justify-center">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="mr-2 w-5 h-5"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+                                    />
+                                </svg>
+                                Start Here!
+                            </span>{" "}
+                            <span className="inline sm:hidden">Components</span>
+                        </a>{" "}
+                        <a
+                            data-sveltekit-preload-data=""
+                            href="/docs/install/"
+                            className="btn btn-neutral md:btn-lg group grow  px-12"
+                        >
+                            Learn More{" "}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="hidden h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1 md:inline-block"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     );

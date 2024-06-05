@@ -61,7 +61,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
 
     return (
         <nav
-            className={`navbar fixed top-0 z-30 w-full px-4 lg:px-24 ${location.pathname === "/" ? "" : location.pathname === "/about" ? "bg-black text-[#A5ADBB]" : "bg-base-100 border-b border-base-300"}`}
+            className={`navbar bg-base-100 fixed top-0 z-30 w-full px-4 lg:px-24 ${location.pathname === "/" ? "" : location.pathname === "/about" ? "bg-black text-[#A5ADBB]" : "bg-base-100 border-b border-base-300"}`}
         >
             <div className="navbar-start">
                 <button

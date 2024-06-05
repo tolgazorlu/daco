@@ -1,5 +1,3 @@
-import { ToastContainer } from "react-toastify";
-import Layout from "../Layouts";
 import { useGetFAQsQuery } from "../../hooks/faqHook";
 
 const Faq = () => {
@@ -7,49 +5,37 @@ const Faq = () => {
 
     return (
         <>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-                stacked
-            />
-            <Layout />
-            <section className="mt-20 py-8 px-4 lg:px-24">
-                <h2 className="mb-8 text-4xl tracking-tight font-extrabold">
-                    Frequently asked questions
-                </h2>
-                <div className="grid pt-8 text-left border-t border-primary gap-8 md:grid-cols-2">
-                    {faqs?.map((item) => {
-                        return (
-                            <div key={item.title}>
-                                <h3 className="flex items-center mb-4 text-lg font-bold">
-                                    <svg
-                                        className="flex-shrink-0 mr-2 w-5 h-5 "
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                            clip-rule="evenodd"
-                                        ></path>
-                                    </svg>
-                                    {item.title}
-                                </h3>
-                                <p>{item.description}</p>
-                            </div>
-                        );
-                    })}
+            {/* FAQ */}
+            <section className="px-4 lg:px-24 py-10 sm:px-6 lg:py-14 mx-auto bg-base-200">
+                {/* Title */}
+                <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+                    <h2 className="text-2xl font-bold md:text-3xl md:leading-tight text-base-content">
+                        Frequently Asked Questions
+                    </h2>
+                </div>
+                {/* End Title */}
+                <div className="mx-auto">
+                    {/* Grid */}
+                    <div className="grid sm:grid-cols-2 gap-6 md:gap-12">
+                        {faqs?.map((item) => {
+                            return (
+                                <div key={item._id}>
+                                    <h3 className="text-lg font-semibold text-base-content">
+                                        {item.title}
+                                    </h3>
+                                    <p className="mt-2 text-base-content/60">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
+
+                        {/* End Col */}
+                    </div>
+                    {/* End Grid */}
                 </div>
             </section>
+            {/* End FAQ */}
         </>
     );
 };
