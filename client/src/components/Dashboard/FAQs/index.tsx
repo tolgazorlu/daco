@@ -60,7 +60,7 @@ const FAQs = () => {
                 </Helmet>
                 <Layout />
                 <div className="px-4 py-8 lg:px-24 sm:ml-64 mt-16 flex flex-col gap-4">
-                    <div className="breadcrumbs bg-neutral text-neutral-content py-2 px-4 rounded font-poppins">
+                    <div className="breadcrumbs bg-base-100 text-base-content py-2 px-4 rounded font-poppins">
                         <ul>
                             <li>
                                 <svg
@@ -92,7 +92,7 @@ const FAQs = () => {
                 </Helmet>
                 <Layout />
                 <div className="px-4 py-8 lg:px-24 sm:ml-64 mt-16 flex flex-col gap-4">
-                    <div className="breadcrumbs bg-neutral text-neutral-content py-2 px-4 rounded font-poppins">
+                    <div className="breadcrumbs bg-base-100 text-base-content py-2 px-4 rounded font-poppins">
                         <ul>
                             <li>
                                 <svg
@@ -153,7 +153,7 @@ const FAQs = () => {
             />
             <Layout />
             <div className="px-4 py-8 lg:px-24 sm:ml-64 mt-16 flex flex-col gap-4">
-                <div className="breadcrumbs bg-neutral text-neutral-content py-2 px-4 rounded font-poppins">
+                <div className="breadcrumbs bg-base-100 text-base-content py-2 px-4 rounded font-poppins">
                     <ul>
                         <li>
                             <svg

@@ -53,7 +53,7 @@ const Navbar = ({ setIsOpenSidebar }: any) => {
     };
 
     const navLinks: navLinks[] = [
-        { name: "About", href: "/about" },
+        // { name: "About", href: "/about" },
         { name: "Contact", href: "/contact" },
         { name: "FAQ", href: "/faq" },
         { name: "Creator", href: "/creator" },

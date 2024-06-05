@@ -112,6 +112,8 @@ const Question = () => {
             <div className="py-10 grid grid-cols-3 px-4 lg:px-24 gap-4 mt-20 md:p-10">
                 {/** MARKDOWN SECTION */}
 
+                <DaysBar />
+
                 <section className="overflow-x-scroll col-span-3 md:col-span-2">
                     {userInfo?.role == "admin" ? (
                         <a
@@ -147,8 +149,6 @@ const Question = () => {
                         />
                     </div>
                 </section>
-
-                <DaysBar />
 
                 {/** FOOTER */}
 
