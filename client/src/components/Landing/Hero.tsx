@@ -125,18 +125,15 @@ const Hero = () => {
                 </h1>{" "}
                 <div className="h-4" />{" "}
                 <p className="text-base-content/70 font-title py-4 font-light md:text-lg xl:text-2xl">
-                    dacospace adds new daily contents across various subjects so
-                    you can learn new things{" "}
-                    <span className="border-base-content/20 border-b-2">
-                        faster than ever.
-                    </span>
+                    Dacospace adds new things to learn every day, so you can get
+                    smarter faster.{" "}
                 </p>{" "}
                 <div className="h-10" />{" "}
                 <div>
                     <div className="inline-flex w-full flex-col items-stretch justify-center gap-6 px-4 md:flex-row xl:justify-start xl:px-0">
                         <a
                             data-sveltekit-preload-data=""
-                            href="/components/"
+                            href="/home"
                             className="btn md:btn-lg btn-primary text-primary-content group grow  px-12"
                         >
                             <span className="hidden sm:flex items-center justify-center">
@@ -156,7 +153,9 @@ const Hero = () => {
                                 </svg>
                                 Start Here!
                             </span>{" "}
-                            <span className="inline sm:hidden">Components</span>
+                            <span className="inline sm:hidden">
+                                Start Here!
+                            </span>
                         </a>{" "}
                         <a
                             data-sveltekit-preload-data=""
