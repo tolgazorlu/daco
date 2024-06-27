@@ -10,9 +10,7 @@ import Problems from "./components/Dashboard/Problems";
 import Users from "./components/Dashboard/Users";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
-import Contact from "./components/Contact";
 import Contacts from "./components/Dashboard/Contacts";
-import Faq from "./components/FAQ";
 import FAQs from "./components/Dashboard/FAQs";
 import ForgotPassword from "./components/Auth/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword";
@@ -33,8 +31,6 @@ const App = () => {
                 <Route path="/creator" element={<Creator />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/faq" element={<Faq />} />
                 <Route path="/policy" element={<Policy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/question/:slug" element={<Question />} />

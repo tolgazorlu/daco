@@ -6,7 +6,10 @@ const Faq = () => {
     return (
         <>
             {/* FAQ */}
-            <section className="px-4 lg:px-24 py-10 sm:px-6 lg:py-14 mx-auto bg-base-200">
+            <section
+                id="faq"
+                className="px-4 lg:px-24 py-10 sm:px-6 lg:py-14 mx-auto bg-base-200"
+            >
                 {/* Title */}
                 <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
                     <h2 className="text-2xl font-bold md:text-3xl md:leading-tight text-base-content">

@@ -26,9 +26,12 @@ const Contact = () => {
     };
 
     return (
-        <>
+        <div id="contact">
             {/* Contact Us */}
-            <div className="bg-base-100 px-4 py-10 sm:px-6 lg:py-14 mx-auto lg:px-24">
+            <div
+                id="contact"
+                className="bg-base-100 px-4 py-10 sm:px-6 lg:py-14 mx-auto lg:px-24"
+            >
                 <div>
                     <div className="text-center">
                         <h1 className="text-3xl font-bold text-base-content sm:text-4xl">
@@ -388,7 +391,7 @@ const Contact = () => {
                     </form>
                 </div>
             </section> */}
-        </>
+        </div>
     );
 };
 

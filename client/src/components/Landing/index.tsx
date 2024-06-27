@@ -27,6 +27,7 @@ const index = () => {
                 <Hero />
                 <Calendar />
             </section>
+
             <Faq />
             <Contact />
             <Footer />
