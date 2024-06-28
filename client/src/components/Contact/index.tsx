@@ -30,18 +30,18 @@ const Contact = () => {
             {/* Contact Us */}
             <div
                 id="contact"
-                className="bg-base-100 px-4 py-10 sm:px-6 lg:py-14 mx-auto lg:px-24"
+                className="bg-base-100 px-4 pb-10 sm:px-6 lg:pb-14 mx-auto lg:px-24"
             >
                 <div>
-                    <div className="text-center">
-                        <h1 className="text-3xl font-bold text-base-content sm:text-4xl">
+                    <div className="text-start">
+                        <h1 className="text-2xl font-semibold sm:text-2xl">
                             Contact us
                         </h1>
                         <p className="mt-1 text-base-content/60">
                             We'd love to talk about how we can help you.
                         </p>
                     </div>
-                    <div className="mt-12 grid items-center lg:grid-cols-2 gap-6 lg:gap-16">
+                    <div className="grid items-center lg:grid-cols-2 gap-6 lg:gap-16">
                         <div className="divide-y divide-gray-200">
                             {/* Icon Block */}
                             <div className="flex gap-x-7 py-6">

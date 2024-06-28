@@ -3,7 +3,6 @@ import Contact from "../Contact";
 import Faq from "../FAQ";
 import Layout from "../Layouts";
 import Footer from "../Layouts/Footer";
-import Calendar from "./Calendar";
 import Hero from "./Hero";
 
 const index = () => {
@@ -23,10 +22,7 @@ const index = () => {
                 stacked
             />
             <Layout />
-            <section className="lg:grid grid-cols-2 px-4 lg:px-24 overflow-hidden">
-                <Hero />
-                <Calendar />
-            </section>
+            <Hero />
 
             <Faq />
             <Contact />
