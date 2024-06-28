@@ -121,7 +121,7 @@ const Hero = () => {
                 <a
                     data-sveltekit-preload-data=""
                     href="/home"
-                    className="inline-flex bg-neutral/90 px-6 py-3 rounded-lg text-neutral-content hover:bg-neutral mt-5"
+                    className="inline-flex bg-primary/90 px-6 py-3 rounded-lg text-primary-content hover:bg-primary mt-5"
                 >
                     <span className="hidden sm:flex items-center justify-center">
                         <svg
@@ -236,7 +236,7 @@ const Hero = () => {
                             className="h-36 sm:h-56 flex flex-col justify-center border border-base-300 rounded-lg text-center p-4 md:p-5 bg-base-200"
                         >
                             {/* Icon */}
-                            <div className="flex justify-center p-6 items-center size-12 bg-success rounded-lg mx-auto">
+                            <div className="flex justify-center p-6 items-center size-12 bg-primary rounded-lg mx-auto">
                                 {category.icon}
                             </div>
                             {/* End Icon */}
