@@ -4,6 +4,8 @@ import Faq from "../FAQ";
 import Layout from "../Layouts";
 import Footer from "../Layouts/Footer";
 import Hero from "./Hero";
+import PopularCourses from "./PopularCourses";
+import CourseCategories from "./CourseCategories";
 
 const index = () => {
     return (
@@ -23,6 +25,8 @@ const index = () => {
             />
             <Layout />
             <Hero />
+            <PopularCourses />
+            <CourseCategories />
 
             <Faq />
             <Contact />

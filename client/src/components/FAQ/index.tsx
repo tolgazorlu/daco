@@ -6,14 +6,14 @@ const Faq = () => {
     return (
         <>
             {/* FAQ */}
-            <div className="px-4 lg:px-24 pb-10 mx-auto flex flex-col gap-2">
+            <div className="px-4 lg:px-24 py-10">
                 {/* Title */}
                 <h2 className="text-2xl font-semibold">
                     Frequently Asked Questions
                 </h2>
                 {/* End Title */}
                 {/* Grid */}
-                <div className="grid sm:grid-cols-2 gap-6 md:gap-12">
+                <div className="mt-3 grid sm:grid-cols-2 gap-6 md:gap-12">
                     {faqs?.map((faq, index) => (
                         <div key={index}>
                             <h3 className="text-lg font-semibold ">
